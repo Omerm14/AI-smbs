@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Omer Moran — AI Expert for SMBs</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet" />
+  <script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg: #faf9f6;
+      --bg2: #f3f2ee;
+      --surface: #ffffff;
+      --border: rgba(14,14,12,0.08);
+      --border-mid: rgba(14,14,12,0.14);
+      --gold: #456abf;
+      --gold-rgb: 69,106,191;
+      --gold-light: #456abf55;
+      --gold-pale: #456abf12;
+      --text: #0e0e0c;
+      --text-dim: #5a5a54;
+      --text-dimmer: #9a9a90;
+    }
+    html { scroll-behavior: smooth; }
+    body { background: var(--bg); color: var(--text); font-family: 'DM Sans', sans-serif; overflow-x: hidden; -webkit-font-smoothing: antialiased; }
+    #root { position: relative; z-index: 1; }
+
+    /* Cursor glow */
+    #cursor-glow {
+      pointer-events: none; position: fixed; z-index: 9999;
+      width: 460px; height: 460px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(var(--gold-rgb), 0.22) 0%, transparent 60%);
+      transform: translate(-50%, -50%);
+      transition: left 0.12s ease, top 0.12s ease;
+      mix-blend-mode: multiply;
+    }
+
+    /* ── Nav ── */
+    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 24px 64px; transition: padding 0.4s, background 0.4s, box-shadow 0.4s; }
+    nav.scrolled { padding: 16px 64px; background: rgba(250,249,246,0.9); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); box-shadow: 0 1px 0 var(--border); }
+    .nav-logo { font-family: 'Space Grotesk', sans-serif; font-size: 14px; font-weight: 600; letter-spacing: 0.06em; color: var(--text); text-transform: uppercase; }
+    .nav-links { display: flex; gap: 40px; list-style: none; }
+    .nav-links a { text-decoration: none; color: var(--text-dim); font-size: 13px; transition: color 0.2s; }
+    .nav-links a:hover { color: var(--text); }
+    .nav-cta { font-family: 'Space Grotesk', sans-serif; font-size: 11px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; padding: 11px 26px; background: var(--text); color: var(--bg); text-decoration: none; display: inline-block; position: relative; overflow: hidden; transition: background 0.3s; }
+    .nav-cta::after { content: ''; position: absolute; inset: 0; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.15), transparent); transform: translateX(-100%); transition: transform 0.5s ease; }
+    .nav-cta:hover { background: var(--gold); }
+    .nav-cta:hover::after { transform: translateX(100%); }
+
+    /* ── Hero ── */
+    .hero { min-height: 100vh; display: grid; grid-template-columns: 1fr 1fr; align-items: center; padding: 120px 64px 80px; gap: 80px; position: relative; overflow: hidden; }
+    .hero-bg-grid { position: absolute; inset: 0; pointer-events: none; background-image: linear-gradient(rgba(var(--gold-rgb),0.045) 1px, transparent 1px), linear-gradient(90deg, rgba(var(--gold-rgb),0.045) 1px, transparent 1px); background-size: 60px 60px; mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 0%, transparent 100%); -webkit-mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 0%, transparent 100%); }
+    .hero-glow { position: absolute; width: 700px; height: 700px; border-radius: 50%; background: radial-gradient(circle, rgba(var(--gold-rgb),0.13) 0%, transparent 65%); right: -8%; top: 50%; transform: translateY(-50%); pointer-events: none; filter: blur(40px); animation: floatGlow 7s ease-in-out infinite alternate; }
+    @keyframes floatGlow { 0% { transform: translateY(-50%) scale(1); } 100% { transform: translateY(-56%) scale(1.1); } }
+    .hero-content { position: relative; }
+    .hero-eyebrow { display: inline-flex; align-items: center; gap: 12px; font-size: 10px; font-weight: 500; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold); margin-bottom: 32px; opacity: 0; animation: fadeUp 0.6s 0.1s ease forwards; }
+    .hero-eyebrow-line { display: inline-block; width: 32px; height: 1px; background: var(--gold); }
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
+    .reveal-line { overflow: hidden; display: block; }
+    .reveal-word { display: inline-block; transform: translateY(110%); opacity: 0; animation: wordUp 0.85s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+    @keyframes wordUp { to { transform: translateY(0); opacity: 1; } }
+    .hero-title { font-family: 'Space Grotesk', sans-serif; font-size: clamp(44px, 4.8vw, 76px); font-weight: 700; line-height: 1.03; letter-spacing: -0.03em; margin-bottom: 32px; }
+    .hero-sub { font-size: 17px; line-height: 1.75; color: var(--text-dim); max-width: 480px; margin-bottom: 52px; font-weight: 300; opacity: 0; animation: fadeUp 0.8s 1s ease forwards; }
+    .hero-actions { display: flex; gap: 20px; align-items: center; opacity: 0; animation: fadeUp 0.8s 1.2s ease forwards; }
+    .btn-primary { font-family: 'Space Grotesk', sans-serif; font-size: 11px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; padding: 16px 40px; background: var(--text); color: var(--bg); border: none; cursor: pointer; text-decoration: none; display: inline-block; position: relative; overflow: hidden; transition: background 0.3s, transform 0.25s, box-shadow 0.25s; }
+    .btn-primary::after { content: ''; position: absolute; inset: 0; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.16), transparent); transform: translateX(-100%); transition: transform 0.55s ease; }
+    .btn-primary:hover { background: var(--gold); transform: translateY(-2px); box-shadow: 0 8px 28px rgba(var(--gold-rgb),0.3); }
+    .btn-primary:hover::after { transform: translateX(100%); }
+    .btn-ghost { font-size: 13px; color: var(--text-dim); text-decoration: none; display: inline-flex; align-items: center; gap: 8px; transition: color 0.2s, gap 0.25s; }
+    .btn-ghost:hover { color: var(--text); gap: 14px; }
+    .hero-image-wrap { position: relative; display: flex; justify-content: center; opacity: 0; animation: fadeUp 1s 0.4s ease forwards; }
+    .photo-frame { position: relative; width: 400px; }
+    .photo-frame img { width: 100%; display: block; filter: contrast(1.02) brightness(1.01); transition: transform 0.6s cubic-bezier(0.16,1,0.3,1); }
+    .photo-frame:hover img { transform: scale(1.02); }
+    .photo-frame::before { content: ''; position: absolute; top: 20px; left: 20px; right: -20px; bottom: -20px; border: 1px solid var(--gold-light); z-index: -1; transition: transform 0.5s cubic-bezier(0.16,1,0.3,1); }
+    .photo-frame:hover::before { transform: translate(4px, 4px); }
+    .photo-credential { position: absolute; bottom: -16px; left: -24px; background: var(--surface); border: 1px solid var(--border-mid); padding: 16px 22px; box-shadow: 0 12px 48px rgba(14,14,12,0.12); min-width: 180px; animation: fadeUp 1s 0.9s ease both; }
+    .cred-label { font-size: 9px; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold); margin-bottom: 6px; }
+    .cred-name { font-family: 'Space Grotesk', sans-serif; font-size: 16px; font-weight: 700; color: var(--text); margin-bottom: 2px; }
+    .cred-title { font-size: 11px; color: var(--text-dim); }
+
+    /* ── Marquee ── */
+    .marquee-strip { border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); padding: 14px 0; background: var(--text); overflow: hidden; }
+    .marquee-track { display: flex; animation: marqueeScroll 28s linear infinite; width: max-content; }
+    .marquee-track:hover { animation-play-state: paused; }
+    @keyframes marqueeScroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+    .marquee-item { display: inline-flex; align-items: center; gap: 20px; padding: 0 40px; white-space: nowrap; font-family: 'Space Grotesk', sans-serif; font-size: 11px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(250,249,246,0.45); }
+    .marquee-dot { display: inline-block; width: 4px; height: 4px; border-radius: 50%; background: var(--gold); flex-shrink: 0; }
+
+    /* ── Impact Numbers ── */
+    .impact-section { background: var(--bg); padding: 100px 64px; position: relative; overflow: hidden; }
+    .impact-section::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px; background: var(--border); }
+    .impact-eyebrow { display: inline-flex; align-items: center; gap: 12px; font-size: 10px; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold); margin-bottom: 60px; }
+    .impact-eyebrow::before { content: ''; display: inline-block; width: 24px; height: 1px; background: var(--gold); }
+    .impact-grid { display: grid; grid-template-columns: repeat(3, 1fr); position: relative; }
+    .impact-grid::before { content: ''; position: absolute; top: 0; left: 33.33%; width: 1px; height: 100%; background: var(--border); }
+    .impact-grid::after { content: ''; position: absolute; top: 0; left: 66.66%; width: 1px; height: 100%; background: var(--border); }
+    .impact-item { padding: 0 56px 0 0; display: flex; flex-direction: column; }
+    .impact-item:not(:first-child) { padding: 0 56px 0 56px; }
+    .impact-number {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: clamp(72px, 9vw, 120px);
+      font-weight: 700; line-height: 0.9;
+      letter-spacing: -0.04em;
+      color: var(--text);
+      height: 130px;
+      display: flex; align-items: flex-end;
+      margin-bottom: 24px;
+    }
+    .impact-number .accent { color: var(--gold); }
+    .impact-claim { font-family: 'Space Grotesk', sans-serif; font-size: 20px; font-weight: 600; color: var(--text); margin-bottom: 12px; line-height: 1.2; }
+    .impact-detail { font-size: 14px; line-height: 1.65; color: var(--text-dim); font-weight: 300; max-width: 260px; }
+
+    /* ── How it works ── */
+    .how-section { background: var(--text); padding: 100px 64px; position: relative; overflow: hidden; }
+    .how-section::before { content: ''; position: absolute; top: -300px; right: -200px; width: 700px; height: 700px; border-radius: 50%; background: radial-gradient(circle, rgba(var(--gold-rgb),0.08) 0%, transparent 70%); pointer-events: none; }
+    .how-eyebrow { display: inline-flex; align-items: center; gap: 12px; font-size: 10px; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold); margin-bottom: 56px; }
+    .how-eyebrow::before { content: ''; display: inline-block; width: 24px; height: 1px; background: var(--gold); }
+    .how-title { font-family: 'Space Grotesk', sans-serif; font-size: clamp(28px, 3vw, 44px); font-weight: 700; color: #faf9f6; line-height: 1.1; letter-spacing: -0.025em; margin-bottom: 64px; }
+    .how-steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; position: relative; }
+    .how-step { padding: 0 48px 0 0; }
+    .how-step:not(:first-child) { padding: 0 48px 0 48px; border-left: 1px solid rgba(255,255,255,0.06); }
+    .how-step-num { font-family: 'Space Grotesk', sans-serif; font-size: 13px; font-weight: 700; color: var(--gold); letter-spacing: 0.1em; margin-bottom: 20px; }
+    .how-step-title { font-family: 'Space Grotesk', sans-serif; font-size: 22px; font-weight: 700; color: #faf9f6; margin-bottom: 14px; line-height: 1.15; }
+    .how-step-desc { font-size: 14px; line-height: 1.75; color: rgba(250,249,246,0.52); font-weight: 300; }
+    .how-cta-row { margin-top: 64px; display: flex; align-items: center; gap: 24px; }
+    .how-note { font-size: 13px; color: rgba(250,249,246,0.35); }
+
+    /* ── Background / proof ── */
+    .background-section { background: var(--bg2); padding: 100px 64px; position: relative; overflow: hidden; }
+    .background-section::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px; background: var(--border); }
+    .bg-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; }
+    .section-eyebrow { display: inline-flex; align-items: center; gap: 12px; font-size: 10px; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold); margin-bottom: 24px; }
+    .section-eyebrow::before { content: ''; display: inline-block; width: 24px; height: 1px; background: var(--gold); }
+    .section-title { font-family: 'Space Grotesk', sans-serif; font-size: clamp(28px, 3vw, 46px); font-weight: 700; line-height: 1.08; letter-spacing: -0.025em; margin-bottom: 20px; }
+    .bg-tagline { font-size: 16px; line-height: 1.75; color: var(--text-dim); font-weight: 300; margin-bottom: 28px; max-width: 420px; }
+    .bg-companies { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 28px; }
+    .company-chip { font-family: 'Space Grotesk', sans-serif; font-size: 10px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; padding: 7px 14px; border: 1px solid var(--border-mid); color: var(--text-dim); background: var(--surface); transition: border-color 0.2s, color 0.2s; }
+    .company-chip:hover { border-color: var(--gold); color: var(--gold); }
+    .bg-linkedin { display: inline-flex; align-items: center; gap: 10px; font-family: 'Space Grotesk', sans-serif; font-size: 11px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); text-decoration: none; padding-bottom: 3px; border-bottom: 1px solid rgba(var(--gold-rgb), 0.35); transition: border-color 0.2s, gap 0.25s; }
+    .bg-linkedin:hover { border-color: var(--gold); gap: 14px; }
+    .bg-milestones { display: flex; flex-direction: column; }
+    .milestone { display: grid; grid-template-columns: 90px 1fr; gap: 20px; padding: 22px 0; border-bottom: 1px solid var(--border); align-items: start; transition: padding-left 0.2s; cursor: default; }
+    .milestone:first-child { border-top: 1px solid var(--border); }
+    .milestone:hover { padding-left: 8px; }
+    .milestone.milestone-current { background: rgba(var(--gold-rgb), 0.06); border-left: 2px solid var(--gold); padding-left: 16px; margin-left: -16px; }
+    .milestone.milestone-current:hover { padding-left: 16px; }
+    .milestone-year { font-family: 'Space Grotesk', sans-serif; font-size: 11px; font-weight: 600; color: var(--gold); letter-spacing: 0.06em; padding-top: 2px; }
+    .milestone-title { font-family: 'Space Grotesk', sans-serif; font-size: 14px; font-weight: 600; color: var(--text); margin-bottom: 4px; }
+    .milestone-desc { font-size: 12px; color: var(--text-dim); line-height: 1.55; }
+
+    /* ── Services ── */
+    .services-section { background: var(--surface); padding: 100px 64px; position: relative; }
+    .services-section::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px; background: var(--border); }
+    .services-header { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; margin-bottom: 20px; align-items: end; }
+    .services-desc { font-size: 15px; line-height: 1.75; color: var(--text-dim); font-weight: 300; }
+    .services-hint { display: flex; align-items: center; gap: 8px; margin-bottom: 28px; font-size: 12px; color: var(--text-dimmer); font-style: italic; }
+    .services-hint svg { color: var(--gold); flex-shrink: 0; }
+    .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--border-mid); }
+
+    /* ── Scanner reveal card ── */
+    .svc-card-wrap { background: var(--surface); }
+    .svc-card {
+      position: relative; height: 300px; cursor: pointer; overflow: hidden;
+      background: var(--surface);
+      transition: background 0.5s;
+    }
+    /* Top gold bar */
+    .svc-card::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
+      background: var(--gold); transform: scaleX(0); transform-origin: left;
+      transition: transform 0.4s cubic-bezier(0.16,1,0.3,1); z-index: 2;
+    }
+    .svc-card:hover::before { transform: scaleX(1); }
+    /* Gold scanner beam */
+    .svc-card-beam {
+      position: absolute; top: 0; bottom: 0; width: 3px; z-index: 10;
+      background: linear-gradient(to bottom, transparent, var(--gold), rgba(var(--gold-rgb),0.6), var(--gold), transparent);
+      box-shadow: 0 0 24px 10px rgba(var(--gold-rgb), 0.25);
+      left: -6px; pointer-events: none;
+      transition: none;
+    }
+    .svc-card.scanning .svc-card-beam { left: calc(100% + 6px); transition: left 0.55s cubic-bezier(0.4,0,0.4,1); }
+    /* Front */
+    .svc-card-front {
+      position: absolute; inset: 0; padding: 36px 32px;
+      display: flex; flex-direction: column;
+      transition: opacity 0.25s 0.2s, transform 0.3s 0.2s;
+    }
+    .svc-card.revealed .svc-card-front { opacity: 0; transform: translateY(-12px); pointer-events: none; transition: opacity 0.2s, transform 0.2s; }
+    /* Back */
+    .svc-card-back {
+      position: absolute; inset: 0; padding: 32px;
+      display: flex; flex-direction: column; justify-content: space-between;
+      background: var(--text);
+      opacity: 0; transform: translateY(12px);
+      transition: opacity 0.25s, transform 0.3s;
+      pointer-events: none;
+    }
+    .svc-card.revealed .svc-card-back { opacity: 1; transform: translateY(0); transition: opacity 0.3s 0.22s, transform 0.35s 0.22s; pointer-events: all; }
+    .svc-card.revealed { background: var(--text); }
+    .svc-card.revealed::before { transform: scaleX(1); }
+    .service-icon { width: 36px; height: 36px; display: flex; align-items: center; justify-content: center; color: var(--gold); margin-bottom: 22px; transition: transform 0.3s; }
+    .svc-card:hover .service-icon { transform: scale(1.1); }
+    .service-name { font-family: 'Space Grotesk', sans-serif; font-size: 15px; font-weight: 600; color: var(--text); margin-bottom: 10px; }
+    .service-desc { font-size: 12px; line-height: 1.7; color: var(--text-dim); font-weight: 300; }
+    .svc-tap-hint { display: flex; align-items: center; gap: 6px; margin-top: auto; padding-top: 16px; font-size: 10px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); opacity: 0.6; }
+    .back-name { font-family: 'Space Grotesk', sans-serif; font-size: 10px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold); margin-bottom: 12px; }
+    .back-detail { font-size: 13px; line-height: 1.8; color: rgba(250,249,246,0.68); font-weight: 300; flex: 1; }
+    .back-close { display: inline-flex; align-items: center; gap: 6px; font-size: 10px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(250,249,246,0.3); margin-top: 16px; }
+
+    /* ── Contact ── */
+    .contact-section { background: var(--text); padding: 100px 64px; position: relative; overflow: hidden; text-align: center; }
+    .contact-section::before { content: ''; position: absolute; top: -200px; left: 50%; transform: translateX(-50%); width: 600px; height: 600px; border-radius: 50%; background: radial-gradient(circle, rgba(var(--gold-rgb),0.1) 0%, transparent 70%); pointer-events: none; }
+    .contact-inner { max-width: 680px; margin: 0 auto; position: relative; }
+    .contact-eyebrow { display: inline-flex; align-items: center; gap: 12px; font-size: 10px; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold); margin-bottom: 24px; justify-content: center; }
+    .contact-eyebrow::after { content: ''; display: inline-block; width: 24px; height: 1px; background: var(--gold); }
+    .contact-title { font-family: 'Space Grotesk', sans-serif; font-size: clamp(32px, 4vw, 56px); font-weight: 700; color: #faf9f6; line-height: 1.08; letter-spacing: -0.025em; margin-bottom: 20px; }
+    .contact-sub { font-size: 17px; line-height: 1.75; color: rgba(250,249,246,0.5); margin-bottom: 52px; font-weight: 300; }
+    .contact-buttons { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+    .contact-btn { display: inline-flex; align-items: center; gap: 12px; font-family: 'Space Grotesk', sans-serif; font-size: 13px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; padding: 18px 40px; text-decoration: none; position: relative; overflow: hidden; transition: transform 0.25s, box-shadow 0.25s; }
+    .contact-btn::after { content: ''; position: absolute; inset: 0; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.14), transparent); transform: translateX(-100%); transition: transform 0.5s ease; }
+    .contact-btn:hover { transform: translateY(-3px); }
+    .contact-btn:hover::after { transform: translateX(100%); }
+    .contact-btn-whatsapp { background: #25D366; color: #fff; }
+    .contact-btn-whatsapp:hover { box-shadow: 0 12px 36px rgba(37,211,102,0.4); }
+    .contact-btn-email { background: rgba(255,255,255,0.08); color: #faf9f6; border: 1px solid rgba(255,255,255,0.15); }
+    .contact-btn-email:hover { background: rgba(255,255,255,0.14); box-shadow: 0 12px 36px rgba(255,255,255,0.08); }
+    .contact-note { margin-top: 28px; font-size: 12px; color: rgba(250,249,246,0.3); }
+
+    /* ── Footer ── */
+    footer { border-top: 1px solid rgba(255,255,255,0.07); padding: 28px 64px; display: flex; align-items: center; justify-content: space-between; background: var(--text); }
+    .footer-name { font-family: 'Space Grotesk', sans-serif; font-size: 12px; font-weight: 600; color: rgba(250,249,246,0.35); letter-spacing: 0.06em; text-transform: uppercase; }
+    .footer-copy { font-size: 12px; color: rgba(250,249,246,0.2); }
+
+    /* ── Scroll reveal ── */
+    .reveal { opacity: 0; transform: translateY(32px); transition: opacity 0.85s cubic-bezier(0.16,1,0.3,1), transform 0.85s cubic-bezier(0.16,1,0.3,1); }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    .reveal-delay-1 { transition-delay: 0.1s; }
+    .reveal-delay-2 { transition-delay: 0.2s; }
+    .reveal-delay-3 { transition-delay: 0.32s; }
+
+    /* ── Responsive ── */
+    @media (max-width: 960px) {
+      nav { padding: 18px 24px; } nav.scrolled { padding: 14px 24px; } .nav-links { display: none; }
+      .hero { grid-template-columns: 1fr; padding: 100px 24px 60px; gap: 48px; }
+      .hero-image-wrap { order: -1; } .photo-frame { width: 260px; }
+      .impact-section, .how-section, .background-section, .services-section, .contact-section { padding: 70px 24px; }
+      .impact-grid, .how-steps, .bg-layout, .services-header { grid-template-columns: 1fr; gap: 48px; }
+      .impact-grid::before, .impact-grid::after, .how-steps::before { display: none; }
+      .impact-item, .impact-item:not(:first-child) { padding: 0 0 40px 0; border-bottom: 1px solid var(--border); }
+      .how-step, .how-step:not(:first-child) { padding: 0 0 40px 0; border-left: none; }
+      .services-grid { grid-template-columns: 1fr; }
+      .contact-buttons { flex-direction: column; align-items: center; }
+      footer { flex-direction: column; gap: 8px; padding: 24px; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+<div id="cursor-glow"></div>
+<div id="root"></div>
+
+<script>
+  const cg = document.getElementById('cursor-glow');
+  document.addEventListener('mousemove', e => { cg.style.left = e.clientX + 'px'; cg.style.top = e.clientY + 'px'; });
+</script>
+
+<script type="text/babel">
+
+const { useState, useEffect, useRef, useCallback } = React;
+
+const TWEAK_DEFAULTS = /*EDITMODE-BEGIN*/{
+  "heroHeadline": "The AI advantage your competitors don't have yet.",
+  "heroSub": "I help SMBs unlock 100× their potential — from intelligent automations to full agentic systems that work while you sleep.",
+  "ctaLabel": "Let's Talk",
+  "linkedinUrl": "www.linkedin.com/in/omer-moran-8aa07616b",
+  "whatsappNumber": "972505646450",
+  "emailAddress": "omermoran14@gmail.com",
+  "accentColor": "#456abf"
+} /*EDITMODE-END*/;
+
+const __TWEAKS_STYLE = `.twk-panel{position:fixed;right:16px;bottom:16px;z-index:2147483646;width:280px;max-height:calc(100vh - 32px);display:flex;flex-direction:column;background:rgba(250,249,247,.92);color:#29261b;backdrop-filter:blur(24px);border:.5px solid rgba(0,0,0,.1);border-radius:14px;box-shadow:0 12px 40px rgba(0,0,0,.15);font:11.5px/1.4 ui-sans-serif,system-ui,-apple-system,sans-serif;overflow:hidden}.twk-hd{display:flex;align-items:center;justify-content:space-between;padding:10px 8px 10px 14px;cursor:move;user-select:none}.twk-hd b{font-size:12px;font-weight:600}.twk-x{appearance:none;border:0;background:transparent;color:rgba(41,38,27,.55);width:22px;height:22px;border-radius:6px;cursor:default;font-size:13px;line-height:1}.twk-x:hover{background:rgba(0,0,0,.06)}.twk-body{padding:2px 14px 14px;display:flex;flex-direction:column;gap:10px;overflow-y:auto}.twk-row{display:flex;flex-direction:column;gap:5px}.twk-row-h{flex-direction:row;align-items:center;justify-content:space-between;gap:10px}.twk-lbl{font-weight:500;color:rgba(41,38,27,.72);font-size:11px}.twk-field{appearance:none;width:100%;height:26px;padding:0 8px;border:.5px solid rgba(0,0,0,.1);border-radius:7px;background:rgba(255,255,255,.6);color:inherit;font:inherit;outline:none}.twk-swatch{appearance:none;-webkit-appearance:none;width:56px;height:22px;border:.5px solid rgba(0,0,0,.1);border-radius:6px;padding:0;background:transparent;flex-shrink:0}.twk-swatch::-webkit-color-swatch-wrapper{padding:0}.twk-swatch::-webkit-color-swatch{border:0;border-radius:5.5px}`;
+
+function useTweaks(defaults) {
+  const [values, setValues] = useState(defaults);
+  const setTweak = useCallback((k, v) => {
+    const edits = typeof k === 'object' ? k : { [k]: v };
+    setValues((p) => ({ ...p, ...edits }));
+    window.parent.postMessage({ type: '__edit_mode_set_keys', edits }, '*');
+  }, []);
+  function TweaksPanel({ title = 'Tweaks', children }) {
+    const [open, setOpen] = useState(false);
+    useEffect(() => {
+      const h = (e) => {if (e?.data?.type === '__activate_edit_mode') setOpen(true);else if (e?.data?.type === '__deactivate_edit_mode') setOpen(false);};
+      window.addEventListener('message', h);
+      window.parent.postMessage({ type: '__edit_mode_available' }, '*');
+      return () => window.removeEventListener('message', h);
+    }, []);
+    const dismiss = () => {setOpen(false);window.parent.postMessage({ type: '__edit_mode_dismissed' }, '*');};
+    if (!open) return null;
+    return <><style>{__TWEAKS_STYLE}</style><div className="twk-panel" style={{ right: 16, bottom: 16 }}><div className="twk-hd"><b>{title}</b><button className="twk-x" onClick={dismiss}>✕</button></div><div className="twk-body">{children}</div></div></>;
+  }
+  function TweakColor({ id, label }) {return <div className="twk-row twk-row-h"><span className="twk-lbl">{label}</span><input type="color" className="twk-swatch" value={values[id]} onChange={(e) => setTweak(id, e.target.value)} /></div>;}
+  function TweakText({ id, label }) {return <div className="twk-row"><span className="twk-lbl">{label}</span><input className="twk-field" type="text" value={values[id]} onChange={(e) => setTweak(id, e.target.value)} /></div>;}
+  return { tweaks: values, setTweak, TweaksPanel, TweakColor, TweakText };
+}
+
+function useScrollReveal() {
+  useEffect(() => {
+    const obs = new IntersectionObserver((entries) => entries.forEach((e) => {if (e.isIntersecting) {e.target.classList.add('visible');obs.unobserve(e.target);}}), { threshold: 0.1 });
+    document.querySelectorAll('.reveal').forEach((el) => obs.observe(el));
+    return () => obs.disconnect();
+  }, []);
+}
+
+function useNavScroll() {
+  useEffect(() => {
+    const nav = document.querySelector('nav');
+    const h = () => nav?.classList.toggle('scrolled', window.scrollY > 60);
+    window.addEventListener('scroll', h, { passive: true });
+    return () => window.removeEventListener('scroll', h);
+  }, []);
+}
+
+function AnimatedStat({ target, suffix, prefix = '' }) {
+  const [count, setCount] = useState(0);
+  const [triggered, setTriggered] = useState(false);
+  const ref = useRef(null);
+  useEffect(() => {
+    const obs = new IntersectionObserver(([e]) => {if (e.isIntersecting) {setTriggered(true);obs.disconnect();}}, { threshold: 0.5 });
+    if (ref.current) obs.observe(ref.current);
+    return () => obs.disconnect();
+  }, []);
+  useEffect(() => {
+    if (!triggered) return;
+    let start;const dur = 1600;
+    const step = (ts) => {if (!start) start = ts;const p = Math.min((ts - start) / dur, 1);const e = 1 - Math.pow(1 - p, 3);setCount(Math.floor(e * target));if (p < 1) requestAnimationFrame(step);else setCount(target);};
+    requestAnimationFrame(step);
+  }, [triggered, target]);
+  return <span ref={ref}>{prefix}{count}{suffix}</span>;
+}
+
+function HeroTitle({ text }) {
+  const words = text.split(' ');const half = Math.ceil(words.length / 2);
+  return (
+    <h1 className="hero-title">
+      {[words.slice(0, half), words.slice(half)].map((line, li) =>
+      <span key={li} className="reveal-line">
+          {line.map((w, wi) => <span key={wi} className="reveal-word" style={{ animationDelay: `${0.3 + (li * 4 + wi) * 0.08}s`, marginRight: '0.25em' }}>{w}</span>)}
+        </span>
+      )}
+    </h1>);
+
+}
+
+function ScannerCard({ service: s, delay }) {
+  const [revealed, setRevealed] = useState(false);
+  const [scanning, setScanning] = useState(false);
+
+  const handleClick = () => {
+    if (scanning) return;
+    setScanning(true);
+    setTimeout(() => {
+      setRevealed(r => !r);
+      setTimeout(() => setScanning(false), 200);
+    }, 280);
+  };
+
+  return (
+    <div className="svc-card-wrap reveal" style={{ transitionDelay: `${delay}s` }}>
+      <div className={`svc-card${revealed ? ' revealed' : ''}${scanning ? ' scanning' : ''}`} onClick={handleClick}>
+        <div className="svc-card-beam"></div>
+        <div className="svc-card-front">
+          <div className="service-icon">{s.icon}</div>
+          <div className="service-name">{s.name}</div>
+          <div className="service-desc">{s.desc}</div>
+          <div className="svc-tap-hint">
+            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+            Reveal
+          </div>
+        </div>
+        <div className="svc-card-back">
+          <div>
+            <div className="back-name">{s.name}</div>
+            <div className="back-detail">{s.detail}</div>
+          </div>
+          <div className="back-close">
+            <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"><path d="M18 6L6 18M6 6l12 12"/></svg>
+            Click to close
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+const MARQUEE_ITEMS = ['Workflow Automation', 'Agentic Systems', 'AI Frameworks', 'Growth Strategy', 'Custom AI Skills', 'Data Products', 'AI Transformation', 'Revenue Multiplier', 'SMB Specialist', 'Non-Technical AI'];
+
+const SERVICES = [
+{ icon: <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z" /><path d="M2 17l10 5 10-5" /><path d="M2 12l10 5 10-5" /></svg>, name: "Workflows & Automations", desc: "Eliminate repetitive tasks — build systems that run themselves.", detail: "I map your entire operation, find where time and money are being lost, and rebuild those processes with smart automation. Your team focuses on high-value work while routine tasks run automatically." },
+{ icon: <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="3" width="7" height="7" /><rect x="14" y="3" width="7" height="7" /><rect x="14" y="14" width="7" height="7" /><rect x="3" y="14" width="7" height="7" /></svg>, name: "AI Frameworks", desc: "A clear AI roadmap tailored to your industry and goals.", detail: "Not all AI is the same. I design a custom strategy that fits your size, budget, and goals — giving you a practical step-by-step plan so you know exactly what to build, when, and why." },
+{ icon: <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="3" /><path d="M12 2v3M12 19v3M4.22 4.22l2.12 2.12M17.66 17.66l2.12 2.12M2 12h3M19 12h3M4.22 19.78l2.12-2.12M17.66 6.34l2.12-2.12" /></svg>, name: "Custom AI Skills", desc: "AI that knows your business, speaks your language.", detail: "Generic AI gives generic results. I build AI capabilities specifically for you — trained on your content, products, and processes. An expert who knows your business inside out, available 24/7." },
+{ icon: <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" /></svg>, name: "Agentic Systems", desc: "AI that takes action on your behalf, around the clock.", detail: "Agentic AI goes beyond chatbots — it actively handles tasks: following up with leads, processing orders, answering customers, scheduling. Your business keeps running even when you're not there." },
+{ icon: <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17" /><polyline points="16 7 22 7 22 13" /></svg>, name: "Growth Strategy", desc: "Find hidden revenue opportunities with AI as your weapon.", detail: "I analyze your business to uncover where growth is being left on the table — pricing, conversion, retention, new channels — and build an AI-powered plan to capture it all." },
+{ icon: <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="8" r="4" /><path d="M20 21a8 8 0 1 0-16 0" /></svg>, name: "AI Transformation", desc: "Go from traditional to fully AI-driven — at your pace.", detail: "The full journey. I embed AI into every layer of your business over time — your team, operations, customer experience. You don't need to be technical. Just ambitious. I handle the rest." }];
+
+
+const MILESTONES = [
+{ year: "ZoomInfo", title: "Inside a Global Tech Leader", desc: "Worked at one of the world's leading B2B companies — learning how world-class teams build products that scale to millions of users." },
+{ year: "Connecteam", title: "Building for Real Businesses", desc: "Helped a fast-growing startup build tools that managers and small business owners actually love to use every day." },
+{ year: "Startup", title: "Co-Founder", desc: "Started my own company from zero. Learned what it really takes to build something, make hard decisions, and grow fast." },
+{ year: "Now", title: "AI Expert for SMBs", desc: "Using everything I've learned to give businesses like yours the same AI advantages that big companies have — without the complexity." }];
+
+
+function App() {
+  const { tweaks, TweaksPanel, TweakColor, TweakText } = useTweaks(TWEAK_DEFAULTS);
+  useScrollReveal();
+  useNavScroll();
+  const gold = tweaks.accentColor;
+  const [r, g, b] = [parseInt(gold.slice(1, 3), 16), parseInt(gold.slice(3, 5), 16), parseInt(gold.slice(5, 7), 16)];
+
+  return (
+    <>
+      <TweaksPanel title="Tweaks">
+        <TweakColor id="accentColor" label="Accent Color" />
+        <TweakText id="heroHeadline" label="Hero Headline" />
+        <TweakText id="heroSub" label="Subheading" />
+        <TweakText id="ctaLabel" label="CTA Label" />
+        <TweakText id="whatsappNumber" label="WhatsApp Number" />
+        <TweakText id="emailAddress" label="Email Address" />
+        <TweakText id="linkedinUrl" label="LinkedIn URL" />
+      </TweaksPanel>
+      <style>{`:root { --gold: ${gold}; --gold-rgb: ${r},${g},${b}; --gold-light: ${gold}55; --gold-pale: ${gold}14; }`}</style>
+
+      {/* Nav */}
+      <nav>
+        <div className="nav-logo">Omer Moran</div>
+        <ul className="nav-links">
+          <li><a href="#impact">Impact</a></li>
+          <li><a href="#process">Process</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+        <a href="#contact" className="nav-cta">{tweaks.ctaLabel}</a>
+      </nav>
+
+      {/* Hero */}
+      <section className="hero">
+        <div className="hero-bg-grid"></div>
+        <div className="hero-glow"></div>
+        <div className="hero-content">
+          <p className="hero-eyebrow"><span className="hero-eyebrow-line"></span>AI Expert for SMBs</p>
+          <HeroTitle text={tweaks.heroHeadline} />
+          <p className="hero-sub">{tweaks.heroSub}</p>
+          <div className="hero-actions">
+            <a href="#contact" className="btn-primary">{tweaks.ctaLabel}</a>
+            <a href="#impact" className="btn-ghost">See the impact <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M12 5l7 7-7 7" /></svg></a>
+          </div>
+        </div>
+        <div className="hero-image-wrap">
+          <div className="photo-frame">
+            <img src="uploads/photo-1777477389865.JPG" alt="Omer Moran" />
+            <div className="photo-credential">
+              <div className="cred-label">AI Expert</div>
+              <div className="cred-name">Omer Moran</div>
+              <div className="cred-title">AI-Driven SMBs</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Marquee */}
+      <div className="marquee-strip">
+        <div className="marquee-track">
+          {[...MARQUEE_ITEMS, ...MARQUEE_ITEMS].map((item, i) =>
+          <span key={i} className="marquee-item"><span className="marquee-dot"></span>{item}</span>
+          )}
+        </div>
+      </div>
+
+      {/* Impact Numbers */}
+      <div id="impact" className="impact-section">
+        <p className="impact-eyebrow reveal">Real Business Impact</p>
+        <div className="impact-grid">
+          <div className="impact-item reveal">
+            <div className="impact-number" style={{ width: "288px" }}>
+              <AnimatedStat target={3} suffix="×" /><span className="accent"> faster</span>
+            </div>
+            <div className="impact-claim">Business growth rate</div>
+            <div className="impact-detail">Businesses that embrace AI early don't just grow — they compound. Every week you wait, the gap with competitors widens.</div>
+          </div>
+          <div className="impact-item reveal reveal-delay-1">
+            <div className="impact-number">
+              <AnimatedStat target={80} suffix="%" />
+            </div>
+            <div className="impact-claim">Less manual work</div>
+            <div className="impact-detail">Most of what your team does today can be automated. That time goes back to what actually moves the needle.</div>
+          </div>
+          <div className="impact-item reveal reveal-delay-2">
+            <div className="impact-number">
+              <AnimatedStat target={4} suffix="" /> <span style={{ fontSize: 'clamp(32px,4vw,60px)' }}>weeks</span>
+            </div>
+            <div className="impact-claim">From call to live AI</div>
+            <div className="impact-detail">No 6-month projects. No endless meetings. You see working systems in your business within weeks of our first conversation.</div>
+          </div>
+        </div>
+      </div>
+
+      {/* How it works */}
+      <div id="process" className="how-section">
+        <p className="how-eyebrow reveal">How It Works</p>
+        <h2 className="how-title reveal reveal-delay-1">Three steps.<br />Real results.</h2>
+        <div className="how-steps">
+          {[
+          { n: "01", title: "Diagnose", desc: "We start with a free 30-minute call. I ask the right questions to understand your business, your bottlenecks, and where AI can have the biggest impact — fast." },
+          { n: "01", title: "Build", desc: "I design and deploy custom AI systems tailored to your business. No off-the-shelf tools. No complexity for your team. Just things that work." },
+          { n: "03", title: "Grow", desc: "Your business runs smarter, handles more, and scales without adding headcount. The AI keeps improving — your advantage compounds over time." }].
+          map((step, i) =>
+          <div className={`how-step reveal${i > 0 ? ` reveal-delay-${i}` : ''}`} key={i}>
+              <div className="how-step-num">{step.n}</div>
+              <div className="how-step-title">{step.title}</div>
+              <div className="how-step-desc">{step.desc}</div>
+            </div>
+          )}
+        </div>
+        <div className="how-cta-row reveal">
+          <a href="#contact" className="btn-primary">{tweaks.ctaLabel}</a>
+          <span className="how-note">Free first call — no commitment</span>
+        </div>
+      </div>
+
+      {/* Background */}
+      <div id="background" className="background-section">
+        <div className="bg-layout">
+          <div className="reveal">
+            <p className="section-eyebrow">Background</p>
+            <h2 className="section-title">Years inside tech.<br />Now working for you.</h2>
+            <p className="bg-tagline">I've worked inside some of the world's fastest-growing tech companies. Now I use everything I learned there to give your business the same edge.</p>
+            <div className="bg-companies">
+              {['Connecteam', 'ZoomInfo', 'Startup Founder'].map((c) => <span key={c} className="company-chip">{c}</span>)}
+            </div>
+            <a href={`https://${tweaks.linkedinUrl}`} target="_blank" rel="noopener noreferrer" className="bg-linkedin">
+              View LinkedIn Profile <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M12 5l7 7-7 7" /></svg>
+            </a>
+          </div>
+          <div className="bg-milestones reveal reveal-delay-2">
+            {MILESTONES.map((m, i) =>
+            <div className={`milestone${m.year === 'Now' ? ' milestone-current' : ''}`} key={i}>
+                <div className="milestone-year">{m.year}</div>
+                <div>
+                  <div className="milestone-title">{m.title}</div>
+                  <div className="milestone-desc">{m.desc}</div>
+                </div>
+              </div>
+            )}
+          </div>
+        </div>
+      </div>
+
+      {/* Services */}
+      <div id="services" className="services-section">
+        <div className="services-header">
+          <div className="reveal">
+            <p className="section-eyebrow">Services</p>
+            <h2 className="section-title">Six ways I transform your business.</h2>
+          </div>
+          <p className="services-desc reveal reveal-delay-1">Every engagement starts with understanding your business. Then I build exactly what you need — and nothing you don't.</p>
+        </div>
+        <div className="services-hint reveal">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M7 10l5-6 5 6" /><path d="M7 14l5 6 5-6" /></svg>
+          Click any card to learn more
+        </div>
+        <div className="services-grid">
+          {SERVICES.map((s, i) => <ScannerCard key={i} service={s} delay={0.05 + i % 3 * 0.1} />)}
+        </div>
+      </div>
+
+      {/* Contact */}
+      <section id="contact" className="contact-section">
+        <div className="contact-inner reveal">
+          <p className="contact-eyebrow">Get In Touch</p>
+          <h2 className="contact-title">Ready to build your AI advantage?</h2>
+          <p className="contact-sub">Tell me about your business. I'll tell you exactly how AI can transform it — no pressure, no fluff.</p>
+          <div className="contact-buttons">
+            <a href={`https://wa.me/${tweaks.whatsappNumber}`} target="_blank" rel="noopener noreferrer" className="contact-btn contact-btn-whatsapp">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z" /></svg>
+              WhatsApp
+            </a>
+            <a href={`mailto:${tweaks.emailAddress}`} className="contact-btn contact-btn-email">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="4" width="20" height="16" rx="2" /><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" /></svg>
+              Send an Email
+            </a>
+          </div>
+          <p className="contact-note">I respond personally — usually within a few hours.</p>
+        </div>
+      </section>
+
+      <footer>
+        <div className="footer-name">Omer Moran — AI Expert</div>
+        <div className="footer-copy">© 2026 · AI-Driven SMBs</div>
+      </footer>
+    </>);
+
+}
+
+ReactDOM.createRoot(document.getElementById('root')).render(<App />);
+</script>
+</body>
+</html>
