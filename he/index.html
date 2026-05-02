@@ -332,7 +332,9 @@
     .linkedin-carousel-wrap { position: relative; margin-top: 56px; }
     .linkedin-carousel { display: flex; gap: 24px; overflow: hidden; }
     .li-screenshot {
-      flex: 0 0 calc(33.33% - 16px);
+      flex: 0 0 100%;
+      max-width: 560px;
+      margin: 0 auto;
       background: #fff;
       border-radius: 8px;
       box-shadow: 0 20px 60px rgba(0,0,0,0.35), 0 4px 16px rgba(0,0,0,0.2);
@@ -481,14 +483,13 @@
 
     /* Responsive */
     @media (max-width: 960px) {
-      .linkedin-carousel { flex-direction: column; }
-      .li-screenshot { flex: 0 0 100%; }
+      .linkedin-carousel { justify-content: center; }
       .linkedin-edge-box { flex-direction: column; gap: 20px; }
       .linkedin-edge-stat { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.08); padding: 0 0 16px 0; width: 100%; }
       nav { padding: 18px 24px; } nav.scrolled { padding: 14px 24px; } .nav-links { display: none; }
       .hero { grid-template-columns: 1fr; padding: 100px 24px 60px; gap: 48px; }
       .hero-image-wrap { order: -1; } .photo-frame { width: 260px; }
-      .impact-section, .how-section, .background-section, .services-section, .contact-section, .testimonials-section { padding: 70px 24px; }
+      .impact-section, .how-section, .background-section, .services-section, .contact-section, .testimonials-section, .linkedin-section { padding: 70px 24px; }
       .impact-grid, .how-steps, .bg-layout, .services-header { grid-template-columns: 1fr; gap: 48px; }
       .impact-grid::before, .impact-grid::after { display: none; }
       .impact-item, .impact-item:not(:last-child), .impact-item:last-child { padding: 0 0 40px 0; border-bottom: 1px solid var(--border); }
