@@ -79,6 +79,53 @@
       position: relative; overflow: hidden;
       transition: background 0.3s;
     }
+
+    /* Language Toggle */
+    .lang-toggle { display: flex; align-items: center; border: 1px solid var(--border-mid); border-radius: 100px; padding: 3px; background: rgba(255,255,255,0.7); backdrop-filter: blur(12px); gap: 2px; }
+    .lang-btn { font-family: 'Space Grotesk', sans-serif; font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; padding: 5px 13px; text-decoration: none; color: var(--text-dim); transition: color 0.25s ease, background 0.25s ease, box-shadow 0.25s ease, transform 0.2s ease; border-radius: 100px; }
+    .lang-btn.active { background: var(--text); color: var(--bg); box-shadow: 0 2px 8px rgba(14,14,12,0.18); }
+    .lang-btn:not(.active):hover { color: var(--text); background: rgba(14,14,12,0.06); transform: scale(1.04); }
+
+    /* Testimonials - redesigned */
+    .testimonials-section { background: var(--text); padding: 100px 64px; position: relative; overflow: hidden; }
+    .testimonials-section::before { content: ''; position: absolute; top: -300px; left: -200px; width: 700px; height: 700px; border-radius: 50%; background: radial-gradient(circle, rgba(var(--gold-rgb),0.07) 0%, transparent 70%); pointer-events: none; }
+    .testimonials-intro { max-width: 540px; margin-bottom: 60px; }
+    .testimonials-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: rgba(255,255,255,0.06); }
+    .tcard {
+      background: rgba(255,255,255,0.03);
+      padding: 36px 32px;
+      position: relative;
+      transition: background 0.3s;
+      cursor: default;
+      display: flex; flex-direction: column; gap: 20px;
+    }
+    .tcard:hover { background: rgba(255,255,255,0.06); }
+    .tcard-featured { background: rgba(var(--gold-rgb),0.07); }
+    .tcard-featured:hover { background: rgba(var(--gold-rgb),0.11); }
+    .tcard-quote {
+      font-size: 13px; line-height: 1.85; color: rgba(250,249,246,0.72);
+      font-weight: 300; flex: 1;
+      position: relative;
+    }
+    .tcard-quote::before {
+      content: '"';
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 64px; line-height: 0.7;
+      color: var(--gold); opacity: 0.4;
+      display: block; margin-bottom: 12px;
+    }
+    .tcard-quote strong { color: rgba(250,249,246,0.95); font-weight: 600; }
+    .tcard-author { display: flex; align-items: center; gap: 14px; padding-top: 16px; border-top: 1px solid rgba(255,255,255,0.08); }
+    .tcard-avatar {
+      width: 40px; height: 40px; border-radius: 50%; flex-shrink: 0;
+      background: rgba(var(--gold-rgb),0.15);
+      border: 1px solid rgba(var(--gold-rgb),0.3);
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Space Grotesk', sans-serif; font-size: 13px; font-weight: 700; color: var(--gold);
+    }
+    .tcard-name { font-family: 'Heebo', sans-serif; font-size: 13px; font-weight: 700; color: rgba(250,249,246,0.9); margin-bottom: 2px; }
+    .tcard-role { font-size: 11px; color: rgba(250,249,246,0.38); line-height: 1.4; }
+    .tcard-badge { position: absolute; top: 0; right: 32px; background: var(--gold); color: white; font-size: 9px; font-weight: 700; letter-spacing: 0.08em; padding: 4px 10px; }
     .nav-cta::after { content: ''; position: absolute; inset: 0; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.15), transparent); transform: translateX(100%); transition: transform 0.5s ease; }
     .nav-cta:hover { background: var(--gold); }
     .nav-cta:hover::after { transform: translateX(-100%); }
@@ -342,10 +389,11 @@
       font-family: -apple-system, 'Segoe UI', Arial, sans-serif;
     }
     .li-screenshot:hover { transform: translateY(-6px); box-shadow: 0 28px 70px rgba(0,0,0,0.4), 0 6px 20px rgba(0,0,0,0.25); }
+    .li-screenshot:hover .li-hover-overlay { opacity: 1 !important; }
     /* LinkedIn chrome bar */
     .li-chrome { background: #fff; padding: 12px 16px 0; border-bottom: 1px solid #e0e0e0; }
     .li-chrome-top { display: flex; align-items: center; gap: 10px; margin-bottom: 12px; }
-    .li-chrome-avatar { width: 48px; height: 48px; border-radius: 50%; background: linear-gradient(135deg, #456abf, #2d4a8a); display: flex; align-items: center; justify-content: center; color: white; font-weight: 700; font-size: 16px; flex-shrink: 0; }
+    .li-chrome-avatar { width: 48px; height: 48px; border-radius: 50%; background: linear-gradient(135deg, #456abf, #2d4a8a); display: flex; align-items: center; justify-content: center; color: white; overflow: hidden; font-weight: 700; font-size: 16px; flex-shrink: 0; }
     .li-chrome-info { flex: 1; }
     .li-chrome-name { font-size: 14px; font-weight: 600; color: #000; line-height: 1.3; }
     .li-chrome-meta { font-size: 12px; color: #666; margin-top: 1px; }
@@ -393,11 +441,46 @@
     .linkedin-edge-stat-num { font-family: 'Space Grotesk', sans-serif; font-size: 40px; font-weight: 700; color: var(--gold); line-height: 1; }
     .linkedin-edge-stat-label { font-size: 11px; color: rgba(250,249,246,0.4); margin-top: 4px; }
 
-    /* Testimonials */
+    /* Testimonials - redesigned clean white */
     .testimonials-section { background: var(--bg); padding: 100px 64px; position: relative; overflow: hidden; }
     .testimonials-section::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px; background: var(--border); }
-    .testimonials-intro { max-width: 540px; margin-bottom: 60px; }
-    .testimonials-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+    .testimonials-intro { max-width: 540px; margin-bottom: 64px; }
+    .testimonials-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+    .tcard {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      padding: 36px 32px 28px;
+      position: relative;
+      display: flex; flex-direction: column; gap: 24px;
+      transition: box-shadow 0.35s cubic-bezier(0.16,1,0.3,1), transform 0.35s cubic-bezier(0.16,1,0.3,1), border-color 0.25s;
+      cursor: default;
+    }
+    .tcard:hover { box-shadow: 0 16px 48px rgba(14,14,12,0.09); transform: translateY(-4px); border-color: var(--border-mid); }
+    .tcard-featured { border-color: rgba(var(--gold-rgb),0.25); }
+    .tcard-featured:hover { border-color: rgba(var(--gold-rgb),0.5); box-shadow: 0 16px 48px rgba(var(--gold-rgb),0.1); }
+    .tcard-quote {
+      font-size: 14px; line-height: 1.85; color: var(--text);
+      font-weight: 400; flex: 1;
+    }
+    .tcard-quote::before {
+      content: '"';
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 56px; line-height: 0.75;
+      color: var(--gold); opacity: 0.5;
+      display: block; margin-bottom: 16px;
+    }
+    .tcard-quote strong { font-weight: 700; color: var(--text); }
+    .tcard-author { display: flex; align-items: center; gap: 14px; padding-top: 20px; border-top: 1px solid var(--border); }
+    .tcard-avatar {
+      width: 40px; height: 40px; border-radius: 50%; flex-shrink: 0;
+      background: var(--gold-pale);
+      border: 1.5px solid rgba(var(--gold-rgb),0.25);
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Space Grotesk', sans-serif; font-size: 12px; font-weight: 700; color: var(--gold);
+    }
+    .tcard-name { font-family: 'Heebo', sans-serif; font-size: 13px; font-weight: 700; color: var(--text); margin-bottom: 2px; }
+    .tcard-role { font-size: 11px; color: var(--text-dimmer); line-height: 1.4; }
+    .tcard-badge { position: absolute; top: -1px; right: 24px; background: var(--gold); color: white; font-size: 9px; font-weight: 700; letter-spacing: 0.08em; padding: 4px 10px; }
     .li-post {
       background: var(--surface);
       border: 1px solid var(--border);
@@ -495,6 +578,7 @@
       .how-step, .how-step:not(:last-child), .how-step:last-child { padding: 0 0 40px 0; border-right: none; }
       .services-grid { grid-template-columns: 1fr; }
       .testimonials-grid { grid-template-columns: 1fr; }
+      .tcard { padding: 28px 24px; }
       .contact-buttons { flex-direction: column; align-items: center; }
       footer { flex-direction: column; gap: 8px; padding: 24px; text-align: center; }
       .milestone { grid-template-columns: 90px 1fr; }
@@ -784,66 +868,113 @@ const TESTIMONIALS = [
 
 const MY_LINKEDIN_POSTS = [
   {
-    tag: "אוטומציה",
-    reactions: "👍❤️🔥", likes: "847", comments: "63",
-    date: "4d",
+    url: "https://www.linkedin.com/posts/omer-moran-8aa07616b_new-job-new-challenge-posting-on-linkedin-ugcPost-7343279850046074880-tGpu",
+    role: "Data Product Manager at Connecteam",
+    date: "10mo",
+    reactions: "🔵🟢❤️", likes: "183", comments: "27",
+    tag: "New Job",
     body: <>
-      <p>רוב בעלי העסקים שאני פוגש עובדים 12 שעות ביום — ועדיין מרגישים שהם רצים במקום.</p>
-      <p style={{marginTop:8}}>הבעיה היא לא חוסר מאמץ. הבעיה היא שהם עסוקים בדברים שמחשב יכול לעשות.</p>
-      <p style={{marginTop:8}}><strong>3 תהליכים שאני ממליץ לאוטמט קודם כל:</strong></p>
-      <p>① מענה ראשוני ללידים<br/>② תיאום פגישות ותזכורות<br/>③ דוחות שבועיים לניהול</p>
-      <p style={{marginTop:8}}>חוסכים בממוצע 15 שעות בשבוע. <strong>שבוע ראשון.</strong></p>
+      <p><strong>New job, new challenge - posting on LinkedIn.</strong></p>
+      <p style={{marginTop:8}}>I joined <span style={{color:'#0a66c2', fontWeight:600}}>Connecteam</span> almost 3 months ago. The team is brilliant, the projects are wild (in a good way), and I'm already deep into the kind of marketing/data work that will just gear up.</p>
+      <p style={{marginTop:8}}>But... I've been sitting on the idea of posting here. Not because there's nothing to say... if anything, there's too much...</p>
+      <p style={{marginTop:8}}>More like: "Where do I even start?" / "Who even cares?" / "What if it sounds forced?"</p>
+      <p style={{marginTop:8}}>So... naturally, I asked ChatGPT to help me get started. Because what better way to begin my authentic content journey than with the help of a robot trained on the internet? 😎</p>
+      <p style={{marginTop:8}}>Anyway, here's the real deal: I'm new-ish at <span style={{color:'#0a66c2', fontWeight:600}}>Connecteam</span>. I'm deep in the world where marketing meets data, working on some exciting projects. I'm learning a ton.</p>
+      <p style={{marginTop:8}}>So this is me starting. Not perfect. Not polished. Just real.</p>
+      <p style={{marginTop:8}}>Let's see how this goes 🔥</p>
     </>
   },
   {
-    tag: "מנהיגות",
-    reactions: "❤️💡👏", likes: "1,203", comments: "91",
-    date: "1w",
+    url: "https://www.linkedin.com/posts/omer-moran-8aa07616b_youre-not-behind-youre-just-in-it-everyone-ugcPost-7345381596750901250-Za-o",
+    role: "Data Product Manager at Connecteam",
+    date: "10mo",
+    reactions: "🔵🟢❤️", likes: "241", comments: "34",
+    tag: "Mindset",
     body: <>
-      <p>מה שלמדתי ב-8200 שאף ספר עסקים לא לימד אותי:</p>
-      <p style={{marginTop:8}}><strong>מידע לבד לא שווה כלום. מה שחשוב זה מה שעושים איתו תוך 30 שניות.</strong></p>
-      <p style={{marginTop:8}}>היום אני מיישם את זה ב-AI: לא מספיק שמודל יודע לנתח — הוא צריך לדעת מתי לפעול.</p>
-      <p style={{marginTop:8}}>עסקים שמבינים את ההבדל הזה מקדימים את כולם.</p>
+      <p><strong>You're Not Behind. You're Just in It.</strong></p>
+      <p style={{marginTop:8}}>Everyone talks about the excitement of starting a new job. New team, new tools, new energy. Hallelujah!</p>
+      <p style={{marginTop:8}}>But no one really talks about the messy middle. The part where every meeting feels like you're catching up on a season you missed.</p>
+      <p style={{marginTop:8}}>The first two months were exactly that for me — exciting, but also a bit chaotic. Not just learning new tools or an entire language... but a whole new way of thinking.</p>
+      <p style={{marginTop:8}}>I'd sit in calls like: "Ohhh, Cool... I know these words, but what do they actually mean together?" 😅</p>
+      <p style={{marginTop:8}}>I changed my mindset from a "Knower" to a "Learner". Eventually... things started clicking. The shift wasn't instant, but it was real.</p>
+      <p style={{marginTop:8}}><strong>The bottom line:</strong> Onboarding isn't about showing up perfect. It's about giving yourself space to become someone who gets it.</p>
+      <p style={{marginTop:8}}>If you're in that foggy, messy phase right now - keep going. <strong>You're not behind. You're just in it.</strong></p>
     </>
   },
   {
-    tag: "AI מעשי",
-    reactions: "🔥👍❤️", likes: "2,140", comments: "178",
-    date: "2w",
+    url: "https://www.linkedin.com/posts/omer-moran-8aa07616b_time-to-wrap-up-an-amazing-chapter-at-zoominfo-ugcPost-7313477054555938817-IPoT",
+    role: "Data Product Manager at Connecteam",
+    date: "1yr",
+    reactions: "🔵🟢❤️", likes: "122", comments: "13",
+    tag: "Career",
     body: <>
-      <p>שאלתי 50 בעלי עסקים: &quot;מה מונע מכם לאמץ AI?&quot;</p>
-      <p style={{marginTop:8}}>התשובה הכי נפוצה: <strong>&quot;זה נשמע מסובך מדי&quot;</strong></p>
-      <p style={{marginTop:8}}>אז הנה האמת:<br/>→ לא צריך להבין קוד<br/>→ לא צריך תקציב של חברת ענק<br/>→ לא צריך לשנות הכל בבת אחת</p>
-      <p style={{marginTop:8}}>צריך רק לדעת <strong>מאיפה להתחיל</strong>. שלחו לי הודעה — אני אגיד לכם.</p>
+      <p><strong>Time to Wrap Up an Amazing Chapter at <span style={{color:'#0a66c2'}}>ZoomInfo</span></strong></p>
+      <p style={{marginTop:8}}>What a journey. My time at <span style={{color:'#0a66c2', fontWeight:600}}>ZoomInfo</span> has been a whirlwind of challenges, growth, and some truly exciting projects. I joined at a time when things were scaling fast, and being part of that momentum—building data products, solving tough problems, and seeing real impact—has been an experience I won't forget.</p>
+      <p style={{marginTop:8}}>ZoomInfo is the kind of place where things move fast, ideas turn into action, and there's always something new to tackle. It's been an incredible ride, and I'm grateful for everything I've learned, the experiences I've gained, and the incredible people I've met along the way.</p>
+      <p style={{marginTop:8}}>Onward to new adventures—because the best is yet to come! 🚀</p>
+    </>
+  },
+  {
+    url: "https://www.linkedin.com/posts/omer-moran-8aa07616b_zibellringing-zoominfo-zoominfo-activity-7160992030804856832-9XLe",
+    role: "Data Product Manager at Connecteam",
+    date: "2yr",
+    reactions: "🔵🟢", likes: "21", comments: "3",
+    tag: "ZoomInfo",
+    body: <>
+      <p>Yesterday <span style={{color:'#0a66c2', fontWeight:600}}>ZoomInfo</span> finally got to ring the opening bell at Nasdaq after leading the pack to be the first tech IPO of the pandemic era! 🔔</p>
+      <p style={{marginTop:8}}>On this special day, we also announced Copilot, an AI-powered GTM game changer that will make every seller the best seller. 👮👮</p>
+      <p style={{marginTop:8}}>Learn more about Copilot and join the waitlist here: <span style={{color:'#0a66c2'}}>https://lnkd.in/eKvqJeMr</span></p>
+      <p style={{marginTop:8, color:'#0a66c2', fontWeight:500}}>#ZIbellringing #zoominfo #ZoomInfo</p>
     </>
   }
 ];
 
 function LinkedInCarousel({ posts, linkedinUrl }) {
   const [active, setActive] = useState(0);
-  const prev = () => setActive(a => (a - 1 + posts.length) % posts.length);
-  const next = () => setActive(a => (a + 1) % posts.length);
+  const prev = (e) => { e.stopPropagation(); setActive(a => (a - 1 + posts.length) % posts.length); };
+  const next = (e) => { e.stopPropagation(); setActive(a => (a + 1) % posts.length); };
   return (
     <div className="linkedin-carousel-wrap reveal">
       <div className="linkedin-carousel">
         {posts.map((post, i) => (
-          <div key={i} className="li-screenshot" style={{ display: i === active ? 'block' : 'none' }}>
+          <a
+            key={i}
+            href={post.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="li-screenshot"
+            style={{ display: i === active ? 'block' : 'none', textDecoration: 'none', color: 'inherit', position: 'relative' }}
+          >
+            {/* "View on LinkedIn" hover overlay */}
+            <div style={{
+              position:'absolute', inset:0, background:'rgba(10,102,194,0.07)',
+              display:'flex', alignItems:'center', justifyContent:'center',
+              opacity:0, transition:'opacity 0.2s', zIndex:10,
+              borderRadius:8, pointerEvents:'none',
+            }} className="li-hover-overlay">
+              <div style={{
+                background:'#0a66c2', color:'#fff', padding:'10px 20px',
+                borderRadius:20, fontWeight:700, fontSize:13,
+                display:'flex', alignItems:'center', gap:8, boxShadow:'0 4px 16px rgba(10,102,194,0.35)'
+              }}>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="white"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                View on LinkedIn
+              </div>
+            </div>
             <div className="li-chrome">
               <div className="li-chrome-top">
-                <div className="li-chrome-avatar">OM</div>
+                <div className="li-chrome-avatar"><img src="photo-1777477389865.JPG" alt="Omer Moran" style={{width:'100%',height:'100%',objectFit:'cover',objectPosition:'center top'}} /></div>
                 <div className="li-chrome-info">
                   <div className="li-chrome-name">Omer Moran</div>
-                  <div className="li-chrome-meta">מומחה AI לעסקים קטנים ובינוניים · {post.date} ·
+                  <div className="li-chrome-meta">{post.role} · {post.date} ·
                     <svg style={{display:'inline',verticalAlign:'middle',marginRight:2}} width="12" height="12" viewBox="0 0 24 24" fill="#666"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5v-9l6 4.5-6 4.5z"/></svg>
                   </div>
                 </div>
                 <svg className="li-chrome-logo" width="22" height="22" viewBox="0 0 24 24" fill="#0a66c2"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
               </div>
             </div>
-            <div className="li-post-content" dir="rtl">
-              <div className="li-own-tag" style={{marginBottom:10}}>{post.tag}</div>
+            <div className="li-post-content" dir="ltr" style={{textAlign:'left'}}>
               {post.body}
-              <div className="li-see-more" style={{marginTop:8, color:'#666', fontSize:12}}>...ראה עוד</div>
             </div>
             <div className="li-post-reactions-bar">
               <div style={{display:'flex', alignItems:'center', gap:6}}>
@@ -851,18 +982,23 @@ function LinkedInCarousel({ posts, linkedinUrl }) {
                 <span style={{fontSize:12, color:'#666'}}>{post.likes}</span>
               </div>
               <div className="li-post-counts">
-                <span>{post.comments} תגובות</span>
+                <span>{post.comments} comments</span>
               </div>
             </div>
             <div className="li-post-actions">
-              {[['👍','לייק'],['💬','תגובה'],['🔁','שיתוף'],['📤','שליחה']].map(([icon,label]) => (
+              {[
+                [<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#666" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3H14z"/><path d="M7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3"/></svg>,'Like'],
+                [<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#666" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>,'Comment'],
+                [<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#666" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M17 1l4 4-4 4"/><path d="M3 11V9a4 4 0 0 1 4-4h14"/><path d="M7 23l-4-4 4-4"/><path d="M21 13v2a4 4 0 0 1-4 4H3"/></svg>,'Repost'],
+                [<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#666" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>,'Send'],
+              ].map(([icon,label]) => (
                 <div key={label} className="li-action-btn">
-                  <span style={{fontSize:14}}>{icon}</span>
-                  <span>{label}</span>
+                  {icon}
+                  <span style={{fontSize:12}}>{label}</span>
                 </div>
               ))}
             </div>
-          </div>
+          </a>
         ))}
       </div>
       <div className="carousel-nav">
@@ -871,7 +1007,7 @@ function LinkedInCarousel({ posts, linkedinUrl }) {
         </button>
         <div className="carousel-dots">
           {posts.map((_, i) => (
-            <div key={i} className={`carousel-dot${i === active ? ' active' : ''}`} onClick={() => setActive(i)} />
+            <div key={i} className={`carousel-dot${i === active ? ' active' : ''}`} onClick={(e) => { e.stopPropagation(); setActive(i); }} />
           ))}
         </div>
         <button className="carousel-btn" onClick={next}>
@@ -884,24 +1020,20 @@ function LinkedInCarousel({ posts, linkedinUrl }) {
 
 function LinkedInPost({ post, delay }) {
   return (
-    <div className={`li-post reveal${post.featured ? ' li-featured' : ''}`} style={{ transitionDelay: `${delay}s` }}>
-      {post.featured && <div className="li-featured-badge">פוסט מובלט</div>}
-      <div className="li-post-header">
-        <div className="li-author">
-          <div className="li-author-name">{post.name}</div>
-          <div className="li-author-title">{post.title}</div>
+    <div className={`tcard reveal${post.featured ? ' tcard-featured' : ''}`} style={{ transitionDelay: `${delay}s` }}>
+      {post.featured && <div className="tcard-badge">מובלט</div>}
+      <div className="tcard-quote">
+        {post.text}
+      </div>
+      <div className="tcard-author">
+        <div className="tcard-avatar">{post.initials}</div>
+        <div>
+          <div className="tcard-name">{post.name}</div>
+          <div className="tcard-role">{post.title}</div>
         </div>
       </div>
-      <div className="li-post-text">{post.text}</div>
-      <div className="li-post-footer">
-        <div className="li-reactions">
-          <span className="li-reaction-emojis">{post.reactions}</span>
-          <span>{post.likes}</span>
-        </div>
-        <div className="li-timestamp">{post.time}</div>
-      </div>
-    </div>);
-
+    </div>
+  );
 }
 
 function App() {
@@ -924,7 +1056,13 @@ function App() {
 
       {/* Nav */}
       <nav>
-        <a href="#contact" className="nav-cta">קביעת פגישה</a>
+        <div style={{display:'flex', alignItems:'center', gap:16}}>
+          <a href="#contact" className="nav-cta">קביעת פגישה</a>
+          <div className="lang-toggle">
+            <a href="../en/index.html" className="lang-btn">EN</a>
+            <a href="index.html" className="lang-btn active">HE</a>
+          </div>
+        </div>
         <ul className="nav-links">
           <li><a href="#impact">תוצאות</a></li>
           <li><a href="#process">תהליך</a></li>
@@ -1110,7 +1248,7 @@ function App() {
         <div className="testimonials-intro reveal">
           <p className="section-eyebrow">מה אומרים עליי</p>
           <h2 className="section-title">עסקים שכבר עובדים אחרת.</h2>
-          <p className="bg-tagline" style={{ marginBottom: 0 }}>
+          <p style={{fontSize:15, color:'var(--text-dim)', lineHeight:1.8, fontWeight:300, marginTop:12}}>
             אלו לא סיפורי הצלחה מדומים — אלו בעלי עסקים ומנהלים שהחליטו לשנות כיוון, ורואים את התוצאות כל יום.
           </p>
         </div>
