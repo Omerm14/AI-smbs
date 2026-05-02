@@ -607,6 +607,13 @@ const TWEAK_DEFAULTS = /*EDITMODE-BEGIN*/{
   "accentColor": "#456abf"
 }/*EDITMODE-END*/;
 
+function getEnUrl() {
+  const h = window.location.hostname;
+  return h.includes('ai-smb-he')
+    ? window.location.protocol + '//' + h.replace('ai-smb-he', 'ai-smb-en') + '/'
+    : '../en/';
+}
+
 function useTweaks(defaults) {
   const [values, setValues] = useState(defaults);
   const setTweak = useCallback((k, v) => {
@@ -1059,7 +1066,7 @@ function App() {
         <div style={{display:'flex', alignItems:'center', gap:16}}>
           <a href="#contact" className="nav-cta">קביעת פגישה</a>
           <div className="lang-toggle">
-            <a href="../en/index.html" className="lang-btn">EN</a>
+            <a href={getEnUrl()} className="lang-btn">EN</a>
             <a href="index.html" className="lang-btn active">HE</a>
           </div>
         </div>
