@@ -52,6 +52,12 @@
     .nav-cta:hover { background: var(--gold); }
     .nav-cta:hover::after { transform: translateX(100%); }
 
+    /* Language Toggle */
+    .lang-toggle { display: flex; align-items: center; border: 1px solid var(--border-mid); border-radius: 100px; padding: 3px; background: rgba(255,255,255,0.7); backdrop-filter: blur(12px); gap: 2px; }
+    .lang-btn { font-family: 'Space Grotesk', sans-serif; font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; padding: 5px 13px; text-decoration: none; color: var(--text-dim); transition: color 0.25s ease, background 0.25s ease, box-shadow 0.25s ease, transform 0.2s ease; border-radius: 100px; }
+    .lang-btn.active { background: var(--text); color: var(--bg); box-shadow: 0 2px 8px rgba(14,14,12,0.18); }
+    .lang-btn:not(.active):hover { color: var(--text); background: rgba(14,14,12,0.06); transform: scale(1.04); }
+
     /* ── Hero ── */
     .hero { min-height: 100vh; display: grid; grid-template-columns: 1fr 1fr; align-items: center; padding: 120px 64px 80px; gap: 80px; position: relative; overflow: hidden; }
     .hero-bg-grid { position: absolute; inset: 0; pointer-events: none; background-image: linear-gradient(rgba(var(--gold-rgb),0.045) 1px, transparent 1px), linear-gradient(90deg, rgba(var(--gold-rgb),0.045) 1px, transparent 1px); background-size: 60px 60px; mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 0%, transparent 100%); -webkit-mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 0%, transparent 100%); }
@@ -446,7 +452,13 @@ function App() {
           <li><a href="#services">Services</a></li>
           <li><a href="#contact">Contact</a></li>
         </ul>
-        <a href="#contact" className="nav-cta">{tweaks.ctaLabel}</a>
+        <div style={{display:'flex', alignItems:'center', gap:16}}>
+          <a href="#contact" className="nav-cta">{tweaks.ctaLabel}</a>
+          <div className="lang-toggle">
+            <a href="index.html" className="lang-btn active">EN</a>
+            <a href="../he/index.html" className="lang-btn">HE</a>
+          </div>
+        </div>
       </nav>
 
       {/* Hero */}
