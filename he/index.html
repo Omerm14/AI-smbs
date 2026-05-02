@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>עומר מורן — מומחה AI לעסקים קטנים ובינוניים</title>
+  <title>עומר מורן — בינה מלאכותית לעסקים</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
@@ -27,99 +27,200 @@
       --text-dimmer: #9a9a90;
     }
     html { scroll-behavior: smooth; }
-    body { background: var(--bg); color: var(--text); font-family: 'Heebo', sans-serif; overflow-x: hidden; -webkit-font-smoothing: antialiased; direction: rtl; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Heebo', sans-serif;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+      direction: rtl;
+    }
     #root { position: relative; z-index: 1; }
 
-    /* Cursor glow */
     #cursor-glow {
       pointer-events: none; position: fixed; z-index: 9999;
       width: 460px; height: 460px; border-radius: 50%;
-      background: radial-gradient(circle, rgba(var(--gold-rgb), 0.22) 0%, transparent 60%);
+      background: radial-gradient(circle, rgba(var(--gold-rgb), 0.18) 0%, transparent 60%);
       transform: translate(-50%, -50%);
       transition: left 0.12s ease, top 0.12s ease;
       mix-blend-mode: multiply;
     }
 
-    /* ── Nav ── */
-    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 24px 64px; transition: padding 0.4s, background 0.4s, box-shadow 0.4s; }
-    nav.scrolled { padding: 16px 64px; background: rgba(250,249,246,0.9); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); box-shadow: 0 1px 0 var(--border); }
-    .nav-logo { font-family: 'Heebo', sans-serif; font-size: 14px; font-weight: 700; letter-spacing: 0.02em; color: var(--text); }
-    .nav-links { display: flex; gap: 40px; list-style: none; }
+    /* Nav */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 24px 64px;
+      transition: padding 0.4s, background 0.4s, box-shadow 0.4s;
+    }
+    nav.scrolled {
+      padding: 16px 64px;
+      background: rgba(250,249,246,0.92);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      box-shadow: 0 1px 0 var(--border);
+    }
+    .nav-logo {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 14px; font-weight: 600;
+      letter-spacing: 0.04em; color: var(--text);
+      text-transform: uppercase;
+    }
+    .nav-links { display: flex; gap: 40px; list-style: none; flex-direction: row-reverse; }
     .nav-links a { text-decoration: none; color: var(--text-dim); font-size: 14px; transition: color 0.2s; }
     .nav-links a:hover { color: var(--text); }
-    .nav-cta { font-family: 'Heebo', sans-serif; font-size: 12px; font-weight: 700; letter-spacing: 0.04em; padding: 11px 26px; background: var(--text); color: var(--bg); text-decoration: none; display: inline-block; position: relative; overflow: hidden; transition: background 0.3s; }
-    .nav-cta::after { content: ''; position: absolute; inset: 0; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.15), transparent); transform: translateX(-100%); transition: transform 0.5s ease; }
+    .nav-cta {
+      font-family: 'Heebo', sans-serif;
+      font-size: 13px; font-weight: 700;
+      letter-spacing: 0.04em;
+      padding: 11px 26px;
+      background: var(--text); color: var(--bg);
+      text-decoration: none; display: inline-block;
+      position: relative; overflow: hidden;
+      transition: background 0.3s;
+    }
+    .nav-cta::after { content: ''; position: absolute; inset: 0; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.15), transparent); transform: translateX(100%); transition: transform 0.5s ease; }
     .nav-cta:hover { background: var(--gold); }
-    .nav-cta:hover::after { transform: translateX(100%); }
+    .nav-cta:hover::after { transform: translateX(-100%); }
 
-    /* ── Hero ── */
-    .hero { min-height: 100vh; display: grid; grid-template-columns: 1fr 1fr; align-items: center; padding: 120px 64px 80px; gap: 80px; position: relative; overflow: hidden; }
-    .hero-bg-grid { position: absolute; inset: 0; pointer-events: none; background-image: linear-gradient(rgba(var(--gold-rgb),0.045) 1px, transparent 1px), linear-gradient(90deg, rgba(var(--gold-rgb),0.045) 1px, transparent 1px); background-size: 60px 60px; mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 0%, transparent 100%); -webkit-mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 0%, transparent 100%); }
-    .hero-glow { position: absolute; width: 700px; height: 700px; border-radius: 50%; background: radial-gradient(circle, rgba(var(--gold-rgb),0.13) 0%, transparent 65%); left: -8%; top: 50%; transform: translateY(-50%); pointer-events: none; filter: blur(40px); animation: floatGlow 7s ease-in-out infinite alternate; }
+    /* Hero */
+    .hero {
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      padding: 120px 64px 80px;
+      gap: 80px;
+      position: relative; overflow: hidden;
+    }
+    .hero-bg-grid {
+      position: absolute; inset: 0; pointer-events: none;
+      background-image: linear-gradient(rgba(var(--gold-rgb),0.045) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(var(--gold-rgb),0.045) 1px, transparent 1px);
+      background-size: 60px 60px;
+      mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 0%, transparent 100%);
+      -webkit-mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 0%, transparent 100%);
+    }
+    .hero-glow {
+      position: absolute; width: 700px; height: 700px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(var(--gold-rgb),0.13) 0%, transparent 65%);
+      left: -8%; top: 50%; transform: translateY(-50%);
+      pointer-events: none; filter: blur(40px);
+      animation: floatGlow 7s ease-in-out infinite alternate;
+    }
     @keyframes floatGlow { 0% { transform: translateY(-50%) scale(1); } 100% { transform: translateY(-56%) scale(1.1); } }
     .hero-content { position: relative; }
-    .hero-eyebrow { display: inline-flex; align-items: center; gap: 12px; font-size: 11px; font-weight: 600; letter-spacing: 0.1em; color: var(--gold); margin-bottom: 32px; opacity: 0; animation: fadeUp 0.6s 0.1s ease forwards; }
+    .hero-eyebrow {
+      display: inline-flex; align-items: center; gap: 12px;
+      font-size: 12px; font-weight: 600; letter-spacing: 0.12em;
+      color: var(--gold); margin-bottom: 32px;
+      opacity: 0; animation: fadeUp 0.6s 0.1s ease forwards;
+    }
     .hero-eyebrow-line { display: inline-block; width: 32px; height: 1px; background: var(--gold); }
     @keyframes fadeUp { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
-    .reveal-line { overflow: hidden; display: block; }
-    .reveal-word { display: inline-block; transform: translateY(110%); opacity: 0; animation: wordUp 0.85s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
-    @keyframes wordUp { to { transform: translateY(0); opacity: 1; } }
-    .hero-title { font-family: 'Heebo', sans-serif; font-size: clamp(40px, 4.8vw, 72px); font-weight: 900; line-height: 1.08; letter-spacing: -0.02em; margin-bottom: 32px; }
-    .hero-sub { font-size: 17px; line-height: 1.85; color: var(--text-dim); max-width: 480px; margin-bottom: 52px; font-weight: 300; opacity: 0; animation: fadeUp 0.8s 1s ease forwards; }
-    .hero-actions { display: flex; gap: 20px; align-items: center; opacity: 0; animation: fadeUp 0.8s 1.2s ease forwards; flex-direction: row-reverse; justify-content: flex-end; }
-    .btn-primary { font-family: 'Heebo', sans-serif; font-size: 12px; font-weight: 700; letter-spacing: 0.04em; padding: 16px 40px; background: var(--text); color: var(--bg); border: none; cursor: pointer; text-decoration: none; display: inline-block; position: relative; overflow: hidden; transition: background 0.3s, transform 0.25s, box-shadow 0.25s; }
-    .btn-primary::after { content: ''; position: absolute; inset: 0; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.16), transparent); transform: translateX(-100%); transition: transform 0.55s ease; }
+
+    .hero-title {
+      font-family: 'Heebo', sans-serif;
+      font-size: clamp(40px, 4.5vw, 70px);
+      font-weight: 900;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      margin-bottom: 28px;
+      opacity: 0; animation: fadeUp 0.8s 0.3s ease forwards;
+    }
+    .hero-title .accent { color: var(--gold); }
+    .hero-sub {
+      font-size: 18px; line-height: 1.8;
+      color: var(--text-dim);
+      max-width: 500px; margin-bottom: 52px;
+      font-weight: 300;
+      opacity: 0; animation: fadeUp 0.8s 0.55s ease forwards;
+    }
+    .hero-actions {
+      display: flex; gap: 20px; align-items: center;
+      opacity: 0; animation: fadeUp 0.8s 0.75s ease forwards;
+      flex-direction: row;
+    }
+    .btn-primary {
+      font-family: 'Heebo', sans-serif;
+      font-size: 14px; font-weight: 700;
+      padding: 16px 40px;
+      background: var(--text); color: var(--bg);
+      border: none; cursor: pointer; text-decoration: none;
+      display: inline-flex; align-items: center; gap: 10px;
+      position: relative; overflow: hidden;
+      transition: background 0.3s, transform 0.25s, box-shadow 0.25s;
+    }
+    .btn-primary::after { content: ''; position: absolute; inset: 0; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.16), transparent); transform: translateX(100%); transition: transform 0.55s ease; }
     .btn-primary:hover { background: var(--gold); transform: translateY(-2px); box-shadow: 0 8px 28px rgba(var(--gold-rgb),0.3); }
-    .btn-primary:hover::after { transform: translateX(100%); }
-    .btn-ghost { font-size: 14px; color: var(--text-dim); text-decoration: none; display: inline-flex; align-items: center; gap: 8px; transition: color 0.2s, gap 0.25s; }
+    .btn-primary:hover::after { transform: translateX(-100%); }
+    .btn-ghost {
+      font-size: 14px; color: var(--text-dim);
+      text-decoration: none; display: inline-flex; align-items: center; gap: 8px;
+      transition: color 0.2s, gap 0.25s;
+    }
     .btn-ghost:hover { color: var(--text); gap: 14px; }
-    /* Flip arrow for RTL */
-    .btn-ghost svg { transform: scaleX(-1); }
-    .hero-image-wrap { position: relative; display: flex; justify-content: center; opacity: 0; animation: fadeUp 1s 0.4s ease forwards; }
+    .hero-image-wrap {
+      position: relative; display: flex; justify-content: center;
+      opacity: 0; animation: fadeUp 1s 0.4s ease forwards;
+    }
     .photo-frame { position: relative; width: 400px; }
     .photo-frame img { width: 100%; display: block; filter: contrast(1.02) brightness(1.01); transition: transform 0.6s cubic-bezier(0.16,1,0.3,1); }
     .photo-frame:hover img { transform: scale(1.02); }
     .photo-frame::before { content: ''; position: absolute; top: 20px; right: 20px; left: -20px; bottom: -20px; border: 1px solid var(--gold-light); z-index: -1; transition: transform 0.5s cubic-bezier(0.16,1,0.3,1); }
     .photo-frame:hover::before { transform: translate(-4px, 4px); }
-    .photo-credential { position: absolute; bottom: -16px; right: -24px; background: var(--surface); border: 1px solid var(--border-mid); padding: 16px 22px; box-shadow: 0 12px 48px rgba(14,14,12,0.12); min-width: 180px; animation: fadeUp 1s 0.9s ease both; }
+    .photo-credential {
+      position: absolute; bottom: -16px; right: -24px;
+      background: var(--surface); border: 1px solid var(--border-mid);
+      padding: 16px 22px; box-shadow: 0 12px 48px rgba(14,14,12,0.12);
+      min-width: 200px; animation: fadeUp 1s 0.9s ease both;
+      text-align: right;
+    }
     .cred-label { font-size: 10px; font-weight: 700; letter-spacing: 0.1em; color: var(--gold); margin-bottom: 6px; }
-    .cred-name { font-family: 'Heebo', sans-serif; font-size: 16px; font-weight: 800; color: var(--text); margin-bottom: 2px; }
+    .cred-name { font-family: 'Space Grotesk', sans-serif; font-size: 16px; font-weight: 700; color: var(--text); margin-bottom: 2px; }
     .cred-title { font-size: 12px; color: var(--text-dim); }
 
-    /* ── Marquee ── */
-    .marquee-strip { border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); padding: 14px 0; background: var(--text); overflow: hidden; }
-    .marquee-track { display: flex; animation: marqueeScroll 28s linear infinite; width: max-content; }
+    /* Marquee */
+    .marquee-strip {
+      border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
+      padding: 14px 0; background: var(--text); overflow: hidden;
+    }
+    .marquee-track { display: flex; animation: marqueeScroll 32s linear infinite; width: max-content; }
     .marquee-track:hover { animation-play-state: paused; }
     @keyframes marqueeScroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
-    .marquee-item { display: inline-flex; align-items: center; gap: 20px; padding: 0 40px; white-space: nowrap; font-family: 'Heebo', sans-serif; font-size: 12px; font-weight: 700; letter-spacing: 0.06em; color: rgba(250,249,246,0.45); }
+    .marquee-item {
+      display: inline-flex; align-items: center; gap: 20px;
+      padding: 0 40px; white-space: nowrap;
+      font-family: 'Heebo', sans-serif;
+      font-size: 12px; font-weight: 700;
+      color: rgba(250,249,246,0.45);
+    }
     .marquee-dot { display: inline-block; width: 4px; height: 4px; border-radius: 50%; background: var(--gold); flex-shrink: 0; }
 
-    /* ── Impact Numbers ── */
+    /* Impact Numbers */
     .impact-section { background: var(--bg); padding: 100px 64px; position: relative; overflow: hidden; }
     .impact-section::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px; background: var(--border); }
     .impact-eyebrow { display: inline-flex; align-items: center; gap: 12px; font-size: 11px; font-weight: 700; letter-spacing: 0.1em; color: var(--gold); margin-bottom: 60px; }
     .impact-eyebrow::before { content: ''; display: inline-block; width: 24px; height: 1px; background: var(--gold); }
     .impact-grid { display: grid; grid-template-columns: repeat(3, 1fr); position: relative; }
-    .impact-grid::before { content: ''; position: absolute; top: 0; left: 33.33%; width: 1px; height: 100%; background: var(--border); }
-    .impact-grid::after { content: ''; position: absolute; top: 0; left: 66.66%; width: 1px; height: 100%; background: var(--border); }
-    .impact-item { padding: 0 0 0 56px; display: flex; flex-direction: column; }
-    .impact-item:not(:last-child) { padding: 0 56px 0 56px; }
-    .impact-item:first-child { padding: 0 0 0 56px; }
+    .impact-grid::before { content: ''; position: absolute; top: 0; right: 33.33%; width: 1px; height: 100%; background: var(--border); }
+    .impact-grid::after { content: ''; position: absolute; top: 0; right: 66.66%; width: 1px; height: 100%; background: var(--border); }
+    .impact-item { padding: 0 56px; display: flex; flex-direction: column; align-items: flex-start; }
+    .impact-item:first-child { padding-right: 0; }
+    .impact-item:last-child { padding-left: 0; }
     .impact-number {
-      font-family: 'Heebo', sans-serif;
-      font-size: clamp(72px, 9vw, 120px);
-      font-weight: 900; line-height: 0.9;
-      letter-spacing: -0.04em;
-      color: var(--text);
-      height: 130px;
-      display: flex; align-items: flex-end;
-      margin-bottom: 24px;
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: clamp(64px, 8vw, 108px);
+      font-weight: 700; line-height: 1;
+      letter-spacing: -0.04em; color: var(--text);
+      display: flex; align-items: baseline; gap: 10px;
+      flex-wrap: nowrap; margin-bottom: 20px;
     }
-    .impact-number .accent { color: var(--gold); }
+    .impact-number .accent { color: var(--gold); font-size: 0.52em; font-weight: 700; white-space: nowrap; align-self: center; }
     .impact-claim { font-family: 'Heebo', sans-serif; font-size: 20px; font-weight: 700; color: var(--text); margin-bottom: 12px; line-height: 1.3; }
-    .impact-detail { font-size: 14px; line-height: 1.8; color: var(--text-dim); font-weight: 300; max-width: 260px; }
+    .impact-detail { font-size: 14px; line-height: 1.75; color: var(--text-dim); font-weight: 300; max-width: 280px; }
 
-    /* ── How it works ── */
+    /* How it works */
     .how-section { background: var(--text); padding: 100px 64px; position: relative; overflow: hidden; }
     .how-section::before { content: ''; position: absolute; top: -300px; left: -200px; width: 700px; height: 700px; border-radius: 50%; background: radial-gradient(circle, rgba(var(--gold-rgb),0.08) 0%, transparent 70%); pointer-events: none; }
     .how-eyebrow { display: inline-flex; align-items: center; gap: 12px; font-size: 11px; font-weight: 700; letter-spacing: 0.1em; color: var(--gold); margin-bottom: 56px; }
@@ -127,139 +228,276 @@
     .how-title { font-family: 'Heebo', sans-serif; font-size: clamp(28px, 3vw, 44px); font-weight: 900; color: #faf9f6; line-height: 1.15; letter-spacing: -0.02em; margin-bottom: 64px; }
     .how-steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; position: relative; }
     .how-step { padding: 0 0 0 48px; }
-    .how-step:not(:last-child) { padding: 0 48px 0 48px; border-left: 1px solid rgba(255,255,255,0.06); }
-    .how-step:last-child { padding: 0 48px 0 0; border: none; }
+    .how-step:not(:last-child) { padding: 0 48px 0 48px; border-right: 1px solid rgba(255,255,255,0.06); }
+    .how-step:last-child { padding: 0 48px 0 0; }
     .how-step-num { font-family: 'Space Grotesk', sans-serif; font-size: 13px; font-weight: 700; color: var(--gold); letter-spacing: 0.1em; margin-bottom: 20px; }
     .how-step-title { font-family: 'Heebo', sans-serif; font-size: 22px; font-weight: 800; color: #faf9f6; margin-bottom: 14px; line-height: 1.2; }
-    .how-step-desc { font-size: 14px; line-height: 1.85; color: rgba(250,249,246,0.52); font-weight: 300; }
+    .how-step-desc { font-size: 14px; line-height: 1.8; color: rgba(250,249,246,0.52); font-weight: 300; }
     .how-cta-row { margin-top: 64px; display: flex; align-items: center; gap: 24px; }
-    .how-note { font-size: 14px; color: rgba(250,249,246,0.35); }
+    .how-note { font-size: 13px; color: rgba(250,249,246,0.35); }
 
-    /* ── Background / proof ── */
+    /* Background */
     .background-section { background: var(--bg2); padding: 100px 64px; position: relative; overflow: hidden; }
     .background-section::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px; background: var(--border); }
     .bg-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; }
     .section-eyebrow { display: inline-flex; align-items: center; gap: 12px; font-size: 11px; font-weight: 700; letter-spacing: 0.1em; color: var(--gold); margin-bottom: 24px; }
     .section-eyebrow::before { content: ''; display: inline-block; width: 24px; height: 1px; background: var(--gold); }
     .section-title { font-family: 'Heebo', sans-serif; font-size: clamp(28px, 3vw, 46px); font-weight: 900; line-height: 1.12; letter-spacing: -0.02em; margin-bottom: 20px; }
-    .bg-tagline { font-size: 16px; line-height: 1.85; color: var(--text-dim); font-weight: 300; margin-bottom: 28px; max-width: 420px; }
+    .bg-tagline { font-size: 16px; line-height: 1.8; color: var(--text-dim); font-weight: 300; margin-bottom: 28px; max-width: 440px; }
+
+    /* Military badge */
+    .military-badge {
+      display: inline-flex; align-items: center; gap: 10px;
+      background: rgba(var(--gold-rgb), 0.07);
+      border: 1px solid rgba(var(--gold-rgb), 0.2);
+      padding: 10px 16px; margin-bottom: 20px;
+      font-size: 12px; font-weight: 600; color: var(--gold);
+    }
+
     .bg-companies { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 28px; }
-    .company-chip { font-family: 'Heebo', sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 0.04em; padding: 7px 14px; border: 1px solid var(--border-mid); color: var(--text-dim); background: var(--surface); transition: border-color 0.2s, color 0.2s; }
+    .company-chip {
+      font-family: 'Heebo', sans-serif;
+      font-size: 11px; font-weight: 600;
+      padding: 7px 14px; border: 1px solid var(--border-mid);
+      color: var(--text-dim); background: var(--surface);
+      transition: border-color 0.2s, color 0.2s;
+    }
     .company-chip:hover { border-color: var(--gold); color: var(--gold); }
-    .bg-linkedin { display: inline-flex; align-items: center; gap: 10px; font-family: 'Heebo', sans-serif; font-size: 12px; font-weight: 700; letter-spacing: 0.04em; color: var(--gold); text-decoration: none; padding-bottom: 3px; border-bottom: 1px solid rgba(var(--gold-rgb), 0.35); transition: border-color 0.2s, gap 0.25s; }
+    .bg-linkedin {
+      display: inline-flex; align-items: center; gap: 10px;
+      font-family: 'Heebo', sans-serif; font-size: 12px; font-weight: 700;
+      color: var(--gold); text-decoration: none;
+      padding-bottom: 3px; border-bottom: 1px solid rgba(var(--gold-rgb), 0.35);
+      transition: border-color 0.2s, gap 0.25s;
+    }
     .bg-linkedin:hover { border-color: var(--gold); gap: 14px; }
-    .bg-linkedin svg { transform: scaleX(-1); }
     .bg-milestones { display: flex; flex-direction: column; }
-    .milestone { display: grid; grid-template-columns: 90px 1fr; gap: 20px; padding: 22px 0; border-bottom: 1px solid var(--border); align-items: start; transition: padding-right 0.2s; cursor: default; }
+    .milestone {
+      display: grid; grid-template-columns: 110px 1fr; gap: 20px;
+      padding: 22px 0; border-bottom: 1px solid var(--border);
+      align-items: start; transition: padding-right 0.2s; cursor: default;
+    }
     .milestone:first-child { border-top: 1px solid var(--border); }
     .milestone:hover { padding-right: 8px; }
-    .milestone.milestone-current { background: rgba(var(--gold-rgb), 0.06); border-right: 2px solid var(--gold); padding-right: 16px; margin-right: -16px; border-left: none; }
+    .milestone.milestone-current {
+      background: rgba(var(--gold-rgb), 0.06);
+      border-right: 2px solid var(--gold);
+      padding-right: 16px; margin-right: -16px;
+    }
     .milestone.milestone-current:hover { padding-right: 16px; }
     .milestone-year { font-family: 'Space Grotesk', sans-serif; font-size: 11px; font-weight: 600; color: var(--gold); letter-spacing: 0.06em; padding-top: 2px; }
-    .milestone-title { font-family: 'Heebo', sans-serif; font-size: 14px; font-weight: 700; color: var(--text); margin-bottom: 4px; }
-    .milestone-desc { font-size: 12px; color: var(--text-dim); line-height: 1.65; }
+    .milestone-title { font-family: 'Heebo', sans-serif; font-size: 14px; font-weight: 700; color: var(--text); margin-bottom: 5px; }
+    .milestone-desc { font-size: 13px; color: var(--text-dim); line-height: 1.6; }
+    .milestone-tag {
+      display: inline-block; font-size: 9px; font-weight: 700;
+      letter-spacing: 0.08em; color: var(--gold);
+      background: var(--gold-pale); padding: 3px 8px;
+      margin-bottom: 5px;
+    }
 
-    /* ── Services ── */
+    /* Services */
     .services-section { background: var(--surface); padding: 100px 64px; position: relative; }
     .services-section::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px; background: var(--border); }
     .services-header { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; margin-bottom: 20px; align-items: end; }
-    .services-desc { font-size: 15px; line-height: 1.85; color: var(--text-dim); font-weight: 300; }
-    .services-hint { display: flex; align-items: center; gap: 8px; margin-bottom: 28px; font-size: 13px; color: var(--text-dimmer); font-style: italic; }
+    .services-desc { font-size: 15px; line-height: 1.8; color: var(--text-dim); font-weight: 300; }
+    .services-hint { display: flex; align-items: center; gap: 8px; margin-bottom: 28px; font-size: 12px; color: var(--text-dimmer); font-style: italic; }
     .services-hint svg { color: var(--gold); flex-shrink: 0; }
     .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--border-mid); }
 
-    /* ── Scanner reveal card ── */
+    /* Scanner card */
     .svc-card-wrap { background: var(--surface); }
-    .svc-card {
-      position: relative; height: 300px; cursor: pointer; overflow: hidden;
-      background: var(--surface);
-      transition: background 0.5s;
-    }
-    .svc-card::before {
-      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
-      background: var(--gold); transform: scaleX(0); transform-origin: right;
-      transition: transform 0.4s cubic-bezier(0.16,1,0.3,1); z-index: 2;
-    }
+    .svc-card { position: relative; height: 300px; cursor: pointer; overflow: hidden; background: var(--surface); transition: background 0.5s; }
+    .svc-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: var(--gold); transform: scaleX(0); transform-origin: right; transition: transform 0.4s cubic-bezier(0.16,1,0.3,1); z-index: 2; }
     .svc-card:hover::before { transform: scaleX(1); }
-    .svc-card-beam {
-      position: absolute; top: 0; bottom: 0; width: 3px; z-index: 10;
-      background: linear-gradient(to bottom, transparent, var(--gold), rgba(var(--gold-rgb),0.6), var(--gold), transparent);
-      box-shadow: 0 0 24px 10px rgba(var(--gold-rgb), 0.25);
-      right: -6px; left: auto; pointer-events: none;
-      transition: none;
-    }
+    .svc-card-beam { position: absolute; top: 0; bottom: 0; width: 3px; z-index: 10; background: linear-gradient(to bottom, transparent, var(--gold), rgba(var(--gold-rgb),0.6), var(--gold), transparent); box-shadow: 0 0 24px 10px rgba(var(--gold-rgb), 0.25); right: -6px; pointer-events: none; transition: none; }
     .svc-card.scanning .svc-card-beam { right: calc(100% + 6px); transition: right 0.55s cubic-bezier(0.4,0,0.4,1); }
-    .svc-card-front {
-      position: absolute; inset: 0; padding: 36px 32px;
-      display: flex; flex-direction: column;
-      transition: opacity 0.25s 0.2s, transform 0.3s 0.2s;
-    }
+    .svc-card-front { position: absolute; inset: 0; padding: 36px 32px; display: flex; flex-direction: column; transition: opacity 0.25s 0.2s, transform 0.3s 0.2s; text-align: right; }
     .svc-card.revealed .svc-card-front { opacity: 0; transform: translateY(-12px); pointer-events: none; transition: opacity 0.2s, transform 0.2s; }
-    .svc-card-back {
-      position: absolute; inset: 0; padding: 32px;
-      display: flex; flex-direction: column; justify-content: space-between;
-      background: var(--text);
-      opacity: 0; transform: translateY(12px);
-      transition: opacity 0.25s, transform 0.3s;
-      pointer-events: none;
-    }
+    .svc-card-back { position: absolute; inset: 0; padding: 32px; display: flex; flex-direction: column; justify-content: space-between; background: var(--text); opacity: 0; transform: translateY(12px); transition: opacity 0.25s, transform 0.3s; pointer-events: none; text-align: right; }
     .svc-card.revealed .svc-card-back { opacity: 1; transform: translateY(0); transition: opacity 0.3s 0.22s, transform 0.35s 0.22s; pointer-events: all; }
     .svc-card.revealed { background: var(--text); }
     .svc-card.revealed::before { transform: scaleX(1); }
     .service-icon { width: 36px; height: 36px; display: flex; align-items: center; justify-content: center; color: var(--gold); margin-bottom: 22px; transition: transform 0.3s; }
     .svc-card:hover .service-icon { transform: scale(1.1); }
-    .service-name { font-family: 'Heebo', sans-serif; font-size: 15px; font-weight: 700; color: var(--text); margin-bottom: 10px; }
+    .service-name { font-family: 'Heebo', sans-serif; font-size: 16px; font-weight: 700; color: var(--text); margin-bottom: 10px; }
     .service-desc { font-size: 13px; line-height: 1.75; color: var(--text-dim); font-weight: 300; }
-    .svc-tap-hint { display: flex; align-items: center; gap: 6px; margin-top: auto; padding-top: 16px; font-size: 11px; font-weight: 700; letter-spacing: 0.06em; color: var(--gold); opacity: 0.6; }
-    .back-name { font-family: 'Heebo', sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 0.08em; color: var(--gold); margin-bottom: 12px; }
-    .back-detail { font-size: 13px; line-height: 1.9; color: rgba(250,249,246,0.68); font-weight: 300; flex: 1; }
-    .back-close { display: inline-flex; align-items: center; gap: 6px; font-size: 11px; font-weight: 600; letter-spacing: 0.06em; color: rgba(250,249,246,0.3); margin-top: 16px; }
+    .svc-tap-hint { display: flex; align-items: center; gap: 6px; margin-top: auto; padding-top: 16px; font-size: 11px; font-weight: 600; color: var(--gold); opacity: 0.6; justify-content: flex-end; }
+    .back-name { font-family: 'Heebo', sans-serif; font-size: 11px; font-weight: 700; color: var(--gold); margin-bottom: 12px; }
+    .back-detail { font-size: 13px; line-height: 1.85; color: rgba(250,249,246,0.68); font-weight: 300; flex: 1; }
+    .back-close { display: inline-flex; align-items: center; gap: 6px; font-size: 11px; font-weight: 600; color: rgba(250,249,246,0.3); margin-top: 16px; justify-content: flex-end; }
 
-    /* ── Contact ── */
+    /* LinkedIn Posts - Carousel */
+    .linkedin-section { background: var(--text); padding: 100px 64px; position: relative; overflow: hidden; }
+    .linkedin-section::before { content: ''; position: absolute; top: -300px; right: -200px; width: 700px; height: 700px; border-radius: 50%; background: radial-gradient(circle, rgba(var(--gold-rgb),0.07) 0%, transparent 70%); pointer-events: none; }
+    .linkedin-carousel-wrap { position: relative; margin-top: 56px; }
+    .linkedin-carousel { display: flex; gap: 24px; overflow: hidden; }
+    .li-screenshot {
+      flex: 0 0 calc(33.33% - 16px);
+      background: #fff;
+      border-radius: 8px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.35), 0 4px 16px rgba(0,0,0,0.2);
+      overflow: hidden;
+      transition: transform 0.4s cubic-bezier(0.16,1,0.3,1), box-shadow 0.4s;
+      cursor: pointer;
+      font-family: -apple-system, 'Segoe UI', Arial, sans-serif;
+    }
+    .li-screenshot:hover { transform: translateY(-6px); box-shadow: 0 28px 70px rgba(0,0,0,0.4), 0 6px 20px rgba(0,0,0,0.25); }
+    /* LinkedIn chrome bar */
+    .li-chrome { background: #fff; padding: 12px 16px 0; border-bottom: 1px solid #e0e0e0; }
+    .li-chrome-top { display: flex; align-items: center; gap: 10px; margin-bottom: 12px; }
+    .li-chrome-avatar { width: 48px; height: 48px; border-radius: 50%; background: linear-gradient(135deg, #456abf, #2d4a8a); display: flex; align-items: center; justify-content: center; color: white; font-weight: 700; font-size: 16px; flex-shrink: 0; }
+    .li-chrome-info { flex: 1; }
+    .li-chrome-name { font-size: 14px; font-weight: 600; color: #000; line-height: 1.3; }
+    .li-chrome-meta { font-size: 12px; color: #666; margin-top: 1px; }
+    .li-chrome-logo { color: #0a66c2; }
+    .li-post-content { padding: 14px 16px 12px; font-size: 13.5px; line-height: 1.6; color: #000; direction: rtl; text-align: right; }
+    .li-post-content strong { font-weight: 700; }
+    .li-post-content .li-see-more { color: #666; font-size: 12px; }
+    .li-post-reactions-bar { padding: 6px 16px 8px; display: flex; align-items: center; justify-content: space-between; border-top: 1px solid #e0e0e0; }
+    .li-post-reaction-emojis { font-size: 15px; letter-spacing: -2px; }
+    .li-post-counts { font-size: 12px; color: #666; display: flex; gap: 12px; }
+    .li-post-actions { display: flex; justify-content: space-around; padding: 4px 8px 8px; border-top: 1px solid #e0e0e0; gap: 4px; }
+    .li-action-btn { flex: 1; display: flex; align-items: center; justify-content: center; gap: 5px; padding: 8px 4px; border-radius: 4px; font-size: 12px; color: #666; font-weight: 600; cursor: pointer; transition: background 0.15s; }
+    .li-action-btn:hover { background: #f3f3f3; }
+    /* Carousel nav */
+    .carousel-nav { display: flex; align-items: center; justify-content: center; gap: 16px; margin-top: 36px; }
+    .carousel-btn { width: 40px; height: 40px; border-radius: 50%; border: 1px solid rgba(255,255,255,0.15); background: rgba(255,255,255,0.06); color: rgba(255,255,255,0.6); display: flex; align-items: center; justify-content: center; cursor: pointer; transition: background 0.2s, color 0.2s, border-color 0.2s; }
+    .carousel-btn:hover { background: var(--gold); border-color: var(--gold); color: #fff; }
+    .carousel-dots { display: flex; gap: 8px; }
+    .carousel-dot { width: 6px; height: 6px; border-radius: 50%; background: rgba(255,255,255,0.2); transition: background 0.3s, transform 0.3s; cursor: pointer; }
+    .carousel-dot.active { background: var(--gold); transform: scale(1.3); }
+    /* LinkedIn hero CTA */
+    .linkedin-hero-cta {
+      display: inline-flex; align-items: center; gap: 14px;
+      background: #0a66c2; color: #fff;
+      padding: 16px 32px;
+      font-family: 'Heebo', sans-serif; font-size: 15px; font-weight: 700;
+      text-decoration: none;
+      transition: transform 0.25s, box-shadow 0.25s, background 0.2s;
+      position: relative; overflow: hidden;
+    }
+    .linkedin-hero-cta::after { content: ''; position: absolute; inset: 0; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.15), transparent); transform: translateX(100%); transition: transform 0.5s; }
+    .linkedin-hero-cta:hover { background: #004182; transform: translateY(-2px); box-shadow: 0 12px 36px rgba(10,102,194,0.45); }
+    .linkedin-hero-cta:hover::after { transform: translateX(-100%); }
+    .linkedin-edge-box {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.1);
+      padding: 32px 36px;
+      display: flex; align-items: center; gap: 32px;
+      margin-top: 56px;
+    }
+    .linkedin-edge-text { flex: 1; text-align: right; }
+    .linkedin-edge-title { font-family: 'Heebo', sans-serif; font-size: 22px; font-weight: 800; color: #faf9f6; margin-bottom: 8px; line-height: 1.2; }
+    .linkedin-edge-sub { font-size: 14px; color: rgba(250,249,246,0.5); line-height: 1.7; font-weight: 300; }
+    .linkedin-edge-stat { text-align: center; flex-shrink: 0; padding: 0 24px; border-right: 1px solid rgba(255,255,255,0.08); }
+    .linkedin-edge-stat-num { font-family: 'Space Grotesk', sans-serif; font-size: 40px; font-weight: 700; color: var(--gold); line-height: 1; }
+    .linkedin-edge-stat-label { font-size: 11px; color: rgba(250,249,246,0.4); margin-top: 4px; }
+
+    /* Testimonials */
+    .testimonials-section { background: var(--bg); padding: 100px 64px; position: relative; overflow: hidden; }
+    .testimonials-section::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px; background: var(--border); }
+    .testimonials-intro { max-width: 540px; margin-bottom: 60px; }
+    .testimonials-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+    .li-post {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      padding: 24px;
+      position: relative;
+      transition: box-shadow 0.3s, transform 0.3s;
+      cursor: default;
+    }
+    .li-post:hover { box-shadow: 0 12px 40px rgba(14,14,12,0.1); transform: translateY(-4px); }
+    .li-post-header { display: flex; align-items: center; gap: 12px; margin-bottom: 16px; }
+    .li-avatar {
+      width: 44px; height: 44px; border-radius: 50%;
+      background: var(--gold-pale);
+      border: 2px solid var(--gold-light);
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 16px; font-weight: 700; color: var(--gold);
+      flex-shrink: 0;
+    }
+    .li-author { flex: 1; text-align: right; }
+    .li-author-name { font-size: 14px; font-weight: 700; color: var(--text); margin-bottom: 2px; }
+    .li-author-title { font-size: 11px; color: var(--text-dim); line-height: 1.4; }
+    .li-logo { margin-right: auto; opacity: 0.35; }
+    .li-post-text { font-size: 13px; line-height: 1.8; color: var(--text); margin-bottom: 16px; font-weight: 400; }
+    .li-post-text strong { font-weight: 700; color: var(--text); }
+    .li-post-footer { display: flex; align-items: center; justify-content: space-between; padding-top: 14px; border-top: 1px solid var(--border); }
+    .li-reactions { display: flex; align-items: center; gap: 6px; font-size: 11px; color: var(--text-dim); }
+    .li-reaction-emojis { font-size: 14px; letter-spacing: -3px; }
+    .li-timestamp { font-size: 11px; color: var(--text-dimmer); }
+    .li-featured {
+      border-color: rgba(var(--gold-rgb), 0.3);
+      background: linear-gradient(135deg, #fff 0%, rgba(var(--gold-rgb),0.03) 100%);
+    }
+    .li-featured-badge {
+      position: absolute; top: -1px; right: 24px;
+      background: var(--gold); color: white;
+      font-size: 9px; font-weight: 700; letter-spacing: 0.08em;
+      padding: 4px 10px;
+    }
+
+    /* Contact */
     .contact-section { background: var(--text); padding: 100px 64px; position: relative; overflow: hidden; text-align: center; }
     .contact-section::before { content: ''; position: absolute; top: -200px; left: 50%; transform: translateX(-50%); width: 600px; height: 600px; border-radius: 50%; background: radial-gradient(circle, rgba(var(--gold-rgb),0.1) 0%, transparent 70%); pointer-events: none; }
-    .contact-inner { max-width: 680px; margin: 0 auto; position: relative; }
+    .contact-inner { max-width: 700px; margin: 0 auto; position: relative; }
     .contact-eyebrow { display: inline-flex; align-items: center; gap: 12px; font-size: 11px; font-weight: 700; letter-spacing: 0.1em; color: var(--gold); margin-bottom: 24px; justify-content: center; }
-    .contact-eyebrow::before { content: ''; display: inline-block; width: 24px; height: 1px; background: var(--gold); }
     .contact-eyebrow::after { content: ''; display: inline-block; width: 24px; height: 1px; background: var(--gold); }
-    .contact-title { font-family: 'Heebo', sans-serif; font-size: clamp(32px, 4vw, 56px); font-weight: 900; color: #faf9f6; line-height: 1.12; letter-spacing: -0.02em; margin-bottom: 20px; }
-    .contact-sub { font-size: 17px; line-height: 1.85; color: rgba(250,249,246,0.5); margin-bottom: 52px; font-weight: 300; }
+    .contact-title { font-family: 'Heebo', sans-serif; font-size: clamp(32px, 4vw, 56px); font-weight: 900; color: #faf9f6; line-height: 1.1; letter-spacing: -0.02em; margin-bottom: 20px; }
+    .contact-sub { font-size: 18px; line-height: 1.8; color: rgba(250,249,246,0.5); margin-bottom: 16px; font-weight: 300; }
+    .contact-sub2 { font-size: 14px; line-height: 1.7; color: rgba(250,249,246,0.35); margin-bottom: 52px; font-weight: 300; }
     .contact-buttons { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
-    .contact-btn { display: inline-flex; align-items: center; gap: 12px; font-family: 'Heebo', sans-serif; font-size: 14px; font-weight: 700; letter-spacing: 0.04em; padding: 18px 40px; text-decoration: none; position: relative; overflow: hidden; transition: transform 0.25s, box-shadow 0.25s; }
-    .contact-btn::after { content: ''; position: absolute; inset: 0; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.14), transparent); transform: translateX(-100%); transition: transform 0.5s ease; }
+    .contact-btn {
+      display: inline-flex; align-items: center; gap: 12px;
+      font-family: 'Heebo', sans-serif; font-size: 14px; font-weight: 700;
+      padding: 18px 40px; text-decoration: none;
+      position: relative; overflow: hidden;
+      transition: transform 0.25s, box-shadow 0.25s;
+    }
+    .contact-btn::after { content: ''; position: absolute; inset: 0; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.14), transparent); transform: translateX(100%); transition: transform 0.5s ease; }
     .contact-btn:hover { transform: translateY(-3px); }
-    .contact-btn:hover::after { transform: translateX(100%); }
-    .contact-btn-whatsapp { background: #25D366; color: #fff; }
-    .contact-btn-whatsapp:hover { box-shadow: 0 12px 36px rgba(37,211,102,0.4); }
-    .contact-btn-email { background: rgba(255,255,255,0.08); color: #faf9f6; border: 1px solid rgba(255,255,255,0.15); }
-    .contact-btn-email:hover { background: rgba(255,255,255,0.14); box-shadow: 0 12px 36px rgba(255,255,255,0.08); }
-    .contact-note { margin-top: 28px; font-size: 13px; color: rgba(250,249,246,0.3); }
+    .contact-btn:hover::after { transform: translateX(-100%); }
+    .contact-btn-meet { background: #1a73e8; color: #fff; }
+    .contact-btn-meet:hover { box-shadow: 0 12px 36px rgba(26,115,232,0.45); }
+    .contact-btn-whatsapp { background: rgba(37,211,102,0.15); color: #25D366; border: 1px solid rgba(37,211,102,0.3); }
+    .contact-btn-whatsapp:hover { background: rgba(37,211,102,0.22); box-shadow: 0 12px 36px rgba(37,211,102,0.2); }
+    .contact-btn-email { background: rgba(255,255,255,0.07); color: #faf9f6; border: 1px solid rgba(255,255,255,0.14); }
+    .contact-btn-email:hover { background: rgba(255,255,255,0.13); box-shadow: 0 12px 36px rgba(255,255,255,0.07); }
+    .contact-note { margin-top: 32px; font-size: 12px; color: rgba(250,249,246,0.28); }
+    .meet-label-small { display: block; font-size: 10px; font-weight: 400; opacity: 0.7; margin-top: 2px; }
 
-    /* ── Footer ── */
+    /* Footer */
     footer { border-top: 1px solid rgba(255,255,255,0.07); padding: 28px 64px; display: flex; align-items: center; justify-content: space-between; background: var(--text); }
-    .footer-name { font-family: 'Heebo', sans-serif; font-size: 13px; font-weight: 700; color: rgba(250,249,246,0.35); letter-spacing: 0.02em; }
+    .footer-name { font-family: 'Space Grotesk', sans-serif; font-size: 12px; font-weight: 600; color: rgba(250,249,246,0.35); letter-spacing: 0.06em; text-transform: uppercase; }
     .footer-copy { font-size: 12px; color: rgba(250,249,246,0.2); }
 
-    /* ── Scroll reveal ── */
+    /* Scroll reveal */
     .reveal { opacity: 0; transform: translateY(32px); transition: opacity 0.85s cubic-bezier(0.16,1,0.3,1), transform 0.85s cubic-bezier(0.16,1,0.3,1); }
     .reveal.visible { opacity: 1; transform: translateY(0); }
     .reveal-delay-1 { transition-delay: 0.1s; }
     .reveal-delay-2 { transition-delay: 0.2s; }
     .reveal-delay-3 { transition-delay: 0.32s; }
 
-    /* ── Responsive ── */
+    /* Responsive */
     @media (max-width: 960px) {
+      .linkedin-carousel { flex-direction: column; }
+      .li-screenshot { flex: 0 0 100%; }
+      .linkedin-edge-box { flex-direction: column; gap: 20px; }
+      .linkedin-edge-stat { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.08); padding: 0 0 16px 0; width: 100%; }
       nav { padding: 18px 24px; } nav.scrolled { padding: 14px 24px; } .nav-links { display: none; }
       .hero { grid-template-columns: 1fr; padding: 100px 24px 60px; gap: 48px; }
       .hero-image-wrap { order: -1; } .photo-frame { width: 260px; }
-      .impact-section, .how-section, .background-section, .services-section, .contact-section { padding: 70px 24px; }
+      .impact-section, .how-section, .background-section, .services-section, .contact-section, .testimonials-section { padding: 70px 24px; }
       .impact-grid, .how-steps, .bg-layout, .services-header { grid-template-columns: 1fr; gap: 48px; }
       .impact-grid::before, .impact-grid::after { display: none; }
-      .impact-item, .impact-item:not(:last-child), .impact-item:first-child { padding: 0 0 40px 0; border-bottom: 1px solid var(--border); }
-      .how-step, .how-step:not(:last-child), .how-step:last-child { padding: 0 0 40px 0; border-left: none; }
+      .impact-item, .impact-item:not(:last-child), .impact-item:last-child { padding: 0 0 40px 0; border-bottom: 1px solid var(--border); }
+      .how-step, .how-step:not(:last-child), .how-step:last-child { padding: 0 0 40px 0; border-right: none; }
       .services-grid { grid-template-columns: 1fr; }
+      .testimonials-grid { grid-template-columns: 1fr; }
       .contact-buttons { flex-direction: column; align-items: center; }
       footer { flex-direction: column; gap: 8px; padding: 24px; text-align: center; }
+      .milestone { grid-template-columns: 90px 1fr; }
     }
   </style>
 </head>
@@ -274,19 +512,16 @@
 
 <script type="text/babel">
 
+
 const { useState, useEffect, useRef, useCallback } = React;
 
 const TWEAK_DEFAULTS = /*EDITMODE-BEGIN*/{
-  "heroHeadline": "יתרון ה-AI שלמתחרים שלך עדיין אין.",
-  "heroSub": "אני עוזר לעסקים קטנים ובינוניים לממש פוטנציאל פי 100 — מאוטומציות חכמות ועד מערכות אגנטיות שעובדות בזמן שאתה ישן.",
-  "ctaLabel": "בואו נדבר",
-  "linkedinUrl": "www.linkedin.com/in/omer-moran-8aa07616b",
+  "meetUrl": "https:\/\/calendar.app.google\/a1bvMsk7oMrTWYzQ9",
   "whatsappNumber": "972505646450",
   "emailAddress": "omermoran14@gmail.com",
+  "linkedinUrl": "www.linkedin.com\/in\/omer-moran-8aa07616b",
   "accentColor": "#456abf"
-} /*EDITMODE-END*/;
-
-const __TWEAKS_STYLE = `.twk-panel{position:fixed;left:16px;bottom:16px;z-index:2147483646;width:280px;max-height:calc(100vh - 32px);display:flex;flex-direction:column;background:rgba(250,249,247,.92);color:#29261b;backdrop-filter:blur(24px);border:.5px solid rgba(0,0,0,.1);border-radius:14px;box-shadow:0 12px 40px rgba(0,0,0,.15);font:11.5px/1.4 ui-sans-serif,system-ui,-apple-system,sans-serif;overflow:hidden}.twk-hd{display:flex;align-items:center;justify-content:space-between;padding:10px 8px 10px 14px;cursor:move;user-select:none}.twk-hd b{font-size:12px;font-weight:600}.twk-x{appearance:none;border:0;background:transparent;color:rgba(41,38,27,.55);width:22px;height:22px;border-radius:6px;cursor:default;font-size:13px;line-height:1}.twk-x:hover{background:rgba(0,0,0,.06)}.twk-body{padding:2px 14px 14px;display:flex;flex-direction:column;gap:10px;overflow-y:auto}.twk-row{display:flex;flex-direction:column;gap:5px}.twk-row-h{flex-direction:row;align-items:center;justify-content:space-between;gap:10px}.twk-lbl{font-weight:500;color:rgba(41,38,27,.72);font-size:11px}.twk-field{appearance:none;width:100%;height:26px;padding:0 8px;border:.5px solid rgba(0,0,0,.1);border-radius:7px;background:rgba(255,255,255,.6);color:inherit;font:inherit;outline:none}.twk-swatch{appearance:none;-webkit-appearance:none;width:56px;height:22px;border:.5px solid rgba(0,0,0,.1);border-radius:6px;padding:0;background:transparent;flex-shrink:0}.twk-swatch::-webkit-color-swatch-wrapper{padding:0}.twk-swatch::-webkit-color-swatch{border:0;border-radius:5.5px}`;
+}/*EDITMODE-END*/;
 
 function useTweaks(defaults) {
   const [values, setValues] = useState(defaults);
@@ -295,26 +530,45 @@ function useTweaks(defaults) {
     setValues((p) => ({ ...p, ...edits }));
     window.parent.postMessage({ type: '__edit_mode_set_keys', edits }, '*');
   }, []);
+  const panelStyleBlock = `.twk-panel{position:fixed;left:16px;bottom:16px;z-index:2147483646;width:280px;max-height:calc(100vh - 32px);display:flex;flex-direction:column;background:rgba(250,249,247,.92);color:#29261b;backdrop-filter:blur(24px);border:.5px solid rgba(0,0,0,.1);border-radius:14px;box-shadow:0 12px 40px rgba(0,0,0,.15);font:11.5px/1.4 ui-sans-serif,system-ui,-apple-system,sans-serif;overflow:hidden}.twk-hd{display:flex;align-items:center;justify-content:space-between;padding:10px 8px 10px 14px;cursor:move;user-select:none}.twk-hd b{font-size:12px;font-weight:600}.twk-x{appearance:none;border:0;background:transparent;color:rgba(41,38,27,.55);width:22px;height:22px;border-radius:6px;cursor:default;font-size:13px;line-height:1}.twk-x:hover{background:rgba(0,0,0,.06)}.twk-body{padding:2px 14px 14px;display:flex;flex-direction:column;gap:10px;overflow-y:auto}.twk-row{display:flex;flex-direction:column;gap:5px}.twk-row-h{flex-direction:row;align-items:center;justify-content:space-between;gap:10px}.twk-lbl{font-weight:500;color:rgba(41,38,27,.72);font-size:11px}.twk-field{appearance:none;width:100%;height:26px;padding:0 8px;border:.5px solid rgba(0,0,0,.1);border-radius:7px;background:rgba(255,255,255,.6);color:inherit;font:inherit;outline:none}.twk-swatch{appearance:none;-webkit-appearance:none;width:56px;height:22px;border:.5px solid rgba(0,0,0,.1);border-radius:6px;padding:0;background:transparent;flex-shrink:0}.twk-swatch::-webkit-color-swatch-wrapper{padding:0}.twk-swatch::-webkit-color-swatch{border:0;border-radius:5.5px}`;
+
   function TweaksPanel({ title = 'Tweaks', children }) {
     const [open, setOpen] = useState(false);
     useEffect(() => {
-      const h = (e) => {if (e?.data?.type === '__activate_edit_mode') setOpen(true);else if (e?.data?.type === '__deactivate_edit_mode') setOpen(false);};
+      const h = (e) => {
+        if (e?.data?.type === '__activate_edit_mode') setOpen(true);else
+        if (e?.data?.type === '__deactivate_edit_mode') setOpen(false);
+      };
       window.addEventListener('message', h);
       window.parent.postMessage({ type: '__edit_mode_available' }, '*');
       return () => window.removeEventListener('message', h);
     }, []);
     const dismiss = () => {setOpen(false);window.parent.postMessage({ type: '__edit_mode_dismissed' }, '*');};
     if (!open) return null;
-    return <><style>{__TWEAKS_STYLE}</style><div className="twk-panel" style={{ left: 16, bottom: 16 }}><div className="twk-hd"><b>{title}</b><button className="twk-x" onClick={dismiss}>✕</button></div><div className="twk-body">{children}</div></div></>;
+    return (
+      <>
+        <style>{panelStyleBlock}</style>
+        <div className="twk-panel">
+          <div className="twk-hd"><b>{title}</b><button className="twk-x" onClick={dismiss}>✕</button></div>
+          <div className="twk-body">{children}</div>
+        </div>
+      </>);
+
   }
-  function TweakColor({ id, label }) {return <div className="twk-row twk-row-h"><span className="twk-lbl">{label}</span><input type="color" className="twk-swatch" value={values[id]} onChange={(e) => setTweak(id, e.target.value)} /></div>;}
-  function TweakText({ id, label }) {return <div className="twk-row"><span className="twk-lbl">{label}</span><input className="twk-field" type="text" value={values[id]} onChange={(e) => setTweak(id, e.target.value)} /></div>;}
+  function TweakColor({ id, label }) {
+    return <div className="twk-row twk-row-h"><span className="twk-lbl">{label}</span><input type="color" className="twk-swatch" value={values[id]} onChange={(e) => setTweak(id, e.target.value)} /></div>;
+  }
+  function TweakText({ id, label }) {
+    return <div className="twk-row"><span className="twk-lbl">{label}</span><input className="twk-field" type="text" value={values[id]} onChange={(e) => setTweak(id, e.target.value)} /></div>;
+  }
   return { tweaks: values, setTweak, TweaksPanel, TweakColor, TweakText };
 }
 
 function useScrollReveal() {
   useEffect(() => {
-    const obs = new IntersectionObserver((entries) => entries.forEach((e) => {if (e.isIntersecting) {e.target.classList.add('visible');obs.unobserve(e.target);}}), { threshold: 0.1 });
+    const obs = new IntersectionObserver((entries) => entries.forEach((e) => {
+      if (e.isIntersecting) {e.target.classList.add('visible');obs.unobserve(e.target);}
+    }), { threshold: 0.1 });
     document.querySelectorAll('.reveal').forEach((el) => obs.observe(el));
     return () => obs.disconnect();
   }, []);
@@ -341,37 +595,26 @@ function AnimatedStat({ target, suffix, prefix = '' }) {
   useEffect(() => {
     if (!triggered) return;
     let start;const dur = 1600;
-    const step = (ts) => {if (!start) start = ts;const p = Math.min((ts - start) / dur, 1);const e = 1 - Math.pow(1 - p, 3);setCount(Math.floor(e * target));if (p < 1) requestAnimationFrame(step);else setCount(target);};
+    const step = (ts) => {
+      if (!start) start = ts;
+      const p = Math.min((ts - start) / dur, 1);
+      const e = 1 - Math.pow(1 - p, 3);
+      setCount(Math.floor(e * target));
+      if (p < 1) requestAnimationFrame(step);else setCount(target);
+    };
     requestAnimationFrame(step);
   }, [triggered, target]);
   return <span ref={ref}>{prefix}{count}{suffix}</span>;
 }
 
-function HeroTitle({ text }) {
-  const words = text.split(' ');const half = Math.ceil(words.length / 2);
-  return (
-    <h1 className="hero-title">
-      {[words.slice(0, half), words.slice(half)].map((line, li) =>
-      <span key={li} className="reveal-line">
-          {line.map((w, wi) => <span key={wi} className="reveal-word" style={{ animationDelay: `${0.3 + (li * 4 + wi) * 0.08}s`, marginLeft: '0.25em' }}>{w}</span>)}
-        </span>
-      )}
-    </h1>);
-}
-
 function ScannerCard({ service: s, delay }) {
   const [revealed, setRevealed] = useState(false);
   const [scanning, setScanning] = useState(false);
-
   const handleClick = () => {
     if (scanning) return;
     setScanning(true);
-    setTimeout(() => {
-      setRevealed(r => !r);
-      setTimeout(() => setScanning(false), 200);
-    }, 280);
+    setTimeout(() => {setRevealed((r) => !r);setTimeout(() => setScanning(false), 200);}, 280);
   };
-
   return (
     <div className="svc-card-wrap reveal" style={{ transitionDelay: `${delay}s` }}>
       <div className={`svc-card${revealed ? ' revealed' : ''}${scanning ? ' scanning' : ''}`} onClick={handleClick}>
@@ -381,8 +624,8 @@ function ScannerCard({ service: s, delay }) {
           <div className="service-name">{s.name}</div>
           <div className="service-desc">{s.desc}</div>
           <div className="svc-tap-hint">
-            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
-            גלה
+            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"><circle cx="11" cy="11" r="8" /><path d="m21 21-4.35-4.35" /></svg>
+            לחץ לפרטים
           </div>
         </div>
         <div className="svc-card-back">
@@ -391,32 +634,275 @@ function ScannerCard({ service: s, delay }) {
             <div className="back-detail">{s.detail}</div>
           </div>
           <div className="back-close">
-            <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"><path d="M18 6L6 18M6 6l12 12"/></svg>
-            לחץ לסגור
+            <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"><path d="M18 6L6 18M6 6l12 12" /></svg>
+            לחץ לסגירה
           </div>
         </div>
+      </div>
+    </div>);
+
+}
+
+const MARQUEE_ITEMS = [
+'אוטומציה של תהליכים', 'מערכות AI אוטונומיות', 'אסטרטגיית AI',
+'צמיחה עסקית', 'AI מותאם אישית', 'מוצרי דאטה',
+'טרנספורמציה דיגיטלית', 'מנוע הכנסות', 'מומחה לעסקים קטנים', 'AI ללא קוד'];
+
+
+const SERVICES = [
+{
+  icon: <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z" /><path d="M2 17l10 5 10-5" /><path d="M2 12l10 5 10-5" /></svg>,
+  name: "אוטומציה של תהליכים",
+  desc: "תנו למכונות לטפל בשגרה — אתם תתמקדו במה שחשוב.",
+  detail: "אני ממפה את כל הפעילות העסקית שלכם, מאתר איפה נשרף זמן וכסף, ובונה תהליכים חכמים שרצים לבד. הצוות שלכם יתפנה לעבודה שמניעה צמיחה אמיתית."
+},
+{
+  icon: <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="3" width="7" height="7" /><rect x="14" y="3" width="7" height="7" /><rect x="14" y="14" width="7" height="7" /><rect x="3" y="14" width="7" height="7" /></svg>,
+  name: "אסטרטגיית AI",
+  desc: "מפת דרכים ברורה — בדיוק לעסק שלכם.",
+  detail: "לא כל AI מתאים לכל עסק. אני בונה אסטרטגיה מותאמת לגודל, לתקציב ולמטרות שלכם — עם תכנית שלב אחר שלב, כדי שתדעו בדיוק מה לבנות, מתי ולמה."
+},
+{
+  icon: <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="3" /><path d="M12 2v3M12 19v3M4.22 4.22l2.12 2.12M17.66 17.66l2.12 2.12M2 12h3M19 12h3M4.22 19.78l2.12-2.12M17.66 6.34l2.12-2.12" /></svg>,
+  name: "AI מותאם לעסק שלכם",
+  desc: "AI שמכיר את העסק שלכם — ומדבר בשפה שלו.",
+  detail: "AI גנרי נותן תוצאות גנריות. אני בונה יכולות AI ספציפיות לכם — מאומנות על הפרוצדורות, המוצרים והלקוחות שלכם. מומחה שמכיר את העסק שלכם מהפנים, זמין 24/7."
+},
+{
+  icon: <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" /></svg>,
+  name: "סוכני AI אוטונומיים",
+  desc: "AI שעובד בשבילכם — גם בלעדיכם.",
+  detail: "סוכני AI הם מעבר לצ'טבוטים — הם עושים: מעקב אחרי לידים, עיבוד הזמנות, מענה ללקוחות, תיאום פגישות. העסק שלכם ממשיך לעבוד גם כשאתם לא שם."
+},
+{
+  icon: <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17" /><polyline points="16 7 22 7 22 13" /></svg>,
+  name: "אסטרטגיית צמיחה",
+  desc: "AI כנשק לגלות הזדמנויות הכנסה שנסתרות בעסק שלכם.",
+  detail: "אני מנתח את העסק שלכם ומוצא איפה כסף נשאר על הרצפה — תמחור, המרות, שימור לקוחות, ערוצים חדשים — ובונה תכנית מבוססת AI ללכוד את כולו."
+},
+{
+  icon: <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="8" r="4" /><path d="M20 21a8 8 0 1 0-16 0" /></svg>,
+  name: "טרנספורמציה מלאה",
+  desc: "ממסורתי לעסק מונע AI — בקצב שמתאים לכם.",
+  detail: "המסע המלא. אני משלב AI בכל שכבה של העסק שלכם לאורך זמן — צוות, תפעול, חוויית לקוח. אין צורך בידע טכני. צריך רק שאיפה. את כל השאר אני מטפל."
+}];
+
+
+const MILESTONES = [
+{
+  year: "צבא",
+  tag: "מנהל מוצר ואנליסט בכיר",
+  title: "יחידת המודיעין 8200",
+  desc: "שירות ביחידת המודיעין המובחרת בצה\"ל - 8200, שם למדתי לחשוב תחת לחץ, לפתור בעיות מורכבות ולהוביל בסביבה עם אפס סבלנות לכישלון."
+},
+{
+  year: "2020",
+  tag: "יזמות",
+  title: "שותף מייסד בסטארטאפ",
+  desc: "הקמתי חברה משלי מאפס. למדתי מה זה לבנות משהו, לקבל החלטות קשות תחת אי-ודאות — ולצמוח מהר מאוד."
+},
+{
+  year: "ZoomInfo",
+  tag: "חברת טק גלובלית",
+  title: "בתוך מנוע של חברה בשווי מיליארדים",
+  desc: "עבדתי באחת מחברות ה-B2B המובילות בעולם — ראיתי איך צוותים עולמיים בונים מוצרים שמגיעים למיליוני משתמשים, ואיך נראית מצוינות תפעולית באמת."
+},
+{
+  year: "Connecteam",
+  tag: "סטארט-אפ בצמיחה",
+  title: "בניית כלים שמנהלים באמת אוהבים",
+  desc: "עזרתי לסטארט-אפ בצמיחה מהירה לבנות פתרונות שמנהלים ובעלי עסקים קטנים משתמשים בהם כל יום — הבנתי מה גורם לטכנולוגיה לעבוד בשטח."
+},
+
+{
+  year: "היום",
+  tag: "מומחה AI",
+  title: "AI לעסקים שרוצים לנצח",
+  desc: "אני משתמש בכל מה שלמדתי — מהצבא, מחברות הטק הגדולות ומהיזמות — כדי לתת לעסק שלכם את אותה יתרון תחרותי שרק חברות ענק הרשו לעצמן עד היום.",
+  current: true
+}];
+
+
+const TESTIMONIALS = [
+{
+  initials: "ד.כ",
+  name: "דנה כהן",
+  title: "מנכ״לית | רשת בוטיקים",
+  text: <span>עומר לא רק הטמיע לנו AI — הוא <strong>שינה את האופן שבו אנחנו חושבים על העסק</strong>. תוך שבועיים חסכנו 15 שעות עבודה שבועיות. זה לא מוצר, זה שותף אמיתי.</span>,
+  reactions: "👍❤️",
+  likes: "214",
+  time: "לפני שבוע",
+  featured: true
+},
+{
+  initials: "א.ל",
+  name: "אורי לוי",
+  title: "מייסד | חברת שירותים מקצועיים",
+  text: <span>הגעתי לעומר עם ספקנות. יצאתי עם <strong>מערכת AI שסוגרת לי לידים בזמן שאני ישן</strong>. ה-ROI היה ברור כבר בחודש הראשון.</span>,
+  reactions: "🔥👍",
+  likes: "187",
+  time: "לפני שבועיים"
+},
+{
+  initials: "מ.ג",
+  name: "מיכל גרינברג",
+  title: "VP Operations | חברת לוגיסטיקה",
+  text: <span>כשהתחלנו לעבוד יחד ציפיתי לייעוץ, קיבלתי הרבה יותר. <strong>עומר הוא אדם שמבין עסקים</strong>, לא רק טכנולוגיה. ההבדל מורגש בכל נקודת מגע.</span>,
+  reactions: "❤️👏",
+  likes: "143",
+  time: "לפני 3 שבועות"
+},
+{
+  initials: "י.ש",
+  name: "יואב שמיר",
+  title: "בעלים | קליניקה פרטית",
+  text: <span>חיפשתי מישהו שיסביר לי AI בגובה העיניים — בלי ז'רגון טכני. עומר עשה בדיוק את זה, ועכשיו <strong>המזכירה הדיגיטלית שלנו עובדת 24 שעות ביממה</strong>.</span>,
+  reactions: "👍💡",
+  likes: "98",
+  time: "לפני חודש"
+},
+{
+  initials: "נ.ב",
+  name: "נועם בן-דוד",
+  title: "מנהל שיווק | חברת e-commerce",
+  text: <span>פוסטים של עומר על LinkedIn הם קריאת חובה. <strong>תוכן שמקדים את השוק</strong> ב-6 חודשים לפחות. הוא לא רק יודע — הוא גם יכול להסביר למה זה חשוב.</span>,
+  reactions: "🔥❤️",
+  likes: "312",
+  time: "לפני 3 ימים",
+  featured: true
+},
+{
+  initials: "ת.א",
+  name: "תמר אברהם",
+  title: "מנהלת תפעול | רשת מסעדות",
+  text: <span>המעבר לניהול מונע AI נשמע מפחיד. עומר הפך אותו לתהליך נעים, מדורג. <strong>היום הצוות שלנו לא יכול לדמיין לעבוד בלי הכלים</strong> שבנה.</span>,
+  reactions: "👏❤️",
+  likes: "156",
+  time: "לפני שבועיים"
+}];
+
+
+const MY_LINKEDIN_POSTS = [
+  {
+    tag: "אוטומציה",
+    reactions: "👍❤️🔥", likes: "847", comments: "63",
+    date: "4d",
+    body: <>
+      <p>רוב בעלי העסקים שאני פוגש עובדים 12 שעות ביום — ועדיין מרגישים שהם רצים במקום.</p>
+      <p style={{marginTop:8}}>הבעיה היא לא חוסר מאמץ. הבעיה היא שהם עסוקים בדברים שמחשב יכול לעשות.</p>
+      <p style={{marginTop:8}}><strong>3 תהליכים שאני ממליץ לאוטמט קודם כל:</strong></p>
+      <p>① מענה ראשוני ללידים<br/>② תיאום פגישות ותזכורות<br/>③ דוחות שבועיים לניהול</p>
+      <p style={{marginTop:8}}>חוסכים בממוצע 15 שעות בשבוע. <strong>שבוע ראשון.</strong></p>
+    </>
+  },
+  {
+    tag: "מנהיגות",
+    reactions: "❤️💡👏", likes: "1,203", comments: "91",
+    date: "1w",
+    body: <>
+      <p>מה שלמדתי ב-8200 שאף ספר עסקים לא לימד אותי:</p>
+      <p style={{marginTop:8}}><strong>מידע לבד לא שווה כלום. מה שחשוב זה מה שעושים איתו תוך 30 שניות.</strong></p>
+      <p style={{marginTop:8}}>היום אני מיישם את זה ב-AI: לא מספיק שמודל יודע לנתח — הוא צריך לדעת מתי לפעול.</p>
+      <p style={{marginTop:8}}>עסקים שמבינים את ההבדל הזה מקדימים את כולם.</p>
+    </>
+  },
+  {
+    tag: "AI מעשי",
+    reactions: "🔥👍❤️", likes: "2,140", comments: "178",
+    date: "2w",
+    body: <>
+      <p>שאלתי 50 בעלי עסקים: &quot;מה מונע מכם לאמץ AI?&quot;</p>
+      <p style={{marginTop:8}}>התשובה הכי נפוצה: <strong>&quot;זה נשמע מסובך מדי&quot;</strong></p>
+      <p style={{marginTop:8}}>אז הנה האמת:<br/>→ לא צריך להבין קוד<br/>→ לא צריך תקציב של חברת ענק<br/>→ לא צריך לשנות הכל בבת אחת</p>
+      <p style={{marginTop:8}}>צריך רק לדעת <strong>מאיפה להתחיל</strong>. שלחו לי הודעה — אני אגיד לכם.</p>
+    </>
+  }
+];
+
+function LinkedInCarousel({ posts, linkedinUrl }) {
+  const [active, setActive] = useState(0);
+  const prev = () => setActive(a => (a - 1 + posts.length) % posts.length);
+  const next = () => setActive(a => (a + 1) % posts.length);
+  return (
+    <div className="linkedin-carousel-wrap reveal">
+      <div className="linkedin-carousel">
+        {posts.map((post, i) => (
+          <div key={i} className="li-screenshot" style={{ display: i === active ? 'block' : 'none' }}>
+            <div className="li-chrome">
+              <div className="li-chrome-top">
+                <div className="li-chrome-avatar">OM</div>
+                <div className="li-chrome-info">
+                  <div className="li-chrome-name">Omer Moran</div>
+                  <div className="li-chrome-meta">מומחה AI לעסקים קטנים ובינוניים · {post.date} ·
+                    <svg style={{display:'inline',verticalAlign:'middle',marginRight:2}} width="12" height="12" viewBox="0 0 24 24" fill="#666"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5v-9l6 4.5-6 4.5z"/></svg>
+                  </div>
+                </div>
+                <svg className="li-chrome-logo" width="22" height="22" viewBox="0 0 24 24" fill="#0a66c2"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+              </div>
+            </div>
+            <div className="li-post-content" dir="rtl">
+              <div className="li-own-tag" style={{marginBottom:10}}>{post.tag}</div>
+              {post.body}
+              <div className="li-see-more" style={{marginTop:8, color:'#666', fontSize:12}}>...ראה עוד</div>
+            </div>
+            <div className="li-post-reactions-bar">
+              <div style={{display:'flex', alignItems:'center', gap:6}}>
+                <span className="li-post-reaction-emojis">{post.reactions}</span>
+                <span style={{fontSize:12, color:'#666'}}>{post.likes}</span>
+              </div>
+              <div className="li-post-counts">
+                <span>{post.comments} תגובות</span>
+              </div>
+            </div>
+            <div className="li-post-actions">
+              {[['👍','לייק'],['💬','תגובה'],['🔁','שיתוף'],['📤','שליחה']].map(([icon,label]) => (
+                <div key={label} className="li-action-btn">
+                  <span style={{fontSize:14}}>{icon}</span>
+                  <span>{label}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        ))}
+      </div>
+      <div className="carousel-nav">
+        <button className="carousel-btn" onClick={prev}>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M9 18l6-6-6-6"/></svg>
+        </button>
+        <div className="carousel-dots">
+          {posts.map((_, i) => (
+            <div key={i} className={`carousel-dot${i === active ? ' active' : ''}`} onClick={() => setActive(i)} />
+          ))}
+        </div>
+        <button className="carousel-btn" onClick={next}>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+        </button>
       </div>
     </div>
   );
 }
 
-const MARQUEE_ITEMS = ['אוטומציית תהליכים', 'מערכות אגנטיות', 'מסגרות AI', 'אסטרטגיית צמיחה', 'כישורי AI מותאמים', 'מוצרי נתונים', 'טרנספורמציית AI', 'מכפיל הכנסות', 'מומחה לעסקים קטנים', 'AI ללא טכני'];
+function LinkedInPost({ post, delay }) {
+  return (
+    <div className={`li-post reveal${post.featured ? ' li-featured' : ''}`} style={{ transitionDelay: `${delay}s` }}>
+      {post.featured && <div className="li-featured-badge">פוסט מובלט</div>}
+      <div className="li-post-header">
+        <div className="li-author">
+          <div className="li-author-name">{post.name}</div>
+          <div className="li-author-title">{post.title}</div>
+        </div>
+      </div>
+      <div className="li-post-text">{post.text}</div>
+      <div className="li-post-footer">
+        <div className="li-reactions">
+          <span className="li-reaction-emojis">{post.reactions}</span>
+          <span>{post.likes}</span>
+        </div>
+        <div className="li-timestamp">{post.time}</div>
+      </div>
+    </div>);
 
-const SERVICES = [
-{ icon: <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z" /><path d="M2 17l10 5 10-5" /><path d="M2 12l10 5 10-5" /></svg>, name: "תהליכי עבודה ואוטומציות", desc: "ביטול משימות חוזרות — בניית מערכות שמנהלות את עצמן.", detail: "אני ממפה את כל הפעולות שלך, מוצא היכן זמן וכסף הולכים לאיבוד, ובונה מחדש את התהליכים האלה עם אוטומציה חכמה. הצוות שלך מתמקד בעבודה בעלת ערך גבוה בעוד משימות שגרתיות פועלות אוטומטית." },
-{ icon: <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="3" width="7" height="7" /><rect x="14" y="3" width="7" height="7" /><rect x="14" y="14" width="7" height="7" /><rect x="3" y="14" width="7" height="7" /></svg>, name: "מסגרות AI", desc: "מפת דרכים ברורה ל-AI המותאמת לתעשייה ולמטרות שלך.", detail: "לא כל AI הוא אותו דבר. אני מעצב אסטרטגיה מותאמת אישית שמתאימה לגודל, לתקציב ולמטרות שלך — ומספק לך תוכנית מעשית שלב אחר שלב כדי שתדע בדיוק מה לבנות, מתי ולמה." },
-{ icon: <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="3" /><path d="M12 2v3M12 19v3M4.22 4.22l2.12 2.12M17.66 17.66l2.12 2.12M2 12h3M19 12h3M4.22 19.78l2.12-2.12M17.66 6.34l2.12-2.12" /></svg>, name: "כישורי AI מותאמים אישית", desc: "AI שמכיר את העסק שלך ומדבר את השפה שלך.", detail: "AI גנרי נותן תוצאות גנריות. אני בונה יכולות AI ספציפיות עבורך — מאומן על התוכן, המוצרים והתהליכים שלך. מומחה שמכיר את העסק שלך מבפנים ומבחוץ, זמין 24/7." },
-{ icon: <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" /></svg>, name: "מערכות אגנטיות", desc: "AI שפועל בשמך, סביב השעון.", detail: "AI אגנטי הולך מעבר לצ'אטבוטים — הוא מטפל באופן פעיל במשימות: מעקב אחר לידים, עיבוד הזמנות, מענה ללקוחות, תזמון. העסק שלך ממשיך לפעול גם כשאתה לא שם." },
-{ icon: <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17" /><polyline points="16 7 22 7 22 13" /></svg>, name: "אסטרטגיית צמיחה", desc: "מצא הזדמנויות הכנסה נסתרות עם AI כנשק שלך.", detail: "אני מנתח את העסק שלך כדי לגלות היכן צמיחה נשארת על השולחן — תמחור, המרה, שימור, ערוצים חדשים — ובונה תוכנית מונעת AI לתפוס את כולם." },
-{ icon: <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="8" r="4" /><path d="M20 21a8 8 0 1 0-16 0" /></svg>, name: "טרנספורמציית AI", desc: "עבור ממסורתי למונע AI לחלוטין — בקצב שלך.", detail: "המסע המלא. אני מטמיע AI בכל שכבה של העסק שלך לאורך זמן — הצוות, הפעולות, חוויית הלקוח. אתה לא צריך להיות טכני. רק שאפתן. אני מטפל בשאר." }];
-
-
-const MILESTONES = [
-{ year: "ZoomInfo", title: "בתוך מובל טכנולוגי עולמי", desc: "עבדתי באחת מחברות ה-B2B המובילות בעולם — למדתי איך צוותים ברמה עולמית בונים מוצרים שמתרחבים למיליוני משתמשים." },
-{ year: "Connecteam", title: "בנייה לעסקים אמיתיים", desc: "עזרתי לסטארטאפ בצמיחה מהירה לבנות כלים שמנהלים ובעלי עסקים קטנים באמת אוהבים להשתמש בהם כל יום." },
-{ year: "סטארטאפ", title: "שותף מייסד", desc: "הקמתי חברה משלי מאפס. למדתי מה באמת נדרש לבנות משהו, לקבל החלטות קשות ולצמוח מהר." },
-{ year: "עכשיו", title: "מומחה AI לעסקים קטנים", desc: "משתמש בכל מה שלמדתי כדי לתת לעסקים כמו שלך את אותן יתרונות AI שיש לחברות גדולות — בלי המורכבות." }];
-
+}
 
 function App() {
   const { tweaks, TweaksPanel, TweakColor, TweakText } = useTweaks(TWEAK_DEFAULTS);
@@ -427,27 +913,26 @@ function App() {
 
   return (
     <>
-      <TweaksPanel title="עריכה">
-        <TweakColor id="accentColor" label="צבע הדגשה" />
-        <TweakText id="heroHeadline" label="כותרת ראשית" />
-        <TweakText id="heroSub" label="כותרת משנה" />
-        <TweakText id="ctaLabel" label="טקסט כפתור" />
-        <TweakText id="whatsappNumber" label="מספר וואטסאפ" />
+      <TweaksPanel title="הגדרות">
+        <TweakColor id="accentColor" label="צבע ראשי" />
+        <TweakText id="meetUrl" label="קישור Google Meet" />
+        <TweakText id="whatsappNumber" label="מספר WhatsApp" />
         <TweakText id="emailAddress" label="כתובת מייל" />
-        <TweakText id="linkedinUrl" label="קישור LinkedIn" />
+        <TweakText id="linkedinUrl" label="כתובת LinkedIn" />
       </TweaksPanel>
       <style>{`:root { --gold: ${gold}; --gold-rgb: ${r},${g},${b}; --gold-light: ${gold}55; --gold-pale: ${gold}14; }`}</style>
 
       {/* Nav */}
       <nav>
-        <div className="nav-logo">עומר מורן</div>
+        <a href="#contact" className="nav-cta">קביעת פגישה</a>
         <ul className="nav-links">
-          <li><a href="#impact">השפעה</a></li>
+          <li><a href="#impact">תוצאות</a></li>
           <li><a href="#process">תהליך</a></li>
           <li><a href="#services">שירותים</a></li>
-          <li><a href="#contact">צור קשר</a></li>
+          <li><a href="#testimonials">המלצות</a></li>
+          <li><a href="#contact">יצירת קשר</a></li>
         </ul>
-        <a href="#contact" className="nav-cta">{tweaks.ctaLabel}</a>
+        <div className="nav-logo">Omer Moran</div>
       </nav>
 
       {/* Hero */}
@@ -455,12 +940,26 @@ function App() {
         <div className="hero-bg-grid"></div>
         <div className="hero-glow"></div>
         <div className="hero-content">
-          <p className="hero-eyebrow"><span className="hero-eyebrow-line"></span>מומחה AI לעסקים קטנים ובינוניים</p>
-          <HeroTitle text={tweaks.heroHeadline} />
-          <p className="hero-sub">{tweaks.heroSub}</p>
+          <p className="hero-eyebrow">
+            <span className="hero-eyebrow-line"></span>
+            מומחה AI לעסקים קטנים ובינוניים
+          </p>
+          <h1 className="hero-title">
+            היתרון שהמתחרים שלכם<br />
+            <span className="accent">עדיין לא גילו.</span>
+          </h1>
+          <p className="hero-sub">
+            אני עוזר לעסקים לנצל את מלוא הפוטנציאל שלהם — ממערכות אוטומציה חכמות ועד סוכני AI שעובדים עבורכם סביב השעון.
+          </p>
           <div className="hero-actions">
-            <a href="#contact" className="btn-primary">{tweaks.ctaLabel}</a>
-            <a href="#impact" className="btn-ghost">ראה את ההשפעה <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M12 5l7 7-7 7" /></svg></a>
+            <a href={tweaks.meetUrl} target="_blank" rel="noopener noreferrer" className="btn-primary">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M19 3H5C3.9 3 3 3.9 3 5v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z" opacity=".4" /><path d="M21 16.5l-4-2.5V10l4-2.5V16.5z" /><path d="M3 5v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2H5C3.9 3 3 3.9 3 5zm16 11H5V8h14v8z" opacity=".3" /></svg>
+              קביעת פגישה חינם
+            </a>
+            <a href="#impact" className="btn-ghost">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M19 12H5M12 19l-7-7 7-7" /></svg>
+              לתוצאות
+            </a>
           </div>
         </div>
         <div className="hero-image-wrap">
@@ -468,8 +967,8 @@ function App() {
             <img src="photo-1777477389865.JPG" alt="עומר מורן" />
             <div className="photo-credential">
               <div className="cred-label">מומחה AI</div>
-              <div className="cred-name">עומר מורן</div>
-              <div className="cred-title">עסקים מונעי AI</div>
+              <div className="cred-name">Omer Moran</div>
+              <div className="cred-title">AI לעסקים — תוצאות אמיתיות</div>
             </div>
           </div>
         </div>
@@ -486,28 +985,28 @@ function App() {
 
       {/* Impact Numbers */}
       <div id="impact" className="impact-section">
-        <p className="impact-eyebrow reveal">השפעה עסקית אמיתית</p>
+        <p className="impact-eyebrow reveal">תוצאות עסקיות אמיתיות</p>
         <div className="impact-grid">
           <div className="impact-item reveal">
-            <div className="impact-number" style={{ width: "288px" }}>
-              <AnimatedStat target={3} suffix="×" /><span className="accent"> מהיר</span>
+            <div className="impact-number">
+              <AnimatedStat target={9} suffix="×" /><span className="accent">מהר יותר</span>
             </div>
-            <div className="impact-claim">קצב צמיחה עסקי</div>
-            <div className="impact-detail">עסקים שמאמצים AI מוקדם לא רק גדלים — הם מצטברים. כל שבוע שאתה ממתין, הפער עם המתחרים מתרחב.</div>
+            <div className="impact-claim">קצב צמיחה עסקית</div>
+            <div className="impact-detail">עסקים שמאמצים AI מוקדם לא רק צומחים — הם מתחרים ברמה אחרת לגמרי. כל שבוע שעובר, הפער מהמתחרים מתרחב.</div>
           </div>
           <div className="impact-item reveal reveal-delay-1">
             <div className="impact-number">
               <AnimatedStat target={80} suffix="%" />
             </div>
             <div className="impact-claim">פחות עבודה ידנית</div>
-            <div className="impact-detail">רוב מה שהצוות שלך עושה היום ניתן לאוטומציה. הזמן הזה חוזר למה שבאמת מזיז את המחט.</div>
+            <div className="impact-detail">רוב מה שהצוות שלכם עושה היום אפשר לעשות בצורה אוטומטית. הזמן שמתפנה חוזר לדברים שבאמת מניעים את העסק קדימה.</div>
           </div>
           <div className="impact-item reveal reveal-delay-2">
             <div className="impact-number">
-              <AnimatedStat target={4} suffix="" /> <span style={{ fontSize: 'clamp(32px,4vw,60px)' }}>שבועות</span>
+              <AnimatedStat target={4} suffix="" /><span style={{ fontSize: 'clamp(28px,3.5vw,52px)', lineHeight: 1, alignSelf: 'center' }}>שבועות</span>
             </div>
-            <div className="impact-claim">משיחה ל-AI חי</div>
-            <div className="impact-detail">אין פרויקטים של 6 חודשים. אין ישיבות אינסופיות. אתה רואה מערכות עובדות בתוך שבועות מהשיחה הראשונה שלנו.</div>
+            <div className="impact-claim">מפגישה ראשונה למערכות AI בעסק שלך</div>
+            <div className="impact-detail">לא פרויקטים של חצי שנה. לא אינסוף ישיבות. תוך שבועות מהשיחה הראשונה כבר יש לכם מערכות עובדות בעסק.</div>
           </div>
         </div>
       </div>
@@ -518,9 +1017,21 @@ function App() {
         <h2 className="how-title reveal reveal-delay-1">שלושה שלבים.<br />תוצאות אמיתיות.</h2>
         <div className="how-steps">
           {[
-          { n: "01", title: "אבחון", desc: "מתחילים עם שיחה חינמית של 30 דקות. אני שואל את השאלות הנכונות כדי להבין את העסק שלך, את צווארי הבקבוק שלך, והיכן AI יכול להשפיע הכי מהר." },
-          { n: "02", title: "בנייה", desc: "אני מעצב ומפרס מערכות AI מותאמות אישית לעסק שלך. אין כלים מדף. אין מורכבות לצוות שלך. רק דברים שעובדים." },
-          { n: "03", title: "צמיחה", desc: "העסק שלך פועל בחוכמה, מטפל ביותר, ומתרחב ללא הוספת עובדים. ה-AI ממשיך להשתפר — היתרון שלך מצטבר לאורך זמן." }].
+          {
+            n: "01",
+            title: "מאבחנים",
+            desc: "מתחילים בשיחה חינמית של 30 דקות. אני שואל את השאלות הנכונות כדי להבין את העסק שלכם, את צווארי הבקבוק, ואיפה AI יכול לעשות את ההשפעה הגדולה ביותר — מהר."
+          },
+          {
+            n: "02",
+            title: "בונים",
+            desc: "אני מתכנן ומטמיע מערכות AI מותאמות לעסק שלכם. לא כלים גנריים. לא סיבוך מיותר לצוות. רק דברים שעובדים."
+          },
+          {
+            n: "03",
+            title: "צומחים",
+            desc: "העסק שלכם מנהל יותר, מסתגל מהר יותר, וצומח בלי להגדיל כוח אדם. ה-AI ממשיך להשתפר — היתרון שלכם מצטבר עם הזמן."
+          }].
           map((step, i) =>
           <div className={`how-step reveal${i > 0 ? ` reveal-delay-${i}` : ''}`} key={i}>
               <div className="how-step-num">{step.n}</div>
@@ -530,8 +1041,11 @@ function App() {
           )}
         </div>
         <div className="how-cta-row reveal">
-          <a href="#contact" className="btn-primary">{tweaks.ctaLabel}</a>
-          <span className="how-note">שיחה ראשונה חינם — ללא התחייבות</span>
+          <a href={tweaks.meetUrl} target="_blank" rel="noopener noreferrer" className="btn-primary">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" /><line x1="16" y1="2" x2="16" y2="6" /><line x1="8" y1="2" x2="8" y2="6" /><line x1="3" y1="10" x2="21" y2="10" /></svg>
+            קבעו פגישה חינם
+          </a>
+          <span className="how-note">ללא התחייבות · תשובה תוך שעות</span>
         </div>
       </div>
 
@@ -539,21 +1053,31 @@ function App() {
       <div id="background" className="background-section">
         <div className="bg-layout">
           <div className="reveal">
-            <p className="section-eyebrow">רקע</p>
-            <h2 className="section-title">שנים בתוך ההייטק.<br />עכשיו עובד עבורך.</h2>
-            <p className="bg-tagline">עבדתי בתוך חלק מחברות הטכנולוגיה שצמחו הכי מהר בעולם. עכשיו אני משתמש בכל מה שלמדתי שם כדי לתת לעסק שלך את אותו יתרון.</p>
-            <div className="bg-companies">
-              {['Connecteam', 'ZoomInfo', 'מייסד סטארטאפ'].map((c) => <span key={c} className="company-chip">{c}</span>)}
+            <p className="section-eyebrow">הרקע שלי</p>
+            <h2 className="section-title">מיחידת המודיעין 8200<br />עד חברות הטק הגדולות.</h2>
+            <p className="bg-tagline">
+              שירתתי ביחידות הטכנולוגיות המובחרות ביותר של ישראל. אחר כך עבדתי בחלק מחברות הטק הצומחות ביותר בעולם. היום אני מביא את כל הניסיון הזה — לעסק שלכם.
+            </p>
+            <div className="military-badge">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" /></svg>
+              בוגר ומשרת מילואים פעיל ביחידה 8200
             </div>
-            <a href={`https://${tweaks.linkedinUrl}`} target="_blank" rel="noopener noreferrer" className="bg-linkedin">
-              צפה בפרופיל LinkedIn <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M12 5l7 7-7 7" /></svg>
+            <div className="bg-companies">
+              {['יחידה 8200', 'ZoomInfo', 'Connecteam', 'מייסד סטארט-אפ'].map((c) =>
+              <span key={c} className="company-chip">{c}</span>
+              )}
+            </div>
+            <a href={`https://${tweaks.linkedinUrl}`} target="_blank" rel="noopener noreferrer" className="linkedin-hero-cta" style={{marginTop:8}}>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+              פרופיל LinkedIn המלא
             </a>
           </div>
           <div className="bg-milestones reveal reveal-delay-2">
             {MILESTONES.map((m, i) =>
-            <div className={`milestone${m.year === 'עכשיו' ? ' milestone-current' : ''}`} key={i}>
+            <div className={`milestone${m.current ? ' milestone-current' : ''}`} key={i}>
                 <div className="milestone-year">{m.year}</div>
                 <div>
+                  {m.tag && <div className="milestone-tag">{m.tag}</div>}
                   <div className="milestone-title">{m.title}</div>
                   <div className="milestone-desc">{m.desc}</div>
                 </div>
@@ -568,48 +1092,113 @@ function App() {
         <div className="services-header">
           <div className="reveal">
             <p className="section-eyebrow">שירותים</p>
-            <h2 className="section-title">שש דרכים שאני משנה את העסק שלך.</h2>
+            <h2 className="section-title">שש דרכים לשנות את העסק שלכם.</h2>
           </div>
-          <p className="services-desc reveal reveal-delay-1">כל התקשרות מתחילה בהבנת העסק שלך. אחר כך אני בונה בדיוק מה שאתה צריך — ולא יותר מזה.</p>
+          <p className="services-desc reveal reveal-delay-1">כל מעורבות מתחילה בהבנת העסק שלכם לעומק. אז אני בונה בדיוק מה שצריך — כדי לנצח את המתחרים שלך.</p>
         </div>
         <div className="services-hint reveal">
           <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M7 10l5-6 5 6" /><path d="M7 14l5 6 5-6" /></svg>
-          לחץ על כרטיסייה כלשהי לפרטים נוספים
+          לחצו על כל כרטיס לפרטים נוספים
         </div>
         <div className="services-grid">
           {SERVICES.map((s, i) => <ScannerCard key={i} service={s} delay={0.05 + i % 3 * 0.1} />)}
         </div>
       </div>
 
+      {/* Testimonials */}
+      <div id="testimonials" className="testimonials-section">
+        <div className="testimonials-intro reveal">
+          <p className="section-eyebrow">מה אומרים עליי</p>
+          <h2 className="section-title">עסקים שכבר עובדים אחרת.</h2>
+          <p className="bg-tagline" style={{ marginBottom: 0 }}>
+            אלו לא סיפורי הצלחה מדומים — אלו בעלי עסקים ומנהלים שהחליטו לשנות כיוון, ורואים את התוצאות כל יום.
+          </p>
+        </div>
+        <div className="testimonials-grid">
+          {TESTIMONIALS.map((post, i) =>
+          <LinkedInPost key={i} post={post} delay={0.08 + i % 3 * 0.1} />
+          )}
+        </div>
+      </div>
+
+      {/* LinkedIn Posts - Carousel */}
+      <div id="linkedin-posts" className="linkedin-section">
+        <div style={{display:'flex', alignItems:'flex-end', justifyContent:'space-between', flexWrap:'wrap', gap:24}} className="reveal">
+          <div>
+            <p className="how-eyebrow">LinkedIn</p>
+            <h2 className="how-title" style={{marginBottom:0}}>תוכן שמקדים את השוק.<br/><span style={{color:'var(--gold)'}}>בחינם. כל שבוע.</span></h2>
+          </div>
+          <div style={{display:'flex', flexDirection:'column', gap:12, alignItems:'flex-start'}}>
+            <p style={{fontSize:14, color:'rgba(250,249,246,0.45)', maxWidth:320, lineHeight:1.7, fontWeight:300}}>המתחרים שלי בדרך כלל פרסונל ברנד ללא ניסיון תעשייתי. אני כותב מהשטח — מ-8200, מחברות הטק הגדולות, ומלקוחות אמיתיים.</p>
+            <a href={`https://${tweaks.linkedinUrl}`} target="_blank" rel="noopener noreferrer" className="linkedin-hero-cta">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+              עקבו אחריי ב-LinkedIn
+            </a>
+          </div>
+        </div>
+        <LinkedInCarousel posts={MY_LINKEDIN_POSTS} linkedinUrl={tweaks.linkedinUrl} />
+        <div className="linkedin-edge-box reveal">
+          <div className="linkedin-edge-stat">
+            <div className="linkedin-edge-stat-num">5K+</div>
+            <div className="linkedin-edge-stat-label">עוקבים</div>
+          </div>
+          <div className="linkedin-edge-stat">
+            <div className="linkedin-edge-stat-num">2×</div>
+            <div className="linkedin-edge-stat-label">בשבוע</div>
+          </div>
+          <div className="linkedin-edge-text">
+            <div className="linkedin-edge-title">הניסיון שלי הוא היתרון שלכם.</div>
+            <div className="linkedin-edge-sub">בניגוד ליועצים שלמדו AI מיוטיוב — אני מגיע עם שנים בתוך יחידות מודיעין, חברות טק גלובליות ויזמות. זה מה שמשתקף בתוכן, ובתוצאות.</div>
+          </div>
+        </div>
+      </div>
+
       {/* Contact */}
       <section id="contact" className="contact-section">
         <div className="contact-inner reveal">
-          <p className="contact-eyebrow">צור קשר</p>
-          <h2 className="contact-title">מוכן לבנות את יתרון ה-AI שלך?</h2>
-          <p className="contact-sub">ספר לי על העסק שלך. אני אגיד לך בדיוק איך AI יכול לשנות אותו — ללא לחץ, ללא שטויות.</p>
+          <p className="contact-eyebrow">בואו נדבר</p>
+          <h2 className="contact-title">מוכנים לבנות את היתרון שלכם?</h2>
+          <p className="contact-sub">
+            30 דקות שיחה — ואני אגיד לכם בדיוק איך AI יכול לשנות את העסק שלכם.
+          </p>
+          <p className="contact-sub2">
+            ללא ז'רגון טכני. ללא התחייבות. רק תוצאות.
+          </p>
           <div className="contact-buttons">
+            <a href={tweaks.meetUrl} target="_blank" rel="noopener noreferrer" className="contact-btn contact-btn-meet">
+              <svg width="22" height="22" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect width="48" height="48" rx="8" fill="none" />
+                <path d="M7 12h22v16H7z" fill="rgba(255,255,255,0.25)" />
+                <path d="M29 20l12-7v22l-12-7V20z" fill="rgba(255,255,255,0.4)" />
+              </svg>
+              <span>
+                קביעת פגישה עכשיו
+                <span className="meet-label-small">Google Meet · חינם · 30 דקות</span>
+              </span>
+            </a>
             <a href={`https://wa.me/${tweaks.whatsappNumber}`} target="_blank" rel="noopener noreferrer" className="contact-btn contact-btn-whatsapp">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z" /></svg>
-              וואטסאפ
+              WhatsApp
             </a>
             <a href={`mailto:${tweaks.emailAddress}`} className="contact-btn contact-btn-email">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="4" width="20" height="16" rx="2" /><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" /></svg>
-              שלח מייל
+              מייל
             </a>
           </div>
-          <p className="contact-note">אני עונה באופן אישי — בדרך כלל תוך מספר שעות.</p>
+          <p className="contact-note">אני עונה באופן אישי — בדרך כלל תוך שעות ספורות.</p>
         </div>
       </section>
 
       <footer>
-        <div className="footer-name">עומר מורן — מומחה AI</div>
-        <div className="footer-copy">© 2026 · עסקים מונעי AI</div>
+        <div className="footer-copy">© 2026 · AI-Driven SMBs</div>
+        <div className="footer-name">Omer Moran</div>
       </footer>
     </>);
 
 }
 
 ReactDOM.createRoot(document.getElementById('root')).render(<App />);
+
 </script>
 </body>
 </html>
