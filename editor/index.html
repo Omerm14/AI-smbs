@@ -29,192 +29,202 @@
     body { background: var(--bg); color: var(--text); font-family: 'DM Sans', sans-serif; -webkit-font-smoothing: antialiased; }
 
     /* ── Header ── */
-    .header {
-      position: fixed; top: 0; left: 0; right: 0; height: 56px; z-index: 200;
-      background: var(--panel); border-bottom: 1px solid var(--border);
-      display: flex; align-items: center; justify-content: space-between; padding: 0 24px; gap: 16px;
-    }
-    .header-brand { display: flex; align-items: center; gap: 10px; font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 14px; letter-spacing: 0.02em; }
-    .brand-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--accent); flex-shrink: 0; }
-    .status-pill { display: flex; align-items: center; gap: 7px; font-size: 12px; color: var(--text-dimmer); padding: 5px 12px; background: var(--panel2); border: 1px solid var(--border); border-radius: 100px; }
-    .status-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--text-dimmer); flex-shrink: 0; transition: background 0.3s; }
-    .status-dot.connected { background: var(--success); box-shadow: 0 0 6px var(--success); }
-    .status-dot.dirty { background: var(--warning); box-shadow: 0 0 6px var(--warning); }
-    @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0.3} }
-    .status-dot.publishing { background: var(--accent); animation: blink 0.9s infinite; }
-    .header-right { display: flex; align-items: center; gap: 8px; }
-    .btn { display: inline-flex; align-items: center; gap: 7px; font-family: 'Space Grotesk', sans-serif; font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; padding: 8px 18px; border: none; cursor: pointer; transition: all 0.2s; white-space: nowrap; }
-    .btn:disabled { opacity: 0.45; pointer-events: none; }
+    .hdr { position: fixed; top: 0; left: 0; right: 0; height: 54px; z-index: 200; background: var(--panel); border-bottom: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; padding: 0 20px; gap: 12px; }
+    .hdr-brand { display: flex; align-items: center; gap: 9px; font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 14px; }
+    .brand-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--accent); flex-shrink: 0; }
+    .hdr-center { flex: 1; display: flex; justify-content: center; }
+    .status-pill { display: inline-flex; align-items: center; gap: 7px; font-size: 12px; color: var(--text-dimmer); padding: 4px 12px; background: var(--panel2); border: 1px solid var(--border); border-radius: 100px; }
+    .sdot { width: 5px; height: 5px; border-radius: 50%; background: var(--text-dimmer); flex-shrink: 0; transition: all 0.3s; }
+    .sdot.ok    { background: var(--success); box-shadow: 0 0 5px var(--success); }
+    .sdot.dirty { background: var(--warning); box-shadow: 0 0 5px var(--warning); }
+    .sdot.pub   { background: var(--accent); animation: blink .9s infinite; }
+    @keyframes blink { 0%,100%{opacity:1} 50%{opacity:.3} }
+    .hdr-right { display: flex; align-items: center; gap: 8px; }
+
+    /* ── Buttons ── */
+    .btn { display: inline-flex; align-items: center; gap: 6px; font-family: 'Space Grotesk', sans-serif; font-size: 11px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; padding: 8px 16px; border: none; cursor: pointer; transition: all .2s; white-space: nowrap; border-radius: 4px; }
+    .btn:disabled { opacity: .45; pointer-events: none; }
     .btn-ghost { background: transparent; color: var(--text-dim); border: 1px solid var(--border-mid); }
-    .btn-ghost:hover { color: var(--text); background: rgba(255,255,255,0.05); }
+    .btn-ghost:hover { color: var(--text); background: rgba(255,255,255,.05); }
     .btn-accent { background: var(--accent); color: #fff; border: 1px solid transparent; }
-    .btn-accent:hover { filter: brightness(1.12); transform: translateY(-1px); box-shadow: 0 6px 20px rgba(var(--accent-rgb),0.35); }
-    .btn-danger { background: transparent; color: var(--error); border: 1px solid rgba(224,90,90,0.3); }
-    .btn-danger:hover { background: rgba(224,90,90,0.1); }
+    .btn-accent:hover { filter: brightness(1.12); transform: translateY(-1px); box-shadow: 0 5px 18px rgba(var(--accent-rgb),.35); }
+    .btn-danger { background: transparent; color: var(--error); border: 1px solid rgba(224,90,90,.3); }
+    .btn-danger:hover { background: rgba(224,90,90,.1); }
+    .preview-link { display: inline-flex; align-items: center; gap: 6px; font-size: 12px; color: var(--text-dim); text-decoration: none; background: rgba(255,255,255,.04); border: 1px solid var(--border); border-radius: 4px; padding: 6px 11px; transition: all .15s; }
+    .preview-link:hover { color: var(--text); background: rgba(255,255,255,.08); }
 
     /* ── Layout ── */
-    .layout { display: flex; height: 100vh; padding-top: 56px; }
+    .layout { display: flex; height: 100vh; padding-top: 54px; }
 
     /* ── Sidebar ── */
-    .sidebar { width: 210px; flex-shrink: 0; background: var(--panel); border-right: 1px solid var(--border); display: flex; flex-direction: column; overflow-y: auto; }
-    .sidebar-section { padding: 8px 0; }
-    .sidebar-section + .sidebar-section { border-top: 1px solid var(--border); }
-    .sidebar-label { font-size: 10px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--text-dimmer); padding: 10px 18px 6px; }
-    .nav-item { display: flex; align-items: center; gap: 11px; padding: 9px 18px; font-size: 13px; color: var(--text-dim); cursor: pointer; transition: color 0.15s, background 0.15s; user-select: none; border-left: 2px solid transparent; }
-    .nav-item:hover { color: var(--text); background: rgba(255,255,255,0.04); }
-    .nav-item.active { color: var(--text); background: rgba(var(--accent-rgb),0.1); border-left-color: var(--accent); }
-    .nav-item svg { opacity: 0.6; flex-shrink: 0; }
-    .nav-item.active svg { opacity: 1; }
+    .sb { width: 200px; flex-shrink: 0; background: var(--panel); border-right: 1px solid var(--border); display: flex; flex-direction: column; overflow-y: auto; }
+    .sb-sec { padding: 6px 0; }
+    .sb-sec + .sb-sec { border-top: 1px solid var(--border); }
+    .sb-lbl { font-size: 9px; font-weight: 700; letter-spacing: .18em; text-transform: uppercase; color: var(--text-dimmer); padding: 10px 16px 5px; }
+    .nav-it { display: flex; align-items: center; gap: 10px; padding: 8px 16px; font-size: 13px; color: var(--text-dim); cursor: pointer; transition: color .15s, background .15s; user-select: none; border-left: 2px solid transparent; }
+    .nav-it:hover { color: var(--text); background: rgba(255,255,255,.04); }
+    .nav-it.on { color: var(--text); background: rgba(var(--accent-rgb),.1); border-left-color: var(--accent); }
+    .nav-it svg { opacity: .55; flex-shrink: 0; }
+    .nav-it.on svg { opacity: 1; }
 
     /* ── Main ── */
     .main { flex: 1; overflow-y: auto; background: var(--bg); }
-    .panel { max-width: 760px; margin: 0 auto; padding: 44px 52px 100px; }
-    .panel-title { font-family: 'Space Grotesk', sans-serif; font-size: 22px; font-weight: 700; margin-bottom: 6px; }
-    .panel-desc { font-size: 14px; color: var(--text-dim); line-height: 1.65; margin-bottom: 40px; }
+    .panel { max-width: 740px; margin: 0 auto; padding: 40px 48px 100px; }
+    .p-title { font-family: 'Space Grotesk', sans-serif; font-size: 21px; font-weight: 700; margin-bottom: 5px; }
+    .p-desc { font-size: 13.5px; color: var(--text-dim); line-height: 1.65; margin-bottom: 36px; }
 
     /* ── Fields ── */
-    .field-group { margin-bottom: 36px; }
-    .field-group-title { font-family: 'Space Grotesk', sans-serif; font-size: 10px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--accent); margin-bottom: 18px; padding-bottom: 10px; border-bottom: 1px solid rgba(var(--accent-rgb),0.18); }
-    .field { margin-bottom: 18px; }
-    .field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 18px; }
-    .field-label { display: block; font-size: 12px; font-weight: 600; color: var(--text-dim); margin-bottom: 6px; }
-    .field-hint { font-size: 11px; color: var(--text-dimmer); margin-bottom: 6px; line-height: 1.5; }
-    .field-input {
-      width: 100%; padding: 9px 13px;
-      background: var(--input-bg); border: 1px solid var(--input-border);
-      color: var(--text); font-family: 'DM Sans', sans-serif; font-size: 13.5px;
-      border-radius: 6px; outline: none; transition: border-color 0.2s, background 0.2s;
-    }
-    .field-input:focus { border-color: rgba(var(--accent-rgb),0.6); background: rgba(var(--accent-rgb),0.05); }
-    .field-input[disabled] { opacity: 0.45; cursor: not-allowed; }
-    textarea.field-input { resize: vertical; min-height: 82px; line-height: 1.6; }
-    .color-row { display: flex; align-items: center; gap: 10px; }
-    .color-swatch { width: 40px; height: 38px; border: 1px solid var(--input-border); border-radius: 6px; cursor: pointer; padding: 3px; background: transparent; }
-    .color-swatch::-webkit-color-swatch-wrapper { padding: 0; }
-    .color-swatch::-webkit-color-swatch { border: none; border-radius: 4px; }
+    .fg { margin-bottom: 32px; }
+    .fg-title { font-family: 'Space Grotesk', sans-serif; font-size: 10px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; color: var(--accent); margin-bottom: 16px; padding-bottom: 8px; border-bottom: 1px solid rgba(var(--accent-rgb),.18); }
+    .f { margin-bottom: 16px; }
+    .f-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 16px; }
+    .f-row-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; margin-bottom: 16px; }
+    .lbl { display: block; font-size: 11.5px; font-weight: 600; color: var(--text-dim); margin-bottom: 5px; }
+    .hint { font-size: 11px; color: var(--text-dimmer); margin-bottom: 5px; line-height: 1.5; }
+    .inp { width: 100%; padding: 8px 12px; background: var(--input-bg); border: 1px solid var(--input-border); color: var(--text); font-family: 'DM Sans', sans-serif; font-size: 13px; border-radius: 5px; outline: none; transition: border-color .2s, background .2s; }
+    .inp:focus { border-color: rgba(var(--accent-rgb),.6); background: rgba(var(--accent-rgb),.05); }
+    .inp[disabled] { opacity: .4; cursor: not-allowed; }
+    textarea.inp { resize: vertical; min-height: 76px; line-height: 1.6; }
+    .color-row { display: flex; align-items: center; gap: 9px; }
+    .cswatch { width: 38px; height: 36px; border: 1px solid var(--input-border); border-radius: 5px; cursor: pointer; padding: 3px; background: transparent; }
+    .cswatch::-webkit-color-swatch-wrapper { padding: 0; }
+    .cswatch::-webkit-color-swatch { border: none; border-radius: 3px; }
 
-    /* ── Cards (expandable items) ── */
-    .card-list { display: flex; flex-direction: column; gap: 10px; }
-    .card-item { background: var(--panel2); border: 1px solid var(--border); border-radius: 8px; overflow: hidden; }
-    .card-head { display: flex; align-items: center; gap: 12px; padding: 13px 16px; cursor: pointer; user-select: none; transition: background 0.15s; }
-    .card-head:hover { background: rgba(255,255,255,0.03); }
-    .card-num { font-family: 'Space Grotesk', sans-serif; font-size: 10px; font-weight: 700; color: var(--accent); letter-spacing: 0.1em; min-width: 28px; }
-    .card-name { font-size: 13px; font-weight: 600; color: var(--text); flex: 1; }
-    .card-chevron { color: var(--text-dimmer); transition: transform 0.2s; flex-shrink: 0; }
-    .card-item.open .card-chevron { transform: rotate(180deg); }
-    .card-body { padding: 16px; border-top: 1px solid var(--border); display: none; }
-    .card-item.open .card-body { display: block; }
+    /* ── Cards ── */
+    .clist { display: flex; flex-direction: column; gap: 9px; }
+    .citem { background: var(--panel2); border: 1px solid var(--border); border-radius: 7px; overflow: hidden; }
+    .chead { display: flex; align-items: center; gap: 11px; padding: 12px 14px; cursor: pointer; user-select: none; transition: background .15s; }
+    .chead:hover { background: rgba(255,255,255,.03); }
+    .cnum { font-family: 'Space Grotesk', sans-serif; font-size: 10px; font-weight: 700; color: var(--accent); letter-spacing: .1em; min-width: 26px; }
+    .cname { font-size: 13px; font-weight: 600; color: var(--text); flex: 1; }
+    .chev { color: var(--text-dimmer); transition: transform .2s; flex-shrink: 0; }
+    .citem.open .chev { transform: rotate(180deg); }
+    .cbody { padding: 14px; border-top: 1px solid var(--border); display: none; }
+    .citem.open .cbody { display: block; }
 
-    /* ── Marquee rows ── */
-    .marquee-rows { display: flex; flex-direction: column; gap: 7px; }
-    .marquee-row { display: flex; gap: 8px; align-items: center; }
-    .marquee-row .field-input { flex: 1; }
-    .btn-icon { background: transparent; border: 1px solid var(--border); color: var(--text-dimmer); width: 34px; height: 34px; border-radius: 6px; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: all 0.15s; flex-shrink: 0; }
-    .btn-icon:hover { color: var(--error); border-color: rgba(224,90,90,0.4); background: rgba(224,90,90,0.06); }
-    .btn-add { display: inline-flex; align-items: center; gap: 8px; background: transparent; border: 1px dashed var(--border-mid); color: var(--text-dim); font-size: 12px; padding: 7px 14px; border-radius: 6px; cursor: pointer; margin-top: 10px; transition: all 0.15s; }
+    /* ── List editor (marquee, companies, paragraphs) ── */
+    .list-rows { display: flex; flex-direction: column; gap: 6px; }
+    .list-row { display: flex; gap: 7px; align-items: flex-start; }
+    .list-row .inp { flex: 1; }
+    .btn-icon { background: transparent; border: 1px solid var(--border); color: var(--text-dimmer); width: 32px; height: 32px; border-radius: 5px; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: all .15s; flex-shrink: 0; margin-top: 1px; }
+    .btn-icon:hover { color: var(--error); border-color: rgba(224,90,90,.4); background: rgba(224,90,90,.06); }
+    .btn-add { display: inline-flex; align-items: center; gap: 7px; background: transparent; border: 1px dashed var(--border-mid); color: var(--text-dim); font-size: 12px; padding: 7px 13px; border-radius: 5px; cursor: pointer; margin-top: 8px; transition: all .15s; }
     .btn-add:hover { border-color: var(--accent); color: var(--accent); }
 
     /* ── Toggle ── */
-    .toggle-row { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
-    .toggle { position: relative; display: inline-block; width: 38px; height: 21px; flex-shrink: 0; }
-    .toggle input { opacity: 0; width: 0; height: 0; position: absolute; }
-    .toggle-track { position: absolute; cursor: pointer; inset: 0; background: var(--panel3); border: 1px solid var(--input-border); border-radius: 21px; transition: 0.2s; }
-    .toggle input:checked + .toggle-track { background: var(--accent); border-color: var(--accent); }
-    .toggle-thumb { position: absolute; top: 2px; left: 2px; width: 15px; height: 15px; background: white; border-radius: 50%; transition: 0.2s; pointer-events: none; }
-    .toggle input:checked ~ .toggle-thumb { transform: translateX(17px); }
+    .tog-row { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding-top: 4px; }
+    .tog { position: relative; display: inline-block; width: 36px; height: 20px; flex-shrink: 0; }
+    .tog input { opacity: 0; width: 0; height: 0; position: absolute; }
+    .tog-tr { position: absolute; cursor: pointer; inset: 0; background: var(--panel3); border: 1px solid var(--input-border); border-radius: 20px; transition: .2s; }
+    .tog input:checked + .tog-tr { background: var(--accent); border-color: var(--accent); }
+    .tog-th { position: absolute; top: 2px; left: 2px; width: 14px; height: 14px; background: white; border-radius: 50%; transition: .2s; pointer-events: none; }
+    .tog input:checked ~ .tog-th { transform: translateX(16px); }
 
-    /* ── Settings ── */
-    .settings-card { background: var(--panel2); border: 1px solid var(--border); border-radius: 8px; padding: 24px; margin-bottom: 18px; }
-    .settings-card-title { font-family: 'Space Grotesk', sans-serif; font-size: 13px; font-weight: 700; margin-bottom: 18px; }
-    .settings-actions { display: flex; gap: 10px; margin-top: 18px; flex-wrap: wrap; }
+    /* ── Settings box ── */
+    .sbox { background: var(--panel2); border: 1px solid var(--border); border-radius: 7px; padding: 22px; margin-bottom: 16px; }
+    .sbox-title { font-family: 'Space Grotesk', sans-serif; font-size: 13px; font-weight: 700; margin-bottom: 16px; }
+    .sbox-actions { display: flex; gap: 9px; margin-top: 16px; flex-wrap: wrap; }
 
-    /* ── Setup screen ── */
+    /* ── Divider ── */
+    hr.div { border: none; border-top: 1px solid var(--border); margin: 24px 0; }
+
+    /* ── Setup ── */
     .setup-wrap { display: flex; align-items: center; justify-content: center; min-height: 100%; padding: 40px 24px; }
-    .setup-card { background: var(--panel); border: 1px solid var(--border); border-radius: 12px; padding: 48px; max-width: 480px; width: 100%; }
-    .setup-logo { display: flex; align-items: center; gap: 10px; font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 15px; margin-bottom: 28px; }
-    .setup-title { font-family: 'Space Grotesk', sans-serif; font-size: 22px; font-weight: 700; margin-bottom: 8px; }
-    .setup-sub { font-size: 14px; color: var(--text-dim); line-height: 1.65; margin-bottom: 32px; }
-    .setup-step { display: flex; gap: 14px; margin-bottom: 14px; background: rgba(255,255,255,0.03); border-radius: 8px; padding: 14px 16px; }
-    .setup-step-num { font-family: 'Space Grotesk', sans-serif; font-weight: 700; color: var(--accent); font-size: 13px; min-width: 18px; }
-    .setup-step-text { font-size: 13px; color: var(--text-dim); line-height: 1.65; }
-    .setup-step-text a { color: var(--accent); text-decoration: none; }
-    .setup-step-text a:hover { text-decoration: underline; }
-    .setup-form { margin-top: 28px; }
-    .setup-connect { width: 100%; justify-content: center; padding: 13px; font-size: 12px; margin-top: 20px; }
+    .setup-card { background: var(--panel); border: 1px solid var(--border); border-radius: 10px; padding: 44px; max-width: 460px; width: 100%; }
+    .setup-logo { display: flex; align-items: center; gap: 9px; font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 14px; margin-bottom: 24px; }
+    .setup-title { font-family: 'Space Grotesk', sans-serif; font-size: 20px; font-weight: 700; margin-bottom: 6px; }
+    .setup-sub { font-size: 13.5px; color: var(--text-dim); line-height: 1.65; margin-bottom: 28px; }
+    .setup-step { display: flex; gap: 13px; margin-bottom: 12px; background: rgba(255,255,255,.03); border-radius: 7px; padding: 12px 14px; }
+    .setup-step-n { font-family: 'Space Grotesk', sans-serif; font-weight: 700; color: var(--accent); font-size: 13px; min-width: 16px; }
+    .setup-step-t { font-size: 13px; color: var(--text-dim); line-height: 1.65; }
+    .setup-step-t a { color: var(--accent); text-decoration: none; }
+    .setup-step-t a:hover { text-decoration: underline; }
 
     /* ── Loading ── */
-    .loading-wrap { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 16px; min-height: 100%; padding: 80px; color: var(--text-dim); font-size: 14px; }
-    .spinner { width: 22px; height: 22px; border: 2px solid rgba(255,255,255,0.08); border-top-color: var(--accent); border-radius: 50%; animation: spin 0.8s linear infinite; }
+    .load-wrap { display: flex; align-items: center; justify-content: center; gap: 14px; min-height: 100%; padding: 80px; color: var(--text-dim); font-size: 13.5px; }
+    .spin { width: 20px; height: 20px; border: 2px solid rgba(255,255,255,.08); border-top-color: var(--accent); border-radius: 50%; animation: spin .8s linear infinite; }
     @keyframes spin { to { transform: rotate(360deg); } }
 
     /* ── Toast ── */
-    #toast-wrap { position: fixed; bottom: 24px; right: 24px; z-index: 9999; display: flex; flex-direction: column; gap: 8px; pointer-events: none; }
-    .toast { background: var(--panel2); border: 1px solid var(--border); border-radius: 8px; padding: 14px 18px; display: flex; align-items: flex-start; gap: 12px; box-shadow: 0 8px 32px rgba(0,0,0,0.5); pointer-events: all; animation: toastIn 0.25s ease; max-width: 340px; }
-    @keyframes toastIn { from { transform: translateX(16px); opacity: 0; } to { transform: none; opacity: 1; } }
-    .toast.success { border-color: rgba(42,157,92,0.35); }
-    .toast.error { border-color: rgba(224,90,90,0.35); }
-    .toast.info { border-color: rgba(var(--accent-rgb),0.35); }
-    .toast-icon { font-size: 16px; line-height: 1; margin-top: 1px; }
-    .toast-body { flex: 1; }
-    .toast-title { font-size: 13px; font-weight: 600; line-height: 1.3; }
-    .toast-sub { font-size: 11px; color: var(--text-dimmer); margin-top: 3px; line-height: 1.4; }
+    #tw { position: fixed; bottom: 20px; right: 20px; z-index: 9999; display: flex; flex-direction: column; gap: 7px; pointer-events: none; }
+    .toast { background: var(--panel2); border: 1px solid var(--border); border-radius: 7px; padding: 12px 16px; display: flex; align-items: flex-start; gap: 11px; box-shadow: 0 6px 28px rgba(0,0,0,.5); pointer-events: all; animation: tIn .22s ease; max-width: 320px; }
+    @keyframes tIn { from { transform: translateX(14px); opacity: 0; } to { transform: none; opacity: 1; } }
+    .toast.success { border-color: rgba(42,157,92,.35); }
+    .toast.error   { border-color: rgba(224,90,90,.35); }
+    .toast.info    { border-color: rgba(var(--accent-rgb),.35); }
+    .t-ic { font-size: 15px; line-height: 1; margin-top: 1px; }
+    .t-ti { font-size: 13px; font-weight: 600; line-height: 1.3; }
+    .t-su { font-size: 11px; color: var(--text-dimmer); margin-top: 2px; line-height: 1.4; }
 
-    /* ── Preview banner ── */
-    .preview-link { display: inline-flex; align-items: center; gap: 7px; font-size: 12px; color: var(--text-dim); text-decoration: none; background: rgba(255,255,255,0.04); border: 1px solid var(--border); border-radius: 6px; padding: 6px 12px; transition: all 0.15s; }
-    .preview-link:hover { color: var(--text); background: rgba(255,255,255,0.08); }
-
-    /* ── Scrollbar ── */
     ::-webkit-scrollbar { width: 5px; }
     ::-webkit-scrollbar-track { background: transparent; }
-    ::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.08); border-radius: 3px; }
-    ::-webkit-scrollbar-thumb:hover { background: rgba(255,255,255,0.15); }
-
-    .divider { border: none; border-top: 1px solid var(--border); margin: 28px 0; }
-    .info-box { background: rgba(var(--accent-rgb),0.07); border: 1px solid rgba(var(--accent-rgb),0.2); border-radius: 8px; padding: 14px 18px; font-size: 13px; color: var(--text-dim); line-height: 1.6; margin-bottom: 24px; }
+    ::-webkit-scrollbar-thumb { background: rgba(255,255,255,.07); border-radius: 3px; }
+    ::-webkit-scrollbar-thumb:hover { background: rgba(255,255,255,.14); }
   </style>
 </head>
 <body>
-<div id="app"><div class="loading-wrap"><div class="spinner"></div><span>Loading editor…</span></div></div>
-<div id="toast-wrap"></div>
+<div id="app"><div class="load-wrap"><div class="spin"></div>Loading editor…</div></div>
+<div id="tw"></div>
 
 <script>
-// ════════════════════════════════════════════════════
+// ═══════════════════════════════════════════════
 //  CONFIG
-// ════════════════════════════════════════════════════
-const REPO       = 'omerm14/ai-smbs';
-const FILE_EN    = 'en/index.html';
+// ═══════════════════════════════════════════════
+const REPO    = 'omerm14/ai-smbs';
+const FILE_EN = 'en/index.html';
 
-// ════════════════════════════════════════════════════
+// ═══════════════════════════════════════════════
 //  STATE
-// ════════════════════════════════════════════════════
+// ═══════════════════════════════════════════════
 const S = {
-  token:    localStorage.getItem('ed_token') || '',
-  branch:   localStorage.getItem('ed_branch') || 'main',
-  fileSha:  null,
-  rawFile:  '',
-  tweaks:   null,
-  content:  null,
-  tab:      'basics',
-  dirty:    false,
+  token:   localStorage.getItem('ed_token')  || '',
+  branch:  localStorage.getItem('ed_branch') || 'claude/AI-smbs-main',
+  sha: null, raw: '',
+  tweaks: null, content: null,
+  tab: 'basics', dirty: false,
 };
 
-// ════════════════════════════════════════════════════
-//  DEFAULTS (used when first setting up)
-// ════════════════════════════════════════════════════
-const DEFAULT_TWEAKS = {
-  heroHeadline: "The AI advantage your competitors don't have yet.",
-  heroSub: "I help SMBs unlock 100× their potential — from intelligent automations to full agentic systems that work while you sleep.",
-  ctaLabel: "Let's Talk",
-  linkedinUrl: "www.linkedin.com/in/omer-moran-8aa07616b",
-  whatsappNumber: "972505646450",
-  emailAddress: "omermoran14@gmail.com",
-  meetUrl: "https://calendar.app.google/a1bvMsk7oMrTWYzQ9",
-  accentColor: "#456abf"
+// ═══════════════════════════════════════════════
+//  DEFAULTS
+// ═══════════════════════════════════════════════
+const DT = {
+  heroHeadline:"The AI advantage your competitors don't have yet.",
+  heroSub:"I help SMBs unlock 100× their potential — from intelligent automations to full agentic systems that work while you sleep.",
+  ctaLabel:"Let's Talk", linkedinUrl:"www.linkedin.com/in/omer-moran-8aa07616b",
+  whatsappNumber:"972505646450", emailAddress:"omermoran14@gmail.com",
+  meetUrl:"https://calendar.app.google/a1bvMsk7oMrTWYzQ9", accentColor:"#456abf"
 };
 
-const DEFAULT_CONTENT = {
-  marqueeItems: ["Workflow Automation","Agentic Systems","AI Frameworks","Growth Strategy","Custom AI Skills","Data Products","AI Transformation","Revenue Multiplier","SMB Specialist","Non-Technical AI"],
-  services: [
+const DC = {
+  nav:{ logo:"Omer Moran" },
+  hero:{ eyebrow:"AI Expert for SMBs", credLabel:"AI Expert", credName:"Omer Moran", credTitle:"AI-Driven SMBs" },
+  impact:{
+    eyebrow:"Real Business Impact",
+    stats:[
+      {target:3,suffix:"×",accent:"faster",claim:"Business growth rate",detail:"Businesses that embrace AI early don't just grow — they compound. Every week you wait, the gap with competitors widens."},
+      {target:80,suffix:"%",accent:"",claim:"Less manual work",detail:"Most of what your team does today can be automated. That time goes back to what actually moves the needle."},
+      {target:4,suffix:"",accent:"weeks",claim:"From call to live AI",detail:"No 6-month projects. No endless meetings. You see working systems in your business within weeks of our first conversation."}
+    ]
+  },
+  howSection:{ eyebrow:"How It Works", title:"Three steps.\nReal results.", ctaNote:"Free first call — no commitment" },
+  howSteps:[
+    {n:"01",title:"Diagnose",desc:"We start with a free 30-minute call. I ask the right questions to understand your business, your bottlenecks, and where AI can have the biggest impact — fast."},
+    {n:"02",title:"Build",desc:"I design and deploy custom AI systems tailored to your business. No off-the-shelf tools. No complexity for your team. Just things that work."},
+    {n:"03",title:"Grow",desc:"Your business runs smarter, handles more, and scales without adding headcount. The AI keeps improving — your advantage compounds over time."}
+  ],
+  backgroundSection:{
+    eyebrow:"Background", title:"Years inside tech.\nNow working for you.",
+    tagline:"I've worked inside some of the world's fastest-growing tech companies. Now I use everything I learned there to give your business the same edge.",
+    companies:["Connecteam","ZoomInfo","Startup Founder"]
+  },
+  milestones:[
+    {year:"ZoomInfo",title:"Inside a Global Tech Leader",desc:"Worked at one of the world's leading B2B companies — learning how world-class teams build products that scale to millions of users."},
+    {year:"Connecteam",title:"Building for Real Businesses",desc:"Helped a fast-growing startup build tools that managers and small business owners actually love to use every day."},
+    {year:"Startup",title:"Co-Founder",desc:"Started my own company from zero. Learned what it really takes to build something, make hard decisions, and grow fast."},
+    {year:"Now",title:"AI Expert for SMBs",desc:"Using everything I've learned to give businesses like yours the same AI advantages that big companies have — without the complexity."}
+  ],
+  servicesSection:{ eyebrow:"Services", title:"Six ways I transform your business.", desc:"Every engagement starts with understanding your business. Then I build exactly what you need — and nothing you don't.", hint:"Click any card to learn more" },
+  services:[
     {name:"Workflows & Automations",desc:"Eliminate repetitive tasks — build systems that run themselves.",detail:"I map your entire operation, find where time and money are being lost, and rebuild those processes with smart automation. Your team focuses on high-value work while routine tasks run automatically."},
     {name:"AI Frameworks",desc:"A clear AI roadmap tailored to your industry and goals.",detail:"Not all AI is the same. I design a custom strategy that fits your size, budget, and goals — giving you a practical step-by-step plan so you know exactly what to build, when, and why."},
     {name:"Custom AI Skills",desc:"AI that knows your business, speaks your language.",detail:"Generic AI gives generic results. I build AI capabilities specifically for you — trained on your content, products, and processes. An expert who knows your business inside out, available 24/7."},
@@ -222,709 +232,719 @@ const DEFAULT_CONTENT = {
     {name:"Growth Strategy",desc:"Find hidden revenue opportunities with AI as your weapon.",detail:"I analyze your business to uncover where growth is being left on the table — pricing, conversion, retention, new channels — and build an AI-powered plan to capture it all."},
     {name:"AI Transformation",desc:"Go from traditional to fully AI-driven — at your pace.",detail:"The full journey. I embed AI into every layer of your business over time — your team, operations, customer experience. You don't need to be technical. Just ambitious. I handle the rest."}
   ],
-  milestones: [
-    {year:"ZoomInfo",title:"Inside a Global Tech Leader",desc:"Worked at one of the world's leading B2B companies — learning how world-class teams build products that scale to millions of users."},
-    {year:"Connecteam",title:"Building for Real Businesses",desc:"Helped a fast-growing startup build tools that managers and small business owners actually love to use every day."},
-    {year:"Startup",title:"Co-Founder",desc:"Started my own company from zero. Learned what it really takes to build something, make hard decisions, and grow fast."},
-    {year:"Now",title:"AI Expert for SMBs",desc:"Using everything I've learned to give businesses like yours the same AI advantages that big companies have — without the complexity."}
+  linkedinSection:{ eyebrow:"On LinkedIn", title:"Thoughts from the field.", sub:"Real posts from building AI into real businesses.", edgeTitle:"Follow along as I document the AI revolution in SMBs.", edgeSub:"Weekly insights on automation, agentic systems, and what's actually working for small businesses right now.", followers:"4K+" },
+  linkedinPosts:[
+    {url:"https://www.linkedin.com/posts/omer-moran-8aa07616b_new-job-new-challenge-posting-on-linkedin-ugcPost-7343279850046074880-tGpu",role:"Data Product Manager at Connecteam",date:"10mo",reactions:"🔵🟢❤️",likes:"183",comments:"27",paragraphs:["**New job, new challenge - posting on LinkedIn.**","I joined Connecteam almost 3 months ago. The team is brilliant, the projects are wild (in a good way), and I'm already deep into the kind of marketing/data work that will just gear up.","So... naturally, I asked ChatGPT to help me get started. Because what better way to begin my authentic content journey than with the help of a robot trained on the internet? 😎","So this is me starting. Not perfect. Not polished. **Just real.**","Let's see how this goes 🔥"]},
+    {url:"https://www.linkedin.com/posts/omer-moran-8aa07616b_youre-not-behind-youre-just-in-it-everyone-ugcPost-7345381596750901250-Za-o",role:"Data Product Manager at Connecteam",date:"10mo",reactions:"🔵🟢❤️",likes:"241",comments:"34",paragraphs:["**You're Not Behind. You're Just in It.**","Everyone talks about the excitement of starting a new job. But no one really talks about the messy middle.","The first two months were exciting, but also chaotic. Not just learning new tools — but a whole new way of thinking.","I changed my mindset from a **\"Knower\"** to a **\"Learner\"**. Eventually things started clicking.","If you're in that foggy phase right now — keep going. **You're not behind. You're just in it.**"]},
+    {url:"https://www.linkedin.com/posts/omer-moran-8aa07616b_time-to-wrap-up-an-amazing-chapter-at-zoominfo-ugcPost-7313477054555938817-IPoT",role:"Data Product Manager at Connecteam",date:"1yr",reactions:"🔵🟢❤️",likes:"122",comments:"13",paragraphs:["**Time to Wrap Up an Amazing Chapter at ZoomInfo**","What a journey. Building data products, solving tough problems, and seeing real impact — an experience I won't forget.","ZoomInfo is the kind of place where things move fast, ideas turn into action, and there's always something new to tackle.","Onward to new adventures — because the best is yet to come! 🚀"]},
+    {url:"https://www.linkedin.com/posts/omer-moran-8aa07616b_zibellringing-zoominfo-zoominfo-activity-7160992030804856832-9XLe",role:"Data Product Manager at Connecteam",date:"2yr",reactions:"🔵🟢",likes:"21",comments:"3",paragraphs:["Yesterday ZoomInfo finally got to ring the opening bell at Nasdaq — the first tech IPO of the pandemic era! 🔔","On this special day, we also announced **Copilot**, an AI-powered GTM game changer that will make every seller the best seller. 👮👮","#ZIbellringing #zoominfo #ZoomInfo"]}
   ],
-  howSteps: [
-    {n:"01",title:"Diagnose",desc:"We start with a free 30-minute call. I ask the right questions to understand your business, your bottlenecks, and where AI can have the biggest impact — fast."},
-    {n:"02",title:"Build",desc:"I design and deploy custom AI systems tailored to your business. No off-the-shelf tools. No complexity for your team. Just things that work."},
-    {n:"03",title:"Grow",desc:"Your business runs smarter, handles more, and scales without adding headcount. The AI keeps improving — your advantage compounds over time."}
-  ],
-  testimonials: [
+  testimonialsSection:{ eyebrow:"What They Say", title:"Businesses already working differently.", sub:"Not made-up success stories — real conversations with business owners who saw results." },
+  testimonials:[
     {initials:"D.C",name:"Dana Cohen",title:"CEO | Boutique Chain",featured:true,text:"Omer didn't just implement AI — he **changed the way we think about our business**. Within two weeks we saved 15 hours of work per week. This isn't a product, it's a real partner."},
     {initials:"U.L",name:"Uri Levy",title:"Founder | Professional Services",featured:false,text:"I came to Omer with skepticism. I left with **an AI system that closes leads while I sleep**. The ROI was clear in the first month."},
     {initials:"M.G",name:"Michal Greenberg",title:"VP Operations | Logistics Co.",featured:false,text:"When we started working together I expected consulting, I got much more. **Omer understands business**, not just technology. The difference is felt at every touchpoint."},
     {initials:"Y.S",name:"Yoav Shamir",title:"Owner | Private Clinic",featured:false,text:"I was looking for someone to explain AI at eye level — without tech jargon. Omer did exactly that, and now **our digital assistant works 24 hours a day**."},
     {initials:"N.B",name:"Noam Ben-David",title:"Marketing Manager | e-commerce",featured:true,text:"Omer's posts on LinkedIn are required reading. **Content that's ahead of the market** by at least 6 months. He doesn't just know — he can explain why it matters."},
     {initials:"T.A",name:"Tamar Abraham",title:"Operations Manager | Restaurant Chain",featured:false,text:"The transition to AI-driven management sounded scary. Omer made it a pleasant, gradual process. **Today our team can't imagine working without the tools** he built."}
-  ]
+  ],
+  contactSection:{ eyebrow:"Get In Touch", title:"Ready to build your AI advantage?", sub:"Tell me about your business. I'll tell you exactly how AI can transform it — no pressure, no fluff.", note:"I respond personally — usually within a few hours." },
+  footer:{ name:"Omer Moran — AI Expert", copy:"© 2026 · AI-Driven SMBs" },
+  marqueeItems:["Workflow Automation","Agentic Systems","AI Frameworks","Growth Strategy","Custom AI Skills","Data Products","AI Transformation","Revenue Multiplier","SMB Specialist","Non-Technical AI"]
 };
 
-// ════════════════════════════════════════════════════
-//  PARSE / RECONSTRUCT
-// ════════════════════════════════════════════════════
-function parseTweaks(html) {
-  const m = html.match(/\/\*EDITMODE-BEGIN\*\/([\s\S]*?)\/\*EDITMODE-END\*\//);
-  if (!m) return null;
-  try { return JSON.parse(m[1]); } catch(e) { return null; }
+// ═══════════════════════════════════════════════
+//  PARSE / APPLY
+// ═══════════════════════════════════════════════
+const parseTweaks  = h => { const m=h.match(/\/\*EDITMODE-BEGIN\*\/([\s\S]*?)\/\*EDITMODE-END\*\//);  try{return m?JSON.parse(m[1]):null}catch{return null} };
+const parseContent = h => { const m=h.match(/\/\*CONTENT-BEGIN\*\/([\s\S]*?)\/\*CONTENT-END\*\//);  try{return m?JSON.parse(m[1]):null}catch{return null} };
+const applyTweaks  = (h,t) => h.replace(/(\/\*EDITMODE-BEGIN\*\/)[\s\S]*?(\/\*EDITMODE-END\*\/)/,  `$1${JSON.stringify(t,null,2)}$2`);
+const applyContent = (h,c) => {
+  if(h.includes('/*CONTENT-BEGIN*/')) return h.replace(/(\/\*CONTENT-BEGIN\*\/)[\s\S]*?(\/\*CONTENT-END\*\/)/,`$1${JSON.stringify(c,null,2)}$2`);
+  const mk='} /*EDITMODE-END*/;', i=h.indexOf(mk);
+  return i<0?h:h.slice(0,i+mk.length)+`\n\nconst SITE_CONTENT = /*CONTENT-BEGIN*/${JSON.stringify(c,null,2)}/*CONTENT-END*/;`+h.slice(i+mk.length);
+};
+
+// ═══════════════════════════════════════════════
+//  GITHUB
+// ═══════════════════════════════════════════════
+async function gh(path,opts={}){
+  const r=await fetch(`https://api.github.com${path}`,{...opts,headers:{'Authorization':`Bearer ${S.token}`,'Accept':'application/vnd.github.v3+json','Content-Type':'application/json',...(opts.headers||{})}});
+  let d; try{d=await r.json()}catch{d={}}
+  if(!r.ok) throw new Error(d.message||`GitHub ${r.status}`);
+  return d;
+}
+async function loadFile(){
+  const d=await gh(`/repos/${REPO}/contents/${FILE_EN}?ref=${encodeURIComponent(S.branch)}`);
+  S.sha=d.sha; S.raw=decodeURIComponent(escape(atob(d.content.replace(/\s/g,'')))); return S.raw;
+}
+async function commitFile(html,msg){
+  const d=await gh(`/repos/${REPO}/contents/${FILE_EN}`,{method:'PUT',body:JSON.stringify({message:msg,content:btoa(unescape(encodeURIComponent(html))),sha:S.sha,branch:S.branch})});
+  S.sha=d.content.sha; S.raw=html;
 }
 
-function parseSiteContent(html) {
-  const m = html.match(/\/\*CONTENT-BEGIN\*\/([\s\S]*?)\/\*CONTENT-END\*\//);
-  if (!m) return null;
-  try { return JSON.parse(m[1]); } catch(e) { return null; }
-}
-
-function applyTweaks(html, tweaks) {
-  return html.replace(
-    /(\/\*EDITMODE-BEGIN\*\/)[\s\S]*?(\/\*EDITMODE-END\*\/)/,
-    `$1${JSON.stringify(tweaks, null, 2)}$2`
-  );
-}
-
-function applySiteContent(html, content) {
-  if (html.includes('/*CONTENT-BEGIN*/')) {
-    return html.replace(
-      /(\/\*CONTENT-BEGIN\*\/)[\s\S]*?(\/\*CONTENT-END\*\/)/,
-      `$1${JSON.stringify(content, null, 2)}$2`
-    );
-  }
-  // Insert after TWEAK_DEFAULTS if not present yet
-  const marker = '} /*EDITMODE-END*/;';
-  const idx = html.indexOf(marker);
-  if (idx === -1) return html;
-  const insert = `\n\nconst SITE_CONTENT = /*CONTENT-BEGIN*/${JSON.stringify(content, null, 2)}/*CONTENT-END*/;`;
-  return html.slice(0, idx + marker.length) + insert + html.slice(idx + marker.length);
-}
-
-// ════════════════════════════════════════════════════
-//  GITHUB API
-// ════════════════════════════════════════════════════
-async function ghFetch(path, opts = {}) {
-  const res = await fetch(`https://api.github.com${path}`, {
-    ...opts,
-    headers: {
-      'Authorization': `Bearer ${S.token}`,
-      'Accept': 'application/vnd.github.v3+json',
-      'Content-Type': 'application/json',
-      ...(opts.headers || {})
-    }
-  });
-  let data;
-  try { data = await res.json(); } catch(e) { data = {}; }
-  if (!res.ok) throw new Error(data.message || `GitHub ${res.status}`);
-  return data;
-}
-
-async function loadFile() {
-  const data = await ghFetch(`/repos/${REPO}/contents/${FILE_EN}?ref=${encodeURIComponent(S.branch)}`);
-  S.fileSha = data.sha;
-  S.rawFile = decodeURIComponent(escape(atob(data.content.replace(/\s/g, ''))));
-  return S.rawFile;
-}
-
-async function commitFile(html, message) {
-  const encoded = btoa(unescape(encodeURIComponent(html)));
-  const data = await ghFetch(`/repos/${REPO}/contents/${FILE_EN}`, {
-    method: 'PUT',
-    body: JSON.stringify({ message, content: encoded, sha: S.fileSha, branch: S.branch })
-  });
-  S.fileSha = data.content.sha;
-  S.rawFile = html;
-}
-
-// ════════════════════════════════════════════════════
+// ═══════════════════════════════════════════════
 //  TOAST
-// ════════════════════════════════════════════════════
-function toast(type, title, sub = '', duration = 4000) {
-  const icons = { success: '✓', error: '✕', info: '→' };
-  const el = document.createElement('div');
-  el.className = `toast ${type}`;
-  el.innerHTML = `<div class="toast-icon">${icons[type]||'·'}</div><div class="toast-body"><div class="toast-title">${esc(title)}</div>${sub ? `<div class="toast-sub">${esc(sub)}</div>` : ''}</div>`;
-  document.getElementById('toast-wrap').appendChild(el);
-  setTimeout(() => el.remove(), duration);
+// ═══════════════════════════════════════════════
+function toast(type,title,sub='',ms=4000){
+  const ic={success:'✓',error:'✕',info:'→'}[type]||'·';
+  const el=document.createElement('div');
+  el.className=`toast ${type}`;
+  el.innerHTML=`<div class="t-ic">${ic}</div><div><div class="t-ti">${esc(title)}</div>${sub?`<div class="t-su">${esc(sub)}</div>`:''}</div>`;
+  document.getElementById('tw').appendChild(el);
+  setTimeout(()=>el.remove(),ms);
 }
 
-// ════════════════════════════════════════════════════
-//  HELPERS
-// ════════════════════════════════════════════════════
-function esc(s) {
-  if (s == null) return '';
-  return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+// ═══════════════════════════════════════════════
+//  UTILS
+// ═══════════════════════════════════════════════
+const esc = s => s==null?'':String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+const clone = o => JSON.parse(JSON.stringify(o));
+function setDirty(v=true){
+  S.dirty=v;
+  const d=document.getElementById('sdot'),t=document.getElementById('stxt');
+  if(!d)return;
+  d.className=v?'sdot dirty':'sdot ok';
+  if(t) t.textContent=v?'Unsaved changes':'Published';
 }
 
-function setDirty(val = true) {
-  S.dirty = val;
-  const dot = document.getElementById('hdr-dot');
-  const txt = document.getElementById('hdr-txt');
-  if (!dot || !txt) return;
-  if (val) { dot.className = 'status-dot dirty'; txt.textContent = 'Unsaved changes'; }
-  else      { dot.className = 'status-dot connected'; txt.textContent = 'Published'; }
-}
-
-function deepClone(obj) { return JSON.parse(JSON.stringify(obj)); }
-
-// ════════════════════════════════════════════════════
-//  SETUP SCREEN
-// ════════════════════════════════════════════════════
-function renderSetup() {
-  document.getElementById('app').innerHTML = `
-    <div class="layout"><div class="main">
-    <div class="setup-wrap">
-      <div class="setup-card">
-        <div class="setup-logo"><div class="brand-dot"></div>Website Editor</div>
-        <div class="setup-title">Connect your GitHub account</div>
-        <div class="setup-sub">Your personal access token is stored only in this browser and never sent anywhere except GitHub.</div>
-        <div class="setup-step">
-          <div class="setup-step-num">1</div>
-          <div class="setup-step-text">
-            Go to <a href="https://github.com/settings/tokens/new?scopes=repo&description=Website+Editor" target="_blank">GitHub → Settings → Tokens</a> and create a <strong>classic token</strong> with the <strong>repo</strong> scope checked.
-          </div>
-        </div>
-        <div class="setup-step">
-          <div class="setup-step-num">2</div>
-          <div class="setup-step-text">Copy the token and paste it below, then click Connect.</div>
-        </div>
-        <div class="setup-form">
-          <div class="field">
-            <label class="field-label">Personal Access Token</label>
-            <input id="s-token" type="password" class="field-input" placeholder="ghp_…" autocomplete="off" />
-          </div>
-          <div class="field">
-            <label class="field-label">Branch to edit</label>
-            <input id="s-branch" type="text" class="field-input" value="main" />
-          </div>
-          <button class="btn btn-accent setup-connect" id="s-connect">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M15 3h4a2 2 0 012 2v14a2 2 0 01-2 2h-4"/><polyline points="10 17 15 12 10 7"/><line x1="15" y1="12" x2="3" y2="12"/></svg>
-            Connect &amp; Load Content
-          </button>
-        </div>
-      </div>
-    </div>
-    </div></div>`;
-
-  document.getElementById('s-connect').addEventListener('click', async () => {
-    const token  = document.getElementById('s-token').value.trim();
-    const branch = document.getElementById('s-branch').value.trim() || 'main';
-    if (!token) { toast('error', 'Token required'); return; }
-    S.token = token; S.branch = branch;
-    localStorage.setItem('ed_token', token);
-    localStorage.setItem('ed_branch', branch);
-    renderLoading('Connecting to GitHub…');
-    try { await boot(); }
-    catch(e) { toast('error', 'Connection failed', e.message); renderSetup(); }
-  });
-}
-
-// ════════════════════════════════════════════════════
-//  LOADING
-// ════════════════════════════════════════════════════
-function renderLoading(msg = 'Loading content…') {
-  document.getElementById('app').innerHTML = `
-    <div class="layout"><div class="main">
-    <div class="loading-wrap"><div class="spinner"></div><span>${esc(msg)}</span></div>
-    </div></div>`;
-}
-
-// ════════════════════════════════════════════════════
+// ═══════════════════════════════════════════════
 //  BOOT
-// ════════════════════════════════════════════════════
-async function boot() {
-  const html = await loadFile();
-  S.tweaks  = parseTweaks(html)       || deepClone(DEFAULT_TWEAKS);
-  S.content = parseSiteContent(html)  || deepClone(DEFAULT_CONTENT);
+// ═══════════════════════════════════════════════
+async function boot(){
+  const html=await loadFile();
+  S.tweaks  = parseTweaks(html)  || clone(DT);
+  S.content = parseContent(html) || clone(DC);
   renderEditor();
 }
 
-// ════════════════════════════════════════════════════
+// ═══════════════════════════════════════════════
+//  SCREENS
+// ═══════════════════════════════════════════════
+function renderSetup(){
+  document.getElementById('app').innerHTML=`
+    <div class="layout"><div class="main">
+    <div class="setup-wrap"><div class="setup-card">
+      <div class="setup-logo"><div class="brand-dot"></div>Website Editor</div>
+      <div class="setup-title">Connect GitHub</div>
+      <div class="setup-sub">Create a token once — then edit and publish your site directly from this page.</div>
+      <div class="setup-step"><div class="setup-step-n">1</div><div class="setup-step-t">Go to <a href="https://github.com/settings/tokens/new?scopes=repo&description=Website+Editor" target="_blank">GitHub → Tokens</a> and create a <strong>classic token</strong> with the <strong>repo</strong> scope.</div></div>
+      <div class="setup-step"><div class="setup-step-n">2</div><div class="setup-step-t">Paste it below and click Connect.</div></div>
+      <div style="margin-top:24px">
+        <div class="f"><label class="lbl">Personal Access Token</label><input id="s-tok" type="password" class="inp" placeholder="ghp_…" autocomplete="off" /></div>
+        <div class="f"><label class="lbl">Branch</label><input id="s-br" type="text" class="inp" value="claude/AI-smbs-main" /></div>
+        <button class="btn btn-accent" id="s-go" style="width:100%;justify-content:center;margin-top:16px;padding:12px">Connect &amp; Load</button>
+      </div>
+    </div></div>
+    </div></div>`;
+  document.getElementById('s-go').onclick=async()=>{
+    const tok=document.getElementById('s-tok').value.trim(),br=document.getElementById('s-br').value.trim()||'claude/AI-smbs-main';
+    if(!tok){toast('error','Token required');return;}
+    S.token=tok;S.branch=br;localStorage.setItem('ed_token',tok);localStorage.setItem('ed_branch',br);
+    renderLoad('Connecting…');
+    try{await boot();}catch(e){toast('error','Connection failed',e.message);renderSetup();}
+  };
+}
+
+function renderLoad(msg='Loading…'){
+  document.getElementById('app').innerHTML=`<div class="layout"><div class="main"><div class="load-wrap"><div class="spin"></div>${esc(msg)}</div></div></div>`;
+}
+
+// ═══════════════════════════════════════════════
 //  EDITOR SHELL
-// ════════════════════════════════════════════════════
-function renderEditor() {
-  document.getElementById('app').innerHTML = `
-    <div class="header">
-      <div class="header-brand">
-        <div class="brand-dot"></div>
-        <span>Website Editor</span>
+// ═══════════════════════════════════════════════
+function renderEditor(){
+  document.getElementById('app').innerHTML=`
+    <div class="hdr">
+      <div class="hdr-brand"><div class="brand-dot"></div>Website Editor</div>
+      <div class="hdr-center">
+        <div class="status-pill"><div class="sdot ok" id="sdot"></div><span id="stxt">Connected</span></div>
       </div>
-      <div class="status-pill">
-        <div class="status-dot connected" id="hdr-dot"></div>
-        <span id="hdr-txt">Connected</span>
-      </div>
-      <div class="header-right">
+      <div class="hdr-right">
         <a href="https://www.omermoran.com" target="_blank" class="preview-link">
           <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
           Preview
         </a>
         <button class="btn btn-ghost" id="reload-btn">Reload</button>
         <button class="btn btn-accent" id="pub-btn">
-          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
           Publish
         </button>
       </div>
     </div>
     <div class="layout">
-      <aside class="sidebar" id="sidebar"></aside>
-      <main class="main" id="main"></main>
+      <aside class="sb" id="sb"></aside>
+      <main class="main" id="mn"></main>
     </div>`;
-
-  buildSidebar();
-  showTab(S.tab);
-
-  document.getElementById('pub-btn').addEventListener('click', doPublish);
-  document.getElementById('reload-btn').addEventListener('click', async () => {
-    renderLoading('Reloading from GitHub…');
-    try { await boot(); toast('success', 'Reloaded', 'Content refreshed from GitHub'); }
-    catch(e) { toast('error', 'Reload failed', e.message); renderEditor(); }
-  });
+  buildSB();showTab(S.tab);
+  document.getElementById('pub-btn').onclick=doPublish;
+  document.getElementById('reload-btn').onclick=async()=>{
+    renderLoad('Reloading…');
+    try{await boot();toast('success','Reloaded');}
+    catch(e){toast('error','Reload failed',e.message);renderEditor();}
+  };
 }
 
-// ════════════════════════════════════════════════════
+// ═══════════════════════════════════════════════
 //  SIDEBAR
-// ════════════════════════════════════════════════════
-const TABS = [
-  { id:'basics',       label:'Basics',       icon:'<path d="M12 2a10 10 0 100 20A10 10 0 0012 2z"/><path d="M12 8v4l3 3"/>' },
-  { id:'services',     label:'Services',     icon:'<rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/>' },
-  { id:'background',   label:'Background',   icon:'<circle cx="12" cy="8" r="4"/><path d="M20 21a8 8 0 10-16 0"/>' },
-  { id:'process',      label:'How It Works', icon:'<polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/>' },
-  { id:'testimonials', label:'Testimonials', icon:'<path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/>' },
-  { id:'marquee',      label:'Marquee',      icon:'<line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/>' },
-  { id:'settings',     label:'Settings',     icon:'<circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M4.22 4.22l2.12 2.12M17.66 17.66l2.12 2.12M2 12h3M19 12h3M4.22 19.78l2.12-2.12M17.66 6.34l2.12-2.12"/>' },
+// ═══════════════════════════════════════════════
+const TABS=[
+  {id:'basics',      g:'content', label:'Basics',         ic:'<circle cx="12" cy="12" r="3"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/>'},
+  {id:'hero',        g:'content', label:'Hero',            ic:'<path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/>'},
+  {id:'stats',       g:'content', label:'Impact Stats',   ic:'<line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/>'},
+  {id:'process',     g:'content', label:'How It Works',   ic:'<polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/>'},
+  {id:'background',  g:'content', label:'Background',     ic:'<circle cx="12" cy="8" r="4"/><path d="M20 21a8 8 0 10-16 0"/>'},
+  {id:'services',    g:'content', label:'Services',       ic:'<rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/>'},
+  {id:'linkedin',    g:'content', label:'LinkedIn',       ic:'<path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/>'},
+  {id:'testimonials',g:'content', label:'Testimonials',   ic:'<path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/>'},
+  {id:'contact',     g:'content', label:'Contact & Footer',ic:'<path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.8 19.79 19.79 0 01.22 1.18 2 2 0 012.18 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 7.09A16 16 0 0016.09 16l.54-.54a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/>'},
+  {id:'marquee',     g:'content', label:'Marquee',        ic:'<line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/>'},
+  {id:'settings',    g:'config',  label:'Settings',       ic:'<circle cx="12" cy="12" r="3"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/>'},
 ];
 
-function buildSidebar() {
-  const sb = document.getElementById('sidebar');
-  const contentTabs = TABS.filter(t => t.id !== 'settings');
-  const settingsTab = TABS.find(t => t.id === 'settings');
-  sb.innerHTML = `
-    <div class="sidebar-section">
-      <div class="sidebar-label">Content</div>
-      ${contentTabs.map(t => navItem(t)).join('')}
-    </div>
-    <div class="sidebar-section">
-      <div class="sidebar-label">Config</div>
-      ${navItem(settingsTab)}
-    </div>`;
-  sb.querySelectorAll('.nav-item').forEach(el => {
-    el.addEventListener('click', () => { S.tab = el.dataset.tab; buildSidebar(); showTab(S.tab); });
+function buildSB(){
+  const sb=document.getElementById('sb');
+  const grps={content:[],config:[]};
+  TABS.forEach(t=>grps[t.g].push(t));
+  sb.innerHTML=`
+    <div class="sb-sec"><div class="sb-lbl">Content</div>${grps.content.map(navIt).join('')}</div>
+    <div class="sb-sec"><div class="sb-lbl">Config</div>${grps.config.map(navIt).join('')}</div>`;
+  sb.querySelectorAll('.nav-it').forEach(el=>el.onclick=()=>{S.tab=el.dataset.tab;buildSB();showTab(S.tab);});
+}
+const navIt=t=>`<div class="nav-it${S.tab===t.id?' on':''}" data-tab="${t.id}"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">${t.ic}</svg><span>${t.label}</span></div>`;
+
+function showTab(id){
+  ({basics:tBasics,hero:tHero,stats:tStats,process:tProcess,background:tBackground,services:tServices,linkedin:tLinkedin,testimonials:tTestimonials,contact:tContact,marquee:tMarquee,settings:tSettings})[id]?.();
+}
+
+// ═══════════════════════════════════════════════
+//  HELPERS
+// ═══════════════════════════════════════════════
+function accordion(){
+  document.querySelectorAll('.chead').forEach(h=>h.onclick=()=>h.closest('.citem').classList.toggle('open'));
+}
+function bindArr(section,cb){
+  document.querySelectorAll(`[data-s="${section}"]`).forEach(el=>{
+    el.addEventListener('input',()=>{
+      const i=+el.dataset.i,f=el.dataset.f;
+      S.content[section][i][f]=el.value;
+      cb?.(el,i,f,el.value);
+      setDirty();
+    });
   });
 }
-
-function navItem(t) {
-  const active = S.tab === t.id ? ' active' : '';
-  return `<div class="nav-item${active}" data-tab="${t.id}">
-    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">${t.icon}</svg>
-    <span>${t.label}</span>
-  </div>`;
+function bindChecks(section){
+  document.querySelectorAll(`[data-s="${section}"][type="checkbox"]`).forEach(el=>{
+    el.onchange=()=>{S.content[section][+el.dataset.i][el.dataset.f]=el.checked;setDirty();};
+  });
+}
+function bindKey(id,obj,key){
+  const el=document.getElementById(id);
+  if(!el)return;
+  el.addEventListener('input',()=>{obj[key]=el.value;setDirty();});
+}
+function listEditor(items,opts={}){
+  const {onchange,addLabel='Add item',textarea=false}=opts;
+  const rows=items.map((v,i)=>`
+    <div class="list-row" data-li="${i}">
+      ${textarea
+        ? `<textarea class="inp li-inp" data-li-i="${i}" style="min-height:60px">${esc(v)}</textarea>`
+        : `<input class="inp li-inp" data-li-i="${i}" value="${esc(v)}" />`}
+      <button class="btn-icon li-del" data-li-i="${i}" title="Remove"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2"><path d="M18 6L6 18M6 6l12 12"/></svg></button>
+    </div>`).join('');
+  return `<div class="list-rows" id="list-rows">${rows}</div>
+    <button class="btn-add list-add"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>${addLabel}</button>`;
+}
+function bindListEditor(items,opts={}){
+  const {onchange,addVal='New item',textarea=false}=opts;
+  document.querySelectorAll('.li-inp').forEach(el=>{
+    el.addEventListener('input',()=>{items[+el.dataset.liI]=el.value;setDirty();onchange?.();});
+  });
+  document.querySelectorAll('.li-del').forEach(btn=>{
+    btn.onclick=()=>{items.splice(+btn.dataset.liI,1);setDirty();onchange?.();};
+  });
+  document.querySelector('.list-add').onclick=()=>{items.push(addVal);setDirty();onchange?.();};
 }
 
-function showTab(id) {
-  const fns = {
-    basics: tabBasics, services: tabServices, background: tabBackground,
-    process: tabProcess, testimonials: tabTestimonials, marquee: tabMarquee, settings: tabSettings
-  };
-  (fns[id] || tabBasics)();
-}
-
-// ════════════════════════════════════════════════════
+// ═══════════════════════════════════════════════
 //  TAB: BASICS
-// ════════════════════════════════════════════════════
-function tabBasics() {
-  const t = S.tweaks;
-  document.getElementById('main').innerHTML = `<div class="panel">
-    <div class="panel-title">Basics</div>
-    <div class="panel-desc">Core settings — the first things visitors see and your contact details.</div>
-
-    <div class="field-group">
-      <div class="field-group-title">Hero Section</div>
-      <div class="field">
-        <label class="field-label">Main Headline</label>
-        <input class="field-input" id="f-heroHeadline" value="${esc(t.heroHeadline)}" />
+// ═══════════════════════════════════════════════
+function tBasics(){
+  const t=S.tweaks,c=S.content;
+  document.getElementById('mn').innerHTML=`<div class="panel">
+    <div class="p-title">Basics</div>
+    <div class="p-desc">The core building blocks — headline, subheading, buttons, colors, and all your contact links.</div>
+    <div class="fg">
+      <div class="fg-title">Hero Text</div>
+      <div class="f"><label class="lbl">Main Headline</label><input id="b-hl" class="inp" value="${esc(t.heroHeadline)}" /></div>
+      <div class="f"><label class="lbl">Subheading</label><textarea id="b-sub" class="inp">${esc(t.heroSub)}</textarea></div>
+      <div class="f-row">
+        <div class="f"><label class="lbl">CTA Button Text</label><input id="b-cta" class="inp" value="${esc(t.ctaLabel)}" /></div>
+        <div class="f"><label class="lbl">Nav Logo Text</label><input id="b-logo" class="inp" value="${esc(c.nav.logo)}" /></div>
       </div>
-      <div class="field">
-        <label class="field-label">Subheading</label>
-        <textarea class="field-input" id="f-heroSub">${esc(t.heroSub)}</textarea>
-      </div>
-      <div class="field-row">
-        <div class="field">
-          <label class="field-label">CTA Button Text</label>
-          <input class="field-input" id="f-ctaLabel" value="${esc(t.ctaLabel)}" />
-        </div>
-        <div class="field">
-          <label class="field-label">Accent Color</label>
-          <div class="color-row">
-            <input type="color" class="color-swatch" id="f-colorPicker" value="${esc(t.accentColor)}" />
-            <input class="field-input" id="f-accentColor" value="${esc(t.accentColor)}" placeholder="#456abf" />
-          </div>
+    </div>
+    <div class="fg">
+      <div class="fg-title">Accent Color</div>
+      <div class="f">
+        <div class="color-row">
+          <input type="color" class="cswatch" id="b-cpick" value="${esc(t.accentColor)}" />
+          <input id="b-chex" class="inp" value="${esc(t.accentColor)}" placeholder="#456abf" />
         </div>
       </div>
     </div>
-
-    <div class="field-group">
-      <div class="field-group-title">Contact & Links</div>
-      <div class="field-row">
-        <div class="field">
-          <label class="field-label">WhatsApp Number</label>
-          <div class="field-hint">Country code, no spaces — e.g. 972505646450</div>
-          <input class="field-input" id="f-whatsappNumber" value="${esc(t.whatsappNumber)}" />
-        </div>
-        <div class="field">
-          <label class="field-label">Email Address</label>
-          <input class="field-input" id="f-emailAddress" value="${esc(t.emailAddress)}" />
-        </div>
+    <div class="fg">
+      <div class="fg-title">Contact Links</div>
+      <div class="f-row">
+        <div class="f"><label class="lbl">WhatsApp Number</label><div class="hint">Country code, no spaces — e.g. 972505646450</div><input id="b-wa" class="inp" value="${esc(t.whatsappNumber)}" /></div>
+        <div class="f"><label class="lbl">Email Address</label><input id="b-em" class="inp" value="${esc(t.emailAddress)}" /></div>
       </div>
-      <div class="field">
-        <label class="field-label">Booking / Meeting URL</label>
-        <input class="field-input" id="f-meetUrl" value="${esc(t.meetUrl || '')}" placeholder="https://calendar.app.google/…" />
-      </div>
-      <div class="field">
-        <label class="field-label">LinkedIn URL</label>
-        <div class="field-hint">Without https:// — e.g. www.linkedin.com/in/your-name</div>
-        <input class="field-input" id="f-linkedinUrl" value="${esc(t.linkedinUrl)}" />
-      </div>
+      <div class="f"><label class="lbl">Booking / Meeting URL</label><input id="b-meet" class="inp" value="${esc(t.meetUrl||'')}" placeholder="https://calendar.app.google/…" /></div>
+      <div class="f"><label class="lbl">LinkedIn URL</label><div class="hint">Without https:// — e.g. www.linkedin.com/in/your-name</div><input id="b-li" class="inp" value="${esc(t.linkedinUrl)}" /></div>
     </div>
   </div>`;
-
-  const fields = ['heroHeadline','heroSub','ctaLabel','whatsappNumber','emailAddress','meetUrl','linkedinUrl','accentColor'];
-  fields.forEach(k => {
-    const el = document.getElementById(`f-${k}`);
-    if (!el) return;
-    el.addEventListener('input', () => { S.tweaks[k] = el.value; setDirty(); });
+  ['heroHeadline:b-hl','heroSub:b-sub','ctaLabel:b-cta','whatsappNumber:b-wa','emailAddress:b-em','meetUrl:b-meet','linkedinUrl:b-li'].forEach(s=>{
+    const [k,id]=s.split(':');
+    const el=document.getElementById(id);
+    if(el) el.addEventListener('input',()=>{S.tweaks[k]=el.value;setDirty();});
   });
+  bindKey('b-logo',c.nav,'logo');
+  const pick=document.getElementById('b-cpick'),hex=document.getElementById('b-chex');
+  pick.oninput=()=>{hex.value=pick.value;S.tweaks.accentColor=pick.value;setDirty();};
+  hex.addEventListener('input',()=>{ if(/^#[0-9a-f]{6}$/i.test(hex.value)){pick.value=hex.value;S.tweaks.accentColor=hex.value;setDirty();}});
+}
 
-  const picker = document.getElementById('f-colorPicker');
-  const colorTxt = document.getElementById('f-accentColor');
-  picker.addEventListener('input', () => { colorTxt.value = picker.value; S.tweaks.accentColor = picker.value; setDirty(); });
-  colorTxt.addEventListener('input', () => {
-    if (/^#[0-9a-f]{6}$/i.test(colorTxt.value)) { picker.value = colorTxt.value; S.tweaks.accentColor = colorTxt.value; setDirty(); }
+// ═══════════════════════════════════════════════
+//  TAB: HERO
+// ═══════════════════════════════════════════════
+function tHero(){
+  const h=S.content.hero;
+  document.getElementById('mn').innerHTML=`<div class="panel">
+    <div class="p-title">Hero Section</div>
+    <div class="p-desc">The eyebrow label above the headline and the credential badge that appears on your photo.</div>
+    <div class="fg">
+      <div class="fg-title">Labels</div>
+      <div class="f"><label class="lbl">Eyebrow Label</label><div class="hint">Small text above the headline — e.g. "AI Expert for SMBs"</div><input id="h-ey" class="inp" value="${esc(h.eyebrow)}" /></div>
+    </div>
+    <div class="fg">
+      <div class="fg-title">Credential Badge (on photo)</div>
+      <div class="f-row">
+        <div class="f"><label class="lbl">Label (small, accent)</label><input id="h-cl" class="inp" value="${esc(h.credLabel)}" /></div>
+        <div class="f"><label class="lbl">Name</label><input id="h-cn" class="inp" value="${esc(h.credName)}" /></div>
+      </div>
+      <div class="f"><label class="lbl">Title / Subtitle</label><input id="h-ct" class="inp" value="${esc(h.credTitle)}" /></div>
+    </div>
+  </div>`;
+  ['eyebrow:h-ey','credLabel:h-cl','credName:h-cn','credTitle:h-ct'].forEach(s=>{
+    const [k,id]=s.split(':');
+    const el=document.getElementById(id);
+    if(el) el.addEventListener('input',()=>{h[k]=el.value;setDirty();});
   });
 }
 
-// ════════════════════════════════════════════════════
-//  TAB: SERVICES
-// ════════════════════════════════════════════════════
-function tabServices() {
-  const svcs = S.content.services;
-  document.getElementById('main').innerHTML = `<div class="panel">
-    <div class="panel-title">Services</div>
-    <div class="panel-desc">The six scanner cards on your website. Front shows the short description; back (revealed on click) shows the full detail.</div>
-    <div class="card-list">
-      ${svcs.map((s, i) => `
-        <div class="card-item" data-i="${i}">
-          <div class="card-head">
-            <div class="card-num">0${i+1}</div>
-            <div class="card-name svc-name-${i}">${esc(s.name)}</div>
-            <svg class="card-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M6 9l6 6 6-6"/></svg>
-          </div>
-          <div class="card-body">
-            <div class="field">
-              <label class="field-label">Service Name</label>
-              <input class="field-input" data-s="services" data-i="${i}" data-f="name" value="${esc(s.name)}" />
-            </div>
-            <div class="field">
-              <label class="field-label">Short Description (front of card)</label>
-              <input class="field-input" data-s="services" data-i="${i}" data-f="desc" value="${esc(s.desc)}" />
-            </div>
-            <div class="field">
-              <label class="field-label">Full Detail (back of card — revealed on click)</label>
-              <textarea class="field-input" data-s="services" data-i="${i}" data-f="detail">${esc(s.detail)}</textarea>
-            </div>
-          </div>
-        </div>`).join('')}
+// ═══════════════════════════════════════════════
+//  TAB: IMPACT STATS
+// ═══════════════════════════════════════════════
+function tStats(){
+  const imp=S.content.impact;
+  document.getElementById('mn').innerHTML=`<div class="panel">
+    <div class="p-title">Impact Stats</div>
+    <div class="p-desc">The three animated numbers section. The number animates up on scroll. Use the accent field for a colored word next to the number (e.g. "faster", "weeks"). Leave blank if not needed.</div>
+    <div class="fg">
+      <div class="fg-title">Section Label</div>
+      <div class="f"><label class="lbl">Eyebrow</label><input id="imp-ey" class="inp" value="${esc(imp.eyebrow)}" /></div>
     </div>
+    ${imp.stats.map((s,i)=>`
+      <div class="fg">
+        <div class="fg-title">Stat ${i+1}</div>
+        <div class="f-row">
+          <div class="f"><label class="lbl">Number</label><input class="inp" data-s="impact.stats" data-i="${i}" data-f="target" value="${esc(s.target)}" type="number" /></div>
+          <div class="f"><label class="lbl">Suffix (after number)</label><div class="hint">e.g. × or %</div><input class="inp" data-s="impact.stats" data-i="${i}" data-f="suffix" value="${esc(s.suffix)}" /></div>
+          <div class="f"><label class="lbl">Accent word (colored)</label><input class="inp" data-s="impact.stats" data-i="${i}" data-f="accent" value="${esc(s.accent)}" placeholder="faster" /></div>
+        </div>
+        <div class="f"><label class="lbl">Claim</label><input class="inp" data-s="impact.stats" data-i="${i}" data-f="claim" value="${esc(s.claim)}" /></div>
+        <div class="f"><label class="lbl">Detail</label><textarea class="inp" data-s="impact.stats" data-i="${i}" data-f="detail">${esc(s.detail)}</textarea></div>
+      </div>`).join('')}
   </div>`;
-  initAccordion();
-  initArrayInputs('services', (el, i, f, val) => {
-    if (f === 'name') document.querySelector(`.svc-name-${i}`).textContent = val;
+  const ey=document.getElementById('imp-ey');
+  if(ey) ey.addEventListener('input',()=>{imp.eyebrow=ey.value;setDirty();});
+  document.querySelectorAll('[data-s="impact.stats"]').forEach(el=>{
+    el.addEventListener('input',()=>{
+      const i=+el.dataset.i,f=el.dataset.f;
+      imp.stats[i][f]=el.type==='number'?+el.value:el.value;
+      setDirty();
+    });
   });
 }
 
-// ════════════════════════════════════════════════════
+// ═══════════════════════════════════════════════
+//  TAB: HOW IT WORKS
+// ═══════════════════════════════════════════════
+function tProcess(){
+  const hs=S.content.howSection,steps=S.content.howSteps;
+  document.getElementById('mn').innerHTML=`<div class="panel">
+    <div class="p-title">How It Works</div>
+    <div class="p-desc">The three-step process section. Use \\n in the title field to add a line break (e.g. "Three steps.\\nReal results.").</div>
+    <div class="fg">
+      <div class="fg-title">Section Header</div>
+      <div class="f-row">
+        <div class="f"><label class="lbl">Eyebrow</label><input id="hw-ey" class="inp" value="${esc(hs.eyebrow)}" /></div>
+        <div class="f"><label class="lbl">CTA Note</label><div class="hint">Small text below the button</div><input id="hw-note" class="inp" value="${esc(hs.ctaNote)}" /></div>
+      </div>
+      <div class="f"><label class="lbl">Title</label><div class="hint">Use \\n for line break</div><input id="hw-ti" class="inp" value="${esc(hs.title)}" /></div>
+    </div>
+    <div class="fg">
+      <div class="fg-title">Steps</div>
+      <div class="clist">
+        ${steps.map((s,i)=>`
+          <div class="citem" data-i="${i}">
+            <div class="chead"><div class="cnum">${esc(s.n)}</div><div class="cname hw-ti-${i}">${esc(s.title)}</div><svg class="chev" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M6 9l6 6 6-6"/></svg></div>
+            <div class="cbody">
+              <div class="f"><label class="lbl">Title</label><input class="inp" data-s="howSteps" data-i="${i}" data-f="title" value="${esc(s.title)}" /></div>
+              <div class="f"><label class="lbl">Description</label><textarea class="inp" data-s="howSteps" data-i="${i}" data-f="desc">${esc(s.desc)}</textarea></div>
+            </div>
+          </div>`).join('')}
+      </div>
+    </div>
+  </div>`;
+  accordion();
+  ['eyebrow:hw-ey','title:hw-ti','ctaNote:hw-note'].forEach(s=>{
+    const [k,id]=s.split(':');
+    const el=document.getElementById(id);
+    if(el) el.addEventListener('input',()=>{hs[k]=el.value;setDirty();});
+  });
+  bindArr('howSteps',(el,i,f,v)=>{ if(f==='title') document.querySelector(`.hw-ti-${i}`).textContent=v; });
+}
+
+// ═══════════════════════════════════════════════
 //  TAB: BACKGROUND
-// ════════════════════════════════════════════════════
-function tabBackground() {
-  const items = S.content.milestones;
-  document.getElementById('main').innerHTML = `<div class="panel">
-    <div class="panel-title">Background</div>
-    <div class="panel-desc">Your career timeline milestones. The milestone with <strong>year = "Now"</strong> is highlighted in the accent color.</div>
-    <div class="card-list">
-      ${items.map((m, i) => `
-        <div class="card-item" data-i="${i}">
-          <div class="card-head">
-            <div class="card-num ms-year-${i}">${esc(m.year)}</div>
-            <div class="card-name ms-title-${i}">${esc(m.title)}</div>
-            <svg class="card-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M6 9l6 6 6-6"/></svg>
-          </div>
-          <div class="card-body">
-            <div class="field-row">
-              <div class="field">
-                <label class="field-label">Year / Label</label>
-                <div class="field-hint">Use "Now" to highlight as current</div>
-                <input class="field-input" data-s="milestones" data-i="${i}" data-f="year" value="${esc(m.year)}" />
+// ═══════════════════════════════════════════════
+function tBackground(){
+  const bs=S.content.backgroundSection,ms=S.content.milestones;
+  document.getElementById('mn').innerHTML=`<div class="panel">
+    <div class="p-title">Background</div>
+    <div class="p-desc">Your career section — the left-side text and the timeline milestones on the right.</div>
+    <div class="fg">
+      <div class="fg-title">Section Header</div>
+      <div class="f"><label class="lbl">Eyebrow</label><input id="bg-ey" class="inp" value="${esc(bs.eyebrow)}" /></div>
+      <div class="f"><label class="lbl">Title</label><div class="hint">Use \\n for line break</div><input id="bg-ti" class="inp" value="${esc(bs.title)}" /></div>
+      <div class="f"><label class="lbl">Tagline</label><textarea id="bg-tag" class="inp">${esc(bs.tagline)}</textarea></div>
+    </div>
+    <div class="fg">
+      <div class="fg-title">Company Chips</div>
+      <div class="hint" style="margin-bottom:10px">Small tag labels shown below the tagline</div>
+      ${listEditor(bs.companies,{addLabel:'Add company'})}
+    </div>
+    <div class="fg">
+      <div class="fg-title">Career Milestones</div>
+      <div class="clist">
+        ${ms.map((m,i)=>`
+          <div class="citem" data-i="${i}">
+            <div class="chead"><div class="cnum ms-yr-${i}">${esc(m.year)}</div><div class="cname ms-ti-${i}">${esc(m.title)}</div><svg class="chev" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M6 9l6 6 6-6"/></svg></div>
+            <div class="cbody">
+              <div class="f-row">
+                <div class="f"><label class="lbl">Year / Label</label><div class="hint">Use "Now" to highlight</div><input class="inp" data-s="milestones" data-i="${i}" data-f="year" value="${esc(m.year)}" /></div>
+                <div class="f"><label class="lbl">Title</label><input class="inp" data-s="milestones" data-i="${i}" data-f="title" value="${esc(m.title)}" /></div>
               </div>
-              <div class="field">
-                <label class="field-label">Title</label>
-                <input class="field-input" data-s="milestones" data-i="${i}" data-f="title" value="${esc(m.title)}" />
-              </div>
+              <div class="f"><label class="lbl">Description</label><textarea class="inp" style="min-height:65px" data-s="milestones" data-i="${i}" data-f="desc">${esc(m.desc)}</textarea></div>
             </div>
-            <div class="field">
-              <label class="field-label">Description</label>
-              <textarea class="field-input" style="min-height:70px" data-s="milestones" data-i="${i}" data-f="desc">${esc(m.desc)}</textarea>
-            </div>
-          </div>
-        </div>`).join('')}
+          </div>`).join('')}
+      </div>
     </div>
   </div>`;
-  initAccordion();
-  initArrayInputs('milestones', (el, i, f, val) => {
-    if (f === 'year')  document.querySelector(`.ms-year-${i}`).textContent  = val;
-    if (f === 'title') document.querySelector(`.ms-title-${i}`).textContent = val;
+  accordion();
+  ['eyebrow:bg-ey','title:bg-ti','tagline:bg-tag'].forEach(s=>{
+    const [k,id]=s.split(':');
+    const el=document.getElementById(id);
+    if(el) el.addEventListener('input',()=>{bs[k]=el.value;setDirty();});
+  });
+  bindListEditor(bs.companies,{addVal:'New Company',onchange:()=>{}});
+  bindArr('milestones',(el,i,f,v)=>{
+    if(f==='year') document.querySelector(`.ms-yr-${i}`).textContent=v;
+    if(f==='title') document.querySelector(`.ms-ti-${i}`).textContent=v;
   });
 }
 
-// ════════════════════════════════════════════════════
-//  TAB: PROCESS (How It Works)
-// ════════════════════════════════════════════════════
-function tabProcess() {
-  const steps = S.content.howSteps;
-  document.getElementById('main').innerHTML = `<div class="panel">
-    <div class="panel-title">How It Works</div>
-    <div class="panel-desc">The three-step process section. Keep step titles short and punchy.</div>
-    <div class="card-list">
-      ${steps.map((s, i) => `
-        <div class="card-item" data-i="${i}">
-          <div class="card-head">
-            <div class="card-num">${esc(s.n)}</div>
-            <div class="card-name hw-title-${i}">${esc(s.title)}</div>
-            <svg class="card-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M6 9l6 6 6-6"/></svg>
-          </div>
-          <div class="card-body">
-            <div class="field">
-              <label class="field-label">Step Title</label>
-              <input class="field-input" data-s="howSteps" data-i="${i}" data-f="title" value="${esc(s.title)}" />
+// ═══════════════════════════════════════════════
+//  TAB: SERVICES
+// ═══════════════════════════════════════════════
+function tServices(){
+  const ss=S.content.servicesSection,svcs=S.content.services;
+  document.getElementById('mn').innerHTML=`<div class="panel">
+    <div class="p-title">Services</div>
+    <div class="p-desc">The six scanner cards. Front = short description. Back (revealed on click) = full detail.</div>
+    <div class="fg">
+      <div class="fg-title">Section Header</div>
+      <div class="f-row">
+        <div class="f"><label class="lbl">Eyebrow</label><input id="sv-ey" class="inp" value="${esc(ss.eyebrow)}" /></div>
+        <div class="f"><label class="lbl">Hint text</label><div class="hint">Below the grid</div><input id="sv-hint" class="inp" value="${esc(ss.hint)}" /></div>
+      </div>
+      <div class="f"><label class="lbl">Title</label><input id="sv-ti" class="inp" value="${esc(ss.title)}" /></div>
+      <div class="f"><label class="lbl">Description paragraph</label><textarea id="sv-desc" class="inp">${esc(ss.desc)}</textarea></div>
+    </div>
+    <div class="fg">
+      <div class="fg-title">Service Cards</div>
+      <div class="clist">
+        ${svcs.map((s,i)=>`
+          <div class="citem" data-i="${i}">
+            <div class="chead"><div class="cnum">0${i+1}</div><div class="cname sv-n-${i}">${esc(s.name)}</div><svg class="chev" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M6 9l6 6 6-6"/></svg></div>
+            <div class="cbody">
+              <div class="f"><label class="lbl">Name</label><input class="inp" data-s="services" data-i="${i}" data-f="name" value="${esc(s.name)}" /></div>
+              <div class="f"><label class="lbl">Short description (front)</label><input class="inp" data-s="services" data-i="${i}" data-f="desc" value="${esc(s.desc)}" /></div>
+              <div class="f"><label class="lbl">Full detail (back)</label><textarea class="inp" data-s="services" data-i="${i}" data-f="detail">${esc(s.detail)}</textarea></div>
             </div>
-            <div class="field">
-              <label class="field-label">Description</label>
-              <textarea class="field-input" data-s="howSteps" data-i="${i}" data-f="desc">${esc(s.desc)}</textarea>
-            </div>
-          </div>
-        </div>`).join('')}
+          </div>`).join('')}
+      </div>
     </div>
   </div>`;
-  initAccordion();
-  initArrayInputs('howSteps', (el, i, f, val) => {
-    if (f === 'title') document.querySelector(`.hw-title-${i}`).textContent = val;
+  accordion();
+  ['eyebrow:sv-ey','title:sv-ti','desc:sv-desc','hint:sv-hint'].forEach(s=>{
+    const [k,id]=s.split(':');
+    const el=document.getElementById(id);
+    if(el) el.addEventListener('input',()=>{ss[k]=el.value;setDirty();});
+  });
+  bindArr('services',(el,i,f,v)=>{ if(f==='name') document.querySelector(`.sv-n-${i}`).textContent=v; });
+}
+
+// ═══════════════════════════════════════════════
+//  TAB: LINKEDIN
+// ═══════════════════════════════════════════════
+function tLinkedin(){
+  const ls=S.content.linkedinSection,posts=S.content.linkedinPosts;
+  document.getElementById('mn').innerHTML=`<div class="panel">
+    <div class="p-title">LinkedIn</div>
+    <div class="p-desc">The LinkedIn section header, edge box, follower count, and post content. Use **double asterisks** for bold in post paragraphs.</div>
+    <div class="fg">
+      <div class="fg-title">Section Header</div>
+      <div class="f-row">
+        <div class="f"><label class="lbl">Eyebrow</label><input id="li-ey" class="inp" value="${esc(ls.eyebrow)}" /></div>
+        <div class="f"><label class="lbl">Followers count</label><input id="li-fol" class="inp" value="${esc(ls.followers)}" placeholder="4K+" /></div>
+      </div>
+      <div class="f"><label class="lbl">Title</label><input id="li-ti" class="inp" value="${esc(ls.title)}" /></div>
+      <div class="f"><label class="lbl">Subtitle</label><input id="li-sub" class="inp" value="${esc(ls.sub)}" /></div>
+    </div>
+    <div class="fg">
+      <div class="fg-title">Edge Box (bottom call-to-action)</div>
+      <div class="f"><label class="lbl">Title</label><input id="li-eti" class="inp" value="${esc(ls.edgeTitle)}" /></div>
+      <div class="f"><label class="lbl">Subtitle</label><textarea id="li-esub" class="inp" style="min-height:60px">${esc(ls.edgeSub)}</textarea></div>
+    </div>
+    <div class="fg">
+      <div class="fg-title">Posts Carousel</div>
+      <div class="clist">
+        ${posts.map((p,i)=>`
+          <div class="citem" data-i="${i}">
+            <div class="chead"><div class="cnum">${i+1}</div><div class="cname">${esc((p.paragraphs[0]||'').replace(/\*\*/g,'').slice(0,50))}…</div><svg class="chev" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M6 9l6 6 6-6"/></svg></div>
+            <div class="cbody">
+              <div class="f-row">
+                <div class="f"><label class="lbl">Role shown</label><input class="inp li-post-f" data-pi="${i}" data-pf="role" value="${esc(p.role)}" /></div>
+                <div class="f"><label class="lbl">Date shown</label><input class="inp li-post-f" data-pi="${i}" data-pf="date" value="${esc(p.date)}" /></div>
+              </div>
+              <div class="f-row">
+                <div class="f"><label class="lbl">Likes</label><input class="inp li-post-f" data-pi="${i}" data-pf="likes" value="${esc(p.likes)}" /></div>
+                <div class="f"><label class="lbl">Comments</label><input class="inp li-post-f" data-pi="${i}" data-pf="comments" value="${esc(p.comments)}" /></div>
+              </div>
+              <div class="f"><label class="lbl">LinkedIn URL</label><input class="inp li-post-f" data-pi="${i}" data-pf="url" value="${esc(p.url)}" /></div>
+              <div class="f">
+                <label class="lbl">Post paragraphs</label>
+                <div class="hint">One paragraph per line. Use **text** for bold.</div>
+                <div id="li-paras-${i}" class="list-rows" style="margin-bottom:6px">
+                  ${p.paragraphs.map((pg,pi2)=>`
+                    <div class="list-row" data-pgi="${pi2}">
+                      <textarea class="inp li-para" data-post="${i}" data-para="${pi2}" style="min-height:54px">${esc(pg)}</textarea>
+                      <button class="btn-icon li-para-del" data-post="${i}" data-para="${pi2}" title="Remove"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2"><path d="M18 6L6 18M6 6l12 12"/></svg></button>
+                    </div>`).join('')}
+                </div>
+                <button class="btn-add li-para-add" data-post="${i}"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>Add paragraph</button>
+              </div>
+            </div>
+          </div>`).join('')}
+      </div>
+    </div>
+  </div>`;
+  accordion();
+  ['eyebrow:li-ey','title:li-ti','sub:li-sub','edgeTitle:li-eti','edgeSub:li-esub','followers:li-fol'].forEach(s=>{
+    const [k,id]=s.split(':');
+    const el=document.getElementById(id);
+    if(el) el.addEventListener('input',()=>{ls[k]=el.value;setDirty();});
+  });
+  document.querySelectorAll('.li-post-f').forEach(el=>{
+    el.addEventListener('input',()=>{posts[+el.dataset.pi][el.dataset.pf]=el.value;setDirty();});
+  });
+  document.querySelectorAll('.li-para').forEach(el=>{
+    el.addEventListener('input',()=>{posts[+el.dataset.post].paragraphs[+el.dataset.para]=el.value;setDirty();});
+  });
+  document.querySelectorAll('.li-para-del').forEach(btn=>{
+    btn.onclick=()=>{posts[+btn.dataset.post].paragraphs.splice(+btn.dataset.para,1);setDirty();tLinkedin();};
+  });
+  document.querySelectorAll('.li-para-add').forEach(btn=>{
+    btn.onclick=()=>{posts[+btn.dataset.post].paragraphs.push('');setDirty();tLinkedin();};
   });
 }
 
-// ════════════════════════════════════════════════════
+// ═══════════════════════════════════════════════
 //  TAB: TESTIMONIALS
-// ════════════════════════════════════════════════════
-function tabTestimonials() {
-  const items = S.content.testimonials;
-  document.getElementById('main').innerHTML = `<div class="panel">
-    <div class="panel-title">Testimonials</div>
-    <div class="panel-desc">Client quotes displayed in a 3-column grid. Use <strong>**double asterisks**</strong> around text to make it bold. Toggle "Featured" to show a gold border and badge.</div>
-    <div class="card-list">
-      ${items.map((t, i) => `
-        <div class="card-item" data-i="${i}">
-          <div class="card-head">
-            <div class="card-num">${esc(t.initials)}</div>
-            <div class="card-name tm-name-${i}">${esc(t.name)} <span style="font-weight:400;color:var(--text-dimmer)">· ${esc(t.title)}</span></div>
-            <svg class="card-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M6 9l6 6 6-6"/></svg>
-          </div>
-          <div class="card-body">
-            <div class="field-row">
-              <div class="field">
-                <label class="field-label">Name</label>
-                <input class="field-input" data-s="testimonials" data-i="${i}" data-f="name" value="${esc(t.name)}" />
+// ═══════════════════════════════════════════════
+function tTestimonials(){
+  const ts=S.content.testimonialsSection,items=S.content.testimonials;
+  document.getElementById('mn').innerHTML=`<div class="panel">
+    <div class="p-title">Testimonials</div>
+    <div class="p-desc">Client quotes. Use **double asterisks** for bold text. Toggle Featured for gold border + badge.</div>
+    <div class="fg">
+      <div class="fg-title">Section Header</div>
+      <div class="f"><label class="lbl">Eyebrow</label><input id="tm-ey" class="inp" value="${esc(ts.eyebrow)}" /></div>
+      <div class="f"><label class="lbl">Title</label><input id="tm-ti" class="inp" value="${esc(ts.title)}" /></div>
+      <div class="f"><label class="lbl">Subtitle</label><textarea id="tm-sub" class="inp" style="min-height:60px">${esc(ts.sub)}</textarea></div>
+    </div>
+    <div class="fg">
+      <div class="fg-title">Quotes</div>
+      <div class="clist">
+        ${items.map((t,i)=>`
+          <div class="citem" data-i="${i}">
+            <div class="chead"><div class="cnum">${esc(t.initials)}</div><div class="cname tm-n-${i}">${esc(t.name)} <span style="font-weight:400;color:var(--text-dimmer)">· ${esc(t.title)}</span></div><svg class="chev" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M6 9l6 6 6-6"/></svg></div>
+            <div class="cbody">
+              <div class="f-row">
+                <div class="f"><label class="lbl">Name</label><input class="inp" data-s="testimonials" data-i="${i}" data-f="name" value="${esc(t.name)}" /></div>
+                <div class="f"><label class="lbl">Initials (avatar)</label><input class="inp" data-s="testimonials" data-i="${i}" data-f="initials" value="${esc(t.initials)}" /></div>
               </div>
-              <div class="field">
-                <label class="field-label">Initials (avatar)</label>
-                <input class="field-input" data-s="testimonials" data-i="${i}" data-f="initials" value="${esc(t.initials)}" />
+              <div class="f"><label class="lbl">Role / Title</label><input class="inp" data-s="testimonials" data-i="${i}" data-f="title" value="${esc(t.title)}" /></div>
+              <div class="f"><label class="lbl">Quote text</label><div class="hint">Use **text** for bold</div><textarea class="inp" data-s="testimonials" data-i="${i}" data-f="text">${esc(t.text)}</textarea></div>
+              <div class="tog-row">
+                <label class="lbl" style="margin:0">Featured (gold border + badge)</label>
+                <label class="tog"><input type="checkbox" data-s="testimonials" data-i="${i}" data-f="featured" ${t.featured?'checked':''}><div class="tog-tr"></div><div class="tog-th"></div></label>
               </div>
             </div>
-            <div class="field">
-              <label class="field-label">Role / Title</label>
-              <input class="field-input" data-s="testimonials" data-i="${i}" data-f="title" value="${esc(t.title)}" />
-            </div>
-            <div class="field">
-              <label class="field-label">Quote Text</label>
-              <div class="field-hint">Wrap words in **double asterisks** to make them bold</div>
-              <textarea class="field-input" data-s="testimonials" data-i="${i}" data-f="text">${esc(t.text)}</textarea>
-            </div>
-            <div class="toggle-row" style="margin-top:4px">
-              <label class="field-label" style="margin:0">Featured (gold border + badge)</label>
-              <label class="toggle">
-                <input type="checkbox" data-s="testimonials" data-i="${i}" data-f="featured" ${t.featured ? 'checked' : ''} />
-                <div class="toggle-track"></div>
-                <div class="toggle-thumb"></div>
-              </label>
-            </div>
-          </div>
-        </div>`).join('')}
+          </div>`).join('')}
+      </div>
     </div>
   </div>`;
-  initAccordion();
-  // Text/input fields
-  document.querySelectorAll('[data-s="testimonials"]:not([type="checkbox"])').forEach(el => {
-    el.addEventListener('input', () => {
-      const i = +el.dataset.i, f = el.dataset.f;
-      S.content.testimonials[i][f] = el.value;
-      if (f === 'name') {
-        const title = S.content.testimonials[i].title;
-        document.querySelector(`.tm-name-${i}`).innerHTML = esc(el.value) + ` <span style="font-weight:400;color:var(--text-dimmer)">· ${esc(title)}</span>`;
-      }
-      setDirty();
-    });
+  accordion();
+  ['eyebrow:tm-ey','title:tm-ti','sub:tm-sub'].forEach(s=>{
+    const [k,id]=s.split(':');
+    const el=document.getElementById(id);
+    if(el) el.addEventListener('input',()=>{ts[k]=el.value;setDirty();});
   });
-  // Checkboxes
-  document.querySelectorAll('[data-s="testimonials"][type="checkbox"]').forEach(el => {
-    el.addEventListener('change', () => { S.content.testimonials[+el.dataset.i].featured = el.checked; setDirty(); });
+  bindArr('testimonials',(el,i,f,v)=>{
+    if(f==='name'){const sp=document.querySelector(`.tm-n-${i}`);if(sp)sp.innerHTML=esc(v)+` <span style="font-weight:400;color:var(--text-dimmer)">· ${esc(items[i].title)}</span>`;}
+  });
+  bindChecks('testimonials');
+}
+
+// ═══════════════════════════════════════════════
+//  TAB: CONTACT & FOOTER
+// ═══════════════════════════════════════════════
+function tContact(){
+  const cs=S.content.contactSection,ft=S.content.footer;
+  document.getElementById('mn').innerHTML=`<div class="panel">
+    <div class="p-title">Contact &amp; Footer</div>
+    <div class="p-desc">The final contact section text and footer labels. Contact buttons (WhatsApp, email, meeting) are configured in Basics.</div>
+    <div class="fg">
+      <div class="fg-title">Contact Section</div>
+      <div class="f-row">
+        <div class="f"><label class="lbl">Eyebrow</label><input id="ct-ey" class="inp" value="${esc(cs.eyebrow)}" /></div>
+      </div>
+      <div class="f"><label class="lbl">Title</label><input id="ct-ti" class="inp" value="${esc(cs.title)}" /></div>
+      <div class="f"><label class="lbl">Subtitle</label><textarea id="ct-sub" class="inp">${esc(cs.sub)}</textarea></div>
+      <div class="f"><label class="lbl">Note below buttons</label><input id="ct-note" class="inp" value="${esc(cs.note)}" /></div>
+    </div>
+    <hr class="div">
+    <div class="fg">
+      <div class="fg-title">Footer</div>
+      <div class="f-row">
+        <div class="f"><label class="lbl">Name / Brand</label><input id="ft-name" class="inp" value="${esc(ft.name)}" /></div>
+        <div class="f"><label class="lbl">Copyright line</label><input id="ft-copy" class="inp" value="${esc(ft.copy)}" /></div>
+      </div>
+    </div>
+  </div>`;
+  ['eyebrow:ct-ey','title:ct-ti','sub:ct-sub','note:ct-note'].forEach(s=>{
+    const [k,id]=s.split(':');
+    const el=document.getElementById(id);
+    if(el) el.addEventListener('input',()=>{cs[k]=el.value;setDirty();});
+  });
+  ['name:ft-name','copy:ft-copy'].forEach(s=>{
+    const [k,id]=s.split(':');
+    const el=document.getElementById(id);
+    if(el) el.addEventListener('input',()=>{ft[k]=el.value;setDirty();});
   });
 }
 
-// ════════════════════════════════════════════════════
+// ═══════════════════════════════════════════════
 //  TAB: MARQUEE
-// ════════════════════════════════════════════════════
-function tabMarquee() {
-  const items = S.content.marqueeItems;
-  document.getElementById('main').innerHTML = `<div class="panel">
-    <div class="panel-title">Marquee Strip</div>
-    <div class="panel-desc">The scrolling text bar below the hero section. Each item is separated by a dot. Order matters.</div>
-    <div class="marquee-rows" id="mq-rows">
-      ${items.map((item, i) => marqueeRow(item, i)).join('')}
-    </div>
-    <button class="btn-add" id="mq-add">
-      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
-      Add item
-    </button>
+// ═══════════════════════════════════════════════
+function tMarquee(){
+  const items=S.content.marqueeItems;
+  document.getElementById('mn').innerHTML=`<div class="panel">
+    <div class="p-title">Marquee Strip</div>
+    <div class="p-desc">The scrolling text bar below the hero. Each item is separated by a dot. All text is uppercased automatically.</div>
+    ${listEditor(items,{addLabel:'Add item'})}
   </div>`;
-
-  bindMarqueeEvents();
-  document.getElementById('mq-add').addEventListener('click', () => {
-    S.content.marqueeItems.push('New Item');
-    tabMarquee();
-    setDirty();
-  });
+  bindListEditor(items,{addVal:'New Item',onchange:tMarquee});
 }
 
-function marqueeRow(val, i) {
-  return `<div class="marquee-row" data-mq="${i}">
-    <input class="field-input" data-mq-idx="${i}" value="${esc(val)}" />
-    <button class="btn-icon" data-mq-del="${i}" title="Remove">
-      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2"><path d="M18 6L6 18M6 6l12 12"/></svg>
-    </button>
-  </div>`;
-}
-
-function bindMarqueeEvents() {
-  document.querySelectorAll('[data-mq-idx]').forEach(el => {
-    el.addEventListener('input', () => { S.content.marqueeItems[+el.dataset.mqIdx] = el.value; setDirty(); });
-  });
-  document.querySelectorAll('[data-mq-del]').forEach(btn => {
-    btn.addEventListener('click', () => {
-      S.content.marqueeItems.splice(+btn.dataset.mqDel, 1);
-      tabMarquee(); setDirty();
-    });
-  });
-}
-
-// ════════════════════════════════════════════════════
+// ═══════════════════════════════════════════════
 //  TAB: SETTINGS
-// ════════════════════════════════════════════════════
-function tabSettings() {
-  document.getElementById('main').innerHTML = `<div class="panel">
-    <div class="panel-title">Settings</div>
-    <div class="panel-desc">GitHub connection — required to publish changes. Your token is stored only in this browser.</div>
-
-    <div class="settings-card">
-      <div class="settings-card-title">GitHub Connection</div>
-      <div class="field">
-        <label class="field-label">Personal Access Token</label>
-        <input id="set-token" type="password" class="field-input" value="${esc(S.token)}" autocomplete="off" />
-      </div>
-      <div class="field">
-        <label class="field-label">Branch</label>
-        <div class="field-hint">The branch that will be committed to. Vercel deploys from main automatically.</div>
-        <input id="set-branch" type="text" class="field-input" value="${esc(S.branch)}" />
-      </div>
-      <div class="settings-actions">
+// ═══════════════════════════════════════════════
+function tSettings(){
+  document.getElementById('mn').innerHTML=`<div class="panel">
+    <div class="p-title">Settings</div>
+    <div class="p-desc">GitHub connection. Your token is stored only in this browser.</div>
+    <div class="sbox">
+      <div class="sbox-title">GitHub Connection</div>
+      <div class="f"><label class="lbl">Personal Access Token</label><input id="set-tok" type="password" class="inp" value="${esc(S.token)}" autocomplete="off" /></div>
+      <div class="f"><label class="lbl">Branch</label><input id="set-br" type="text" class="inp" value="${esc(S.branch)}" /></div>
+      <div class="sbox-actions">
         <button class="btn btn-accent" id="set-save">Save &amp; Reconnect</button>
-        <button class="btn btn-danger" id="set-disconnect">Disconnect</button>
+        <button class="btn btn-danger" id="set-disc">Disconnect</button>
       </div>
     </div>
-
-    <div class="settings-card">
-      <div class="settings-card-title">Repository Info</div>
-      <div class="field-row">
-        <div class="field">
-          <label class="field-label">Repository</label>
-          <input type="text" class="field-input" value="${esc(REPO)}" disabled />
-        </div>
-        <div class="field">
-          <label class="field-label">File being edited</label>
-          <input type="text" class="field-input" value="${esc(FILE_EN)}" disabled />
-        </div>
+    <div class="sbox">
+      <div class="sbox-title">Repository Info</div>
+      <div class="f-row">
+        <div class="f"><label class="lbl">Repository</label><input class="inp" value="${esc(REPO)}" disabled /></div>
+        <div class="f"><label class="lbl">File</label><input class="inp" value="${esc(FILE_EN)}" disabled /></div>
       </div>
     </div>
   </div>`;
-
-  document.getElementById('set-save').addEventListener('click', async () => {
-    const tok = document.getElementById('set-token').value.trim();
-    const br  = document.getElementById('set-branch').value.trim() || 'main';
-    if (!tok) { toast('error', 'Token required'); return; }
-    S.token = tok; S.branch = br;
-    localStorage.setItem('ed_token', tok); localStorage.setItem('ed_branch', br);
-    renderLoading('Reconnecting…');
-    try { await boot(); toast('success', 'Settings saved', 'Reconnected to GitHub'); }
-    catch(e) { toast('error', 'Connection failed', e.message); renderSetup(); }
-  });
-
-  document.getElementById('set-disconnect').addEventListener('click', () => {
-    localStorage.removeItem('ed_token'); localStorage.removeItem('ed_branch');
-    S.token = ''; renderSetup();
-  });
+  document.getElementById('set-save').onclick=async()=>{
+    const tok=document.getElementById('set-tok').value.trim(),br=document.getElementById('set-br').value.trim()||'claude/AI-smbs-main';
+    if(!tok){toast('error','Token required');return;}
+    S.token=tok;S.branch=br;localStorage.setItem('ed_token',tok);localStorage.setItem('ed_branch',br);
+    renderLoad('Reconnecting…');
+    try{await boot();toast('success','Saved','Reconnected to GitHub');}catch(e){toast('error','Failed',e.message);renderSetup();}
+  };
+  document.getElementById('set-disc').onclick=()=>{
+    localStorage.removeItem('ed_token');localStorage.removeItem('ed_branch');S.token='';renderSetup();
+  };
 }
 
-// ════════════════════════════════════════════════════
-//  SHARED UI HELPERS
-// ════════════════════════════════════════════════════
-function initAccordion() {
-  document.querySelectorAll('.card-head').forEach(head => {
-    head.addEventListener('click', () => head.closest('.card-item').classList.toggle('open'));
-  });
-}
-
-function initArrayInputs(section, onUpdate) {
-  document.querySelectorAll(`[data-s="${section}"]`).forEach(el => {
-    el.addEventListener('input', () => {
-      const i = +el.dataset.i, f = el.dataset.f;
-      S.content[section][i][f] = el.value;
-      if (onUpdate) onUpdate(el, i, f, el.value);
-      setDirty();
-    });
-  });
-}
-
-// ════════════════════════════════════════════════════
+// ═══════════════════════════════════════════════
 //  PUBLISH
-// ════════════════════════════════════════════════════
-async function doPublish() {
-  if (!S.fileSha) { toast('error', 'Not connected', 'Reload the editor first'); return; }
-  const btn = document.getElementById('pub-btn');
-  const dot = document.getElementById('hdr-dot');
-  const txt = document.getElementById('hdr-txt');
-  btn.disabled = true; btn.textContent = 'Publishing…';
-  if (dot) { dot.className = 'status-dot publishing'; }
-  if (txt) txt.textContent = 'Publishing…';
-  try {
-    let html = S.rawFile;
-    html = applyTweaks(html, S.tweaks);
-    html = applySiteContent(html, S.content);
-    await commitFile(html, 'Update website content via editor');
+// ═══════════════════════════════════════════════
+async function doPublish(){
+  if(!S.sha){toast('error','Not connected','Reload first');return;}
+  const btn=document.getElementById('pub-btn'),dot=document.getElementById('sdot'),txt=document.getElementById('stxt');
+  btn.disabled=true;btn.textContent='Publishing…';
+  if(dot){dot.className='sdot pub';}if(txt)txt.textContent='Publishing…';
+  try{
+    let h=applyTweaks(S.raw,S.tweaks);
+    h=applyContent(h,S.content);
+    await commitFile(h,'Update website content via editor');
     setDirty(false);
-    toast('success', 'Published!', 'Vercel is deploying your changes (~30 seconds)', 6000);
-  } catch(e) {
-    toast('error', 'Publish failed', e.message);
-    if (dot) { dot.className = 'status-dot connected'; }
-    if (txt) txt.textContent = 'Connected';
-  } finally {
-    btn.disabled = false;
-    btn.innerHTML = '<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>Publish';
+    toast('success','Published!','Vercel is deploying (~30s)',6000);
+  }catch(e){
+    toast('error','Publish failed',e.message);
+    if(dot)dot.className='sdot ok';if(txt)txt.textContent='Connected';
+  }finally{
+    btn.disabled=false;
+    btn.innerHTML='<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>Publish';
   }
 }
 
-// ════════════════════════════════════════════════════
+// ═══════════════════════════════════════════════
 //  INIT
-// ════════════════════════════════════════════════════
-(async function init() {
-  if (!S.token) { renderSetup(); return; }
-  renderLoading();
-  try { await boot(); }
-  catch(e) { toast('error', 'Auto-connect failed', e.message); renderSetup(); }
+// ═══════════════════════════════════════════════
+(async()=>{
+  if(!S.token){renderSetup();return;}
+  renderLoad();
+  try{await boot();}catch(e){toast('error','Auto-connect failed',e.message);renderSetup();}
 })();
 </script>
 </body>
