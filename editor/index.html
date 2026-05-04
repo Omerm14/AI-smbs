@@ -189,7 +189,7 @@ const FILE_EN    = 'en/index.html';
 // ════════════════════════════════════════════════════
 const S = {
   token:    localStorage.getItem('ed_token') || '',
-  branch:   localStorage.getItem('ed_branch') || 'main',
+  branch:   localStorage.getItem('ed_branch') || 'claude/AI-smbs-main',
   fileSha:  null,
   rawFile:  '',
   tweaks:   null,
@@ -375,7 +375,7 @@ function renderSetup() {
           </div>
           <div class="field">
             <label class="field-label">Branch to edit</label>
-            <input id="s-branch" type="text" class="field-input" value="main" />
+            <input id="s-branch" type="text" class="field-input" value="claude/AI-smbs-main" />
           </div>
           <button class="btn btn-accent setup-connect" id="s-connect">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M15 3h4a2 2 0 012 2v14a2 2 0 01-2 2h-4"/><polyline points="10 17 15 12 10 7"/><line x1="15" y1="12" x2="3" y2="12"/></svg>
