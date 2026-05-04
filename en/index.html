@@ -377,6 +377,41 @@ const TWEAK_DEFAULTS = /*EDITMODE-BEGIN*/{
   "accentColor": "#456abf"
 } /*EDITMODE-END*/;
 
+const SITE_CONTENT = /*CONTENT-BEGIN*/{
+  "marqueeItems": [
+    "Workflow Automation","Agentic Systems","AI Frameworks","Growth Strategy",
+    "Custom AI Skills","Data Products","AI Transformation","Revenue Multiplier",
+    "SMB Specialist","Non-Technical AI"
+  ],
+  "services": [
+    {"name":"Workflows & Automations","desc":"Eliminate repetitive tasks — build systems that run themselves.","detail":"I map your entire operation, find where time and money are being lost, and rebuild those processes with smart automation. Your team focuses on high-value work while routine tasks run automatically."},
+    {"name":"AI Frameworks","desc":"A clear AI roadmap tailored to your industry and goals.","detail":"Not all AI is the same. I design a custom strategy that fits your size, budget, and goals — giving you a practical step-by-step plan so you know exactly what to build, when, and why."},
+    {"name":"Custom AI Skills","desc":"AI that knows your business, speaks your language.","detail":"Generic AI gives generic results. I build AI capabilities specifically for you — trained on your content, products, and processes. An expert who knows your business inside out, available 24/7."},
+    {"name":"Agentic Systems","desc":"AI that takes action on your behalf, around the clock.","detail":"Agentic AI goes beyond chatbots — it actively handles tasks: following up with leads, processing orders, answering customers, scheduling. Your business keeps running even when you're not there."},
+    {"name":"Growth Strategy","desc":"Find hidden revenue opportunities with AI as your weapon.","detail":"I analyze your business to uncover where growth is being left on the table — pricing, conversion, retention, new channels — and build an AI-powered plan to capture it all."},
+    {"name":"AI Transformation","desc":"Go from traditional to fully AI-driven — at your pace.","detail":"The full journey. I embed AI into every layer of your business over time — your team, operations, customer experience. You don't need to be technical. Just ambitious. I handle the rest."}
+  ],
+  "milestones": [
+    {"year":"ZoomInfo","title":"Inside a Global Tech Leader","desc":"Worked at one of the world's leading B2B companies — learning how world-class teams build products that scale to millions of users."},
+    {"year":"Connecteam","title":"Building for Real Businesses","desc":"Helped a fast-growing startup build tools that managers and small business owners actually love to use every day."},
+    {"year":"Startup","title":"Co-Founder","desc":"Started my own company from zero. Learned what it really takes to build something, make hard decisions, and grow fast."},
+    {"year":"Now","title":"AI Expert for SMBs","desc":"Using everything I've learned to give businesses like yours the same AI advantages that big companies have — without the complexity."}
+  ],
+  "howSteps": [
+    {"n":"01","title":"Diagnose","desc":"We start with a free 30-minute call. I ask the right questions to understand your business, your bottlenecks, and where AI can have the biggest impact — fast."},
+    {"n":"02","title":"Build","desc":"I design and deploy custom AI systems tailored to your business. No off-the-shelf tools. No complexity for your team. Just things that work."},
+    {"n":"03","title":"Grow","desc":"Your business runs smarter, handles more, and scales without adding headcount. The AI keeps improving — your advantage compounds over time."}
+  ],
+  "testimonials": [
+    {"initials":"D.C","name":"Dana Cohen","title":"CEO | Boutique Chain","featured":true,"text":"Omer didn't just implement AI — he **changed the way we think about our business**. Within two weeks we saved 15 hours of work per week. This isn't a product, it's a real partner."},
+    {"initials":"U.L","name":"Uri Levy","title":"Founder | Professional Services","featured":false,"text":"I came to Omer with skepticism. I left with **an AI system that closes leads while I sleep**. The ROI was clear in the first month."},
+    {"initials":"M.G","name":"Michal Greenberg","title":"VP Operations | Logistics Co.","featured":false,"text":"When we started working together I expected consulting, I got much more. **Omer understands business**, not just technology. The difference is felt at every touchpoint."},
+    {"initials":"Y.S","name":"Yoav Shamir","title":"Owner | Private Clinic","featured":false,"text":"I was looking for someone to explain AI at eye level — without tech jargon. Omer did exactly that, and now **our digital assistant works 24 hours a day**."},
+    {"initials":"N.B","name":"Noam Ben-David","title":"Marketing Manager | e-commerce","featured":true,"text":"Omer's posts on LinkedIn are required reading. **Content that's ahead of the market** by at least 6 months. He doesn't just know — he can explain why it matters."},
+    {"initials":"T.A","name":"Tamar Abraham","title":"Operations Manager | Restaurant Chain","featured":false,"text":"The transition to AI-driven management sounded scary. Omer made it a pleasant, gradual process. **Today our team can't imagine working without the tools** he built."}
+  ]
+}/*CONTENT-END*/;
+
 const __TWEAKS_STYLE = `.twk-panel{position:fixed;right:16px;bottom:16px;z-index:2147483646;width:280px;max-height:calc(100vh - 32px);display:flex;flex-direction:column;background:rgba(250,249,247,.92);color:#29261b;backdrop-filter:blur(24px);border:.5px solid rgba(0,0,0,.1);border-radius:14px;box-shadow:0 12px 40px rgba(0,0,0,.15);font:11.5px/1.4 ui-sans-serif,system-ui,-apple-system,sans-serif;overflow:hidden}.twk-hd{display:flex;align-items:center;justify-content:space-between;padding:10px 8px 10px 14px;cursor:move;user-select:none}.twk-hd b{font-size:12px;font-weight:600}.twk-x{appearance:none;border:0;background:transparent;color:rgba(41,38,27,.55);width:22px;height:22px;border-radius:6px;cursor:default;font-size:13px;line-height:1}.twk-x:hover{background:rgba(0,0,0,.06)}.twk-body{padding:2px 14px 14px;display:flex;flex-direction:column;gap:10px;overflow-y:auto}.twk-row{display:flex;flex-direction:column;gap:5px}.twk-row-h{flex-direction:row;align-items:center;justify-content:space-between;gap:10px}.twk-lbl{font-weight:500;color:rgba(41,38,27,.72);font-size:11px}.twk-field{appearance:none;width:100%;height:26px;padding:0 8px;border:.5px solid rgba(0,0,0,.1);border-radius:7px;background:rgba(255,255,255,.6);color:inherit;font:inherit;outline:none}.twk-swatch{appearance:none;-webkit-appearance:none;width:56px;height:22px;border:.5px solid rgba(0,0,0,.1);border-radius:6px;padding:0;background:transparent;flex-shrink:0}.twk-swatch::-webkit-color-swatch-wrapper{padding:0}.twk-swatch::-webkit-color-swatch{border:0;border-radius:5.5px}`;
 
 function useTweaks(defaults) {
@@ -401,6 +436,12 @@ function useTweaks(defaults) {
   function TweakColor({ id, label }) {return <div className="twk-row twk-row-h"><span className="twk-lbl">{label}</span><input type="color" className="twk-swatch" value={values[id]} onChange={(e) => setTweak(id, e.target.value)} /></div>;}
   function TweakText({ id, label }) {return <div className="twk-row"><span className="twk-lbl">{label}</span><input className="twk-field" type="text" value={values[id]} onChange={(e) => setTweak(id, e.target.value)} /></div>;}
   return { tweaks: values, setTweak, TweaksPanel, TweakColor, TweakText };
+}
+
+function renderText(text) {
+  if (!text) return text;
+  const parts = text.split(/\*\*(.*?)\*\*/g);
+  return parts.map((part, i) => i % 2 === 1 ? <strong key={i}>{part}</strong> : part);
 }
 
 function useScrollReveal() {
@@ -492,22 +533,20 @@ function ScannerCard({ service: s, delay }) {
   );
 }
 
-const MARQUEE_ITEMS = ['Workflow Automation', 'Agentic Systems', 'AI Frameworks', 'Growth Strategy', 'Custom AI Skills', 'Data Products', 'AI Transformation', 'Revenue Multiplier', 'SMB Specialist', 'Non-Technical AI'];
+const MARQUEE_ITEMS = SITE_CONTENT.marqueeItems;
 
-const SERVICES = [
-{ icon: <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z" /><path d="M2 17l10 5 10-5" /><path d="M2 12l10 5 10-5" /></svg>, name: "Workflows & Automations", desc: "Eliminate repetitive tasks — build systems that run themselves.", detail: "I map your entire operation, find where time and money are being lost, and rebuild those processes with smart automation. Your team focuses on high-value work while routine tasks run automatically." },
-{ icon: <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="3" width="7" height="7" /><rect x="14" y="3" width="7" height="7" /><rect x="14" y="14" width="7" height="7" /><rect x="3" y="14" width="7" height="7" /></svg>, name: "AI Frameworks", desc: "A clear AI roadmap tailored to your industry and goals.", detail: "Not all AI is the same. I design a custom strategy that fits your size, budget, and goals — giving you a practical step-by-step plan so you know exactly what to build, when, and why." },
-{ icon: <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="3" /><path d="M12 2v3M12 19v3M4.22 4.22l2.12 2.12M17.66 17.66l2.12 2.12M2 12h3M19 12h3M4.22 19.78l2.12-2.12M17.66 6.34l2.12-2.12" /></svg>, name: "Custom AI Skills", desc: "AI that knows your business, speaks your language.", detail: "Generic AI gives generic results. I build AI capabilities specifically for you — trained on your content, products, and processes. An expert who knows your business inside out, available 24/7." },
-{ icon: <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" /></svg>, name: "Agentic Systems", desc: "AI that takes action on your behalf, around the clock.", detail: "Agentic AI goes beyond chatbots — it actively handles tasks: following up with leads, processing orders, answering customers, scheduling. Your business keeps running even when you're not there." },
-{ icon: <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17" /><polyline points="16 7 22 7 22 13" /></svg>, name: "Growth Strategy", desc: "Find hidden revenue opportunities with AI as your weapon.", detail: "I analyze your business to uncover where growth is being left on the table — pricing, conversion, retention, new channels — and build an AI-powered plan to capture it all." },
-{ icon: <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="8" r="4" /><path d="M20 21a8 8 0 1 0-16 0" /></svg>, name: "AI Transformation", desc: "Go from traditional to fully AI-driven — at your pace.", detail: "The full journey. I embed AI into every layer of your business over time — your team, operations, customer experience. You don't need to be technical. Just ambitious. I handle the rest." }];
+const SERVICE_ICONS = [
+  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z" /><path d="M2 17l10 5 10-5" /><path d="M2 12l10 5 10-5" /></svg>,
+  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="3" width="7" height="7" /><rect x="14" y="3" width="7" height="7" /><rect x="14" y="14" width="7" height="7" /><rect x="3" y="14" width="7" height="7" /></svg>,
+  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="3" /><path d="M12 2v3M12 19v3M4.22 4.22l2.12 2.12M17.66 17.66l2.12 2.12M2 12h3M19 12h3M4.22 19.78l2.12-2.12M17.66 6.34l2.12-2.12" /></svg>,
+  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" /></svg>,
+  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17" /><polyline points="16 7 22 7 22 13" /></svg>,
+  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="8" r="4" /><path d="M20 21a8 8 0 1 0-16 0" /></svg>
+];
 
+const SERVICES = SITE_CONTENT.services.map((s, i) => ({...s, icon: SERVICE_ICONS[i]}));
 
-const MILESTONES = [
-{ year: "ZoomInfo", title: "Inside a Global Tech Leader", desc: "Worked at one of the world's leading B2B companies — learning how world-class teams build products that scale to millions of users." },
-{ year: "Connecteam", title: "Building for Real Businesses", desc: "Helped a fast-growing startup build tools that managers and small business owners actually love to use every day." },
-{ year: "Startup", title: "Co-Founder", desc: "Started my own company from zero. Learned what it really takes to build something, make hard decisions, and grow fast." },
-{ year: "Now", title: "AI Expert for SMBs", desc: "Using everything I've learned to give businesses like yours the same AI advantages that big companies have — without the complexity." }];
+const MILESTONES = SITE_CONTENT.milestones;
 
 
 const LI_POSTS = [
@@ -628,56 +667,13 @@ function LinkedInCarousel() {
   );
 }
 
-const EN_TESTIMONIALS = [
-  {
-    initials: "D.C",
-    name: "Dana Cohen",
-    title: "CEO | Boutique Chain",
-    text: <span>Omer didn't just implement AI — he <strong>changed the way we think about our business</strong>. Within two weeks we saved 15 hours of work per week. This isn't a product, it's a real partner.</span>,
-    featured: true
-  },
-  {
-    initials: "U.L",
-    name: "Uri Levy",
-    title: "Founder | Professional Services",
-    text: <span>I came to Omer with skepticism. I left with <strong>an AI system that closes leads while I sleep</strong>. The ROI was clear in the first month.</span>,
-    featured: false
-  },
-  {
-    initials: "M.G",
-    name: "Michal Greenberg",
-    title: "VP Operations | Logistics Co.",
-    text: <span>When we started working together I expected consulting, I got much more. <strong>Omer understands business</strong>, not just technology. The difference is felt at every touchpoint.</span>,
-    featured: false
-  },
-  {
-    initials: "Y.S",
-    name: "Yoav Shamir",
-    title: "Owner | Private Clinic",
-    text: <span>I was looking for someone to explain AI at eye level — without tech jargon. Omer did exactly that, and now <strong>our digital assistant works 24 hours a day</strong>.</span>,
-    featured: false
-  },
-  {
-    initials: "N.B",
-    name: "Noam Ben-David",
-    title: "Marketing Manager | e-commerce",
-    text: <span>Omer's posts on LinkedIn are required reading. <strong>Content that's ahead of the market</strong> by at least 6 months. He doesn't just know — he can explain why it matters.</span>,
-    featured: true
-  },
-  {
-    initials: "T.A",
-    name: "Tamar Abraham",
-    title: "Operations Manager | Restaurant Chain",
-    text: <span>The transition to AI-driven management sounded scary. Omer made it a pleasant, gradual process. <strong>Today our team can't imagine working without the tools</strong> he built.</span>,
-    featured: false
-  }
-];
+const EN_TESTIMONIALS = SITE_CONTENT.testimonials;
 
 function TestimonialCard({ post, delay }) {
   return (
     <div className={`tcard reveal${post.featured ? ' tcard-featured' : ''}`} style={{ transitionDelay: `${delay}s` }}>
       {post.featured && <div className="tcard-badge">Featured</div>}
-      <div className="tcard-quote">{post.text}</div>
+      <div className="tcard-quote">{renderText(post.text)}</div>
       <div className="tcard-author">
         <div className="tcard-avatar">{post.initials}</div>
         <div>
@@ -795,11 +791,7 @@ function App() {
         <p className="how-eyebrow reveal">How It Works</p>
         <h2 className="how-title reveal reveal-delay-1">Three steps.<br />Real results.</h2>
         <div className="how-steps">
-          {[
-          { n: "01", title: "Diagnose", desc: "We start with a free 30-minute call. I ask the right questions to understand your business, your bottlenecks, and where AI can have the biggest impact — fast." },
-          { n: "02", title: "Build", desc: "I design and deploy custom AI systems tailored to your business. No off-the-shelf tools. No complexity for your team. Just things that work." },
-          { n: "03", title: "Grow", desc: "Your business runs smarter, handles more, and scales without adding headcount. The AI keeps improving — your advantage compounds over time." }].
-          map((step, i) =>
+          {SITE_CONTENT.howSteps.map((step, i) =>
           <div className={`how-step reveal${i > 0 ? ` reveal-delay-${i}` : ''}`} key={i}>
               <div className="how-step-num">{step.n}</div>
               <div className="how-step-title">{step.title}</div>
