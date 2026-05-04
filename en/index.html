@@ -377,6 +377,9 @@ const TWEAK_DEFAULTS = /*EDITMODE-BEGIN*/{
   "accentColor": "#456abf"
 }/*EDITMODE-END*/;
 
+const EDIT_MODE = new URLSearchParams(window.location.search).get('editmode') === '1';
+function emPost(msg) { try { window.parent.postMessage({...msg, _src:'em'}, '*'); } catch(e) {} }
+
 const SITE_CONTENT = /*CONTENT-BEGIN*/{
   "nav": {
     "logo": "Omer Moran"
@@ -642,7 +645,16 @@ const SITE_CONTENT = /*CONTENT-BEGIN*/{
     "Revenue Multiplier",
     "SMB Specialist",
     "Non-Technical AI"
-  ]
+  ],
+  "buttons": {
+    "navCta":         {"visible": true, "size": "md"},
+    "heroPrimary":    {"visible": true, "size": "md"},
+    "heroSecondary":  {"visible": true, "size": "md"},
+    "howCta":         {"visible": true, "size": "md"},
+    "contactMeet":    {"visible": true, "size": "md"},
+    "contactWhatsapp":{"visible": true, "size": "md"},
+    "contactEmail":   {"visible": true, "size": "md"}
+  }
 }/*CONTENT-END*/;
 
 const __TWEAKS_STYLE = `.twk-panel{position:fixed;right:16px;bottom:16px;z-index:2147483646;width:280px;max-height:calc(100vh - 32px);display:flex;flex-direction:column;background:rgba(250,249,247,.92);color:#29261b;backdrop-filter:blur(24px);border:.5px solid rgba(0,0,0,.1);border-radius:14px;box-shadow:0 12px 40px rgba(0,0,0,.15);font:11.5px/1.4 ui-sans-serif,system-ui,-apple-system,sans-serif;overflow:hidden}.twk-hd{display:flex;align-items:center;justify-content:space-between;padding:10px 8px 10px 14px;cursor:move;user-select:none}.twk-hd b{font-size:12px;font-weight:600}.twk-x{appearance:none;border:0;background:transparent;color:rgba(41,38,27,.55);width:22px;height:22px;border-radius:6px;cursor:default;font-size:13px;line-height:1}.twk-x:hover{background:rgba(0,0,0,.06)}.twk-body{padding:2px 14px 14px;display:flex;flex-direction:column;gap:10px;overflow-y:auto}.twk-row{display:flex;flex-direction:column;gap:5px}.twk-row-h{flex-direction:row;align-items:center;justify-content:space-between;gap:10px}.twk-lbl{font-weight:500;color:rgba(41,38,27,.72);font-size:11px}.twk-field{appearance:none;width:100%;height:26px;padding:0 8px;border:.5px solid rgba(0,0,0,.1);border-radius:7px;background:rgba(255,255,255,.6);color:inherit;font:inherit;outline:none}.twk-swatch{appearance:none;-webkit-appearance:none;width:56px;height:22px;border:.5px solid rgba(0,0,0,.1);border-radius:6px;padding:0;background:transparent;flex-shrink:0}.twk-swatch::-webkit-color-swatch-wrapper{padding:0}.twk-swatch::-webkit-color-swatch{border:0;border-radius:5.5px}`;
@@ -675,6 +687,138 @@ function renderText(text) {
   if (!text) return text;
   const parts = text.split(/\*\*(.*?)\*\*/g);
   return parts.map((part, i) => i % 2 === 1 ? <strong key={i}>{part}</strong> : part);
+}
+
+/* ── Edit Mode styles ── */
+const EM_CSS = `
+  .em-t { border-radius: 3px; outline: 1.5px dashed transparent; outline-offset: 3px; transition: outline-color .15s; display: inline; min-width: 10px; min-height: 1em; cursor: text; }
+  .em-t:hover { outline-color: rgba(69,106,191,.5); }
+  .em-t:focus { outline: 2px solid #456abf !important; background: rgba(69,106,191,.06); }
+  .em-wrap { position: relative; }
+  .em-ctrl { position: absolute; top: 8px; right: 8px; z-index: 500; display: none; align-items: center; gap: 3px; background: rgba(10,10,8,.9); backdrop-filter: blur(8px); border-radius: 6px; padding: 4px; border: 1px solid rgba(255,255,255,.15); }
+  .em-wrap:hover .em-ctrl { display: flex; }
+  .em-cb { background: rgba(255,255,255,.12); border: none; color: #fff; width: 24px; height: 24px; border-radius: 4px; cursor: pointer; font-size: 14px; line-height: 1; display: flex; align-items: center; justify-content: center; transition: background .15s; font-family: monospace; }
+  .em-cb:hover { background: #456abf; }
+  .em-cb:disabled { opacity: .3; pointer-events: none; }
+  .em-cb-del:hover { background: #dc3232 !important; }
+  .em-btn-wrap { position: relative; display: inline-flex; flex-direction: column; align-items: flex-start; }
+  .em-btn-ctrl { position: absolute; top: calc(100% + 7px); left: 0; z-index: 9999; background: #0e0e0c; border: 1px solid rgba(255,255,255,.18); border-radius: 8px; padding: 8px 10px; display: flex; align-items: center; gap: 7px; white-space: nowrap; box-shadow: 0 10px 36px rgba(0,0,0,.6); }
+  .em-btn-ctrl span { font-size: 10px; color: rgba(255,255,255,.45); letter-spacing: .08em; text-transform: uppercase; }
+  .em-btn-ctrl button { background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.14); color: #fff; border-radius: 4px; padding: 3px 10px; cursor: pointer; font-size: 11px; font-weight: 700; transition: background .15s; font-family: 'Space Grotesk', sans-serif; }
+  .em-btn-ctrl button:hover { background: rgba(69,106,191,.7); border-color: #456abf; }
+  .em-btn-ctrl button.em-act { background: #456abf; border-color: #456abf; }
+  .em-hidden { opacity: .25; cursor: pointer; filter: grayscale(1); }
+  .em-hidden:hover { opacity: .5; }
+  .em-banner { position: fixed; bottom: 0; left: 0; right: 0; z-index: 9998; background: #456abf; color: #fff; text-align: center; padding: 10px 16px; font-size: 11.5px; font-weight: 600; letter-spacing: .06em; pointer-events: none; }
+  .btn-sz-sm { padding: 8px 20px !important; font-size: 10px !important; }
+  .btn-sz-lg { padding: 18px 44px !important; font-size: 15px !important; }
+`;
+
+/* ── ET: inline editable text (non-list) ── */
+function ET({path, value, tag, className, style, multiline}) {
+  const Tag = tag || 'span';
+  if (!EDIT_MODE) return <Tag className={className} style={style}>{value}</Tag>;
+  const onBlur = e => { const v = e.currentTarget.innerText; if (v !== (value || '')) emPost({type:'change', path, value: v}); };
+  const onKeyDown = e => { if (!multiline && e.key === 'Enter') { e.preventDefault(); e.currentTarget.blur(); } e.stopPropagation(); };
+  return <Tag className={`em-t${className ? ' ' + className : ''}`} contentEditable suppressContentEditableWarning onBlur={onBlur} onKeyDown={onKeyDown} style={style} spellCheck={false}>{value}</Tag>;
+}
+
+/* ── ETL: editable text inside a list item (uses callback, not path) ── */
+function ETL({value, onSave, tag, className, style, multiline}) {
+  const Tag = tag || 'span';
+  if (!EDIT_MODE) return <Tag className={className} style={style}>{value}</Tag>;
+  const onBlur = e => { const v = e.currentTarget.innerText; if (v !== (value || '')) onSave(v); };
+  const onKeyDown = e => { if (!multiline && e.key === 'Enter') { e.preventDefault(); e.currentTarget.blur(); } e.stopPropagation(); };
+  return <Tag className={`em-t${className ? ' ' + className : ''}`} contentEditable suppressContentEditableWarning onBlur={onBlur} onKeyDown={onKeyDown} style={style} spellCheck={false}>{value}</Tag>;
+}
+
+/* ── EditableList: renders list with reorder + delete controls in edit mode ── */
+function EditableList({path, items, renderItem}) {
+  const [list, setList] = useState(() => [...items]);
+
+  const onFieldChange = useCallback((itemIndex, field, value) => {
+    setList(prev => {
+      const item = prev[itemIndex];
+      const updated = field === null ? value : (typeof item === 'object' ? {...item, [field]: value} : value);
+      const next = prev.map((it, i) => i === itemIndex ? updated : it);
+      emPost({type: 'list-replace', path, items: next});
+      return next;
+    });
+  }, [path]);
+
+  const move = useCallback((from, to) => {
+    setList(prev => {
+      if (to < 0 || to >= prev.length) return prev;
+      const next = [...prev];
+      const [item] = next.splice(from, 1);
+      next.splice(to, 0, item);
+      emPost({type: 'list-replace', path, items: next});
+      return next;
+    });
+  }, [path]);
+
+  const remove = useCallback((i) => {
+    setList(prev => {
+      const next = prev.filter((_, j) => j !== i);
+      emPost({type: 'list-replace', path, items: next});
+      return next;
+    });
+  }, [path]);
+
+  if (!EDIT_MODE) return <>{items.map((item, i) => renderItem(item, i, () => {}))}</>;
+
+  return <>
+    {list.map((item, i) => (
+      <div key={i} className="em-wrap" style={{position:'relative'}}>
+        <div className="em-ctrl">
+          <button className="em-cb" onClick={() => move(i, i-1)} disabled={i === 0} title="Move up">↑</button>
+          <button className="em-cb" onClick={() => move(i, i+1)} disabled={i === list.length - 1} title="Move down">↓</button>
+          <button className="em-cb em-cb-del" onClick={() => remove(i)} title="Remove">×</button>
+        </div>
+        {renderItem(item, i, (field, val) => onFieldChange(i, field, val))}
+      </div>
+    ))}
+  </>;
+}
+
+/* ── EButton: button with visibility + size controls in edit mode ── */
+function EButton({btnKey, B, className, href, children, onClick}) {
+  const cfg = (B && B[btnKey]) || {visible: true, size: 'md'};
+  const [visible, setVisible] = useState(cfg.visible !== false);
+  const [size, setSize] = useState(cfg.size || 'md');
+  const [show, setShow] = useState(false);
+
+  const sizeClass = size === 'sm' ? 'btn-sz-sm' : size === 'lg' ? 'btn-sz-lg' : '';
+  const emit = (v, s) => emPost({type:'change', path:`buttons.${btnKey}`, value:{visible:v, size:s}});
+
+  if (!EDIT_MODE) {
+    if (!visible) return null;
+    return href
+      ? <a href={href} className={`${className} ${sizeClass}`} onClick={onClick}>{children}</a>
+      : <button className={`${className} ${sizeClass}`} onClick={onClick}>{children}</button>;
+  }
+
+  return (
+    <div className="em-btn-wrap" onMouseEnter={() => setShow(true)} onMouseLeave={() => setShow(false)} style={{display:'inline-flex'}}>
+      <a href="#" className={`${className} ${sizeClass}${!visible ? ' em-hidden' : ''}`}
+         onClick={e => { e.preventDefault(); if (!visible) { setVisible(true); emit(true, size); } }}>
+        {children}
+      </a>
+      {show && (
+        <div className="em-btn-ctrl">
+          <span>Size</span>
+          {['sm','md','lg'].map(s => (
+            <button key={s} onClick={() => { setSize(s); emit(visible, s); }} className={size === s ? 'em-act' : ''}>{s.toUpperCase()}</button>
+          ))}
+          <span style={{marginLeft:4}}>|</span>
+          <button onClick={() => { const v = !visible; setVisible(v); emit(v, size); }}
+                  style={{background: visible ? 'rgba(220,50,50,.3)' : 'rgba(42,157,92,.3)', borderColor: visible ? 'rgba(220,50,50,.5)' : 'rgba(42,157,92,.5)'}}>
+            {visible ? 'Hide' : 'Show'}
+          </button>
+        </div>
+      )}
+    </div>
+  );
 }
 
 function useScrollReveal() {
@@ -725,18 +869,36 @@ function HeroTitle({ text }) {
 
 }
 
-function ScannerCard({ service: s, delay }) {
+function ScannerCard({ service: s, delay, editOnChange }) {
   const [revealed, setRevealed] = useState(false);
   const [scanning, setScanning] = useState(false);
 
   const handleClick = () => {
-    if (scanning) return;
+    if (EDIT_MODE || scanning) return;
     setScanning(true);
     setTimeout(() => {
       setRevealed(r => !r);
       setTimeout(() => setScanning(false), 200);
     }, 280);
   };
+
+  if (EDIT_MODE && editOnChange) {
+    return (
+      <div className="svc-card-wrap reveal" style={{ transitionDelay: `${delay}s` }}>
+        <div className="svc-card" style={{cursor:'default'}}>
+          <div className="svc-card-beam"></div>
+          <div className="svc-card-front">
+            <div className="service-icon">{s.icon}</div>
+            <ETL value={s.name} onSave={v => editOnChange('name', v)} tag="div" className="service-name" />
+            <ETL value={s.desc} onSave={v => editOnChange('desc', v)} tag="div" className="service-desc" multiline />
+          </div>
+          <div className="svc-card-back" style={{display:'block', position:'static', transform:'none', opacity:1, background:'rgba(69,106,191,.05)', borderTop:'1px dashed rgba(69,106,191,.3)', padding:'14px 24px'}}>
+            <ETL value={s.detail} onSave={v => editOnChange('detail', v)} tag="div" className="back-detail" style={{fontSize:12, color:'var(--text-dim)'}} multiline />
+          </div>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="svc-card-wrap reveal" style={{ transitionDelay: `${delay}s` }}>
@@ -786,8 +948,56 @@ const LI_POSTS = SITE_CONTENT.linkedinPosts;
 
 function LinkedInCarousel() {
   const [active, setActive] = useState(0);
-  const prev = (e) => { e.stopPropagation(); setActive(a => (a - 1 + LI_POSTS.length) % LI_POSTS.length); };
-  const next = (e) => { e.stopPropagation(); setActive(a => (a + 1) % LI_POSTS.length); };
+  const [posts, setPosts] = useState(() => [...LI_POSTS]);
+
+  const prev = (e) => { e.stopPropagation(); setActive(a => (a - 1 + posts.length) % posts.length); };
+  const next = (e) => { e.stopPropagation(); setActive(a => (a + 1) % posts.length); };
+
+  // Edit mode: show vertical editable stack instead of carousel
+  if (EDIT_MODE) {
+    const move = (from, to) => {
+      if (to < 0 || to >= posts.length) return;
+      const n = [...posts]; const [it] = n.splice(from, 1); n.splice(to, 0, it);
+      setPosts(n); emPost({type:'list-replace', path:'linkedinPosts', items: n});
+    };
+    const remove = (i) => {
+      const n = posts.filter((_,j) => j !== i);
+      setPosts(n); emPost({type:'list-replace', path:'linkedinPosts', items: n});
+    };
+    const updatePost = (i, field, value) => {
+      const n = posts.map((p, j) => j === i ? {...p, [field]: value} : p);
+      setPosts(n); emPost({type:'list-replace', path:'linkedinPosts', items: n});
+    };
+    return (
+      <div className="linkedin-carousel-wrap reveal" style={{display:'flex',flexDirection:'column',gap:16}}>
+        {posts.map((post, i) => (
+          <div key={i} className="em-wrap" style={{background:'#fff',borderRadius:10,padding:'20px 24px',border:'1px solid rgba(0,0,0,.12)',color:'#111'}}>
+            <div className="em-ctrl">
+              <button className="em-cb" onClick={() => move(i, i-1)} disabled={i===0}>↑</button>
+              <button className="em-cb" onClick={() => move(i, i+1)} disabled={i===posts.length-1}>↓</button>
+              <button className="em-cb em-cb-del" onClick={() => remove(i)}>×</button>
+            </div>
+            <div style={{fontSize:11,fontWeight:700,color:'#456abf',letterSpacing:'.08em',textTransform:'uppercase',marginBottom:10}}>Post #{i+1}</div>
+            <ETL value={post.role} onSave={v => updatePost(i, 'role', v)} tag="div" style={{fontSize:12,color:'#666',marginBottom:4}} />
+            <ETL value={post.date} onSave={v => updatePost(i, 'date', v)} tag="div" style={{fontSize:11,color:'#999',marginBottom:12}} />
+            {post.paragraphs.map((p, pi) => (
+              <ETL key={pi} value={p} onSave={v => {
+                const np = post.paragraphs.map((par, pj) => pj === pi ? v : par);
+                updatePost(i, 'paragraphs', np);
+              }} tag="p" style={{marginTop: pi > 0 ? 8 : 0, fontSize:13, lineHeight:1.7, color:'#222'}} multiline />
+            ))}
+            <div style={{display:'flex',gap:8,alignItems:'center',marginTop:14,paddingTop:12,borderTop:'1px solid rgba(0,0,0,.08)'}}>
+              <ETL value={post.likes} onSave={v => updatePost(i, 'likes', v)} tag="span" style={{fontSize:12,color:'#666'}} />
+              <span style={{fontSize:12,color:'#ccc'}}>likes ·</span>
+              <ETL value={post.comments} onSave={v => updatePost(i, 'comments', v)} tag="span" style={{fontSize:12,color:'#666'}} />
+              <span style={{fontSize:12,color:'#ccc'}}>comments</span>
+            </div>
+          </div>
+        ))}
+      </div>
+    );
+  }
+
   return (
     <div className="linkedin-carousel-wrap reveal">
       <div className="linkedin-carousel">
@@ -856,16 +1066,32 @@ function LinkedInCarousel() {
 
 const EN_TESTIMONIALS = SITE_CONTENT.testimonials;
 
-function TestimonialCard({ post, delay }) {
+function TestimonialCard({ post, delay, editOnChange }) {
   return (
     <div className={`tcard reveal${post.featured ? ' tcard-featured' : ''}`} style={{ transitionDelay: `${delay}s` }}>
       {post.featured && <div className="tcard-badge">Featured</div>}
-      <div className="tcard-quote">{renderText(post.text)}</div>
+      <div className="tcard-quote">
+        {editOnChange
+          ? <ETL value={post.text} onSave={v => editOnChange('text', v)} multiline style={{display:'block'}} />
+          : renderText(post.text)
+        }
+      </div>
       <div className="tcard-author">
-        <div className="tcard-avatar">{post.initials}</div>
+        <div className="tcard-avatar">
+          {editOnChange
+            ? <ETL value={post.initials} onSave={v => editOnChange('initials', v)} style={{minWidth:24}} />
+            : post.initials
+          }
+        </div>
         <div>
-          <div className="tcard-name">{post.name}</div>
-          <div className="tcard-role">{post.title}</div>
+          {editOnChange
+            ? <ETL value={post.name} onSave={v => editOnChange('name', v)} tag="div" className="tcard-name" />
+            : <div className="tcard-name">{post.name}</div>
+          }
+          {editOnChange
+            ? <ETL value={post.title} onSave={v => editOnChange('title', v)} tag="div" className="tcard-role" />
+            : <div className="tcard-role">{post.title}</div>
+          }
         </div>
       </div>
     </div>
@@ -878,9 +1104,11 @@ function App() {
   useNavScroll();
   const gold = tweaks.accentColor;
   const [r, g, b] = [parseInt(gold.slice(1, 3), 16), parseInt(gold.slice(3, 5), 16), parseInt(gold.slice(5, 7), 16)];
+  const B = SITE_CONTENT.buttons || {};
 
   return (
     <>
+      {EDIT_MODE && <><style>{EM_CSS}</style><div className="em-banner">✏ Edit mode — click any text to edit · hover ↑↓× controls to reorder/remove items · hover buttons for size &amp; visibility</div></>}
       <TweaksPanel title="Tweaks">
         <TweakColor id="accentColor" label="Accent Color" />
         <TweakText id="heroHeadline" label="Hero Headline" />
@@ -894,7 +1122,7 @@ function App() {
 
       {/* Nav */}
       <nav>
-        <div className="nav-logo">{SITE_CONTENT.nav.logo}</div>
+        <ET path="nav.logo" value={SITE_CONTENT.nav.logo} tag="div" className="nav-logo" />
         <ul className="nav-links">
           <li><a href="#impact">Impact</a></li>
           <li><a href="#process">Process</a></li>
@@ -907,7 +1135,7 @@ function App() {
             <a href="index.html" className="lang-btn active">EN</a>
             <a href="/he" className="lang-btn">HE</a>
           </div>
-          <a href="#contact" className="nav-cta">{tweaks.ctaLabel}</a>
+          <EButton btnKey="navCta" B={B} className="nav-cta" href="#contact">{tweaks.ctaLabel}</EButton>
         </div>
       </nav>
 
@@ -916,21 +1144,23 @@ function App() {
         <div className="hero-bg-grid"></div>
         <div className="hero-glow"></div>
         <div className="hero-content">
-          <p className="hero-eyebrow"><span className="hero-eyebrow-line"></span>{SITE_CONTENT.hero.eyebrow}</p>
+          <p className="hero-eyebrow"><span className="hero-eyebrow-line"></span><ET path="hero.eyebrow" value={SITE_CONTENT.hero.eyebrow} /></p>
           <HeroTitle text={tweaks.heroHeadline} />
           <p className="hero-sub">{tweaks.heroSub}</p>
           <div className="hero-actions">
-            <a href="#contact" className="btn-primary">{tweaks.ctaLabel}</a>
-            <a href="#impact" className="btn-ghost">See the impact <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M12 5l7 7-7 7" /></svg></a>
+            <EButton btnKey="heroPrimary" B={B} className="btn-primary" href="#contact">{tweaks.ctaLabel}</EButton>
+            <EButton btnKey="heroSecondary" B={B} className="btn-ghost" href="#impact">
+              See the impact <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M12 5l7 7-7 7" /></svg>
+            </EButton>
           </div>
         </div>
         <div className="hero-image-wrap">
           <div className="photo-frame">
             <img src="/uploads/photo-1777477389865.JPG" alt="Omer Moran" />
             <div className="photo-credential">
-              <div className="cred-label">{SITE_CONTENT.hero.credLabel}</div>
-              <div className="cred-name">{SITE_CONTENT.hero.credName}</div>
-              <div className="cred-title">{SITE_CONTENT.hero.credTitle}</div>
+              <ET path="hero.credLabel" value={SITE_CONTENT.hero.credLabel} tag="div" className="cred-label" />
+              <ET path="hero.credName" value={SITE_CONTENT.hero.credName} tag="div" className="cred-name" />
+              <ET path="hero.credTitle" value={SITE_CONTENT.hero.credTitle} tag="div" className="cred-title" />
             </div>
           </div>
         </div>
@@ -940,44 +1170,51 @@ function App() {
       <div className="marquee-strip">
         <div className="marquee-track">
           {[...MARQUEE_ITEMS, ...MARQUEE_ITEMS].map((item, i) =>
-          <span key={i} className="marquee-item"><span className="marquee-dot"></span>{item}</span>
+            <span key={i} className="marquee-item"><span className="marquee-dot"></span>{item}</span>
           )}
         </div>
       </div>
 
       {/* Impact Numbers */}
       <div id="impact" className="impact-section">
-        <p className="impact-eyebrow reveal">{SITE_CONTENT.impact.eyebrow}</p>
+        <ET path="impact.eyebrow" value={SITE_CONTENT.impact.eyebrow} tag="p" className="impact-eyebrow reveal" />
         <div className="impact-grid">
-          {SITE_CONTENT.impact.stats.map((stat, i) => (
-            <div className={`impact-item reveal${i > 0 ? ` reveal-delay-${i}` : ''}`} key={i}>
-              <div className="impact-number">
-                <AnimatedStat target={stat.target} suffix={stat.suffix} />
-                {stat.accent && <span className="accent">{stat.accent}</span>}
+          <EditableList path="impact.stats" items={SITE_CONTENT.impact.stats}
+            renderItem={(stat, i, onChange) => (
+              <div className={`impact-item reveal${i > 0 ? ` reveal-delay-${i}` : ''}`}>
+                <div className="impact-number">
+                  <AnimatedStat target={stat.target} suffix={stat.suffix} />
+                  {stat.accent && <span className="accent">{stat.accent}</span>}
+                </div>
+                <ETL value={stat.claim} onSave={v => onChange('claim', v)} tag="div" className="impact-claim" />
+                <ETL value={stat.detail} onSave={v => onChange('detail', v)} tag="div" className="impact-detail" multiline />
               </div>
-              <div className="impact-claim">{stat.claim}</div>
-              <div className="impact-detail">{stat.detail}</div>
-            </div>
-          ))}
+            )} />
         </div>
       </div>
 
       {/* How it works */}
       <div id="process" className="how-section">
-        <p className="how-eyebrow reveal">{SITE_CONTENT.howSection.eyebrow}</p>
-        <h2 className="how-title reveal reveal-delay-1">{SITE_CONTENT.howSection.title.split('\n').map((l,i)=>[i>0&&<br key={i}/>,l])}</h2>
+        <ET path="howSection.eyebrow" value={SITE_CONTENT.howSection.eyebrow} tag="p" className="how-eyebrow reveal" />
+        <h2 className="how-title reveal reveal-delay-1">
+          {EDIT_MODE
+            ? <ET path="howSection.title" value={SITE_CONTENT.howSection.title} style={{whiteSpace:'pre-line'}} multiline />
+            : SITE_CONTENT.howSection.title.split('\n').map((l,i) => [i>0 && <br key={i}/>, l])
+          }
+        </h2>
         <div className="how-steps">
-          {SITE_CONTENT.howSteps.map((step, i) =>
-          <div className={`how-step reveal${i > 0 ? ` reveal-delay-${i}` : ''}`} key={i}>
-              <div className="how-step-num">{step.n}</div>
-              <div className="how-step-title">{step.title}</div>
-              <div className="how-step-desc">{step.desc}</div>
-            </div>
-          )}
+          <EditableList path="howSteps" items={SITE_CONTENT.howSteps}
+            renderItem={(step, i, onChange) => (
+              <div className={`how-step reveal${i > 0 ? ` reveal-delay-${i}` : ''}`}>
+                <ETL value={step.n} onSave={v => onChange('n', v)} tag="div" className="how-step-num" />
+                <ETL value={step.title} onSave={v => onChange('title', v)} tag="div" className="how-step-title" />
+                <ETL value={step.desc} onSave={v => onChange('desc', v)} tag="div" className="how-step-desc" multiline />
+              </div>
+            )} />
         </div>
         <div className="how-cta-row reveal">
-          <a href="#contact" className="btn-primary">{tweaks.ctaLabel}</a>
-          <span className="how-note">{SITE_CONTENT.howSection.ctaNote}</span>
+          <EButton btnKey="howCta" B={B} className="btn-primary" href="#contact">{tweaks.ctaLabel}</EButton>
+          <ET path="howSection.ctaNote" value={SITE_CONTENT.howSection.ctaNote} tag="span" className="how-note" />
         </div>
       </div>
 
@@ -985,26 +1222,35 @@ function App() {
       <div id="background" className="background-section">
         <div className="bg-layout">
           <div className="reveal">
-            <p className="section-eyebrow">{SITE_CONTENT.backgroundSection.eyebrow}</p>
-            <h2 className="section-title">{SITE_CONTENT.backgroundSection.title.split('\n').map((l,i)=>[i>0&&<br key={i}/>,l])}</h2>
-            <p className="bg-tagline">{SITE_CONTENT.backgroundSection.tagline}</p>
+            <ET path="backgroundSection.eyebrow" value={SITE_CONTENT.backgroundSection.eyebrow} tag="p" className="section-eyebrow" />
+            <h2 className="section-title">
+              {EDIT_MODE
+                ? <ET path="backgroundSection.title" value={SITE_CONTENT.backgroundSection.title} style={{whiteSpace:'pre-line'}} multiline />
+                : SITE_CONTENT.backgroundSection.title.split('\n').map((l,i) => [i>0 && <br key={i}/>, l])
+              }
+            </h2>
+            <ET path="backgroundSection.tagline" value={SITE_CONTENT.backgroundSection.tagline} tag="p" className="bg-tagline" multiline />
             <div className="bg-companies">
-              {SITE_CONTENT.backgroundSection.companies.map((c) => <span key={c} className="company-chip">{c}</span>)}
+              <EditableList path="backgroundSection.companies" items={SITE_CONTENT.backgroundSection.companies}
+                renderItem={(c, i, onChange) => (
+                  <ETL value={c} onSave={v => onChange(null, v)} tag="span" className="company-chip" />
+                )} />
             </div>
             <a href={`https://${tweaks.linkedinUrl}`} target="_blank" rel="noopener noreferrer" className="bg-linkedin">
               View LinkedIn Profile <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M12 5l7 7-7 7" /></svg>
             </a>
           </div>
           <div className="bg-milestones reveal reveal-delay-2">
-            {MILESTONES.map((m, i) =>
-            <div className={`milestone${m.year === 'Now' ? ' milestone-current' : ''}`} key={i}>
-                <div className="milestone-year">{m.year}</div>
-                <div>
-                  <div className="milestone-title">{m.title}</div>
-                  <div className="milestone-desc">{m.desc}</div>
+            <EditableList path="milestones" items={SITE_CONTENT.milestones}
+              renderItem={(m, i, onChange) => (
+                <div className={`milestone${m.year === 'Now' ? ' milestone-current' : ''}`}>
+                  <ETL value={m.year} onSave={v => onChange('year', v)} tag="div" className="milestone-year" />
+                  <div>
+                    <ETL value={m.title} onSave={v => onChange('title', v)} tag="div" className="milestone-title" />
+                    <ETL value={m.desc} onSave={v => onChange('desc', v)} tag="div" className="milestone-desc" multiline />
+                  </div>
                 </div>
-              </div>
-            )}
+              )} />
           </div>
         </div>
       </div>
@@ -1013,17 +1259,23 @@ function App() {
       <div id="services" className="services-section">
         <div className="services-header">
           <div className="reveal">
-            <p className="section-eyebrow">{SITE_CONTENT.servicesSection.eyebrow}</p>
-            <h2 className="section-title">{SITE_CONTENT.servicesSection.title}</h2>
+            <ET path="servicesSection.eyebrow" value={SITE_CONTENT.servicesSection.eyebrow} tag="p" className="section-eyebrow" />
+            <ET path="servicesSection.title" value={SITE_CONTENT.servicesSection.title} tag="h2" className="section-title" />
           </div>
-          <p className="services-desc reveal reveal-delay-1">{SITE_CONTENT.servicesSection.desc}</p>
+          <ET path="servicesSection.desc" value={SITE_CONTENT.servicesSection.desc} tag="p" className="services-desc reveal reveal-delay-1" multiline />
         </div>
         <div className="services-hint reveal">
           <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M7 10l5-6 5 6" /><path d="M7 14l5 6 5-6" /></svg>
-          {SITE_CONTENT.servicesSection.hint}
+          <ET path="servicesSection.hint" value={SITE_CONTENT.servicesSection.hint} />
         </div>
         <div className="services-grid">
-          {SERVICES.map((s, i) => <ScannerCard key={i} service={s} delay={0.05 + i % 3 * 0.1} />)}
+          {EDIT_MODE
+            ? <EditableList path="services" items={SITE_CONTENT.services}
+                renderItem={(s, i, onChange) => (
+                  <ScannerCard service={{...s, icon: SERVICE_ICONS[i % SERVICE_ICONS.length]}} delay={0.05 + i % 3 * 0.1} editOnChange={onChange} />
+                )} />
+            : SERVICES.map((s, i) => <ScannerCard key={i} service={s} delay={0.05 + i % 3 * 0.1} />)
+          }
         </div>
       </div>
 
@@ -1031,9 +1283,9 @@ function App() {
       <div id="linkedin" className="linkedin-section">
         <div className="linkedin-header-row reveal">
           <div>
-            <p className="linkedin-eyebrow">{SITE_CONTENT.linkedinSection.eyebrow}</p>
-            <h2 className="linkedin-title">{SITE_CONTENT.linkedinSection.title}</h2>
-            <p className="linkedin-sub">{SITE_CONTENT.linkedinSection.sub}</p>
+            <ET path="linkedinSection.eyebrow" value={SITE_CONTENT.linkedinSection.eyebrow} tag="p" className="linkedin-eyebrow" />
+            <ET path="linkedinSection.title" value={SITE_CONTENT.linkedinSection.title} tag="h2" className="linkedin-title" />
+            <ET path="linkedinSection.sub" value={SITE_CONTENT.linkedinSection.sub} tag="p" className="linkedin-sub" />
           </div>
           <a href="https://www.linkedin.com/in/omer-moran-8aa07616b" target="_blank" rel="noopener noreferrer" className="linkedin-profile-link">
             View full profile
@@ -1043,15 +1295,15 @@ function App() {
         <LinkedInCarousel />
         <div className="linkedin-edge-box reveal">
           <div className="linkedin-edge-text">
-            <div className="linkedin-edge-title">{SITE_CONTENT.linkedinSection.edgeTitle}</div>
-            <div className="linkedin-edge-sub">{SITE_CONTENT.linkedinSection.edgeSub}</div>
+            <ET path="linkedinSection.edgeTitle" value={SITE_CONTENT.linkedinSection.edgeTitle} tag="div" className="linkedin-edge-title" />
+            <ET path="linkedinSection.edgeSub" value={SITE_CONTENT.linkedinSection.edgeSub} tag="div" className="linkedin-edge-sub" />
             <a href={`https://${tweaks.linkedinUrl}`} target="_blank" rel="noopener noreferrer" className="linkedin-hero-cta" style={{marginTop:20, display:'inline-flex'}}>
               <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
               Follow on LinkedIn
             </a>
           </div>
           <div className="linkedin-edge-stat">
-            <div className="linkedin-edge-stat-num">{SITE_CONTENT.linkedinSection.followers}</div>
+            <ET path="linkedinSection.followers" value={SITE_CONTENT.linkedinSection.followers} tag="div" className="linkedin-edge-stat-num" />
             <div className="linkedin-edge-stat-label">Followers</div>
           </div>
         </div>
@@ -1060,45 +1312,51 @@ function App() {
       {/* Testimonials */}
       <div id="testimonials" className="testimonials-section">
         <div className="testimonials-intro reveal">
-          <p className="section-eyebrow" style={{fontFamily:'Space Grotesk',fontSize:'10px',fontWeight:600,letterSpacing:'0.22em',textTransform:'uppercase',color:'var(--gold)',display:'inline-flex',alignItems:'center',gap:12,marginBottom:24}}><span style={{display:'inline-block',width:24,height:1,background:'var(--gold)'}}></span>{SITE_CONTENT.testimonialsSection.eyebrow}</p>
-          <h2 style={{fontFamily:'Space Grotesk',fontSize:'clamp(28px,3vw,44px)',fontWeight:700,color:'var(--text)',lineHeight:1.1,letterSpacing:'-0.025em',marginBottom:12}}>{SITE_CONTENT.testimonialsSection.title}</h2>
-          <p style={{fontSize:15,color:'var(--text-dim)',lineHeight:1.8,fontWeight:300}}>{SITE_CONTENT.testimonialsSection.sub}</p>
+          <p className="section-eyebrow" style={{fontFamily:'Space Grotesk',fontSize:'10px',fontWeight:600,letterSpacing:'0.22em',textTransform:'uppercase',color:'var(--gold)',display:'inline-flex',alignItems:'center',gap:12,marginBottom:24}}>
+            <span style={{display:'inline-block',width:24,height:1,background:'var(--gold)'}}></span>
+            <ET path="testimonialsSection.eyebrow" value={SITE_CONTENT.testimonialsSection.eyebrow} />
+          </p>
+          <ET path="testimonialsSection.title" value={SITE_CONTENT.testimonialsSection.title} tag="h2" style={{fontFamily:'Space Grotesk',fontSize:'clamp(28px,3vw,44px)',fontWeight:700,color:'var(--text)',lineHeight:1.1,letterSpacing:'-0.025em',marginBottom:12}} />
+          <ET path="testimonialsSection.sub" value={SITE_CONTENT.testimonialsSection.sub} tag="p" style={{fontSize:15,color:'var(--text-dim)',lineHeight:1.8,fontWeight:300}} multiline />
         </div>
         <div className="testimonials-grid">
-          {EN_TESTIMONIALS.map((post, i) => <TestimonialCard key={i} post={post} delay={0.08 + i % 3 * 0.1} />)}
+          <EditableList path="testimonials" items={SITE_CONTENT.testimonials}
+            renderItem={(post, i, onChange) => (
+              <TestimonialCard post={post} delay={0.08 + i % 3 * 0.1} editOnChange={EDIT_MODE ? onChange : null} />
+            )} />
         </div>
       </div>
 
       {/* Contact */}
       <section id="contact" className="contact-section">
         <div className="contact-inner reveal">
-          <p className="contact-eyebrow">{SITE_CONTENT.contactSection.eyebrow}</p>
-          <h2 className="contact-title">{SITE_CONTENT.contactSection.title}</h2>
-          <p className="contact-sub">{SITE_CONTENT.contactSection.sub}</p>
+          <ET path="contactSection.eyebrow" value={SITE_CONTENT.contactSection.eyebrow} tag="p" className="contact-eyebrow" />
+          <ET path="contactSection.title" value={SITE_CONTENT.contactSection.title} tag="h2" className="contact-title" />
+          <ET path="contactSection.sub" value={SITE_CONTENT.contactSection.sub} tag="p" className="contact-sub" multiline />
           <div className="contact-buttons">
-            <a href={tweaks.meetUrl || 'https://calendar.app.google/a1bvMsk7oMrTWYzQ9'} target="_blank" rel="noopener noreferrer" className="contact-btn contact-btn-meet">
+            <EButton btnKey="contactMeet" B={B} className="contact-btn contact-btn-meet" href={tweaks.meetUrl || 'https://calendar.app.google/a1bvMsk7oMrTWYzQ9'}>
               <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M19 3H5C3.9 3 3 3.9 3 5v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/></svg>
               Book a Free Call
-            </a>
-            <a href={`https://wa.me/${tweaks.whatsappNumber}`} target="_blank" rel="noopener noreferrer" className="contact-btn contact-btn-whatsapp">
+            </EButton>
+            <EButton btnKey="contactWhatsapp" B={B} className="contact-btn contact-btn-whatsapp" href={`https://wa.me/${tweaks.whatsappNumber}`}>
               <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z" /></svg>
               WhatsApp
-            </a>
-            <a href={`mailto:${tweaks.emailAddress}`} className="contact-btn contact-btn-email">
+            </EButton>
+            <EButton btnKey="contactEmail" B={B} className="contact-btn contact-btn-email" href={`mailto:${tweaks.emailAddress}`}>
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="4" width="20" height="16" rx="2" /><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" /></svg>
               Send an Email
-            </a>
+            </EButton>
           </div>
-          <p className="contact-note">{SITE_CONTENT.contactSection.note}</p>
+          <ET path="contactSection.note" value={SITE_CONTENT.contactSection.note} tag="p" className="contact-note" />
         </div>
       </section>
 
       <footer>
-        <div className="footer-name">{SITE_CONTENT.footer.name}</div>
-        <div className="footer-copy">{SITE_CONTENT.footer.copy}</div>
+        <ET path="footer.name" value={SITE_CONTENT.footer.name} tag="div" className="footer-name" />
+        <ET path="footer.copy" value={SITE_CONTENT.footer.copy} tag="div" className="footer-copy" />
       </footer>
-    </>);
-
+    </>
+  );
 }
 
 ReactDOM.createRoot(document.getElementById('root')).render(<App />);
