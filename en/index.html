@@ -322,6 +322,8 @@
     footer { border-top: 1px solid rgba(255,255,255,0.07); padding: 28px 64px; display: flex; align-items: center; justify-content: space-between; background: var(--text); }
     .footer-name { font-family: 'Space Grotesk', sans-serif; font-size: 12px; font-weight: 600; color: rgba(250,249,246,0.35); letter-spacing: 0.06em; text-transform: uppercase; }
     .footer-copy { font-size: 12px; color: rgba(250,249,246,0.2); }
+    .footer-privacy { font-size: 12px; color: rgba(250,249,246,0.25); text-decoration: none; transition: color 0.2s; }
+    .footer-privacy:hover { color: rgba(250,249,246,0.6); }
 
     /* ── Scroll reveal ── */
     .reveal { opacity: 0; transform: translateY(32px); transition: opacity 0.85s cubic-bezier(0.16,1,0.3,1), transform 0.85s cubic-bezier(0.16,1,0.3,1); }
@@ -1355,6 +1357,7 @@ function App() {
       <footer>
         <ET path="footer.name" value={SITE_CONTENT.footer.name} tag="div" className="footer-name" />
         <ET path="footer.copy" value={SITE_CONTENT.footer.copy} tag="div" className="footer-copy" />
+        <a href="/privacypolicy" className="footer-privacy">Privacy Policy</a>
       </footer>
     </>
   );
