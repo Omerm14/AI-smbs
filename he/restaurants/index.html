@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>AI למסעדות ומאפיות — עומר מורן</title>
-  <meta name="description" content="מערכות AI מותאמות לבתי קפה, מסעדות ומאפיות — מניהול הזמנות אוטומטי ועד שירות לקוחות סביב השעון בוואטסאפ." />
+  <meta name="description" content="מערכות AI שמנהלות הזמנות, עונות ללקוחות ומכינות את הצוות — בלי אקסלים, בלי פתקים, בלי טעויות." />
   <link rel="icon" type="image/jpeg" href="/uploads/photo-1777477389865.JPG" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -48,7 +48,7 @@
       mix-blend-mode: multiply;
     }
 
-    /* Nav */
+    /* ── Nav ── */
     nav {
       position: fixed; top: 0; left: 0; right: 0; z-index: 100;
       display: flex; align-items: center; justify-content: space-between;
@@ -72,25 +72,20 @@
     .nav-links a { text-decoration: none; color: var(--text-dim); font-size: 14px; transition: color 0.2s; }
     .nav-links a:hover { color: var(--text); }
     .nav-cta {
-      font-family: 'Heebo', sans-serif;
-      font-size: 13px; font-weight: 700;
-      letter-spacing: 0.04em;
-      padding: 11px 26px;
+      font-family: 'Heebo', sans-serif; font-size: 13px; font-weight: 700;
+      letter-spacing: 0.04em; padding: 11px 26px;
       background: var(--text); color: var(--bg);
       text-decoration: none; display: inline-block;
-      position: relative; overflow: hidden;
-      transition: background 0.3s;
+      position: relative; overflow: hidden; transition: background 0.3s;
     }
     .nav-cta::after { content: ''; position: absolute; inset: 0; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.15), transparent); transform: translateX(100%); transition: transform 0.5s ease; }
     .nav-cta:hover { background: var(--gold); }
     .nav-cta:hover::after { transform: translateX(-100%); }
 
-    /* Buttons */
+    /* ── Buttons ── */
     .btn-primary {
-      font-family: 'Heebo', sans-serif;
-      font-size: 14px; font-weight: 700;
-      padding: 16px 40px;
-      background: var(--text); color: var(--bg);
+      font-family: 'Heebo', sans-serif; font-size: 14px; font-weight: 700;
+      padding: 16px 40px; background: var(--text); color: var(--bg);
       border: none; cursor: pointer; text-decoration: none;
       display: inline-flex; align-items: center; gap: 10px;
       position: relative; overflow: hidden;
@@ -106,13 +101,12 @@
     }
     .btn-ghost:hover { color: var(--text); gap: 14px; }
 
-    /* Hero */
+    /* ── Hero ── */
     .hero {
-      min-height: 100vh;
-      display: flex; align-items: center;
-      padding: 140px 64px 100px;
+      min-height: 100vh; display: grid;
+      grid-template-columns: 1fr 1fr; align-items: center;
+      padding: 120px 64px 80px; gap: 80px;
       position: relative; overflow: hidden;
-      text-align: right;
     }
     .hero-bg-grid {
       position: absolute; inset: 0; pointer-events: none;
@@ -130,7 +124,7 @@
       animation: floatGlow 7s ease-in-out infinite alternate;
     }
     @keyframes floatGlow { 0% { transform: translateY(-50%) scale(1); } 100% { transform: translateY(-56%) scale(1.1); } }
-    .hero-content { position: relative; max-width: 800px; }
+    .hero-content { position: relative; }
     .hero-eyebrow {
       display: inline-flex; align-items: center; gap: 12px;
       font-size: 12px; font-weight: 600; letter-spacing: 0.12em;
@@ -140,17 +134,14 @@
     .hero-eyebrow-line { display: inline-block; width: 32px; height: 1px; background: var(--gold); }
     @keyframes fadeUp { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
     .hero-title {
-      font-family: 'Heebo', sans-serif;
-      font-size: clamp(38px, 5vw, 72px);
-      font-weight: 900; line-height: 1.1;
-      letter-spacing: -0.02em; margin-bottom: 28px;
+      font-family: 'Heebo', sans-serif; font-size: clamp(36px, 4vw, 62px);
+      font-weight: 900; line-height: 1.1; letter-spacing: -0.02em; margin-bottom: 28px;
       opacity: 0; animation: fadeUp 0.8s 0.3s ease forwards;
     }
     .hero-title .accent { color: var(--gold); }
     .hero-sub {
-      font-size: 19px; line-height: 1.8;
-      color: var(--text-dim); max-width: 580px;
-      margin-bottom: 52px; font-weight: 300;
+      font-size: 18px; line-height: 1.8; color: var(--text-dim);
+      max-width: 500px; margin-bottom: 52px; font-weight: 300;
       opacity: 0; animation: fadeUp 0.8s 0.55s ease forwards;
     }
     .hero-actions {
@@ -158,7 +149,51 @@
       opacity: 0; animation: fadeUp 0.8s 0.75s ease forwards;
     }
 
-    /* Marquee */
+    /* ── Hero visual: WhatsApp mockup ── */
+    .hero-visual {
+      position: relative;
+      opacity: 0; animation: fadeUp 1s 0.4s ease forwards;
+    }
+    .wa-mockup {
+      background: #111827; border-radius: 20px;
+      padding: 0; overflow: hidden;
+      box-shadow: 0 32px 80px rgba(14,14,12,0.18), 0 0 0 1px rgba(255,255,255,0.06);
+      max-width: 320px; margin: 0 auto;
+    }
+    .wa-header {
+      background: #1f2937; padding: 14px 20px;
+      display: flex; align-items: center; gap: 12px;
+    }
+    .wa-avatar {
+      width: 38px; height: 38px; border-radius: 50%;
+      background: #25d366; display: flex; align-items: center; justify-content: center;
+      font-size: 18px; flex-shrink: 0;
+    }
+    .wa-name { font-size: 14px; font-weight: 700; color: #f1f5f9; font-family: 'Heebo', sans-serif; }
+    .wa-status { font-size: 11px; color: #25d366; margin-top: 1px; }
+    .wa-body { padding: 16px; display: flex; flex-direction: column; gap: 10px; min-height: 220px; }
+    .wa-bubble {
+      max-width: 80%; padding: 10px 14px; border-radius: 12px;
+      font-family: 'Heebo', sans-serif; font-size: 13px; line-height: 1.6; color: #f1f5f9;
+      position: relative;
+    }
+    .wa-bubble.customer { background: #374151; align-self: flex-end; border-bottom-left-radius: 4px; }
+    .wa-bubble.bot { background: #1a3a2a; border: 1px solid rgba(37,211,102,0.2); align-self: flex-start; border-bottom-right-radius: 4px; }
+    .wa-bubble .wa-time { font-size: 10px; color: rgba(241,245,249,0.4); margin-top: 4px; text-align: left; display: block; }
+    .wa-typing { display: flex; gap: 4px; align-items: center; padding: 12px 16px; align-self: flex-start; }
+    .wa-dot { width: 7px; height: 7px; border-radius: 50%; background: rgba(241,245,249,0.3); animation: typingPulse 1.2s ease-in-out infinite; }
+    .wa-dot:nth-child(2) { animation-delay: 0.2s; }
+    .wa-dot:nth-child(3) { animation-delay: 0.4s; }
+    @keyframes typingPulse { 0%,60%,100% { opacity: 0.3; transform: translateY(0); } 30% { opacity: 1; transform: translateY(-3px); } }
+    .wa-badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-size: 10px; font-weight: 700; letter-spacing: 0.06em;
+      color: var(--gold); margin-top: 12px; padding: 6px 12px;
+      border: 1px solid rgba(var(--gold-rgb),0.3); border-radius: 100px;
+      background: rgba(var(--gold-rgb),0.08); width: fit-content; margin: 12px auto 0;
+    }
+
+    /* ── Marquee ── */
     .marquee-strip {
       border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
       padding: 14px 0; background: var(--text); overflow: hidden;
@@ -167,138 +202,202 @@
     .marquee-track:hover { animation-play-state: paused; }
     @keyframes marqueeScroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
     .marquee-item {
-      display: inline-flex; align-items: center; gap: 20px;
-      padding: 0 40px; white-space: nowrap;
-      font-family: 'Heebo', sans-serif; font-size: 12px; font-weight: 700;
-      color: rgba(250,249,246,0.45);
+      display: inline-flex; align-items: center; gap: 20px; padding: 0 40px;
+      white-space: nowrap; font-family: 'Heebo', sans-serif;
+      font-size: 12px; font-weight: 700; color: rgba(250,249,246,0.45);
     }
     .marquee-dot { display: inline-block; width: 4px; height: 4px; border-radius: 50%; background: var(--gold); flex-shrink: 0; }
 
-    /* Problem */
-    .problem-section { background: var(--bg); padding: 100px 64px; position: relative; overflow: hidden; }
-    .problem-section::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px; background: var(--border); }
+    /* ── Shared section styles ── */
     .section-eyebrow { display: inline-flex; align-items: center; gap: 12px; font-size: 11px; font-weight: 700; letter-spacing: 0.1em; color: var(--gold); margin-bottom: 24px; }
     .section-eyebrow::before { content: ''; display: inline-block; width: 24px; height: 1px; background: var(--gold); }
     .section-title { font-family: 'Heebo', sans-serif; font-size: clamp(28px, 3vw, 46px); font-weight: 900; line-height: 1.12; letter-spacing: -0.02em; margin-bottom: 20px; }
-    .section-sub { font-size: 16px; line-height: 1.8; color: var(--text-dim); font-weight: 300; max-width: 560px; margin-bottom: 64px; }
-    .problem-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--border); }
+    .section-sub { font-size: 16px; line-height: 1.8; color: var(--text-dim); font-weight: 300; max-width: 540px; margin-bottom: 64px; }
+
+    /* ── Problem ── */
+    .problem-section { background: var(--bg2); padding: 100px 64px; position: relative; overflow: hidden; }
+    .problem-section::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px; background: var(--border); }
+    .problem-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--border-mid); }
     .problem-card {
-      background: var(--bg); padding: 44px 36px;
-      position: relative; overflow: hidden;
-      transition: background 0.3s;
+      background: var(--bg2); padding: 44px 36px;
+      transition: background 0.3s; cursor: default;
     }
     .problem-card:hover { background: var(--surface); }
-    .problem-icon {
-      font-size: 32px; margin-bottom: 24px; display: block;
-    }
+    .problem-icon { font-size: 40px; margin-bottom: 24px; display: block; animation: floatIcon 4s ease-in-out infinite alternate; }
+    .problem-card:nth-child(2) .problem-icon { animation-delay: 0.8s; }
+    .problem-card:nth-child(3) .problem-icon { animation-delay: 1.6s; }
+    @keyframes floatIcon { from { transform: translateY(0); } to { transform: translateY(-8px); } }
     .problem-title { font-family: 'Heebo', sans-serif; font-size: 20px; font-weight: 800; margin-bottom: 14px; }
-    .problem-desc { font-size: 14px; line-height: 1.8; color: var(--text-dim); font-weight: 300; }
+    .problem-desc { font-size: 14px; line-height: 1.85; color: var(--text-dim); font-weight: 300; }
 
-    /* Case Studies */
-    .projects-section { background: var(--bg2); padding: 100px 64px; position: relative; overflow: hidden; }
-    .projects-section::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px; background: var(--border); }
-    .projects-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+    /* ── Projects (dark) ── */
+    .projects-section { background: var(--text); padding: 100px 64px; position: relative; overflow: hidden; }
+    .projects-section::before { content: ''; position: absolute; top: -300px; right: -200px; width: 700px; height: 700px; border-radius: 50%; background: radial-gradient(circle, rgba(var(--gold-rgb),0.07) 0%, transparent 70%); pointer-events: none; }
+    .projects-eyebrow { display: inline-flex; align-items: center; gap: 12px; font-size: 11px; font-weight: 700; letter-spacing: 0.1em; color: var(--gold); margin-bottom: 24px; }
+    .projects-eyebrow::before { content: ''; display: inline-block; width: 24px; height: 1px; background: var(--gold); }
+    .projects-title { font-family: 'Heebo', sans-serif; font-size: clamp(28px, 3vw, 44px); font-weight: 900; color: #faf9f6; line-height: 1.15; letter-spacing: -0.02em; margin-bottom: 16px; }
+    .projects-sub { font-size: 16px; color: rgba(250,249,246,0.45); font-weight: 300; margin-bottom: 60px; }
+    .projects-grid { display: flex; flex-direction: column; gap: 40px; }
     .project-card {
-      background: var(--surface);
-      border: 1px solid var(--border-mid);
-      padding: 40px 36px;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.07);
+      display: grid; grid-template-columns: 1fr 1fr; gap: 0;
       position: relative; overflow: hidden;
-      display: flex; flex-direction: column; gap: 0;
-      transition: border-color 0.3s, box-shadow 0.3s, transform 0.3s;
-      cursor: default;
+      transition: border-color 0.3s, box-shadow 0.3s;
     }
     .project-card:hover {
-      border-color: rgba(var(--gold-rgb), 0.35);
-      box-shadow: 0 16px 48px rgba(var(--gold-rgb), 0.1);
-      transform: translateY(-4px);
+      border-color: rgba(var(--gold-rgb),0.3);
+      box-shadow: 0 20px 60px rgba(0,0,0,0.3);
     }
     .project-card::before {
-      content: ''; position: absolute; top: 0; right: 0; left: 0; height: 2px;
+      content: ''; position: absolute; top: 0; right: 0; left: 0; height: 1px;
       background: linear-gradient(90deg, transparent, var(--gold), transparent);
-      opacity: 0; transition: opacity 0.3s;
+      opacity: 0; transition: opacity 0.4s;
     }
     .project-card:hover::before { opacity: 1; }
+    .project-content { padding: 44px 40px; display: flex; flex-direction: column; border-left: 1px solid rgba(255,255,255,0.06); }
     .project-tag {
       display: inline-flex; align-items: center; gap: 6px;
       font-size: 10px; font-weight: 700; letter-spacing: 0.12em;
-      color: var(--gold); margin-bottom: 24px;
-    }
-    .project-tag::before { content: ''; display: inline-block; width: 16px; height: 1px; background: var(--gold); }
-    .project-name { font-family: 'Heebo', sans-serif; font-size: 24px; font-weight: 900; margin-bottom: 10px; letter-spacing: -0.01em; }
-    .project-tagline { font-size: 14px; color: var(--gold); font-weight: 600; margin-bottom: 20px; }
-    .project-desc { font-size: 14px; line-height: 1.85; color: var(--text-dim); font-weight: 300; margin-bottom: 32px; flex: 1; }
-    .project-features { display: flex; flex-direction: column; gap: 10px; margin-bottom: 32px; }
-    .project-feature {
-      display: flex; align-items: flex-start; gap: 10px;
-      font-size: 13px; color: var(--text-dim); line-height: 1.5;
-    }
-    .project-feature-dot {
-      width: 5px; height: 5px; border-radius: 50%; background: var(--gold);
-      flex-shrink: 0; margin-top: 7px;
-    }
-    .project-stack { display: flex; flex-wrap: wrap; gap: 6px; }
-    .stack-tag {
-      font-family: 'Space Grotesk', sans-serif;
-      font-size: 10px; font-weight: 600; letter-spacing: 0.06em;
-      padding: 4px 10px; border: 1px solid var(--border-mid);
-      color: var(--text-dimmer); background: var(--bg);
-    }
-
-    /* Services */
-    .services-section { background: var(--text); padding: 100px 64px; position: relative; overflow: hidden; }
-    .services-section::before { content: ''; position: absolute; top: -300px; left: -200px; width: 700px; height: 700px; border-radius: 50%; background: radial-gradient(circle, rgba(var(--gold-rgb),0.08) 0%, transparent 70%); pointer-events: none; }
-    .services-eyebrow { display: inline-flex; align-items: center; gap: 12px; font-size: 11px; font-weight: 700; letter-spacing: 0.1em; color: var(--gold); margin-bottom: 24px; }
-    .services-eyebrow::before { content: ''; display: inline-block; width: 24px; height: 1px; background: var(--gold); }
-    .services-title { font-family: 'Heebo', sans-serif; font-size: clamp(28px, 3vw, 44px); font-weight: 900; color: #faf9f6; line-height: 1.15; letter-spacing: -0.02em; margin-bottom: 64px; }
-    .services-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1px; background: rgba(255,255,255,0.06); }
-    .service-card {
-      background: rgba(255,255,255,0.03);
-      padding: 44px 40px;
-      position: relative; overflow: hidden;
-      transition: background 0.3s;
-    }
-    .service-card:hover { background: rgba(255,255,255,0.06); }
-    .service-number {
-      font-family: 'Space Grotesk', sans-serif;
-      font-size: 11px; font-weight: 700; letter-spacing: 0.12em;
       color: var(--gold); margin-bottom: 20px;
     }
-    .service-title { font-family: 'Heebo', sans-serif; font-size: 22px; font-weight: 800; color: #faf9f6; margin-bottom: 14px; }
-    .service-desc { font-size: 14px; line-height: 1.85; color: rgba(250,249,246,0.52); font-weight: 300; }
-
-    /* Why Me */
-    .why-section { background: var(--bg); padding: 100px 64px; position: relative; overflow: hidden; }
-    .why-section::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px; background: var(--border); }
-    .why-grid { display: grid; grid-template-columns: repeat(3, 1fr); position: relative; margin-top: 56px; }
-    .why-grid::before { content: ''; position: absolute; top: 0; right: 33.33%; width: 1px; height: 100%; background: var(--border); }
-    .why-grid::after { content: ''; position: absolute; top: 0; right: 66.66%; width: 1px; height: 100%; background: var(--border); }
-    .why-item { padding: 0 56px; display: flex; flex-direction: column; align-items: flex-start; }
-    .why-item:first-child { padding-right: 0; }
-    .why-item:last-child { padding-left: 0; }
-    .why-number {
-      font-family: 'Space Grotesk', sans-serif;
-      font-size: clamp(56px, 7vw, 96px); font-weight: 700; line-height: 1;
-      letter-spacing: -0.04em; color: var(--text);
-      display: flex; align-items: baseline; gap: 8px;
-      margin-bottom: 20px;
+    .project-tag::before { content: ''; display: inline-block; width: 14px; height: 1px; background: var(--gold); }
+    .project-name { font-family: 'Heebo', sans-serif; font-size: 26px; font-weight: 900; color: #faf9f6; margin-bottom: 16px; letter-spacing: -0.01em; }
+    .project-desc { font-size: 15px; line-height: 1.85; color: rgba(250,249,246,0.55); font-weight: 300; margin-bottom: 28px; flex: 1; }
+    .project-outcome {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-family: 'Heebo', sans-serif; font-size: 13px; font-weight: 700;
+      color: #25d366; padding: 8px 16px;
+      background: rgba(37,211,102,0.08); border: 1px solid rgba(37,211,102,0.2);
+      width: fit-content;
     }
-    .why-number .accent { color: var(--gold); font-size: 0.5em; font-weight: 700; white-space: nowrap; align-self: center; }
-    .why-label { font-family: 'Heebo', sans-serif; font-size: 20px; font-weight: 700; color: var(--text); margin-bottom: 12px; }
-    .why-detail { font-size: 14px; line-height: 1.75; color: var(--text-dim); font-weight: 300; max-width: 260px; }
+    .project-visual { padding: 32px; display: flex; align-items: center; justify-content: center; background: rgba(0,0,0,0.15); }
 
-    /* Contact */
+    /* ── Floory grid mockup ── */
+    .floory-grid { width: 100%; font-family: 'Heebo', sans-serif; }
+    .floory-grid-header {
+      display: grid; grid-template-columns: 1.4fr repeat(6, 1fr);
+      gap: 1px; margin-bottom: 1px;
+    }
+    .floory-grid-row {
+      display: grid; grid-template-columns: 1.4fr repeat(6, 1fr);
+      gap: 1px; margin-bottom: 1px; position: relative;
+    }
+    .floory-grid-row.ai-row { background: rgba(var(--gold-rgb),0.06); }
+    .fg-cell {
+      background: rgba(255,255,255,0.04); padding: 8px 10px;
+      font-size: 11px; color: rgba(250,249,246,0.5); text-align: center;
+    }
+    .fg-cell.header { background: rgba(255,255,255,0.07); font-weight: 700; color: rgba(250,249,246,0.7); }
+    .fg-cell.item-name { text-align: right; color: rgba(250,249,246,0.8); font-weight: 600; padding-right: 12px; }
+    .fg-cell.qty { color: rgba(250,249,246,0.9); font-weight: 700; font-family: 'Space Grotesk', sans-serif; }
+    .fg-cell.qty.ai { color: var(--gold); }
+    .ai-row-badge {
+      position: absolute; top: -10px; right: 0;
+      font-size: 9px; font-weight: 700; letter-spacing: 0.06em;
+      color: var(--gold); background: rgba(var(--gold-rgb),0.15);
+      border: 1px solid rgba(var(--gold-rgb),0.3); padding: 2px 8px;
+    }
+    .floory-footer {
+      margin-top: 14px; display: flex; align-items: center; justify-content: space-between;
+      padding: 10px 12px; background: rgba(var(--gold-rgb),0.06); border: 1px solid rgba(var(--gold-rgb),0.15);
+    }
+    .floory-footer-label { font-size: 11px; color: rgba(250,249,246,0.5); }
+    .floory-footer-val { font-family: 'Space Grotesk', sans-serif; font-size: 13px; font-weight: 700; color: var(--gold); }
+
+    /* ── Lia chat mockup ── */
+    .lia-chat { width: 100%; background: #0d1117; border-radius: 14px; overflow: hidden; border: 1px solid rgba(255,255,255,0.07); }
+    .lia-chat-header {
+      background: #161b22; padding: 12px 16px;
+      display: flex; align-items: center; gap: 10px;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .lia-avatar {
+      width: 34px; height: 34px; border-radius: 50%; background: #25d366;
+      display: flex; align-items: center; justify-content: center; font-size: 16px; flex-shrink: 0;
+    }
+    .lia-name { font-size: 13px; font-weight: 700; color: #f1f5f9; font-family: 'Heebo', sans-serif; }
+    .lia-online { font-size: 10px; color: #25d366; }
+    .lia-body { padding: 14px 12px; display: flex; flex-direction: column; gap: 8px; }
+    .lia-bubble {
+      max-width: 85%; padding: 9px 13px; font-family: 'Heebo', sans-serif;
+      font-size: 12px; line-height: 1.65; color: #f1f5f9; border-radius: 10px;
+    }
+    .lia-bubble.user { background: #2d333b; align-self: flex-end; border-bottom-left-radius: 3px; }
+    .lia-bubble.bot { background: #0d2818; border: 1px solid rgba(37,211,102,0.18); align-self: flex-start; border-bottom-right-radius: 3px; }
+    .lia-bubble .tick { color: #25d366; font-size: 10px; margin-right: 4px; }
+    .lia-meta { font-size: 10px; color: rgba(241,245,249,0.35); margin-top: 3px; text-align: left; }
+
+    /* ── Cashflow invoice mockup ── */
+    .cf-card { width: 100%; background: #0d111a; border-radius: 12px; overflow: hidden; border: 1px solid #1e2535; }
+    .cf-header {
+      padding: 14px 18px; background: #111827;
+      border-bottom: 1px solid #1e2535;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .cf-title { font-family: 'Space Grotesk', sans-serif; font-size: 12px; font-weight: 700; color: #64748b; letter-spacing: 0.08em; }
+    .cf-count { font-size: 11px; color: #6366f1; font-weight: 600; background: rgba(99,102,241,0.1); padding: 3px 8px; border-radius: 4px; }
+    .cf-row {
+      padding: 12px 18px; border-bottom: 1px solid #1e2535;
+      display: flex; align-items: center; gap: 10px;
+    }
+    .cf-row:last-child { border-bottom: none; }
+    .cf-src-icon { width: 24px; height: 24px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 11px; flex-shrink: 0; }
+    .cf-src-gmail { background: rgba(239,68,68,0.15); }
+    .cf-src-wa { background: rgba(37,211,102,0.12); }
+    .cf-src-drive { background: rgba(99,102,241,0.12); }
+    .cf-row-info { flex: 1; }
+    .cf-supplier { font-family: 'Heebo', sans-serif; font-size: 12px; font-weight: 700; color: #e2e8f0; }
+    .cf-due { font-size: 10px; color: #64748b; margin-top: 2px; }
+    .cf-amount { font-family: 'Space Grotesk', sans-serif; font-size: 13px; font-weight: 700; color: #f1f5f9; margin-left: auto; }
+    .cf-pill { font-size: 9px; font-weight: 700; padding: 3px 8px; border-radius: 100px; white-space: nowrap; }
+    .cf-pill.paid { background: rgba(16,185,129,0.15); color: #10b981; }
+    .cf-pill.pending { background: rgba(99,102,241,0.15); color: #818cf8; }
+    .cf-pill.urgent { background: rgba(239,68,68,0.15); color: #ef4444; }
+
+    /* ── Services ── */
+    .services-section { background: var(--bg); padding: 100px 64px; position: relative; overflow: hidden; }
+    .services-section::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px; background: var(--border); }
+    .services-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; margin-top: 0; }
+    .service-card {
+      background: var(--surface); border: 1px solid var(--border-mid); padding: 40px 36px;
+      position: relative; transition: border-color 0.3s, box-shadow 0.3s, transform 0.3s;
+      cursor: default;
+    }
+    .service-card:hover { border-color: rgba(var(--gold-rgb),0.3); box-shadow: 0 12px 40px rgba(var(--gold-rgb),0.08); transform: translateY(-3px); }
+    .service-icon { font-size: 36px; margin-bottom: 20px; display: block; }
+    .service-title { font-family: 'Heebo', sans-serif; font-size: 20px; font-weight: 800; margin-bottom: 12px; }
+    .service-desc { font-size: 14px; line-height: 1.85; color: var(--text-dim); font-weight: 300; }
+
+    /* ── Impact (Why Me) ── */
+    .impact-section { background: var(--bg2); padding: 100px 64px; position: relative; overflow: hidden; }
+    .impact-section::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px; background: var(--border); }
+    .impact-eyebrow { display: inline-flex; align-items: center; gap: 12px; font-size: 11px; font-weight: 700; letter-spacing: 0.1em; color: var(--gold); margin-bottom: 60px; }
+    .impact-eyebrow::before { content: ''; display: inline-block; width: 24px; height: 1px; background: var(--gold); }
+    .impact-grid { display: grid; grid-template-columns: repeat(3, 1fr); position: relative; }
+    .impact-grid::before { content: ''; position: absolute; top: 0; right: 33.33%; width: 1px; height: 100%; background: var(--border); }
+    .impact-grid::after { content: ''; position: absolute; top: 0; right: 66.66%; width: 1px; height: 100%; background: var(--border); }
+    .impact-item { padding: 0 56px; display: flex; flex-direction: column; align-items: flex-start; }
+    .impact-item:first-child { padding-right: 0; }
+    .impact-item:last-child { padding-left: 0; }
+    .impact-number {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: clamp(56px, 7vw, 100px); font-weight: 700; line-height: 1;
+      letter-spacing: -0.04em; color: var(--text);
+      display: flex; align-items: baseline; gap: 8px; margin-bottom: 20px;
+    }
+    .impact-number .accent { color: var(--gold); font-size: 0.5em; font-weight: 700; white-space: nowrap; align-self: center; }
+    .impact-label { font-family: 'Heebo', sans-serif; font-size: 20px; font-weight: 700; color: var(--text); margin-bottom: 12px; }
+    .impact-detail { font-size: 14px; line-height: 1.75; color: var(--text-dim); font-weight: 300; max-width: 260px; }
+
+    /* ── Contact ── */
     .contact-section { background: var(--text); padding: 120px 64px; position: relative; overflow: hidden; text-align: center; }
-    .contact-section::before { content: ''; position: absolute; top: -300px; right: -200px; width: 700px; height: 700px; border-radius: 50%; background: radial-gradient(circle, rgba(var(--gold-rgb),0.08) 0%, transparent 70%); pointer-events: none; }
+    .contact-section::before { content: ''; position: absolute; top: -300px; right: -200px; width: 700px; height: 700px; border-radius: 50%; background: radial-gradient(circle, rgba(var(--gold-rgb),0.07) 0%, transparent 70%); pointer-events: none; }
     .contact-eyebrow { display: inline-flex; align-items: center; justify-content: center; gap: 12px; font-size: 11px; font-weight: 700; letter-spacing: 0.1em; color: var(--gold); margin-bottom: 24px; }
     .contact-eyebrow::before { content: ''; display: inline-block; width: 24px; height: 1px; background: var(--gold); }
     .contact-eyebrow::after { content: ''; display: inline-block; width: 24px; height: 1px; background: var(--gold); }
-    .contact-title {
-      font-family: 'Heebo', sans-serif;
-      font-size: clamp(32px, 4vw, 60px); font-weight: 900;
-      color: #faf9f6; line-height: 1.1; letter-spacing: -0.02em;
-      margin-bottom: 20px;
-    }
-    .contact-sub { font-size: 17px; color: rgba(250,249,246,0.52); font-weight: 300; line-height: 1.7; max-width: 480px; margin: 0 auto 56px; }
+    .contact-title { font-family: 'Heebo', sans-serif; font-size: clamp(30px, 4vw, 58px); font-weight: 900; color: #faf9f6; line-height: 1.1; letter-spacing: -0.02em; margin-bottom: 20px; }
+    .contact-sub { font-size: 17px; color: rgba(250,249,246,0.45); font-weight: 300; line-height: 1.7; max-width: 480px; margin: 0 auto 52px; }
     .contact-btns { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
     .contact-btn {
       font-family: 'Heebo', sans-serif; font-size: 14px; font-weight: 700;
@@ -308,45 +407,43 @@
       transition: transform 0.25s, box-shadow 0.25s, background 0.3s;
     }
     .contact-btn:hover { transform: translateY(-3px); }
-    .contact-btn-whatsapp {
-      background: #25d366; color: #fff;
-    }
+    .contact-btn-whatsapp { background: #25d366; color: #fff; }
     .contact-btn-whatsapp:hover { box-shadow: 0 12px 36px rgba(37,211,102,0.35); }
-    .contact-btn-email {
-      background: rgba(255,255,255,0.07); color: #faf9f6;
-      border: 1px solid rgba(255,255,255,0.14);
-    }
-    .contact-btn-email:hover { background: rgba(255,255,255,0.13); }
-    .contact-btn-meet {
-      background: var(--gold); color: #fff;
-    }
+    .contact-btn-meet { background: var(--gold); color: #fff; }
     .contact-btn-meet:hover { box-shadow: 0 12px 36px rgba(var(--gold-rgb),0.4); }
+    .contact-btn-email { background: rgba(255,255,255,0.07); color: #faf9f6; border: 1px solid rgba(255,255,255,0.14); }
+    .contact-btn-email:hover { background: rgba(255,255,255,0.13); }
 
-    /* Footer */
+    /* ── Footer ── */
     footer {
       background: var(--text); padding: 32px 64px;
       border-top: 1px solid rgba(255,255,255,0.06);
       display: flex; align-items: center; justify-content: space-between;
     }
-    .footer-logo { font-family: 'Space Grotesk', sans-serif; font-size: 13px; font-weight: 600; letter-spacing: 0.06em; color: rgba(250,249,246,0.35); text-transform: uppercase; text-decoration: none; }
-    .footer-copy { font-size: 12px; color: rgba(250,249,246,0.25); }
+    .footer-logo { font-family: 'Space Grotesk', sans-serif; font-size: 13px; font-weight: 600; letter-spacing: 0.06em; color: rgba(250,249,246,0.3); text-transform: uppercase; text-decoration: none; }
+    .footer-copy { font-size: 12px; color: rgba(250,249,246,0.2); }
 
-    /* Reveal animations */
+    /* ── Reveal ── */
     .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.7s ease, transform 0.7s ease; }
     .reveal.visible { opacity: 1; transform: translateY(0); }
 
-    /* Responsive */
+    /* ── Responsive ── */
+    @media (max-width: 1024px) {
+      .project-card { grid-template-columns: 1fr; }
+      .project-visual { border-top: 1px solid rgba(255,255,255,0.06); border-left: none; min-height: 260px; }
+      .project-content { border-left: none; }
+    }
     @media (max-width: 900px) {
       nav { padding: 18px 24px; } nav.scrolled { padding: 14px 24px; }
       .nav-links { display: none; }
-      .hero { padding: 120px 24px 80px; }
-      .problem-section, .projects-section, .services-section, .why-section, .contact-section { padding: 80px 24px; }
+      .hero { grid-template-columns: 1fr; padding: 120px 24px 64px; gap: 48px; }
+      .hero-visual { display: none; }
+      .problem-section, .projects-section, .services-section, .impact-section, .contact-section { padding: 80px 24px; }
       .problem-grid { grid-template-columns: 1fr; }
-      .projects-grid { grid-template-columns: 1fr; }
       .services-grid { grid-template-columns: 1fr; }
-      .why-grid { grid-template-columns: 1fr; gap: 48px; }
-      .why-grid::before, .why-grid::after { display: none; }
-      .why-item { padding: 0; }
+      .impact-grid { grid-template-columns: 1fr; gap: 48px; }
+      .impact-grid::before, .impact-grid::after { display: none; }
+      .impact-item { padding: 0; }
       footer { padding: 24px; flex-direction: column; gap: 12px; text-align: center; }
     }
   </style>
@@ -377,7 +474,7 @@
         const els = document.querySelectorAll('.reveal');
         const obs = new IntersectionObserver((entries) => {
           entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } });
-        }, { threshold: 0.12 });
+        }, { threshold: 0.1 });
         els.forEach(el => obs.observe(el));
         return () => obs.disconnect();
       }, []);
@@ -407,77 +504,121 @@
       return <span ref={ref}>{prefix}{val}{suffix}</span>;
     }
 
-    const MARQUEE_ITEMS = [
-      'ניהול הזמנות אוטומטי', 'סוכן וואטסאפ AI', 'שירות לקוחות 24/7',
-      'מערכות ייצור חכמות', 'Claude AI', 'אוטומציה עברית-ראשונה',
-      'עיבוד חשבוניות', 'לוח בקרה יומי', 'Supabase', 'Railway',
-    ];
+    /* ─── Visual mockups ─── */
 
-    const PROJECTS = [
-      {
-        tag: 'ניהול הזמנות · מאפיות',
-        name: 'Floory',
-        tagline: 'מחליף את האקסל השבועי',
-        desc: 'מערכת ניהול הזמנות B2B למאפיות. לקוחות שולחים הזמנות בוואטסאפ בעברית טבעית — סוכן ה-AI "נוגה" מפרסר אותן ישירות לגריד השבועי. מנהל הייצור רואה מה לאפות היום, הפקיד אורז לפי לקוח.',
-        features: [
-          'גריד הזמנות שבועי ברמת עריכת אקסל',
-          'סוכן Noga — WhatsApp → שורות הזמנה מובנות',
-          'תצוגת "לייצר היום" — מצטבר לפי פריט',
-          'רשימת אריזה יומית לפי לקוח עם צ\'ק ליסט',
-          'תחזית ביקוש על בסיס היסטוריה',
-        ],
-        stack: ['React', 'Supabase', 'Claude API', 'WhatsApp Business'],
-      },
-      {
-        tag: 'שירות לקוחות · מסעדות',
-        name: 'Lia — Urban Bakery',
-        tagline: 'סוכנת שירות AI לאורבן בייקרי',
-        desc: 'סוכנת וואטסאפ AI לאורבן בייקרי (ניצנה 14, תל אביב). עונה לשאלות לקוחות בעברית ואנגלית 24/7, מבוססת על ספר ידע מותאם. כשהביטחון נמוך — מסלימה אוטומטית למנהל.',
-        features: [
-          'תגובות בעברית ואנגלית לפי שפת הלקוח',
-          'ציון ביטחון לכל תגובה — הסלמה אוטומטית',
-          'היסטוריית שיחה לכל לקוח (60 יום)',
-          'קיבוץ הודעות לפני שליחת תגובה',
-          'ספר ידע עדכני — עדכון ב-kb.json בלי קוד',
-        ],
-        stack: ['Node.js', 'Claude API', 'Meta WhatsApp API', 'Railway'],
-      },
-      {
-        tag: 'ניהול פיננסי · עסקים',
-        name: 'Cashflow',
-        tagline: 'הפסק לרדוף אחרי חשבוניות',
-        desc: 'אפליקציה לניהול תזרים מזומנים. אוספת אוטומטית חשבוניות מ-Gmail, וואטסאפ, Google Drive וחשבונית ירוקה — מארגנת, מנתחת ומציגה לוח בקרה ברור של מה חייבים ומתי.',
-        features: [
-          'קריאת חשבוניות אוטומטית ממקורות מרובים',
-          'סיווג חכם לפי ספק, סכום ומועד תשלום',
-          'לוח בקרה ויזואלי — תזרים חזוי ובפועל',
-          'התראות לתשלומים קרובים',
-        ],
-        stack: ['React', 'Supabase', 'Claude API', 'Green Invoice API'],
-      },
+    function FlooryGridMockup() {
+      const days = ["א'","ב'","ג'","ד'","ה'","ו'"];
+      const items = [
+        { name: 'לחם שאור', qty: [12,10,12,8,14,10], ai: false },
+        { name: 'קרואסון', qty: [24,20,24,18,28,20], ai: true },
+        { name: "בייגל", qty: [30,25,30,22,35,25], ai: false },
+      ];
+      return (
+        <div className="floory-grid">
+          <div className="floory-grid-header">
+            <div className="fg-cell header" style={{textAlign:'right',paddingRight:12}}>פריט</div>
+            {days.map(d => <div key={d} className="fg-cell header">{d}</div>)}
+          </div>
+          {items.map((item, i) => (
+            <div key={i} className={`floory-grid-row${item.ai ? ' ai-row' : ''}`} style={{position:'relative'}}>
+              {item.ai && <span className="ai-row-badge">✦ Noga AI</span>}
+              <div className="fg-cell item-name">{item.name}</div>
+              {item.qty.map((q, j) => (
+                <div key={j} className={`fg-cell qty${item.ai ? ' ai' : ''}`}>{q}</div>
+              ))}
+            </div>
+          ))}
+          <div className="floory-footer">
+            <span className="floory-footer-label">סה״כ להיום</span>
+            <span className="floory-footer-val">66 יחידות</span>
+          </div>
+        </div>
+      );
+    }
+
+    function LiaChatMockup() {
+      const [step, setStep] = useState(0);
+      useEffect(() => {
+        const timers = [
+          setTimeout(() => setStep(1), 600),
+          setTimeout(() => setStep(2), 1800),
+          setTimeout(() => setStep(3), 3000),
+        ];
+        return () => timers.forEach(clearTimeout);
+      }, []);
+      return (
+        <div className="lia-chat" style={{width:'100%',maxWidth:300}}>
+          <div className="lia-chat-header">
+            <div className="lia-avatar">🍞</div>
+            <div>
+              <div className="lia-name">אורבן בייקרי</div>
+              <div className="lia-online">● מחובר</div>
+            </div>
+          </div>
+          <div className="lia-body">
+            {step >= 1 && (
+              <div className="lia-bubble user">
+                שלום, יש לכם לחם ללא גלוטן?
+                <div className="lia-meta">10:23 <span className="tick">✓✓</span></div>
+              </div>
+            )}
+            {step === 2 && (
+              <div style={{display:'flex',gap:4,alignItems:'center',padding:'8px 12px',background:'#0d2818',borderRadius:10,width:'fit-content'}}>
+                <div className="wa-dot"></div>
+                <div className="wa-dot"></div>
+                <div className="wa-dot"></div>
+              </div>
+            )}
+            {step >= 3 && (
+              <div className="lia-bubble bot">
+                שלום! 🌿 כן, יש לנו לחם ללא גלוטן. זמין א׳–ו׳ עד 14:00. רוצה להזמין?
+                <div className="lia-meta">10:23 — ליה AI</div>
+              </div>
+            )}
+          </div>
+        </div>
+      );
+    }
+
+    function CashflowMockup() {
+      const rows = [
+        { icon: '✉', srcClass: 'cf-src-gmail', supplier: 'מאפיית הצפון', amount: '₪2,340', due: 'לתשלום: 15.07', pill: 'ממתין', pillClass: 'pending' },
+        { icon: '●', srcClass: 'cf-src-wa', supplier: 'שיאורם תבלינים', amount: '₪890', due: 'שולם: 01.07', pill: 'שולם', pillClass: 'paid' },
+        { icon: '▲', srcClass: 'cf-src-drive', supplier: 'חשמל — חברת חשמל', amount: '₪1,120', due: 'פג: 10.07', pill: 'דחוף', pillClass: 'urgent' },
+      ];
+      return (
+        <div className="cf-card" style={{width:'100%',maxWidth:320}}>
+          <div className="cf-header">
+            <span className="cf-title">חשבוניות אחרונות</span>
+            <span className="cf-count">3 ממתינות</span>
+          </div>
+          {rows.map((r, i) => (
+            <div key={i} className="cf-row">
+              <div className={`cf-src-icon ${r.srcClass}`}>{r.icon}</div>
+              <div className="cf-row-info">
+                <div className="cf-supplier">{r.supplier}</div>
+                <div className="cf-due">{r.due}</div>
+              </div>
+              <div className="cf-amount">{r.amount}</div>
+              <span className={`cf-pill ${r.pillClass}`}>{r.pill}</span>
+            </div>
+          ))}
+        </div>
+      );
+    }
+
+    /* ─── Main App ─── */
+
+    const MARQUEE = [
+      'הזמנות אוטומטיות', 'שירות לקוחות 24/7', 'בלי אקסלים', 'וואטסאפ AI',
+      'עברית-ראשונה', 'לוח בקרה יומי', 'בלי פתקים', 'ניהול חשבוניות', 'בלי טעויות',
     ];
 
     const SERVICES = [
-      {
-        num: '01',
-        title: 'סוכן הזמנות AI בוואטסאפ',
-        desc: 'לקוחות שולחים הזמנות כמו שהם רגילים — בוואטסאפ, בעברית, בלי טפסים. הסוכן מפרסר, מאמת ומכניס ישירות למערכת. אפס הקלדה ידנית, אפס שגיאות.',
-      },
-      {
-        num: '02',
-        title: 'שירות לקוחות AI 24/7',
-        desc: 'בוט וואטסאפ שעונה על שאלות נפוצות — שעות פתיחה, תפריט, הזמנות, מחירים — בעברית ואנגלית. מסלים לאדם רק כשצריך. עובד גם בשבת.',
-      },
-      {
-        num: '03',
-        title: 'לוח בקרה תפעולי',
-        desc: 'תצוגת "מה לייצר היום" לצוות הייצור, רשימת אריזה לפי לקוח לאורז/עוטף, תכנון שבועי מצטבר, והיסטוריית הזמנות — הכל ממסד נתונים חי, לא אקסל.',
-      },
-      {
-        num: '04',
-        title: 'אוטומציה של תהליכי עבודה',
-        desc: 'כל תהליך שחוזר על עצמו — ניתן לאוטמט. חשבוניות, עדכוני סטטוס, דוחות שבועיים, התראות. חיסכון של שעות עבודה כל שבוע.',
-      },
+      { icon: '📲', title: 'סוכן הזמנות בוואטסאפ', desc: 'לקוח שולח הודעה בוואטסאפ כרגיל — המערכת מכניסה את ההזמנה אוטומטית. אתם לא נוגעים בזה.' },
+      { icon: '💬', title: 'בוט שירות לקוחות', desc: 'עונה על שאלות — שעות, תפריט, הזמנות — כל השבוע, גם כשאתם סגורים. רק מה שהוא לא יודע — מגיע אליכם.' },
+      { icon: '📊', title: 'לוח בקרה יומי', desc: 'בוקר בוקר: מה לאפות, כמה, למי. בלחיצה אחת. מתאים לצוות הייצור ולאורז.' },
+      { icon: '⚡', title: 'אוטומציה של תהליכים', desc: 'כל דבר שחוזר על עצמו ידנית — ניתן לאוטמט. חשבוניות, עדכוני סטטוס, דוחות שבועיים.' },
     ];
 
     function App() {
@@ -496,7 +637,7 @@
         <div>
           {/* Nav */}
           <nav className={scrolled ? 'scrolled' : ''}>
-            <div style={{display:'flex', alignItems:'center', gap:16}}>
+            <div style={{display:'flex',alignItems:'center',gap:16}}>
               <a href={`https://wa.me/${WA_NUMBER}`} target="_blank" rel="noopener noreferrer" className="nav-cta">
                 דברו איתי
               </a>
@@ -520,11 +661,11 @@
                 AI למסעדות, בתי קפה ומאפיות
               </p>
               <h1 className="hero-title">
-                המטבח שלכם עובד על כישרון.<br />
-                <span className="accent">הניהול לא צריך לרוץ על אקסל.</span>
+                כמה שעות ביום אתם<br />
+                <span className="accent">מבזבזים על הזמנות ידניות?</span>
               </h1>
               <p className="hero-sub">
-                בניתי מערכות AI לעסקי מזון ישראלים — מסוכני הזמנות בוואטסאפ ועד לוחות בקרה יומיים לייצור ואריזה. פחות עבודה ידנית, פחות טעויות, יותר זמן לדברים שחשובים.
+                אני בונה מערכות חכמות שמנהלות הזמנות, עונות ללקוחות ומכינות את הצוות — בלי אקסלים, בלי פתקים, בלי טעויות.
               </p>
               <div className="hero-actions">
                 <a href={`https://wa.me/${WA_NUMBER}`} target="_blank" rel="noopener noreferrer" className="btn-primary">
@@ -532,20 +673,53 @@
                   שלחו לי וואטסאפ
                 </a>
                 <a href="#projects" className="btn-ghost">
-                  ראו את הפרויקטים
+                  ראו פרויקטים
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
                 </a>
               </div>
+            </div>
+
+            {/* Hero side: WhatsApp mockup */}
+            <div className="hero-visual">
+              <div className="wa-mockup">
+                <div className="wa-header">
+                  <div className="wa-avatar">🍞</div>
+                  <div>
+                    <div className="wa-name">אורבן בייקרי</div>
+                    <div className="wa-status">● מחובר — ליה AI</div>
+                  </div>
+                </div>
+                <div className="wa-body">
+                  <div className="wa-bubble customer">
+                    אהלן, אפשר 3 כיכרות שאור ל-ב׳ בשבוע?
+                    <span className="wa-time">09:14 ✓✓</span>
+                  </div>
+                  <div className="wa-bubble bot">
+                    בטח! 3 כיכרות שאור ליום ב׳ — רשמתי ✅<br/>
+                    רוצה להוסיף עוד משהו?
+                    <span className="wa-time">09:14 — ליה AI</span>
+                  </div>
+                  <div className="wa-bubble customer">
+                    תוסיפי גם 6 קרואסונים
+                    <span className="wa-time">09:15 ✓✓</span>
+                  </div>
+                  <div className="wa-typing">
+                    <div className="wa-dot"></div>
+                    <div className="wa-dot"></div>
+                    <div className="wa-dot"></div>
+                  </div>
+                </div>
+              </div>
+              <div className="wa-badge">✦ הזמנה נכנסת אוטומטית למערכת</div>
             </div>
           </section>
 
           {/* Marquee */}
           <div className="marquee-strip">
             <div className="marquee-track">
-              {[...MARQUEE_ITEMS, ...MARQUEE_ITEMS].map((item, i) => (
+              {[...MARQUEE, ...MARQUEE].map((item, i) => (
                 <span key={i} className="marquee-item">
-                  <span className="marquee-dot"></span>
-                  {item}
+                  <span className="marquee-dot"></span>{item}
                 </span>
               ))}
             </div>
@@ -554,25 +728,13 @@
           {/* Problem */}
           <section className="problem-section" id="problem">
             <p className="section-eyebrow reveal">המצב היום</p>
-            <h2 className="section-title reveal">רוב בתי הקפה והמאפיות<br />עדיין מנוהלים על נייר</h2>
-            <p className="section-sub reveal">הזמנות מגיעות בוואטסאפ, נרשמות ידנית לאקסל, הצוות מסתכל על פתק מודפס. כשמשהו נופל בין הכיסאות — לקוח מקבל את ההזמנה הלא נכונה.</p>
+            <h2 className="section-title reveal">שלוש דליפות שעולות לכם כסף כל יום</h2>
+            <p className="section-sub reveal">לא צריך להכיר טכנולוגיה כדי להרגיש אותן — אתם חיים אותן כל בוקר.</p>
             <div className="problem-grid">
               {[
-                {
-                  icon: '📋',
-                  title: 'אקסל ידני שגיאות',
-                  desc: 'הזמנות מגיעות בוואטסאפ, מישהו מעתיק לאקסל, מישהו אחר מדפיס. כל העברה ידנית — נקודת כשל.',
-                },
-                {
-                  icon: '🏭',
-                  title: 'אין אגרגציה לייצור',
-                  desc: 'לא ברור בדיוק מה לאפות היום. הצוות אומד לפי ניסיון — לפעמים יתר, לפעמים חסר.',
-                },
-                {
-                  icon: '🌙',
-                  title: 'שאלות לקוחות ללא מענה',
-                  desc: 'לקוח שואל בשבת אם יש לחם ללא גלוטן — לא קיבל תגובה, הלך למתחרה.',
-                },
+                { icon: '📋', title: 'הזמנה שנפלה בין הכיסאות', desc: 'לקוח שלח בוואטסאפ. אף אחד לא הכניס לאקסל. הוא קיבל חצי הזמנה — ואתם שמעתם על זה רק בשלישי.' },
+                { icon: '🌙', title: 'שאלה בשבת, תשובה ביום ראשון', desc: 'לקוח שאל אם יש לחם ללא גלוטן. לא קיבל תשובה. עד יום ראשון — כבר הזמין ממתחרה.' },
+                { icon: '😤', title: 'שעתיים כל בוקר על העתקות', desc: 'מישהו מהצוות יושב ומעתיק הזמנות מוואטסאפ לאקסל. שעתיים שהיו יכולות להיות בתנור.' },
               ].map((p, i) => (
                 <div key={i} className="problem-card reveal">
                   <span className="problem-icon">{p.icon}</span>
@@ -583,42 +745,78 @@
             </div>
           </section>
 
-          {/* Case Studies */}
+          {/* Projects */}
           <section className="projects-section" id="projects">
-            <p className="section-eyebrow reveal">פרויקטים שבניתי</p>
-            <h2 className="section-title reveal">שלוש מערכות שכבר עובדות<br />בשטח</h2>
-            <p className="section-sub reveal">לא קונספטים — מוצרים שהשקתי לעסקי מזון ישראלים.</p>
+            <p className="projects-eyebrow reveal">פרויקטים שבניתי</p>
+            <h2 className="projects-title reveal">שלוש מערכות שכבר עובדות בשטח</h2>
+            <p className="projects-sub reveal">לא קונספטים — מוצרים שהשקתי לעסקי מזון ישראלים.</p>
+
             <div className="projects-grid">
-              {PROJECTS.map((p, i) => (
-                <div key={i} className="project-card reveal">
-                  <p className="project-tag">{p.tag}</p>
-                  <h3 className="project-name">{p.name}</h3>
-                  <p className="project-tagline">{p.tagline}</p>
-                  <p className="project-desc">{p.desc}</p>
-                  <div className="project-features">
-                    {p.features.map((f, j) => (
-                      <div key={j} className="project-feature">
-                        <span className="project-feature-dot"></span>
-                        <span>{f}</span>
-                      </div>
-                    ))}
-                  </div>
-                  <div className="project-stack">
-                    {p.stack.map((s, j) => <span key={j} className="stack-tag">{s}</span>)}
+              {/* Floory */}
+              <div className="project-card reveal">
+                <div className="project-content">
+                  <p className="project-tag">ניהול הזמנות · מאפיות</p>
+                  <h3 className="project-name">Floory</h3>
+                  <p className="project-desc">
+                    הלקוחות שולחים הזמנה בוואטסאפ כרגיל — המערכת מכניסה אוטומטית. הצוות רואה בדיוק מה לאפות היום. אורז יודע מה הולך לכל לקוח. אף הזמנה לא נופלת.
+                  </p>
+                  <div className="project-outcome">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                    חסך 3 שעות ביום של הקלדות ידניות
                   </div>
                 </div>
-              ))}
+                <div className="project-visual">
+                  <FlooryGridMockup />
+                </div>
+              </div>
+
+              {/* Lia */}
+              <div className="project-card reveal">
+                <div className="project-content">
+                  <p className="project-tag">שירות לקוחות AI · מסעדות</p>
+                  <h3 className="project-name">ליה — אורבן בייקרי</h3>
+                  <p className="project-desc">
+                    בוט וואטסאפ שעונה על שאלות לקוחות 24/7 — בעברית ואנגלית. שעות פתיחה, תפריט, הזמנות, כשרות. רק שאלה שהיא לא יודעת לענות עליה — מגיעה למנהל.
+                  </p>
+                  <div className="project-outcome">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                    עונה תוך 30 שניות, גם בשבת בלילה
+                  </div>
+                </div>
+                <div className="project-visual">
+                  <LiaChatMockup />
+                </div>
+              </div>
+
+              {/* Cashflow */}
+              <div className="project-card reveal">
+                <div className="project-content">
+                  <p className="project-tag">ניהול פיננסי · עסקים</p>
+                  <h3 className="project-name">Cashflow</h3>
+                  <p className="project-desc">
+                    כל חשבונית שמגיעה — ב-Gmail, בוואטסאפ, ב-Drive — נקראת אוטומטית ונכנסת ללוח בקרה אחד. תמיד יודעים מה חייבים, למי, ומתי.
+                  </p>
+                  <div className="project-outcome">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                    אפס הקלדות ידניות של חשבוניות
+                  </div>
+                </div>
+                <div className="project-visual">
+                  <CashflowMockup />
+                </div>
+              </div>
             </div>
           </section>
 
           {/* Services */}
           <section className="services-section" id="services">
-            <p className="services-eyebrow reveal">מה אני בונה</p>
-            <h2 className="services-title reveal">ארבעה שירותים שהופכים<br />את הפעילות שלכם לחכמה</h2>
+            <p className="section-eyebrow reveal">מה אני בונה</p>
+            <h2 className="section-title reveal">ארבעה שירותים שמחזירים<br />לכם שעות כל שבוע</h2>
+            <p className="section-sub reveal">כל שירות פותר בעיה ספציפית. אפשר להתחיל מאחד ולהוסיף לפי הצורך.</p>
             <div className="services-grid">
               {SERVICES.map((s, i) => (
                 <div key={i} className="service-card reveal">
-                  <p className="service-number">{s.num}</p>
+                  <span className="service-icon">{s.icon}</span>
                   <h3 className="service-title">{s.title}</h3>
                   <p className="service-desc">{s.desc}</p>
                 </div>
@@ -626,33 +824,30 @@
             </div>
           </section>
 
-          {/* Why Me */}
-          <section className="why-section" id="why">
-            <p className="section-eyebrow reveal">למה אני</p>
-            <h2 className="section-title reveal">מספרים שמדברים בעד עצמם</h2>
-            <div className="why-grid">
-              <div className="why-item reveal">
-                <div className="why-number">
-                  <AnimatedStat to={4} suffix="★" />
-                  <span className="accent">שבועות</span>
+          {/* Impact */}
+          <section className="impact-section">
+            <p className="impact-eyebrow reveal">למה לעבוד איתי</p>
+            <div className="impact-grid">
+              <div className="impact-item reveal">
+                <div className="impact-number">
+                  <AnimatedStat to={4} /><span className="accent">שבועות</span>
                 </div>
-                <p className="why-label">מרעיון לאוויר</p>
-                <p className="why-detail">בד"כ 4 שבועות מפגישה ראשונה עד מוצר עובד בשטח — לא 6 חודשים.</p>
+                <p className="impact-label">מרעיון לאוויר</p>
+                <p className="impact-detail">4 שבועות מפגישה ראשונה עד מוצר עובד בשטח — לא 6 חודשים של פיתוח.</p>
               </div>
-              <div className="why-item reveal">
-                <div className="why-number">
+              <div className="impact-item reveal">
+                <div className="impact-number">
                   <AnimatedStat to={80} suffix="%" />
                 </div>
-                <p className="why-label">פחות עבודה ידנית</p>
-                <p className="why-detail">הלקוחות שלי חוסכים בממוצע 80% מהזמן שהוקדש להקלדות והעברות ידניות.</p>
+                <p className="impact-label">פחות עבודה ידנית</p>
+                <p className="impact-detail">הלקוחות שלי חוסכים בממוצע 80% מהזמן שהוקדש להעתקות ידניות.</p>
               </div>
-              <div className="why-item reveal">
-                <div className="why-number">
-                  <AnimatedStat to={3} />
-                  <span className="accent">מוצרים</span>
+              <div className="impact-item reveal">
+                <div className="impact-number">
+                  <AnimatedStat to={3} /><span className="accent">מוצרים</span>
                 </div>
-                <p className="why-label">ניסיון ממשי בתחום</p>
-                <p className="why-detail">שלושה מוצרי AI לעסקי מזון ישראלים כבר בשוק — לא קונספטים, מערכות חיות.</p>
+                <p className="impact-label">חיים בשטח</p>
+                <p className="impact-detail">שלושה מוצרי AI לעסקי מזון ישראלים כבר פועלים — לא קונספטים, מערכות אמיתיות.</p>
               </div>
             </div>
           </section>
@@ -661,11 +856,11 @@
           <section className="contact-section" id="contact">
             <p className="contact-eyebrow">בואו נדבר</p>
             <h2 className="contact-title">
-              יש לכם מאפייה, בית קפה<br />
-              או מסעדה?
+              תנו לי 30 דקות —<br />
+              ואני אראה לכם אם זה מתאים לכם
             </h2>
             <p className="contact-sub">
-              ספרו לי איך אתם עובדים היום — 30 דקות שיחה, ואני אגיד לכם אם AI יכול לעזור ובכמה.
+              אין מחויבות. ספרו לי איך אתם עובדים היום ואני אגיד לכם בדיוק מה אפשר לחסוך.
             </p>
             <div className="contact-btns">
               <a href={`https://wa.me/${WA_NUMBER}`} target="_blank" rel="noopener noreferrer" className="contact-btn contact-btn-whatsapp">
@@ -673,7 +868,7 @@
                 וואטסאפ
               </a>
               <a href={MEET_URL} target="_blank" rel="noopener noreferrer" className="contact-btn contact-btn-meet">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" opacity=".9"><path d="M19 4h-1V2h-2v2H8V2H6v2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V9h14v11z"/></svg>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M19 4h-1V2h-2v2H8V2H6v2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V9h14v11z"/></svg>
                 קביעת פגישה
               </a>
               <a href={`mailto:${EMAIL}`} className="contact-btn contact-btn-email">
