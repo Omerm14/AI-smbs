@@ -195,14 +195,15 @@
     .problem-section { background: var(--bg2); padding: 100px 64px; position: relative; }
     .problem-section::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px; background: var(--border); }
     .problem-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--border-mid); }
-    .problem-card { background: var(--bg2); padding: 44px 36px; transition: background 0.3s; cursor: default; }
+    .problem-card { background: var(--bg2); padding: 44px 36px 36px; transition: background 0.3s; cursor: default; display: flex; flex-direction: column; }
     .problem-card:hover { background: var(--surface); }
     .problem-icon { font-size: 36px; margin-bottom: 20px; display: block; animation: floatIcon 4s ease-in-out infinite alternate; }
     .problem-card:nth-child(2) .problem-icon { animation-delay: 1s; }
     .problem-card:nth-child(3) .problem-icon { animation-delay: 2s; }
     @keyframes floatIcon { from { transform: translateY(0); } to { transform: translateY(-7px); } }
     .problem-title { font-family: 'Heebo', sans-serif; font-size: 20px; font-weight: 800; margin-bottom: 12px; }
-    .problem-desc { font-size: 14px; line-height: 1.85; color: var(--text-dim); font-weight: 300; }
+    .problem-desc { font-size: 14px; line-height: 1.85; color: var(--text-dim); font-weight: 300; flex: 1; }
+    .problem-cost { display: inline-flex; align-items: center; gap: 7px; margin-top: 24px; font-size: 12px; font-weight: 700; color: #e05252; background: rgba(224,82,82,0.07); border: 1px solid rgba(224,82,82,0.18); padding: 7px 14px; width: fit-content; }
 
     /* ── Projects (dark) ── */
     .projects-section { background: var(--text); padding: 100px 64px; position: relative; overflow: hidden; }
@@ -213,21 +214,23 @@
     .projects-sub { font-size: 16px; color: rgba(250,249,246,0.4); font-weight: 300; margin-bottom: 56px; max-width: 500px; }
     .projects-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
 
-    /* ── Project card — simplified ── */
+    /* ── Project card ── */
     .project-card {
-      background: rgba(255,255,255,0.03);
-      border: 1px solid rgba(255,255,255,0.08);
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-top: 2px solid rgba(var(--gold-rgb),0.5);
       padding: 0; display: flex; flex-direction: column;
-      transition: border-color 0.3s, transform 0.3s;
+      transition: border-color 0.3s, transform 0.3s, box-shadow 0.3s;
       overflow: hidden;
     }
-    .project-card:hover { border-color: rgba(var(--gold-rgb),0.35); transform: translateY(-4px); }
-    .project-mockup { background: rgba(0,0,0,0.25); border-bottom: 1px solid rgba(255,255,255,0.06); padding: 28px 24px; min-height: 200px; display: flex; align-items: center; justify-content: center; }
+    .project-card:hover { border-color: rgba(var(--gold-rgb),0.6); border-top-color: var(--gold); transform: translateY(-5px); box-shadow: 0 20px 48px rgba(0,0,0,0.3); }
+    .project-mockup { background: linear-gradient(160deg, rgba(255,255,255,0.05) 0%, rgba(0,0,0,0.35) 100%); border-bottom: 1px solid rgba(255,255,255,0.08); padding: 28px 24px; min-height: 220px; display: flex; align-items: center; justify-content: center; position: relative; }
+    .project-num { position: absolute; top: 14px; left: 16px; font-family: 'Space Grotesk',sans-serif; font-size: 11px; font-weight: 700; color: rgba(250,249,246,0.15); letter-spacing: 0.06em; }
     .project-body { padding: 28px 28px 32px; display: flex; flex-direction: column; flex: 1; }
     .project-tag { font-size: 10px; font-weight: 700; letter-spacing: 0.12em; color: var(--gold); margin-bottom: 12px; display: flex; align-items: center; gap: 6px; }
     .project-tag::before { content: ''; display: inline-block; width: 12px; height: 1px; background: var(--gold); }
-    .project-name { font-family: 'Heebo', sans-serif; font-size: 22px; font-weight: 900; color: #faf9f6; margin-bottom: 12px; }
-    .project-desc { font-size: 14px; line-height: 1.8; color: rgba(250,249,246,0.5); font-weight: 300; margin-bottom: 24px; flex: 1; }
+    .project-name { font-family: 'Heebo', sans-serif; font-size: 24px; font-weight: 900; color: #faf9f6; margin-bottom: 12px; }
+    .project-desc { font-size: 14px; line-height: 1.8; color: rgba(250,249,246,0.55); font-weight: 300; margin-bottom: 24px; flex: 1; }
     .project-outcome {
       display: inline-flex; align-items: center; gap: 7px;
       font-size: 12px; font-weight: 700; color: #25d366;
@@ -460,7 +463,7 @@
           <div className="lia-header">
             <div className="lia-avatar">🍞</div>
             <div>
-              <div className="lia-hname">אורבן בייקרי</div>
+              <div className="lia-hname">מסעדה בת-ים</div>
               <div className="lia-online">● ליה AI מחוברת</div>
             </div>
           </div>
@@ -500,10 +503,10 @@
     const MARQUEE = ['הזמנות אוטומטיות','שירות לקוחות 24/7','בלי אקסלים','וואטסאפ AI','עברית-ראשונה','לוח בקרה יומי','אפס טעויות','ניהול חשבוניות','4 שבועות לאוויר'];
 
     const SERVICES = [
-      { icon:'📲', title:'סוכן הזמנות בוואטסאפ', desc:'הלקוח שולח הודעה כמו שהוא רגיל — הסוכן מבין, מסדר ומכניס למערכת. אתם לא נוגעים בזה.' },
-      { icon:'💬', title:'בוט שירות לקוחות', desc:'עונה על שאלות על שעות, תפריט וכשרות — כל השבוע, גם בלילה. רק מה שהוא לא יודע — מגיע אליכם.' },
-      { icon:'📊', title:'לוח בקרה לצוות', desc:'כל בוקר: מה להכין, כמה, ולמי לארוז. ברור, פשוט, בלחיצה אחת — לא פתקים ולא הדפסות.' },
-      { icon:'⚡', title:'אוטומציה של תהליכים', desc:'דוחות, חשבוניות, עדכוני סטטוס — כל מה שחוזר ידנית בשבוע אפשר לאוטמט תוך כמה ימים.' },
+      { icon:'📲', title:'סוכן הזמנות בוואטסאפ', desc:'הלקוח שולח הודעה כרגיל. הסוכן מבין, מסדר ומכניס למערכת. אתם לא נוגעים בזה.' },
+      { icon:'💬', title:'בוט שירות לקוחות', desc:'עונה על שאלות בנושא שעות, תפריט וכשרות, כל השבוע, גם בלילה. מה שהוא לא יודע מגיע אליכם.' },
+      { icon:'📊', title:'לוח בקרה לצוות', desc:'כל בוקר: מה להכין, כמה, ולמי לארוז. ברור, פשוט, בלחיצה אחת. לא פתקים ולא הדפסות.' },
+      { icon:'⚡', title:'אוטומציה של תהליכים', desc:'דוחות, חשבוניות, עדכוני סטטוס. כל מה שחוזר ידנית בשבוע אפשר לאוטמט תוך כמה ימים.' },
     ];
 
     const WA_SVG = (
@@ -554,7 +557,7 @@
                 על <span className="accent">ניהול ידני.</span>
               </h1>
               <p className="hero-sub">
-                אני בונה מערכות שמקבלות הזמנות, עונות ללקוחות ומנהלות את הצוות — אוטומטית. אתם מתמקדים במה שאתם טובים בו.
+                אני בונה מערכות שמקבלות הזמנות, עונות ללקוחות ומנהלות את הצוות. אוטומטית. אתם מתמקדים במה שאתם טובים בו.
               </p>
               <div className="hero-actions">
                 <a href={`https://wa.me/${WA}`} target="_blank" rel="noopener noreferrer" className="btn-primary">
@@ -592,18 +595,22 @@
           {/* Problem */}
           <section className="problem-section" id="problem">
             <p className="section-eyebrow reveal">מה קורה היום</p>
-            <h2 className="section-title reveal">שלושה כאבים שכל<br />בעל עסק מזון מכיר</h2>
-            <p className="section-sub reveal">לא צריך להכיר טכנולוגיה כדי לחוש אותם — הם קורים אצלכם כל שבוע.</p>
+            <h2 className="section-title reveal">כל שבוע אתם מפסידים כסף.<br />וכנראה לא יודעים כמה.</h2>
+            <p className="section-sub reveal">הסיבה כמעט תמיד אותה דבר: תהליכים שרצים ידנית.</p>
             <div className="problem-grid">
               {[
-                { icon:'📱', title:'וואטסאפ שמתפוצץ', desc:'40 הודעות ביום — מי שואל על כשרות, מי רוצה לשריין שולחן, מי רוצה לבטל. הצוות עונה לכולם בין ההגשות.' },
-                { icon:'📞', title:'הזמנה שנשמטה', desc:'מישהו התקשר בשיא העומס לשריין שולחן לשישה. אף אחד לא הספיק לרשום. ערב שישי, שולחן ריק, לקוח כועס.' },
-                { icon:'🗂️', title:'ניירת שאין לה סוף', desc:'חשבוניות מספקים, רשימות מלאי, דרישות תשלום — שעות בשבוע על ניהול, במקום לנהל את המטבח.' },
+                { icon:'📱', title:'וואטסאפ שלא מפסיק', desc:'כל יום עשרות הודעות. שאלות על שעות, כשרות, הזמנות, ביטולים. הצוות עונה בין ההגשות, בין הבישולים, בין כל שאר הדברים. ולפעמים לא מספיק לענות בזמן.', cost:'כל שאלה שלא ענינו בזמן, לקוח שהלך' },
+                { icon:'📋', title:'ההזמנה שנשמטה', desc:'שיא העומס, ערב שישי. מישהו ביקש לשריין שולחן לשישה. לא היה מי שירשום. הלקוח הגיע, לא היה לו מקום. הוא לא חזר.', cost:'טעות אחת כזו עולה לקוח לכל החיים' },
+                { icon:'⏱️', title:'שעות על דברים שאפשר לא לעשות', desc:'חשבוניות מספקים, רשימות מלאי, הקלדות, העתקות, מסרונים, אקסלים. שעה שעתיים כל יום על דברים שאינם הליבה של העסק.', cost:'בשנה זה 400 שעות שאפשר היה להשקיע אחרת' },
               ].map((p,i) => (
                 <div key={i} className="problem-card reveal">
                   <span className="problem-icon">{p.icon}</span>
                   <h3 className="problem-title">{p.title}</h3>
                   <p className="problem-desc">{p.desc}</p>
+                  <div className="problem-cost">
+                    <svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="10"/><path fill="white" d="M12 8v4l3 3-1.4 1.4L10 13V8z"/></svg>
+                    {p.cost}
+                  </div>
                 </div>
               ))}
             </div>
@@ -613,15 +620,15 @@
           <section className="projects-section" id="projects">
             <p className="projects-eyebrow reveal">עבודות שבניתי</p>
             <h2 className="projects-title reveal">שלושה מוצרים שכבר<br />עובדים בשטח</h2>
-            <p className="projects-sub reveal">לא הדגמות — מערכות אמיתיות שפרסתי לעסקי מזון ישראלים.</p>
+            <p className="projects-sub reveal">שלושה מוצרים שבניתי ועובדים בשטח, אצל עסקי מזון ישראלים.</p>
             <div className="projects-grid">
 
               <div className="project-card reveal">
-                <div className="project-mockup"><FlooryMockup /></div>
+                <div className="project-mockup"><span className="project-num">01</span><FlooryMockup /></div>
                 <div className="project-body">
                   <p className="project-tag">ניהול הזמנות · מסעדות ומאפיות</p>
                   <h3 className="project-name">Floory</h3>
-                  <p className="project-desc">לקוחות שולחים הזמנה בוואטסאפ — המערכת מבינה, מסדרת ומכניסה לגריד. הצוות יודע בדיוק מה להכין ולמי לארוז, בלי שיחות ובלי פתקים.</p>
+                  <p className="project-desc">לקוחות שולחים הזמנה בוואטסאפ. המערכת מבינה, מסדרת ומכניסה לגריד. הצוות יודע בדיוק מה להכין ולמי לארוז, בלי שיחות ובלי פתקים.</p>
                   <div className="project-outcome">
                     <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
                     חסך 3 שעות הקלדה ביום
@@ -630,11 +637,11 @@
               </div>
 
               <div className="project-card reveal">
-                <div className="project-mockup"><LiaMockup /></div>
+                <div className="project-mockup"><span className="project-num">02</span><LiaMockup /></div>
                 <div className="project-body">
                   <p className="project-tag">שירות לקוחות · עסקי מזון</p>
-                  <h3 className="project-name">ליה — אורבן בייקרי</h3>
-                  <p className="project-desc">בוט וואטסאפ שעונה ללקוחות — כשרות, שעות, תפריט, שריון שולחן — 24/7, בעברית ואנגלית. מה שהוא לא יודע מגיע ישר אליכם.</p>
+                  <h3 className="project-name">ליה</h3>
+                  <p className="project-desc">בוט וואטסאפ שעונה ללקוחות על כשרות, שעות, תפריט ושריון שולחן, 24/7, בעברית ואנגלית. מה שהוא לא יודע מגיע ישר אליכם.</p>
                   <div className="project-outcome">
                     <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
                     עונה תוך 30 שניות, גם בשבת
@@ -643,11 +650,11 @@
               </div>
 
               <div className="project-card reveal">
-                <div className="project-mockup"><CashflowMockup /></div>
+                <div className="project-mockup"><span className="project-num">03</span><CashflowMockup /></div>
                 <div className="project-body">
                   <p className="project-tag">ניהול פיננסי · כל עסק</p>
                   <h3 className="project-name">Cashflow</h3>
-                  <p className="project-desc">כל חשבונית שמגיעה — ב-Gmail, בוואטסאפ, ב-Drive — נקראת אוטומטית ומסודרת בלוח בקרה אחד. תמיד יודעים מה חייבים ומתי.</p>
+                  <p className="project-desc">כל חשבונית שמגיעה, בגמייל, בוואטסאפ, בדרייב, נקראת אוטומטית ומסודרת בלוח בקרה אחד. תמיד יודעים מה חייבים ומתי.</p>
                   <div className="project-outcome">
                     <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
                     אפס הקלדות ידניות
@@ -681,17 +688,17 @@
               <div className="impact-item reveal">
                 <div className="impact-number"><AnimatedStat to={4} /><span className="accent">שבועות</span></div>
                 <p className="impact-label">מרעיון לאוויר</p>
-                <p className="impact-detail">בדרך כלל 4 שבועות מפגישה ראשונה עד שהמערכת עובדת אצלכם — לא חצי שנה.</p>
+                <p className="impact-detail">בדרך כלל 4 שבועות מפגישה ראשונה ועד שהמערכת עובדת. לא חצי שנה.</p>
               </div>
               <div className="impact-item reveal">
                 <div className="impact-number"><AnimatedStat to={80} suffix="%" /></div>
                 <p className="impact-label">פחות עבודה ידנית</p>
-                <p className="impact-detail">הלקוחות שלי מדווחים על חיסכון של 80% מהזמן שהלך על הקלדות והעתקות.</p>
+                <p className="impact-detail">עסקים שעבדתי איתם מדווחים על חיסכון של 80% מהזמן שהלך על הקלדות והעתקות.</p>
               </div>
               <div className="impact-item reveal">
                 <div className="impact-number"><AnimatedStat to={3} /><span className="accent">מוצרים</span></div>
                 <p className="impact-label">בשטח כבר היום</p>
-                <p className="impact-detail">שלוש מערכות פעילות לעסקי מזון ישראלים — לא הדגמות, לא קונספטים.</p>
+                <p className="impact-detail">שלוש מערכות פעילות לעסקי מזון ישראלים. לא הדגמות, לא קונספטים.</p>
               </div>
             </div>
           </section>
@@ -700,7 +707,7 @@
           <section className="contact-section" id="contact">
             <p className="contact-eyebrow">בואו נדבר</p>
             <h2 className="contact-title">
-              תנו לי 30 דקות —<br />
+              תנו לי 30 דקות<br />
               ואני אגיד לכם אם זה מתאים לכם
             </h2>
             <p className="contact-sub">
