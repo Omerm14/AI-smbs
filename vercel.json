@@ -6,6 +6,7 @@
   ],
   "routes": [
     { "src": "/editor", "dest": "/editor/index.html" },
-    { "src": "/privacypolicy", "dest": "/privacypolicy/index.html" }
+    { "src": "/privacypolicy", "dest": "/privacypolicy/index.html" },
+    { "src": "/he/restaurants", "dest": "/he/restaurants/index.html" }
   ]
 }
