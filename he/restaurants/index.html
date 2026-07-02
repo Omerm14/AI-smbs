@@ -197,10 +197,7 @@
     .problem-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--border-mid); }
     .problem-card { background: var(--bg2); padding: 44px 36px 36px; transition: background 0.3s; cursor: default; display: flex; flex-direction: column; }
     .problem-card:hover { background: var(--surface); }
-    .problem-icon { font-size: 36px; margin-bottom: 20px; display: block; animation: floatIcon 4s ease-in-out infinite alternate; }
-    .problem-card:nth-child(2) .problem-icon { animation-delay: 1s; }
-    .problem-card:nth-child(3) .problem-icon { animation-delay: 2s; }
-    @keyframes floatIcon { from { transform: translateY(0); } to { transform: translateY(-7px); } }
+    .prob-icon-wrap { width: 56px; height: 56px; background: var(--gold-pale); border: 1px solid var(--gold-light); display: flex; align-items: center; justify-content: center; margin-bottom: 28px; flex-shrink: 0; }
     .problem-title { font-family: 'Heebo', sans-serif; font-size: 20px; font-weight: 800; margin-bottom: 12px; }
     .problem-desc { font-size: 14px; line-height: 1.85; color: var(--text-dim); font-weight: 300; flex: 1; }
     .problem-cost { display: inline-flex; align-items: center; gap: 7px; margin-top: 24px; font-size: 12px; font-weight: 700; color: #e05252; background: rgba(224,82,82,0.07); border: 1px solid rgba(224,82,82,0.18); padding: 7px 14px; width: fit-content; }
@@ -298,7 +295,7 @@
       transition: border-color 0.3s, box-shadow 0.3s, transform 0.3s;
     }
     .service-card:hover { border-color: rgba(var(--gold-rgb),.3); box-shadow: 0 12px 40px rgba(var(--gold-rgb),.07); transform: translateY(-3px); }
-    .service-icon { font-size: 32px; margin-bottom: 18px; display: block; }
+    .svc-icon-wrap { width: 48px; height: 48px; background: var(--gold-pale); border: 1px solid var(--gold-light); display: flex; align-items: center; justify-content: center; margin-bottom: 20px; }
     .service-title { font-family: 'Heebo',sans-serif; font-size: 20px; font-weight: 800; margin-bottom: 10px; }
     .service-desc { font-size: 14px; line-height: 1.85; color: var(--text-dim); font-weight: 300; }
 
@@ -461,7 +458,7 @@
       return (
         <div className="lia-chat">
           <div className="lia-header">
-            <div className="lia-avatar">🍞</div>
+            <div className="lia-avatar"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12c0 1.6.376 3.112 1.043 4.453L2 22l5.547-1.043A9.96 9.96 0 0 0 12 22z"/></svg></div>
             <div>
               <div className="lia-hname">מסעדה בת-ים</div>
               <div className="lia-online">● ליה AI מחוברת</div>
@@ -502,11 +499,17 @@
 
     const MARQUEE = ['הזמנות אוטומטיות','שירות לקוחות 24/7','בלי אקסלים','וואטסאפ AI','עברית-ראשונה','לוח בקרה יומי','אפס טעויות','ניהול חשבוניות','4 שבועות לאוויר'];
 
+    const SVC_ICONS = [
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round"><rect x="5" y="2" width="14" height="20" rx="2"/><path d="M12 18h.01"/><path d="M8 6h8M8 10h5"/></svg>,
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12c0 1.6.376 3.112 1.043 4.453L2 22l5.547-1.043A9.96 9.96 0 0 0 12 22z"/></svg>,
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>,
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>,
+    ];
     const SERVICES = [
-      { icon:'📲', title:'סוכן הזמנות בוואטסאפ', desc:'הלקוח שולח הודעה כרגיל. הסוכן מבין, מסדר ומכניס למערכת. אתם לא נוגעים בזה.' },
-      { icon:'💬', title:'בוט שירות לקוחות', desc:'עונה על שאלות בנושא שעות, תפריט וכשרות, כל השבוע, גם בלילה. מה שהוא לא יודע מגיע אליכם.' },
-      { icon:'📊', title:'לוח בקרה לצוות', desc:'כל בוקר: מה להכין, כמה, ולמי לארוז. ברור, פשוט, בלחיצה אחת. לא פתקים ולא הדפסות.' },
-      { icon:'⚡', title:'אוטומציה של תהליכים', desc:'דוחות, חשבוניות, עדכוני סטטוס. כל מה שחוזר ידנית בשבוע אפשר לאוטמט תוך כמה ימים.' },
+      { title:'סוכן הזמנות בוואטסאפ', desc:'הלקוח שולח הודעה כרגיל. הסוכן מבין, מסדר ומכניס למערכת. אתם לא נוגעים בזה.' },
+      { title:'בוט שירות לקוחות', desc:'עונה על שאלות בנושא שעות, תפריט וכשרות, כל השבוע, גם בלילה. מה שהוא לא יודע מגיע אליכם.' },
+      { title:'לוח בקרה לצוות', desc:'כל בוקר: מה להכין, כמה, ולמי לארוז. ברור, פשוט, בלחיצה אחת. לא פתקים ולא הדפסות.' },
+      { title:'אוטומציה של תהליכים', desc:'דוחות, חשבוניות, עדכוני סטטוס. כל מה שחוזר ידנית בשבוע אפשר לאוטמט תוך כמה ימים.' },
     ];
 
     const WA_SVG = (
@@ -599,12 +602,21 @@
             <p className="section-sub reveal">הסיבה כמעט תמיד אותה דבר: תהליכים שרצים ידנית.</p>
             <div className="problem-grid">
               {[
-                { icon:'📱', title:'וואטסאפ שלא מפסיק', desc:'כל יום עשרות הודעות. שאלות על שעות, כשרות, הזמנות, ביטולים. הצוות עונה בין ההגשות, בין הבישולים, בין כל שאר הדברים. ולפעמים לא מספיק לענות בזמן.', cost:'כל שאלה שלא ענינו בזמן, לקוח שהלך' },
-                { icon:'📋', title:'ההזמנה שנשמטה', desc:'שיא העומס, ערב שישי. מישהו ביקש לשריין שולחן לשישה. לא היה מי שירשום. הלקוח הגיע, לא היה לו מקום. הוא לא חזר.', cost:'טעות אחת כזו עולה לקוח לכל החיים' },
-                { icon:'⏱️', title:'שעות על דברים שאפשר לא לעשות', desc:'חשבוניות מספקים, רשימות מלאי, הקלדות, העתקות, מסרונים, אקסלים. שעה שעתיים כל יום על דברים שאינם הליבה של העסק.', cost:'בשנה זה 400 שעות שאפשר היה להשקיע אחרת' },
+                {
+                  svg: <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>,
+                  title:'וואטסאפ שלא מפסיק', desc:'כל יום עשרות הודעות. שאלות על שעות, כשרות, הזמנות, ביטולים. הצוות עונה בין ההגשות, בין הבישולים, בין כל שאר הדברים. ולפעמים לא מספיק לענות בזמן.', cost:'כל שאלה שלא ענינו בזמן, לקוח שהלך'
+                },
+                {
+                  svg: <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round"><rect x="9" y="2" width="6" height="4" rx="1"/><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><path d="m9 14 2 2 4-4"/></svg>,
+                  title:'ההזמנה שנשמטה', desc:'שיא העומס, ערב שישי. מישהו ביקש לשריין שולחן לשישה. לא היה מי שירשום. הלקוח הגיע, לא היה לו מקום. הוא לא חזר.', cost:'טעות אחת כזו עולה לקוח לכל החיים'
+                },
+                {
+                  svg: <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>,
+                  title:'שעות על דברים שאפשר לא לעשות', desc:'חשבוניות מספקים, רשימות מלאי, הקלדות, העתקות, מסרונים, אקסלים. שעה שעתיים כל יום על דברים שאינם הליבה של העסק.', cost:'בשנה זה 400 שעות שאפשר היה להשקיע אחרת'
+                },
               ].map((p,i) => (
                 <div key={i} className="problem-card reveal">
-                  <span className="problem-icon">{p.icon}</span>
+                  <div className="prob-icon-wrap">{p.svg}</div>
                   <h3 className="problem-title">{p.title}</h3>
                   <p className="problem-desc">{p.desc}</p>
                   <div className="problem-cost">
@@ -673,7 +685,7 @@
             <div className="services-grid">
               {SERVICES.map((s,i) => (
                 <div key={i} className="service-card reveal">
-                  <span className="service-icon">{s.icon}</span>
+                  <div className="svc-icon-wrap">{SVC_ICONS[i]}</div>
                   <h3 className="service-title">{s.title}</h3>
                   <p className="service-desc">{s.desc}</p>
                 </div>
