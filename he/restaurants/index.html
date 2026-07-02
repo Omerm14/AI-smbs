@@ -42,7 +42,7 @@
     #cursor-glow {
       pointer-events: none; position: fixed; z-index: 9999;
       width: 460px; height: 460px; border-radius: 50%;
-      background: radial-gradient(circle, rgba(var(--gold-rgb), 0.15) 0%, transparent 60%);
+      background: radial-gradient(circle, rgba(var(--gold-rgb), 0.18) 0%, transparent 60%);
       transform: translate(-50%, -50%);
       transition: left 0.12s ease, top 0.12s ease;
       mix-blend-mode: multiply;
@@ -123,6 +123,12 @@
       pointer-events: none; filter: blur(40px);
       animation: floatGlow 7s ease-in-out infinite alternate;
     }
+    .hero-glow-2 {
+      position: absolute; width: 500px; height: 500px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(var(--gold-rgb),0.07) 0%, transparent 65%);
+      right: -5%; top: 30%; pointer-events: none; filter: blur(60px);
+      animation: floatGlow 9s 2s ease-in-out infinite alternate;
+    }
     @keyframes floatGlow { 0% { transform: translateY(-50%) scale(1); } 100% { transform: translateY(-56%) scale(1.1); } }
     .hero-content { position: relative; }
     .hero-eyebrow {
@@ -192,10 +198,13 @@
     .section-sub { font-size: 16px; line-height: 1.8; color: var(--text-dim); font-weight: 300; max-width: 540px; margin-bottom: 60px; }
 
     /* ── Problem ── */
-    .problem-section { background: var(--bg2); padding: 100px 64px; position: relative; }
+    .problem-section { background: var(--bg2); padding: 100px 64px; position: relative; overflow: hidden; }
     .problem-section::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px; background: var(--border); }
-    .problem-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--border-mid); }
-    .problem-card { background: var(--bg2); padding: 44px 36px 36px; transition: background 0.3s; cursor: default; display: flex; flex-direction: column; }
+    .problem-section::after { content: ''; position: absolute; bottom: -200px; left: -200px; width: 600px; height: 600px; border-radius: 50%; background: radial-gradient(circle, rgba(var(--gold-rgb),0.07) 0%, transparent 70%); pointer-events: none; }
+    .problem-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--border-mid); position: relative; z-index: 1; }
+    .problem-card { background: var(--bg2); padding: 44px 36px 36px; transition: background 0.3s; cursor: default; display: flex; flex-direction: column; position: relative; overflow: hidden; }
+    .problem-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: var(--gold); transform: scaleX(0); transform-origin: right; transition: transform 0.4s cubic-bezier(0.16,1,0.3,1); }
+    .problem-card:hover::before { transform: scaleX(1); transform-origin: left; }
     .problem-card:hover { background: var(--surface); }
     .prob-icon-wrap { width: 56px; height: 56px; background: var(--gold-pale); border: 1px solid var(--gold-light); display: flex; align-items: center; justify-content: center; margin-bottom: 28px; flex-shrink: 0; }
     .problem-title { font-family: 'Heebo', sans-serif; font-size: 20px; font-weight: 800; margin-bottom: 12px; }
@@ -287,21 +296,26 @@
     .cf-pill.u { background: rgba(239,68,68,.12); color: #ef4444; }
 
     /* ── Services ── */
-    .services-section { background: var(--bg); padding: 100px 64px; position: relative; }
+    .services-section { background: var(--bg); padding: 100px 64px; position: relative; overflow: hidden; }
     .services-section::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px; background: var(--border); }
-    .services-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 20px; }
+    .services-section::after { content: ''; position: absolute; top: -150px; right: -150px; width: 500px; height: 500px; border-radius: 50%; background: radial-gradient(circle, rgba(var(--gold-rgb),0.06) 0%, transparent 70%); pointer-events: none; }
+    .services-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 20px; position: relative; z-index: 1; }
     .service-card {
       background: var(--surface); border: 1px solid var(--border-mid); padding: 40px 36px;
       transition: border-color 0.3s, box-shadow 0.3s, transform 0.3s;
+      position: relative; overflow: hidden;
     }
+    .service-card::after { content: ''; position: absolute; inset: 0; background: linear-gradient(90deg, transparent, rgba(var(--gold-rgb),0.06), transparent); transform: translateX(100%); transition: transform 0.6s ease; pointer-events: none; }
+    .service-card:hover::after { transform: translateX(-100%); }
     .service-card:hover { border-color: rgba(var(--gold-rgb),.3); box-shadow: 0 12px 40px rgba(var(--gold-rgb),.07); transform: translateY(-3px); }
     .svc-icon-wrap { width: 48px; height: 48px; background: var(--gold-pale); border: 1px solid var(--gold-light); display: flex; align-items: center; justify-content: center; margin-bottom: 20px; }
     .service-title { font-family: 'Heebo',sans-serif; font-size: 20px; font-weight: 800; margin-bottom: 10px; }
     .service-desc { font-size: 14px; line-height: 1.85; color: var(--text-dim); font-weight: 300; }
 
     /* ── Impact ── */
-    .impact-section { background: var(--bg2); padding: 100px 64px; position: relative; }
+    .impact-section { background: var(--bg2); padding: 100px 64px; position: relative; overflow: hidden; }
     .impact-section::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px; background: var(--border); }
+    .impact-bg-text { position: absolute; top: -20px; left: 50%; transform: translateX(-50%); font-family: 'Space Grotesk',sans-serif; font-size: 280px; font-weight: 900; color: rgba(var(--gold-rgb),0.04); pointer-events: none; white-space: nowrap; letter-spacing: -0.04em; user-select: none; line-height: 1; }
     .impact-eyebrow { display: inline-flex; align-items: center; gap: 12px; font-size: 11px; font-weight: 700; letter-spacing: 0.1em; color: var(--gold); margin-bottom: 60px; }
     .impact-eyebrow::before { content: ''; display: inline-block; width: 24px; height: 1px; background: var(--gold); }
     .impact-grid { display: grid; grid-template-columns: repeat(3,1fr); position: relative; }
@@ -340,6 +354,8 @@
     /* ── Reveal ── */
     .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.7s ease, transform 0.7s ease; }
     .reveal.visible { opacity: 1; transform: translateY(0); }
+    .reveal-delay-1 { transition-delay: 0.1s; }
+    .reveal-delay-2 { transition-delay: 0.2s; }
 
     /* ── Responsive ── */
     @media (max-width: 900px) {
@@ -550,6 +566,7 @@
           <section className="hero">
             <div className="hero-bg-grid"></div>
             <div className="hero-glow"></div>
+            <div className="hero-glow-2"></div>
             <div className="hero-content">
               <p className="hero-eyebrow">
                 <span className="hero-eyebrow-line"></span>
@@ -598,7 +615,7 @@
           {/* Problem */}
           <section className="problem-section" id="problem">
             <p className="section-eyebrow reveal">מה קורה היום</p>
-            <h2 className="section-title reveal">כל שבוע אתם מפסידים כסף.<br />וכנראה לא יודעים כמה.</h2>
+            <h2 className="section-title reveal">כל שבוע אתם <span className="accent">מפסידים כסף.</span><br />וכנראה לא יודעים כמה.</h2>
             <p className="section-sub reveal">הסיבה כמעט תמיד אותה דבר: תהליכים שרצים ידנית.</p>
             <div className="problem-grid">
               {[
@@ -615,7 +632,7 @@
                   title:'שעות על דברים שאפשר לא לעשות', desc:'חשבוניות מספקים, רשימות מלאי, הקלדות, העתקות, מסרונים, אקסלים. שעה שעתיים כל יום על דברים שאינם הליבה של העסק.', cost:'בשנה זה 400 שעות שאפשר היה להשקיע אחרת'
                 },
               ].map((p,i) => (
-                <div key={i} className="problem-card reveal">
+                <div key={i} className={`problem-card reveal${i > 0 ? ` reveal-delay-${i}` : ''}`}>
                   <div className="prob-icon-wrap">{p.svg}</div>
                   <h3 className="problem-title">{p.title}</h3>
                   <p className="problem-desc">{p.desc}</p>
@@ -631,7 +648,7 @@
           {/* Projects */}
           <section className="projects-section" id="projects">
             <p className="projects-eyebrow reveal">עבודות שבניתי</p>
-            <h2 className="projects-title reveal">שלושה מוצרים שכבר<br />עובדים בשטח</h2>
+            <h2 className="projects-title reveal">שלושה מוצרים שכבר<br /><span className="accent">עובדים בשטח</span></h2>
             <p className="projects-sub reveal">שלושה מוצרים שבניתי ועובדים בשטח, אצל עסקי מזון ישראלים.</p>
             <div className="projects-grid">
 
@@ -680,11 +697,11 @@
           {/* Services */}
           <section className="services-section" id="services">
             <p className="section-eyebrow reveal">מה אני בונה</p>
-            <h2 className="section-title reveal">ארבעה שירותים שמחזירים<br />לכם שעות בשבוע</h2>
+            <h2 className="section-title reveal">ארבעה שירותים שמחזירים<br />לכם <span className="accent">שעות בשבוע</span></h2>
             <p className="section-sub reveal">כל שירות פותר בעיה אחת. אפשר להתחיל מאחד ולהוסיף לאט לאט.</p>
             <div className="services-grid">
               {SERVICES.map((s,i) => (
-                <div key={i} className="service-card reveal">
+                <div key={i} className={`service-card reveal${i % 2 === 1 ? ' reveal-delay-1' : ''}`}>
                   <div className="svc-icon-wrap">{SVC_ICONS[i]}</div>
                   <h3 className="service-title">{s.title}</h3>
                   <p className="service-desc">{s.desc}</p>
@@ -695,19 +712,20 @@
 
           {/* Impact */}
           <section className="impact-section">
+            <div className="impact-bg-text">AI</div>
             <p className="impact-eyebrow reveal">למה לעבוד איתי</p>
             <div className="impact-grid">
-              <div className="impact-item reveal">
+              <div className="impact-item reveal reveal-delay-0">
                 <div className="impact-number"><AnimatedStat to={4} /><span className="accent">שבועות</span></div>
                 <p className="impact-label">מרעיון לאוויר</p>
                 <p className="impact-detail">בדרך כלל 4 שבועות מפגישה ראשונה ועד שהמערכת עובדת. לא חצי שנה.</p>
               </div>
-              <div className="impact-item reveal">
+              <div className="impact-item reveal reveal-delay-1">
                 <div className="impact-number"><AnimatedStat to={80} suffix="%" /></div>
                 <p className="impact-label">פחות עבודה ידנית</p>
                 <p className="impact-detail">עסקים שעבדתי איתם מדווחים על חיסכון של 80% מהזמן שהלך על הקלדות והעתקות.</p>
               </div>
-              <div className="impact-item reveal">
+              <div className="impact-item reveal reveal-delay-2">
                 <div className="impact-number"><AnimatedStat to={3} /><span className="accent">מוצרים</span></div>
                 <p className="impact-label">בשטח כבר היום</p>
                 <p className="impact-detail">שלוש מערכות פעילות לעסקי מזון ישראלים. לא הדגמות, לא קונספטים.</p>
@@ -719,7 +737,7 @@
           <section className="contact-section" id="contact">
             <p className="contact-eyebrow">בואו נדבר</p>
             <h2 className="contact-title">
-              תנו לי 30 דקות<br />
+              תנו לי <span style={{color:'var(--gold)'}}>30 דקות</span><br />
               ואני אגיד לכם אם זה מתאים לכם
             </h2>
             <p className="contact-sub">
