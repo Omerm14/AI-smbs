@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>AI למסעדות ומאפיות — עומר מורן</title>
-  <meta name="description" content="עומר מורן בונה מערכות AI שחוסכות שעות עבודה ידנית לבעלי מסעדות ומאפיות בישראל." />
+  <title>AI לעסקי מזון — עומר מורן</title>
+  <meta name="description" content="עומר מורן בונה מערכות AI לעסקי מזון — מסעדות, בתי קפה, קייטרינג ומאפיות. הזמנות אוטומטיות, שירות לקוחות 24/7, ניהול בלי ניירת." />
   <link rel="icon" type="image/jpeg" href="/uploads/photo-1777477389865.JPG" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -502,7 +502,7 @@
     const SERVICES = [
       { icon:'📲', title:'סוכן הזמנות בוואטסאפ', desc:'הלקוח שולח הודעה כמו שהוא רגיל — הסוכן מבין, מסדר ומכניס למערכת. אתם לא נוגעים בזה.' },
       { icon:'💬', title:'בוט שירות לקוחות', desc:'עונה על שאלות על שעות, תפריט וכשרות — כל השבוע, גם בלילה. רק מה שהוא לא יודע — מגיע אליכם.' },
-      { icon:'📊', title:'לוח בקרה לצוות', desc:'כל בוקר: מה לאפות, כמה, ולמי לארוז. ברור, פשוט, בלחיצה אחת — לא פתקים ולא הדפסות.' },
+      { icon:'📊', title:'לוח בקרה לצוות', desc:'כל בוקר: מה להכין, כמה, ולמי לארוז. ברור, פשוט, בלחיצה אחת — לא פתקים ולא הדפסות.' },
       { icon:'⚡', title:'אוטומציה של תהליכים', desc:'דוחות, חשבוניות, עדכוני סטטוס — כל מה שחוזר ידנית בשבוע אפשר לאוטמט תוך כמה ימים.' },
     ];
 
@@ -550,11 +550,11 @@
                 AI למסעדות, בתי קפה ומאפיות
               </p>
               <h1 className="hero-title">
-                תפסיקו לבזבז שעות<br />
+                תפסיקו להפסיד כסף<br />
                 על <span className="accent">ניהול ידני.</span>
               </h1>
               <p className="hero-sub">
-                אני בונה מערכות שמקבלות הזמנות, עונות ללקוחות ומכינות את הצוות לעבודה — אוטומטית. אתם מתמקדים במה שאתם טובים בו.
+                אני בונה מערכות שמקבלות הזמנות, עונות ללקוחות ומנהלות את הצוות — אוטומטית. אתם מתמקדים במה שאתם טובים בו.
               </p>
               <div className="hero-actions">
                 <a href={`https://wa.me/${WA}`} target="_blank" rel="noopener noreferrer" className="btn-primary">
@@ -592,13 +592,13 @@
           {/* Problem */}
           <section className="problem-section" id="problem">
             <p className="section-eyebrow reveal">מה קורה היום</p>
-            <h2 className="section-title reveal">שלושה כאבים שכל<br />בעל מאפייה מכיר</h2>
+            <h2 className="section-title reveal">שלושה כאבים שכל<br />בעל עסק מזון מכיר</h2>
             <p className="section-sub reveal">לא צריך להכיר טכנולוגיה כדי לחוש אותם — הם קורים אצלכם כל שבוע.</p>
             <div className="problem-grid">
               {[
-                { icon:'📋', title:'הזמנה שהלכה לאיבוד', desc:'לקוח שלח בוואטסאפ, אף אחד לא הכניס לאקסל בזמן, הוא קיבל חצי הזמנה. אתם שמעתם על זה ביום שלישי.' },
-                { icon:'🌙', title:'לא ענו, הוא הלך', desc:'לקוח שאל בשבת אם יש לחם ללא גלוטן. לא קיבל תשובה. ביום ראשון — כבר הזמין ממישהו אחר.' },
-                { icon:'😤', title:'שעתיים על העתקות', desc:'כל בוקר מישהו מהצוות יושב ומעתיק הזמנות מוואטסאפ לאקסל. שעתיים שיכלו להיות בתנור.' },
+                { icon:'📱', title:'וואטסאפ שמתפוצץ', desc:'40 הודעות ביום — מי שואל על כשרות, מי רוצה לשריין שולחן, מי רוצה לבטל. הצוות עונה לכולם בין ההגשות.' },
+                { icon:'📞', title:'הזמנה שנשמטה', desc:'מישהו התקשר בשיא העומס לשריין שולחן לשישה. אף אחד לא הספיק לרשום. ערב שישי, שולחן ריק, לקוח כועס.' },
+                { icon:'🗂️', title:'ניירת שאין לה סוף', desc:'חשבוניות מספקים, רשימות מלאי, דרישות תשלום — שעות בשבוע על ניהול, במקום לנהל את המטבח.' },
               ].map((p,i) => (
                 <div key={i} className="problem-card reveal">
                   <span className="problem-icon">{p.icon}</span>
@@ -619,9 +619,9 @@
               <div className="project-card reveal">
                 <div className="project-mockup"><FlooryMockup /></div>
                 <div className="project-body">
-                  <p className="project-tag">ניהול הזמנות · מאפיות</p>
+                  <p className="project-tag">ניהול הזמנות · מסעדות ומאפיות</p>
                   <h3 className="project-name">Floory</h3>
-                  <p className="project-desc">לקוחות שולחים הזמנה בוואטסאפ כרגיל. הסוכן מבין, מסדר ומכניס לגריד. הצוות רואה בדיוק מה לאפות ולמי לארוז — בלי לשאול ובלי להדפיס.</p>
+                  <p className="project-desc">לקוחות שולחים הזמנה בוואטסאפ — המערכת מבינה, מסדרת ומכניסה לגריד. הצוות יודע בדיוק מה להכין ולמי לארוז, בלי שיחות ובלי פתקים.</p>
                   <div className="project-outcome">
                     <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
                     חסך 3 שעות הקלדה ביום
@@ -632,9 +632,9 @@
               <div className="project-card reveal">
                 <div className="project-mockup"><LiaMockup /></div>
                 <div className="project-body">
-                  <p className="project-tag">שירות לקוחות · מסעדות</p>
+                  <p className="project-tag">שירות לקוחות · עסקי מזון</p>
                   <h3 className="project-name">ליה — אורבן בייקרי</h3>
-                  <p className="project-desc">בוט וואטסאפ שעונה ללקוחות של אורבן בייקרי בתל אביב — בעברית ואנגלית, כל שעה. שאלה שהוא לא יודע לענות עליה מגיעה ישר למנהל.</p>
+                  <p className="project-desc">בוט וואטסאפ שעונה ללקוחות — כשרות, שעות, תפריט, שריון שולחן — 24/7, בעברית ואנגלית. מה שהוא לא יודע מגיע ישר אליכם.</p>
                   <div className="project-outcome">
                     <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
                     עונה תוך 30 שניות, גם בשבת
@@ -645,7 +645,7 @@
               <div className="project-card reveal">
                 <div className="project-mockup"><CashflowMockup /></div>
                 <div className="project-body">
-                  <p className="project-tag">ניהול פיננסי · עסקים</p>
+                  <p className="project-tag">ניהול פיננסי · כל עסק</p>
                   <h3 className="project-name">Cashflow</h3>
                   <p className="project-desc">כל חשבונית שמגיעה — ב-Gmail, בוואטסאפ, ב-Drive — נקראת אוטומטית ומסודרת בלוח בקרה אחד. תמיד יודעים מה חייבים ומתי.</p>
                   <div className="project-outcome">
