@@ -3,1358 +3,1007 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>עומר מורן — בינה מלאכותית לעסקים</title>
-  <link rel="icon" type="image/jpeg" href="/uploads/photo-1777477389865.JPG" />
+  <title>עומר מורן — מומחה AI לעסקים | אוטומציות וסוכני AI</title>
+  <meta name="description" content="בוגר 8200, יוצא ZoomInfo ו-Connecteam. אני עוזר לעסקים קטנים ובינוניים להטמיע AI שעובד באמת — אוטומציות חכמות וסוכני AI שעובדים בשבילך מסביב לשעון." />
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230a0e18'/%3E%3Ctext x='32' y='43' font-family='Arial,sans-serif' font-size='30' font-weight='800' fill='%236e96ff' text-anchor='middle'%3E%D7%A2%3C/text%3E%3C/svg%3E" />
+  <link rel="canonical" href="https://www.omermoran.com/he" />
+  <link rel="alternate" hreflang="he" href="https://www.omermoran.com/he" />
+  <link rel="alternate" hreflang="en" href="https://www.omermoran.com/en" />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://www.omermoran.com/he" />
-  <meta property="og:title" content="עומר מורן — בינה מלאכותית לעסקים" />
-  <meta property="og:description" content="אני עוזר לעסקים קטנים ובינוניים ליישם בינה מלאכותית — כדי שתוכלו להתמקד בצמיחה, לא בלהתעדכן." />
-  <meta property="og:image" content="https://www.omermoran.com/uploads/photo-1777477389865.JPG" />
+  <meta property="og:title" content="עומר מורן — מומחה AI לעסקים" />
+  <meta property="og:description" content="בוגר 8200, יוצא ZoomInfo ו-Connecteam. אוטומציות חכמות וסוכני AI לעסקים קטנים ובינוניים — תוצאות תוך שבועות, לא חודשים." />
+  <meta property="og:image" content="https://www.omermoran.com/uploads/og-omer.jpg" />
+  <meta property="og:locale" content="he_IL" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="עומר מורן — בינה מלאכותית לעסקים" />
-  <meta name="twitter:description" content="אני עוזר לעסקים קטנים ובינוניים ליישם בינה מלאכותית — כדי שתוכלו להתמקד בצמיחה, לא בלהתעדכן." />
-  <meta name="twitter:image" content="https://www.omermoran.com/uploads/photo-1777477389865.JPG" />
+  <meta name="twitter:title" content="עומר מורן — מומחה AI לעסקים" />
+  <meta name="twitter:description" content="אוטומציות חכמות וסוכני AI לעסקים קטנים ובינוניים — תוצאות תוך שבועות, לא חודשים." />
+  <meta name="twitter:image" content="https://www.omermoran.com/uploads/og-omer.jpg" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "עומר מורן",
+    "alternateName": "Omer Moran",
+    "url": "https://www.omermoran.com/he",
+    "image": "https://www.omermoran.com/uploads/og-omer.jpg",
+    "jobTitle": "מומחה AI לעסקים קטנים ובינוניים",
+    "sameAs": ["https://www.linkedin.com/in/omer-moran-8aa07616b"],
+    "knowsAbout": ["Artificial Intelligence", "Business Automation", "AI Agents", "Data Products"]
+  }
+  </script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
-  <script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
-  <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
-  <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet" />
+  <link rel="preload" as="image" href="/uploads/omer-880.webp" />
   <style>
+    /* ─────────────────────────  FOUNDATION  ───────────────────────── */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     :root {
-      --bg: #faf9f6;
-      --bg2: #f3f2ee;
+      --ink: #07090f;
+      --ink-2: #0b0f1a;
+      --ink-3: #111726;
+      --cream: #faf9f5;
+      --cream-2: #f1efe8;
       --surface: #ffffff;
-      --border: rgba(14,14,12,0.08);
-      --border-mid: rgba(14,14,12,0.14);
-      --gold: #456abf;
-      --gold-rgb: 69,106,191;
-      --gold-light: #456abf55;
-      --gold-pale: #456abf12;
-      --text: #0e0e0c;
-      --text-dim: #5a5a54;
-      --text-dimmer: #9a9a90;
+      --accent: #3d63c9;          /* on light */
+      --accent-rgb: 61,99,201;
+      --bright: #6e96ff;          /* on dark */
+      --bright-rgb: 110,150,255;
+      --text: #10131c;
+      --text-dim: #565b68;
+      --text-faint: #979ca8;
+      --w: #f5f6fa;               /* text on dark */
+      --w-dim: rgba(230,235,250,0.55);
+      --w-faint: rgba(230,235,250,0.32);
+      --border: rgba(16,19,28,0.09);
+      --border-mid: rgba(16,19,28,0.16);
+      --border-d: rgba(255,255,255,0.09);
+      --num: 'Space Grotesk', 'Heebo', sans-serif;
     }
     html { scroll-behavior: smooth; }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
+    }
     body {
-      background: var(--bg);
-      color: var(--text);
+      background: var(--cream); color: var(--text);
       font-family: 'Heebo', sans-serif;
-      overflow-x: hidden;
-      -webkit-font-smoothing: antialiased;
-      direction: rtl;
+      overflow-x: hidden; -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
     }
-    #root { position: relative; z-index: 1; }
+    ::selection { background: var(--accent); color: #fff; }
+    a { -webkit-tap-highlight-color: transparent; }
+    img { max-width: 100%; }
+    .num { font-family: var(--num); }
 
-    #cursor-glow {
-      pointer-events: none; position: fixed; z-index: 9999;
-      width: 460px; height: 460px; border-radius: 50%;
-      background: radial-gradient(circle, rgba(var(--gold-rgb), 0.18) 0%, transparent 60%);
-      transform: translate(-50%, -50%);
-      transition: left 0.12s ease, top 0.12s ease;
-      mix-blend-mode: multiply;
-    }
-
-    /* Nav */
+    /* ─────────────────────────  PROGRESS + NAV  ───────────────────── */
+    #progress { position: fixed; top: 0; right: 0; left: 0; height: 2.5px; z-index: 1000; background: linear-gradient(90deg, var(--bright), var(--accent)); transform-origin: right; transform: scaleX(0); }
     nav {
-      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      position: fixed; top: 0; right: 0; left: 0; z-index: 900;
       display: flex; align-items: center; justify-content: space-between;
-      padding: 24px 64px;
-      transition: padding 0.4s, background 0.4s, box-shadow 0.4s;
+      padding: 22px 56px; transition: padding .4s, background .4s, box-shadow .4s, backdrop-filter .4s;
     }
-    nav.scrolled {
-      padding: 16px 64px;
-      background: rgba(250,249,246,0.92);
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
-      box-shadow: 0 1px 0 var(--border);
-    }
-    .nav-logo {
-      font-family: 'Space Grotesk', sans-serif;
-      font-size: 14px; font-weight: 600;
-      letter-spacing: 0.04em; color: var(--text);
-      text-transform: uppercase;
-    }
-    .nav-links { display: flex; gap: 40px; list-style: none; flex-direction: row-reverse; }
-    .nav-links a { text-decoration: none; color: var(--text-dim); font-size: 14px; transition: color 0.2s; }
-    .nav-links a:hover { color: var(--text); }
+    nav.on-dark .nav-logo, nav.on-dark .nav-links a { color: var(--w); }
+    nav.on-dark .nav-links a:hover { color: var(--bright); }
+    nav.scrolled { padding: 13px 56px; background: rgba(250,249,245,.85); backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px); box-shadow: 0 1px 0 var(--border); }
+    nav.scrolled .nav-logo, nav.scrolled .nav-links a { color: var(--text); }
+    nav.scrolled .nav-links a:hover { color: var(--accent); }
+    .nav-logo { font-size: 16px; font-weight: 800; letter-spacing: -0.01em; color: var(--w); text-decoration: none; display: flex; align-items: center; gap: 9px; }
+    .nav-logo .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--bright); box-shadow: 0 0 12px 2px rgba(var(--bright-rgb), .6); }
+    .nav-links { display: flex; gap: 34px; list-style: none; }
+    .nav-links a { text-decoration: none; color: var(--w-dim); font-size: 13.5px; font-weight: 500; transition: color .2s; }
+    .nav-side { display: flex; align-items: center; gap: 14px; }
     .nav-cta {
-      font-family: 'Heebo', sans-serif;
-      font-size: 13px; font-weight: 700;
-      letter-spacing: 0.04em;
-      padding: 11px 26px;
-      background: var(--text); color: var(--bg);
-      text-decoration: none; display: inline-block;
-      position: relative; overflow: hidden;
-      transition: background 0.3s;
+      font-size: 13.5px; font-weight: 700; padding: 10px 22px; border-radius: 100px;
+      background: var(--bright); color: #0a0e18; text-decoration: none;
+      transition: transform .25s, box-shadow .25s, background .25s;
+      box-shadow: 0 4px 18px rgba(var(--bright-rgb), .35);
     }
+    .nav-cta:hover { transform: translateY(-2px); box-shadow: 0 8px 26px rgba(var(--bright-rgb), .5); }
+    nav.scrolled .nav-cta { background: var(--accent); color: #fff; box-shadow: 0 4px 16px rgba(var(--accent-rgb), .3); }
+    .lang-toggle { display: flex; border: 1px solid var(--border-d); border-radius: 100px; padding: 3px; gap: 2px; background: rgba(255,255,255,.06); backdrop-filter: blur(10px); }
+    nav.scrolled .lang-toggle { border-color: var(--border-mid); background: rgba(255,255,255,.6); }
+    .lang-btn { font-family: var(--num); font-size: 11px; font-weight: 700; letter-spacing: .08em; padding: 5px 12px; border-radius: 100px; text-decoration: none; color: var(--w-dim); transition: all .25s; }
+    nav.scrolled .lang-btn { color: var(--text-dim); }
+    .lang-btn.active { background: var(--w); color: var(--ink); }
+    nav.scrolled .lang-btn.active { background: var(--text); color: var(--cream); }
 
-    /* Language Toggle */
-    .lang-toggle { display: flex; align-items: center; border: 1px solid var(--border-mid); border-radius: 100px; padding: 3px; background: rgba(255,255,255,0.7); backdrop-filter: blur(12px); gap: 2px; }
-    .lang-btn { font-family: 'Space Grotesk', sans-serif; font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; padding: 5px 13px; text-decoration: none; color: var(--text-dim); transition: color 0.25s ease, background 0.25s ease, box-shadow 0.25s ease, transform 0.2s ease; border-radius: 100px; }
-    .lang-btn.active { background: var(--text); color: var(--bg); box-shadow: 0 2px 8px rgba(14,14,12,0.18); }
-    .lang-btn:not(.active):hover { color: var(--text); background: rgba(14,14,12,0.06); transform: scale(1.04); }
-
-    /* Testimonials - redesigned */
-    .testimonials-section { background: var(--text); padding: 100px 64px; position: relative; overflow: hidden; }
-    .testimonials-section::before { content: ''; position: absolute; top: -300px; left: -200px; width: 700px; height: 700px; border-radius: 50%; background: radial-gradient(circle, rgba(var(--gold-rgb),0.07) 0%, transparent 70%); pointer-events: none; }
-    .testimonials-intro { max-width: 540px; margin-bottom: 60px; }
-    .testimonials-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: rgba(255,255,255,0.06); }
-    .tcard {
-      background: rgba(255,255,255,0.03);
-      padding: 36px 32px;
-      position: relative;
-      transition: background 0.3s;
-      cursor: default;
-      display: flex; flex-direction: column; gap: 20px;
-    }
-    .tcard:hover { background: rgba(255,255,255,0.06); }
-    .tcard-featured { background: rgba(var(--gold-rgb),0.07); }
-    .tcard-featured:hover { background: rgba(var(--gold-rgb),0.11); }
-    .tcard-quote {
-      font-size: 13px; line-height: 1.85; color: rgba(250,249,246,0.72);
-      font-weight: 300; flex: 1;
-      position: relative;
-    }
-    .tcard-quote::before {
-      content: '"';
-      font-family: 'Space Grotesk', sans-serif;
-      font-size: 64px; line-height: 0.7;
-      color: var(--gold); opacity: 0.4;
-      display: block; margin-bottom: 12px;
-    }
-    .tcard-quote strong { color: rgba(250,249,246,0.95); font-weight: 600; }
-    .tcard-author { display: flex; align-items: center; gap: 14px; padding-top: 16px; border-top: 1px solid rgba(255,255,255,0.08); }
-    .tcard-avatar {
-      width: 40px; height: 40px; border-radius: 50%; flex-shrink: 0;
-      background: rgba(var(--gold-rgb),0.15);
-      border: 1px solid rgba(var(--gold-rgb),0.3);
-      display: flex; align-items: center; justify-content: center;
-      font-family: 'Space Grotesk', sans-serif; font-size: 13px; font-weight: 700; color: var(--gold);
-    }
-    .tcard-name { font-family: 'Heebo', sans-serif; font-size: 13px; font-weight: 700; color: rgba(250,249,246,0.9); margin-bottom: 2px; }
-    .tcard-role { font-size: 11px; color: rgba(250,249,246,0.38); line-height: 1.4; }
-    .tcard-badge { position: absolute; top: 0; right: 32px; background: var(--gold); color: white; font-size: 9px; font-weight: 700; letter-spacing: 0.08em; padding: 4px 10px; }
-    .nav-cta::after { content: ''; position: absolute; inset: 0; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.15), transparent); transform: translateX(100%); transition: transform 0.5s ease; }
-    .nav-cta:hover { background: var(--gold); }
-    .nav-cta:hover::after { transform: translateX(-100%); }
-
-    /* Hero */
+    /* ─────────────────────────  HERO (dark)  ──────────────────────── */
     .hero {
-      min-height: 100vh;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      align-items: center;
-      padding: 120px 64px 80px;
-      gap: 80px;
-      position: relative; overflow: hidden;
+      position: relative; min-height: 100svh; background: var(--ink);
+      display: grid; grid-template-columns: 1.05fr .95fr; align-items: center;
+      padding: 130px 56px 90px; gap: 40px; overflow: hidden; isolation: isolate;
     }
-    .hero-bg-grid {
-      position: absolute; inset: 0; pointer-events: none;
-      background-image: linear-gradient(rgba(var(--gold-rgb),0.045) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(var(--gold-rgb),0.045) 1px, transparent 1px);
-      background-size: 60px 60px;
-      mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 0%, transparent 100%);
-      -webkit-mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 0%, transparent 100%);
-    }
-    .hero-glow {
-      position: absolute; width: 700px; height: 700px; border-radius: 50%;
-      background: radial-gradient(circle, rgba(var(--gold-rgb),0.13) 0%, transparent 65%);
-      left: -8%; top: 50%; transform: translateY(-50%);
-      pointer-events: none; filter: blur(40px);
-      animation: floatGlow 7s ease-in-out infinite alternate;
-    }
-    @keyframes floatGlow { 0% { transform: translateY(-50%) scale(1); } 100% { transform: translateY(-56%) scale(1.1); } }
-    .hero-content { position: relative; }
-    .hero-eyebrow {
-      display: inline-flex; align-items: center; gap: 12px;
-      font-size: 12px; font-weight: 600; letter-spacing: 0.12em;
-      color: var(--gold); margin-bottom: 32px;
-      opacity: 0; animation: fadeUp 0.6s 0.1s ease forwards;
-    }
-    .hero-eyebrow-line { display: inline-block; width: 32px; height: 1px; background: var(--gold); }
-    @keyframes fadeUp { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
-
-    .hero-title {
-      font-family: 'Heebo', sans-serif;
-      font-size: clamp(40px, 4.5vw, 70px);
-      font-weight: 900;
-      line-height: 1.1;
-      letter-spacing: -0.02em;
-      margin-bottom: 28px;
-      opacity: 0; animation: fadeUp 0.8s 0.3s ease forwards;
-    }
-    .hero-title .accent { color: var(--gold); }
-    .hero-sub {
-      font-size: 18px; line-height: 1.8;
-      color: var(--text-dim);
-      max-width: 500px; margin-bottom: 52px;
-      font-weight: 300;
-      opacity: 0; animation: fadeUp 0.8s 0.55s ease forwards;
-    }
-    .hero-actions {
-      display: flex; gap: 20px; align-items: center;
-      opacity: 0; animation: fadeUp 0.8s 0.75s ease forwards;
-      flex-direction: row;
-    }
-    .btn-primary {
-      font-family: 'Heebo', sans-serif;
-      font-size: 14px; font-weight: 700;
-      padding: 16px 40px;
-      background: var(--text); color: var(--bg);
-      border: none; cursor: pointer; text-decoration: none;
+    #net { position: absolute; inset: 0; z-index: 0; }
+    .hero-vignette { position: absolute; inset: 0; z-index: 1; pointer-events: none;
+      background: radial-gradient(ellipse 90% 70% at 70% 40%, transparent 40%, rgba(7,9,15,.75) 100%); }
+    .hero-aurora { position: absolute; z-index: 0; width: 900px; height: 900px; border-radius: 50%; pointer-events: none;
+      background: radial-gradient(circle, rgba(var(--bright-rgb), .14) 0%, rgba(var(--bright-rgb), .04) 45%, transparent 70%);
+      left: -12%; top: -30%; filter: blur(30px); animation: aurora 9s ease-in-out infinite alternate; }
+    @keyframes aurora { to { transform: translate(60px, 60px) scale(1.12); } }
+    .hero-content { position: relative; z-index: 2; max-width: 640px; }
+    .hero-badge {
       display: inline-flex; align-items: center; gap: 10px;
-      position: relative; overflow: hidden;
-      transition: background 0.3s, transform 0.25s, box-shadow 0.25s;
+      font-size: 12.5px; font-weight: 600; color: var(--bright);
+      border: 1px solid rgba(var(--bright-rgb), .35); border-radius: 100px;
+      padding: 7px 16px; margin-bottom: 30px; background: rgba(var(--bright-rgb), .07);
+      opacity: 0; animation: fadeUp .7s .15s ease forwards;
     }
-    .btn-primary::after { content: ''; position: absolute; inset: 0; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.16), transparent); transform: translateX(100%); transition: transform 0.55s ease; }
-    .btn-primary:hover { background: var(--gold); transform: translateY(-2px); box-shadow: 0 8px 28px rgba(var(--gold-rgb),0.3); }
-    .btn-primary:hover::after { transform: translateX(-100%); }
-    .btn-ghost {
-      font-size: 14px; color: var(--text-dim);
-      text-decoration: none; display: inline-flex; align-items: center; gap: 8px;
-      transition: color 0.2s, gap 0.25s;
+    .hero-badge .pulse { width: 7px; height: 7px; border-radius: 50%; background: #43e97b; position: relative; }
+    .hero-badge .pulse::after { content: ''; position: absolute; inset: -4px; border-radius: 50%; border: 1.5px solid #43e97b; animation: ping 1.8s ease-out infinite; }
+    @keyframes ping { from { transform: scale(.5); opacity: 1; } to { transform: scale(1.6); opacity: 0; } }
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: translateY(0); } }
+    .hero h1 {
+      font-size: clamp(42px, 5.6vw, 84px); font-weight: 900; line-height: 1.06;
+      letter-spacing: -0.02em; color: var(--w); margin-bottom: 28px;
     }
-    .btn-ghost:hover { color: var(--text); gap: 14px; }
-    .hero-image-wrap {
-      position: relative; display: flex; justify-content: center;
-      opacity: 0; animation: fadeUp 1s 0.4s ease forwards;
+    .hline { display: block; overflow: hidden; padding-bottom: .08em; margin-bottom: -.08em; }
+    .hword { display: inline-block; transform: translateY(112%); animation: wordUp .9s cubic-bezier(.16,1,.3,1) forwards; }
+    @keyframes wordUp { to { transform: translateY(0); } }
+    .grad {
+      background: linear-gradient(100deg, var(--bright) 10%, #9db9ff 45%, var(--bright) 80%);
+      background-size: 200% auto; -webkit-background-clip: text; background-clip: text; color: transparent;
+      animation: shimmer 5s linear infinite;
     }
-    .photo-frame { position: relative; width: 400px; }
-    .photo-frame img { width: 100%; display: block; filter: contrast(1.02) brightness(1.01); transition: transform 0.6s cubic-bezier(0.16,1,0.3,1); }
-    .photo-frame:hover img { transform: scale(1.02); }
-    .photo-frame::before { content: ''; position: absolute; top: 20px; right: 20px; left: -20px; bottom: -20px; border: 1px solid var(--gold-light); z-index: -1; transition: transform 0.5s cubic-bezier(0.16,1,0.3,1); }
-    .photo-frame:hover::before { transform: translate(-4px, 4px); }
-    .photo-credential {
-      position: absolute; bottom: -16px; right: -24px;
-      background: var(--surface); border: 1px solid var(--border-mid);
-      padding: 16px 22px; box-shadow: 0 12px 48px rgba(14,14,12,0.12);
-      min-width: 200px; animation: fadeUp 1s 0.9s ease both;
-      text-align: right;
+    .hword.grad { animation: wordUp .9s cubic-bezier(.16,1,.3,1) forwards, shimmer 5s linear infinite; }
+    @keyframes shimmer { to { background-position: 200% center; } }
+    .hero-sub { font-size: 18px; line-height: 1.8; color: var(--w-dim); max-width: 500px; margin-bottom: 42px; font-weight: 300; opacity: 0; animation: fadeUp .8s 1s ease forwards; }
+    .hero-sub strong { color: var(--w); font-weight: 600; }
+    .hero-actions { display: flex; gap: 18px; align-items: center; flex-wrap: wrap; opacity: 0; animation: fadeUp .8s 1.2s ease forwards; }
+    .btn-hero {
+      position: relative; overflow: hidden; display: inline-flex; align-items: center; gap: 10px;
+      font-family: inherit; font-size: 15.5px; font-weight: 700; padding: 17px 38px; border-radius: 100px;
+      background: var(--bright); color: #0a0e18; text-decoration: none; border: none; cursor: pointer;
+      transition: transform .25s, box-shadow .25s; box-shadow: 0 6px 30px rgba(var(--bright-rgb), .4);
+      will-change: transform;
     }
-    .cred-label { font-size: 10px; font-weight: 700; letter-spacing: 0.1em; color: var(--gold); margin-bottom: 6px; }
-    .cred-name { font-family: 'Space Grotesk', sans-serif; font-size: 16px; font-weight: 700; color: var(--text); margin-bottom: 2px; }
-    .cred-title { font-size: 12px; color: var(--text-dim); }
+    .btn-hero::after { content: ''; position: absolute; inset: 0; background: linear-gradient(105deg, transparent 40%, rgba(255,255,255,.5) 50%, transparent 60%); transform: translateX(120%); transition: transform .6s ease; }
+    .btn-hero:hover { transform: translateY(-3px); box-shadow: 0 12px 40px rgba(var(--bright-rgb), .55); }
+    .btn-hero:hover::after { transform: translateX(-120%); }
+    .btn-hero small { font-size: 11.5px; font-weight: 500; opacity: .75; }
+    .btn-ghost-d { display: inline-flex; align-items: center; gap: 9px; font-size: 14.5px; font-weight: 500; color: var(--w-dim); text-decoration: none; transition: color .2s, gap .25s; }
+    .btn-ghost-d:hover { color: var(--w); gap: 14px; }
+    .btn-ghost-d svg { transform: scaleX(-1); }
+    .hero-trust { display: flex; gap: 26px; margin-top: 54px; opacity: 0; animation: fadeUp .8s 1.45s ease forwards; flex-wrap: wrap; }
+    .trust-item { display: flex; align-items: center; gap: 9px; font-size: 13px; color: var(--w-faint); font-weight: 400; }
+    .trust-item svg { color: var(--bright); opacity: .8; flex-shrink: 0; }
 
-    /* Marquee */
-    .marquee-strip {
-      border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
-      padding: 14px 0; background: var(--text); overflow: hidden;
+    /* Hero photo */
+    .hero-visual { position: relative; z-index: 2; display: flex; justify-content: center; opacity: 0; animation: fadeUp 1s .5s ease forwards; }
+    .portrait { position: relative; width: min(400px, 82vw); }
+    .portrait-img-wrap {
+      position: relative; border-radius: 20px; overflow: hidden;
+      box-shadow: 0 40px 90px rgba(0,0,0,.55), 0 0 0 1px rgba(255,255,255,.08);
     }
-    .marquee-track { display: flex; animation: marqueeScroll 32s linear infinite; width: max-content; }
-    .marquee-track:hover { animation-play-state: paused; }
-    @keyframes marqueeScroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
-    .marquee-item {
-      display: inline-flex; align-items: center; gap: 20px;
-      padding: 0 40px; white-space: nowrap;
-      font-family: 'Heebo', sans-serif;
-      font-size: 12px; font-weight: 700;
-      color: rgba(250,249,246,0.45);
+    .portrait-img-wrap::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to top, rgba(7,9,15,.35), transparent 45%); }
+    .portrait img { width: 100%; height: auto; display: block; }
+    .portrait-ring { position: absolute; inset: -18px; border: 1px solid rgba(var(--bright-rgb), .25); border-radius: 28px; pointer-events: none; animation: ringFloat 6s ease-in-out infinite alternate; }
+    @keyframes ringFloat { to { transform: translate(-7px, 7px); } }
+    .chip {
+      position: absolute; background: rgba(12,16,26,.82); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
+      border: 1px solid rgba(255,255,255,.12); border-radius: 13px; padding: 11px 17px;
+      box-shadow: 0 16px 50px rgba(0,0,0,.5); z-index: 3; white-space: nowrap;
     }
-    .marquee-dot { display: inline-block; width: 4px; height: 4px; border-radius: 50%; background: var(--gold); flex-shrink: 0; }
+    .chip-label { font-size: 10px; font-weight: 600; letter-spacing: .1em; color: var(--bright); margin-bottom: 3px; }
+    .chip-value { font-size: 14.5px; font-weight: 700; color: var(--w); }
+    .chip-1 { top: 26px; right: -44px; animation: chipFloat 5s .4s ease-in-out infinite alternate; }
+    .chip-2 { bottom: 88px; left: -52px; animation: chipFloat 6s 1.1s ease-in-out infinite alternate; }
+    .chip-3 { bottom: -20px; right: 26px; animation: chipFloat 5.5s .8s ease-in-out infinite alternate; }
+    @keyframes chipFloat { to { transform: translateY(-9px); } }
+    .scroll-cue { position: absolute; bottom: 26px; left: 50%; transform: translateX(-50%); z-index: 2; display: flex; flex-direction: column; align-items: center; gap: 8px; color: var(--w-faint); font-size: 11px; letter-spacing: .18em; opacity: 0; animation: fadeUp 1s 2s ease forwards; }
+    .scroll-cue .line { width: 1px; height: 34px; background: linear-gradient(var(--bright), transparent); animation: cueDrop 1.8s ease-in-out infinite; }
+    @keyframes cueDrop { 0% { transform: scaleY(0); transform-origin: top; } 45% { transform: scaleY(1); transform-origin: top; } 55% { transform: scaleY(1); transform-origin: bottom; } 100% { transform: scaleY(0); transform-origin: bottom; } }
 
-    /* Impact Numbers */
-    .impact-section { background: var(--bg); padding: 100px 64px; position: relative; overflow: hidden; }
-    .impact-section::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px; background: var(--border); }
-    .impact-eyebrow { display: inline-flex; align-items: center; gap: 12px; font-size: 11px; font-weight: 700; letter-spacing: 0.1em; color: var(--gold); margin-bottom: 60px; }
-    .impact-eyebrow::before { content: ''; display: inline-block; width: 24px; height: 1px; background: var(--gold); }
-    .impact-grid { display: grid; grid-template-columns: repeat(3, 1fr); position: relative; }
-    .impact-grid::before { content: ''; position: absolute; top: 0; right: 33.33%; width: 1px; height: 100%; background: var(--border); }
-    .impact-grid::after { content: ''; position: absolute; top: 0; right: 66.66%; width: 1px; height: 100%; background: var(--border); }
-    .impact-item { padding: 0 56px; display: flex; flex-direction: column; align-items: flex-start; }
-    .impact-item:first-child { padding-right: 0; }
-    .impact-item:last-child { padding-left: 0; }
-    .impact-number {
-      font-family: 'Space Grotesk', sans-serif;
-      font-size: clamp(64px, 8vw, 108px);
-      font-weight: 700; line-height: 1;
-      letter-spacing: -0.04em; color: var(--text);
-      display: flex; align-items: baseline; gap: 10px;
-      flex-wrap: nowrap; margin-bottom: 20px;
-    }
-    .impact-number .accent { color: var(--gold); font-size: 0.52em; font-weight: 700; white-space: nowrap; align-self: center; }
-    .impact-claim { font-family: 'Heebo', sans-serif; font-size: 20px; font-weight: 700; color: var(--text); margin-bottom: 12px; line-height: 1.3; }
-    .impact-detail { font-size: 14px; line-height: 1.75; color: var(--text-dim); font-weight: 300; max-width: 280px; }
+    /* ─────────────────────────  MARQUEE  ──────────────────────────── */
+    .marquee { background: var(--ink); border-top: 1px solid var(--border-d); padding: 17px 0; overflow: hidden; position: relative; }
+    .marquee::before, .marquee::after { content: ''; position: absolute; top: 0; bottom: 0; width: 120px; z-index: 2; pointer-events: none; }
+    .marquee::before { right: 0; background: linear-gradient(to left, var(--ink), transparent); }
+    .marquee::after { left: 0; background: linear-gradient(to right, var(--ink), transparent); }
+    .marquee-track { display: flex; width: max-content; animation: scrollX 30s linear infinite; }
+    @keyframes scrollX { to { transform: translateX(50%); } }
+    .mq-item { display: inline-flex; align-items: center; gap: 18px; padding: 0 34px; white-space: nowrap; font-size: 12.5px; font-weight: 600; letter-spacing: .1em; color: var(--w-faint); }
+    .mq-dot { width: 4px; height: 4px; border-radius: 50%; background: var(--bright); }
 
-    /* How it works */
-    .how-section { background: var(--text); padding: 100px 64px; position: relative; overflow: hidden; }
-    .how-section::before { content: ''; position: absolute; top: -300px; left: -200px; width: 700px; height: 700px; border-radius: 50%; background: radial-gradient(circle, rgba(var(--gold-rgb),0.08) 0%, transparent 70%); pointer-events: none; }
-    .how-eyebrow { display: inline-flex; align-items: center; gap: 12px; font-size: 11px; font-weight: 700; letter-spacing: 0.1em; color: var(--gold); margin-bottom: 56px; }
-    .how-eyebrow::before { content: ''; display: inline-block; width: 24px; height: 1px; background: var(--gold); }
-    .how-title { font-family: 'Heebo', sans-serif; font-size: clamp(28px, 3vw, 44px); font-weight: 900; color: #faf9f6; line-height: 1.15; letter-spacing: -0.02em; margin-bottom: 64px; }
-    .how-steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; position: relative; }
-    .how-step { padding: 0 0 0 48px; }
-    .how-step:not(:last-child) { padding: 0 48px 0 48px; border-right: 1px solid rgba(255,255,255,0.06); }
-    .how-step:last-child { padding: 0 48px 0 0; }
-    .how-step-num { font-family: 'Space Grotesk', sans-serif; font-size: 13px; font-weight: 700; color: var(--gold); letter-spacing: 0.1em; margin-bottom: 20px; }
-    .how-step-title { font-family: 'Heebo', sans-serif; font-size: 22px; font-weight: 800; color: #faf9f6; margin-bottom: 14px; line-height: 1.2; }
-    .how-step-desc { font-size: 14px; line-height: 1.8; color: rgba(250,249,246,0.52); font-weight: 300; }
-    .how-cta-row { margin-top: 64px; display: flex; align-items: center; gap: 24px; }
-    .how-note { font-size: 13px; color: rgba(250,249,246,0.35); }
+    /* ─────────────────────────  SECTION BASICS  ───────────────────── */
+    section { position: relative; }
+    .wrap { max-width: 1200px; margin: 0 auto; padding: 110px 56px; }
+    .eyebrow { display: inline-flex; align-items: center; gap: 12px; font-size: 12.5px; font-weight: 700; letter-spacing: .1em; color: var(--accent); margin-bottom: 20px; }
+    .eyebrow::before { content: ''; width: 26px; height: 2px; border-radius: 2px; background: var(--accent); }
+    .eyebrow.on-dark { color: var(--bright); } .eyebrow.on-dark::before { background: var(--bright); }
+    h2 { font-size: clamp(30px, 3.6vw, 52px); font-weight: 900; line-height: 1.12; letter-spacing: -0.02em; }
+    .rv { opacity: 0; transform: translateY(34px); transition: opacity .9s cubic-bezier(.16,1,.3,1), transform .9s cubic-bezier(.16,1,.3,1); transition-delay: var(--d, 0s); }
+    .rv.in { opacity: 1; transform: none; }
 
-    /* Background */
-    .background-section { background: var(--bg2); padding: 100px 64px; position: relative; overflow: hidden; }
-    .background-section::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px; background: var(--border); }
-    .bg-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; }
-    .section-eyebrow { display: inline-flex; align-items: center; gap: 12px; font-size: 11px; font-weight: 700; letter-spacing: 0.1em; color: var(--gold); margin-bottom: 24px; }
-    .section-eyebrow::before { content: ''; display: inline-block; width: 24px; height: 1px; background: var(--gold); }
-    .section-title { font-family: 'Heebo', sans-serif; font-size: clamp(28px, 3vw, 46px); font-weight: 900; line-height: 1.12; letter-spacing: -0.02em; margin-bottom: 20px; }
-    .bg-tagline { font-size: 16px; line-height: 1.8; color: var(--text-dim); font-weight: 300; margin-bottom: 28px; max-width: 440px; }
+    /* ─────────────────────────  IMPACT  ───────────────────────────── */
+    .impact { background: var(--cream); }
+    .impact-head { max-width: 560px; margin-bottom: 70px; }
+    .impact-head p { margin-top: 16px; font-size: 16.5px; line-height: 1.8; color: var(--text-dim); font-weight: 300; }
+    .impact-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 56px; }
+    .impact-item { border-top: 2px solid var(--text); padding-top: 30px; position: relative; }
+    .impact-item::before { content: ''; position: absolute; top: -2px; right: 0; width: 0; height: 2px; background: var(--accent); transition: width 1s cubic-bezier(.16,1,.3,1) .3s; }
+    .impact-item.in::before { width: 52px; }
+    .impact-num { font-family: var(--num); font-size: clamp(64px, 7.5vw, 108px); font-weight: 700; line-height: .95; letter-spacing: -0.03em; color: var(--text); display: flex; align-items: baseline; gap: 10px; direction: ltr; justify-content: flex-end; }
+    .impact-num .unit { font-family: 'Heebo', sans-serif; font-size: clamp(20px, 2vw, 30px); font-weight: 700; color: var(--accent); }
+    .impact-claim { font-size: 19px; font-weight: 700; margin: 18px 0 10px; }
+    .impact-detail { font-size: 14.5px; line-height: 1.75; color: var(--text-dim); font-weight: 300; }
 
-    /* Military badge */
-    .military-badge {
-      display: inline-flex; align-items: center; gap: 10px;
-      background: rgba(var(--gold-rgb), 0.07);
-      border: 1px solid rgba(var(--gold-rgb), 0.2);
-      padding: 10px 16px; margin-bottom: 20px;
-      font-size: 12px; font-weight: 600; color: var(--gold);
+    /* ─────────────────────────  STORY / TIMELINE  ─────────────────── */
+    .story { background: var(--cream-2); border-top: 1px solid var(--border); }
+    .story-grid { display: grid; grid-template-columns: 1fr 1.1fr; gap: 90px; align-items: start; }
+    .story-sticky { position: sticky; top: 110px; }
+    .story h2 .accent-w { color: var(--accent); }
+    .story-tagline { margin: 22px 0 30px; font-size: 16.5px; line-height: 1.85; color: var(--text-dim); font-weight: 300; max-width: 440px; }
+    .badge-8200 {
+      display: inline-flex; align-items: center; gap: 10px; margin-bottom: 30px;
+      background: var(--ink); color: var(--w); border-radius: 12px; padding: 13px 20px;
+      font-size: 13.5px; font-weight: 600; box-shadow: 0 12px 34px rgba(7,9,15,.22);
     }
+    .badge-8200 .n { font-family: var(--num); font-size: 19px; font-weight: 700; color: var(--bright); }
+    .company-row { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 30px; }
+    .company-chip { font-size: 12.5px; font-weight: 600; padding: 8px 16px; border: 1px solid var(--border-mid); border-radius: 100px; color: var(--text-dim); background: var(--surface); transition: all .25s; cursor: default; }
+    .company-chip:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-2px); }
+    .link-underline { display: inline-flex; align-items: center; gap: 9px; font-size: 14px; font-weight: 700; color: var(--accent); text-decoration: none; border-bottom: 2px solid rgba(var(--accent-rgb), .3); padding-bottom: 4px; transition: border-color .2s, gap .25s; }
+    .link-underline:hover { border-color: var(--accent); gap: 14px; }
+    .link-underline svg { transform: scaleX(-1); }
+    .timeline { position: relative; padding-right: 34px; }
+    .timeline::before { content: ''; position: absolute; right: 7px; top: 8px; bottom: 8px; width: 2px; background: linear-gradient(var(--border-mid) 60%, var(--accent)); border-radius: 2px; }
+    .tl-item { position: relative; padding-bottom: 42px; }
+    .tl-item:last-child { padding-bottom: 0; }
+    .tl-item::before { content: ''; position: absolute; right: -32px; top: 7px; width: 12px; height: 12px; border-radius: 50%; background: var(--cream-2); border: 2.5px solid var(--text-faint); transition: border-color .4s, box-shadow .4s; }
+    .tl-item.in::before { border-color: var(--accent); }
+    .tl-item.now::before { background: var(--accent); border-color: var(--accent); box-shadow: 0 0 0 5px rgba(var(--accent-rgb), .18); }
+    .tl-tag { font-size: 11.5px; font-weight: 700; letter-spacing: .08em; color: var(--accent); margin-bottom: 7px; }
+    .tl-title { font-size: 18.5px; font-weight: 800; margin-bottom: 7px; }
+    .tl-desc { font-size: 14.5px; line-height: 1.75; color: var(--text-dim); font-weight: 300; max-width: 480px; }
+    .tl-item.now { background: var(--surface); border: 1px solid rgba(var(--accent-rgb), .25); border-radius: 16px; padding: 24px 26px 26px; margin-right: -26px; box-shadow: 0 18px 50px rgba(var(--accent-rgb), .1); }
+    .tl-item.now::before { right: -6px; }
 
-    .bg-companies { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 28px; }
-    .company-chip {
-      font-family: 'Heebo', sans-serif;
-      font-size: 11px; font-weight: 600;
-      padding: 7px 14px; border: 1px solid var(--border-mid);
-      color: var(--text-dim); background: var(--surface);
-      transition: border-color 0.2s, color 0.2s;
+    /* ─────────────────────────  SERVICES  ─────────────────────────── */
+    .services { background: var(--surface); border-top: 1px solid var(--border); }
+    .services-head { display: flex; justify-content: space-between; align-items: flex-end; gap: 50px; margin-bottom: 60px; flex-wrap: wrap; }
+    .services-head p { font-size: 16px; line-height: 1.8; color: var(--text-dim); font-weight: 300; max-width: 380px; }
+    .svc-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+    .svc {
+      position: relative; border: 1px solid var(--border); border-radius: 18px; padding: 30px 28px 24px;
+      background: var(--surface); cursor: pointer; overflow: hidden;
+      transition: transform .35s cubic-bezier(.16,1,.3,1), box-shadow .35s, border-color .3s;
     }
-    .company-chip:hover { border-color: var(--gold); color: var(--gold); }
-    .bg-linkedin {
-      display: inline-flex; align-items: center; gap: 10px;
-      font-family: 'Heebo', sans-serif; font-size: 12px; font-weight: 700;
-      color: var(--gold); text-decoration: none;
-      padding-bottom: 3px; border-bottom: 1px solid rgba(var(--gold-rgb), 0.35);
-      transition: border-color 0.2s, gap 0.25s;
-    }
-    .bg-linkedin:hover { border-color: var(--gold); gap: 14px; }
-    .bg-milestones { display: flex; flex-direction: column; }
-    .milestone {
-      display: grid; grid-template-columns: 110px 1fr; gap: 20px;
-      padding: 22px 0; border-bottom: 1px solid var(--border);
-      align-items: start; transition: padding-right 0.2s; cursor: default;
-    }
-    .milestone:first-child { border-top: 1px solid var(--border); }
-    .milestone:hover { padding-right: 8px; }
-    .milestone.milestone-current {
-      background: rgba(var(--gold-rgb), 0.06);
-      border-right: 2px solid var(--gold);
-      padding-right: 16px; margin-right: -16px;
-    }
-    .milestone.milestone-current:hover { padding-right: 16px; }
-    .milestone-year { font-family: 'Space Grotesk', sans-serif; font-size: 11px; font-weight: 600; color: var(--gold); letter-spacing: 0.06em; padding-top: 2px; }
-    .milestone-title { font-family: 'Heebo', sans-serif; font-size: 14px; font-weight: 700; color: var(--text); margin-bottom: 5px; }
-    .milestone-desc { font-size: 13px; color: var(--text-dim); line-height: 1.6; }
-    .milestone-tag {
-      display: inline-block; font-size: 9px; font-weight: 700;
-      letter-spacing: 0.08em; color: var(--gold);
-      background: var(--gold-pale); padding: 3px 8px;
-      margin-bottom: 5px;
-    }
+    .svc:hover { transform: translateY(-5px); box-shadow: 0 22px 60px rgba(16,19,28,.1); border-color: rgba(var(--accent-rgb), .35); }
+    .svc::before { content: ''; position: absolute; top: 0; right: 0; left: 0; height: 3px; background: linear-gradient(90deg, var(--accent), var(--bright)); transform: scaleX(0); transform-origin: right; transition: transform .45s cubic-bezier(.16,1,.3,1); }
+    .svc:hover::before, .svc.open::before { transform: scaleX(1); }
+    .svc-top { display: flex; align-items: flex-start; justify-content: space-between; margin-bottom: 20px; }
+    .svc-icon { width: 46px; height: 46px; border-radius: 13px; background: rgba(var(--accent-rgb), .08); color: var(--accent); display: flex; align-items: center; justify-content: center; transition: background .3s, color .3s, transform .3s; }
+    .svc:hover .svc-icon { background: var(--accent); color: #fff; transform: scale(1.06) rotate(-4deg); }
+    .svc-num { font-family: var(--num); font-size: 13px; font-weight: 700; color: var(--text-faint); }
+    .svc h3 { font-size: 17.5px; font-weight: 800; margin-bottom: 9px; }
+    .svc-desc { font-size: 14px; line-height: 1.7; color: var(--text-dim); font-weight: 300; }
+    .svc-detail { max-height: 0; overflow: hidden; transition: max-height .5s cubic-bezier(.16,1,.3,1), margin .4s; }
+    .svc.open .svc-detail { max-height: 260px; margin-top: 16px; }
+    .svc-detail-inner { font-size: 13.5px; line-height: 1.8; color: var(--text-dim); border-top: 1px dashed var(--border-mid); padding-top: 16px; }
+    .svc-toggle { display: inline-flex; align-items: center; gap: 7px; margin-top: 18px; font-size: 12px; font-weight: 700; color: var(--accent); }
+    .svc-toggle .plus { width: 20px; height: 20px; border-radius: 50%; border: 1.5px solid var(--accent); display: inline-flex; align-items: center; justify-content: center; transition: transform .4s, background .3s, color .3s; font-size: 13px; line-height: 1; }
+    .svc.open .plus { transform: rotate(45deg); background: var(--accent); color: #fff; }
 
-    /* Services */
-    .services-section { background: var(--surface); padding: 100px 64px; position: relative; }
-    .services-section::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px; background: var(--border); }
-    .services-header { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; margin-bottom: 20px; align-items: end; }
-    .services-desc { font-size: 15px; line-height: 1.8; color: var(--text-dim); font-weight: 300; }
-    .services-hint { display: flex; align-items: center; gap: 8px; margin-bottom: 28px; font-size: 12px; color: var(--text-dimmer); font-style: italic; }
-    .services-hint svg { color: var(--gold); flex-shrink: 0; }
-    .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--border-mid); }
+    /* ─────────────────────────  PROCESS (dark)  ───────────────────── */
+    .process { background: var(--ink); color: var(--w); overflow: hidden; }
+    .process .glow { position: absolute; width: 700px; height: 700px; border-radius: 50%; background: radial-gradient(circle, rgba(var(--bright-rgb), .1) 0%, transparent 70%); top: -280px; left: -180px; pointer-events: none; }
+    .process h2 { color: var(--w); }
+    .process-sub { margin-top: 16px; font-size: 16px; color: var(--w-dim); font-weight: 300; max-width: 460px; line-height: 1.8; }
+    .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; margin-top: 70px; counter-reset: step; }
+    .step { position: relative; border: 1px solid var(--border-d); border-radius: 20px; padding: 34px 30px 30px; background: rgba(255,255,255,.025); backdrop-filter: blur(6px); transition: border-color .3s, background .3s, transform .35s; }
+    .step:hover { border-color: rgba(var(--bright-rgb), .4); background: rgba(var(--bright-rgb), .05); transform: translateY(-5px); }
+    .step-num { font-family: var(--num); font-size: 52px; font-weight: 700; line-height: 1; color: transparent; -webkit-text-stroke: 1.5px rgba(var(--bright-rgb), .65); margin-bottom: 24px; }
+    .step h3 { font-size: 21px; font-weight: 800; margin-bottom: 12px; color: var(--w); }
+    .step p { font-size: 14.5px; line-height: 1.85; color: var(--w-dim); font-weight: 300; }
+    .step-arrow { position: absolute; top: 44px; left: -19px; color: rgba(var(--bright-rgb), .5); z-index: 2; }
+    .step-arrow svg { transform: scaleX(-1); }
+    .process-cta-row { margin-top: 64px; display: flex; align-items: center; gap: 22px; flex-wrap: wrap; }
+    .process-note { font-size: 13.5px; color: var(--w-faint); }
 
-    /* Scanner card */
-    .svc-card-wrap { background: var(--surface); }
-    .svc-card { position: relative; height: 300px; cursor: pointer; overflow: hidden; background: var(--surface); transition: background 0.5s; }
-    .svc-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: var(--gold); transform: scaleX(0); transform-origin: right; transition: transform 0.4s cubic-bezier(0.16,1,0.3,1); z-index: 2; }
-    .svc-card:hover::before { transform: scaleX(1); }
-    .svc-card-beam { position: absolute; top: 0; bottom: 0; width: 3px; z-index: 10; background: linear-gradient(to bottom, transparent, var(--gold), rgba(var(--gold-rgb),0.6), var(--gold), transparent); box-shadow: 0 0 24px 10px rgba(var(--gold-rgb), 0.25); right: -6px; pointer-events: none; transition: none; }
-    .svc-card.scanning .svc-card-beam { right: calc(100% + 6px); transition: right 0.55s cubic-bezier(0.4,0,0.4,1); }
-    .svc-card-front { position: absolute; inset: 0; padding: 36px 32px; display: flex; flex-direction: column; transition: opacity 0.25s 0.2s, transform 0.3s 0.2s; text-align: right; }
-    .svc-card.revealed .svc-card-front { opacity: 0; transform: translateY(-12px); pointer-events: none; transition: opacity 0.2s, transform 0.2s; }
-    .svc-card-back { position: absolute; inset: 0; padding: 32px; display: flex; flex-direction: column; justify-content: space-between; background: var(--text); opacity: 0; transform: translateY(12px); transition: opacity 0.25s, transform 0.3s; pointer-events: none; text-align: right; }
-    .svc-card.revealed .svc-card-back { opacity: 1; transform: translateY(0); transition: opacity 0.3s 0.22s, transform 0.35s 0.22s; pointer-events: all; }
-    .svc-card.revealed { background: var(--text); }
-    .svc-card.revealed::before { transform: scaleX(1); }
-    .service-icon { width: 36px; height: 36px; display: flex; align-items: center; justify-content: center; color: var(--gold); margin-bottom: 22px; transition: transform 0.3s; }
-    .svc-card:hover .service-icon { transform: scale(1.1); }
-    .service-name { font-family: 'Heebo', sans-serif; font-size: 16px; font-weight: 700; color: var(--text); margin-bottom: 10px; }
-    .service-desc { font-size: 13px; line-height: 1.75; color: var(--text-dim); font-weight: 300; }
-    .svc-tap-hint { display: flex; align-items: center; gap: 6px; margin-top: auto; padding-top: 16px; font-size: 11px; font-weight: 600; color: var(--gold); opacity: 0.6; justify-content: flex-end; }
-    .back-name { font-family: 'Heebo', sans-serif; font-size: 11px; font-weight: 700; color: var(--gold); margin-bottom: 12px; }
-    .back-detail { font-size: 13px; line-height: 1.85; color: rgba(250,249,246,0.68); font-weight: 300; flex: 1; }
-    .back-close { display: inline-flex; align-items: center; gap: 6px; font-size: 11px; font-weight: 600; color: rgba(250,249,246,0.3); margin-top: 16px; justify-content: flex-end; }
+    /* ─────────────────────────  LINKEDIN  ─────────────────────────── */
+    .linkedin { background: var(--cream); border-top: 1px solid var(--border); }
+    .li-head { display: flex; align-items: flex-end; justify-content: space-between; gap: 40px; margin-bottom: 56px; flex-wrap: wrap; }
+    .li-head p { margin-top: 14px; font-size: 15.5px; color: var(--text-dim); font-weight: 300; max-width: 480px; line-height: 1.8; }
+    .li-follow {
+      display: inline-flex; align-items: center; gap: 11px; background: #0a66c2; color: #fff;
+      font-size: 14.5px; font-weight: 700; padding: 14px 28px; border-radius: 100px; text-decoration: none;
+      transition: transform .25s, box-shadow .25s; box-shadow: 0 8px 26px rgba(10,102,194,.3); flex-shrink: 0;
+    }
+    .li-follow:hover { transform: translateY(-2px); box-shadow: 0 12px 34px rgba(10,102,194,.45); }
+    .li-scroller-wrap { position: relative; }
+    .li-scroller { display: flex; gap: 18px; overflow-x: auto; scroll-snap-type: x mandatory; padding: 6px 2px 26px; scrollbar-width: none; }
+    .li-scroller::-webkit-scrollbar { display: none; }
+    .li-card {
+      flex: 0 0 340px; scroll-snap-align: start; background: #fff; border: 1px solid var(--border);
+      border-radius: 16px; overflow: hidden; text-decoration: none; color: inherit; display: flex; flex-direction: column;
+      transition: transform .35s cubic-bezier(.16,1,.3,1), box-shadow .35s;
+      direction: ltr; text-align: left;
+    }
+    .li-card:hover { transform: translateY(-6px); box-shadow: 0 24px 60px rgba(16,19,28,.13); }
+    .li-card-head { display: flex; align-items: center; gap: 11px; padding: 16px 18px 12px; }
+    .li-card-head img { width: 44px; height: 44px; border-radius: 50%; object-fit: cover; }
+    .li-name { font-size: 13.5px; font-weight: 700; color: #111; }
+    .li-meta { font-size: 11.5px; color: #888; margin-top: 1px; }
+    .li-in { margin-left: auto; color: #0a66c2; }
+    .li-text { padding: 4px 18px 16px; font-size: 13px; line-height: 1.65; color: #222; flex: 1; }
+    .li-text b { font-weight: 700; }
+    .li-stats { display: flex; justify-content: space-between; align-items: center; padding: 11px 18px; border-top: 1px solid #eee; font-size: 12px; color: #777; }
+    .li-stats .likes { display: flex; align-items: center; gap: 6px; }
+    .li-nav { display: flex; gap: 10px; justify-content: center; margin-top: 8px; }
+    .li-btn { width: 42px; height: 42px; border-radius: 50%; border: 1px solid var(--border-mid); background: var(--surface); color: var(--text-dim); display: flex; align-items: center; justify-content: center; cursor: pointer; transition: all .25s; }
+    .li-btn:hover { background: var(--accent); border-color: var(--accent); color: #fff; }
+    .li-edge { margin-top: 54px; display: flex; align-items: center; gap: 36px; background: var(--surface); border: 1px solid var(--border); border-radius: 20px; padding: 30px 36px; }
+    .li-edge-stat { text-align: center; flex-shrink: 0; padding-left: 32px; border-left: 1px solid var(--border); }
+    .li-edge-num { font-family: var(--num); font-size: 42px; font-weight: 700; color: var(--accent); line-height: 1; direction: ltr; }
+    .li-edge-label { font-size: 12px; color: var(--text-faint); margin-top: 5px; }
+    .li-edge-title { font-size: 20px; font-weight: 800; margin-bottom: 7px; }
+    .li-edge-sub { font-size: 14px; line-height: 1.75; color: var(--text-dim); font-weight: 300; }
 
-    /* LinkedIn Posts - Carousel */
-    .linkedin-section { background: var(--text); padding: 100px 64px; position: relative; overflow: hidden; }
-    .linkedin-section::before { content: ''; position: absolute; top: -300px; right: -200px; width: 700px; height: 700px; border-radius: 50%; background: radial-gradient(circle, rgba(var(--gold-rgb),0.07) 0%, transparent 70%); pointer-events: none; }
-    .linkedin-carousel-wrap { position: relative; margin-top: 56px; }
-    .linkedin-carousel { display: flex; gap: 24px; overflow: hidden; }
-    .li-screenshot {
-      flex: 0 0 calc(33.33% - 16px);
-      background: #fff;
-      border-radius: 8px;
-      box-shadow: 0 20px 60px rgba(0,0,0,0.35), 0 4px 16px rgba(0,0,0,0.2);
-      overflow: hidden;
-      transition: transform 0.4s cubic-bezier(0.16,1,0.3,1), box-shadow 0.4s;
-      cursor: pointer;
-      font-family: -apple-system, 'Segoe UI', Arial, sans-serif;
+    /* ─────────────────────────  CONTACT (dark)  ───────────────────── */
+    .contact { background: var(--ink); color: var(--w); overflow: hidden; text-align: center; }
+    .contact .glow { position: absolute; width: 760px; height: 760px; border-radius: 50%; background: radial-gradient(circle, rgba(var(--bright-rgb), .13) 0%, transparent 70%); top: -300px; left: 50%; transform: translateX(-50%); pointer-events: none; }
+    .contact-inner { max-width: 720px; margin: 0 auto; position: relative; }
+    .contact h2 { color: var(--w); font-size: clamp(34px, 4.4vw, 62px); margin-bottom: 22px; }
+    .contact-sub { font-size: 17.5px; line-height: 1.8; color: var(--w-dim); margin-bottom: 12px; font-weight: 300; }
+    .contact-sub2 { font-size: 14px; color: var(--w-faint); margin-bottom: 52px; }
+    .contact-buttons { display: flex; gap: 15px; justify-content: center; flex-wrap: wrap; }
+    .cbtn {
+      position: relative; overflow: hidden; display: inline-flex; align-items: center; gap: 11px;
+      font-size: 15px; font-weight: 700; padding: 17px 34px; border-radius: 100px; text-decoration: none;
+      transition: transform .25s, box-shadow .25s; will-change: transform;
     }
-    .li-screenshot:hover { transform: translateY(-6px); box-shadow: 0 28px 70px rgba(0,0,0,0.4), 0 6px 20px rgba(0,0,0,0.25); }
-    .li-screenshot:hover .li-hover-overlay { opacity: 1 !important; }
-    /* LinkedIn chrome bar */
-    .li-chrome { background: #fff; padding: 12px 16px 0; border-bottom: 1px solid #e0e0e0; }
-    .li-chrome-top { display: flex; align-items: center; gap: 10px; margin-bottom: 12px; }
-    .li-chrome-avatar { width: 48px; height: 48px; border-radius: 50%; background: linear-gradient(135deg, #456abf, #2d4a8a); display: flex; align-items: center; justify-content: center; color: white; overflow: hidden; font-weight: 700; font-size: 16px; flex-shrink: 0; }
-    .li-chrome-info { flex: 1; }
-    .li-chrome-name { font-size: 14px; font-weight: 600; color: #000; line-height: 1.3; }
-    .li-chrome-meta { font-size: 12px; color: #666; margin-top: 1px; }
-    .li-chrome-logo { color: #0a66c2; }
-    .li-post-content { padding: 14px 16px 12px; font-size: 13.5px; line-height: 1.6; color: #000; direction: rtl; text-align: right; }
-    .li-post-content strong { font-weight: 700; }
-    .li-post-content .li-see-more { color: #666; font-size: 12px; }
-    .li-post-reactions-bar { padding: 6px 16px 8px; display: flex; align-items: center; justify-content: space-between; border-top: 1px solid #e0e0e0; }
-    .li-post-reaction-emojis { font-size: 15px; letter-spacing: -2px; }
-    .li-post-counts { font-size: 12px; color: #666; display: flex; gap: 12px; }
-    .li-post-actions { display: flex; justify-content: space-around; padding: 4px 8px 8px; border-top: 1px solid #e0e0e0; gap: 4px; }
-    .li-action-btn { flex: 1; display: flex; align-items: center; justify-content: center; gap: 5px; padding: 8px 4px; border-radius: 4px; font-size: 12px; color: #666; font-weight: 600; cursor: pointer; transition: background 0.15s; }
-    .li-action-btn:hover { background: #f3f3f3; }
-    /* Carousel nav */
-    .carousel-nav { display: flex; align-items: center; justify-content: center; gap: 16px; margin-top: 36px; }
-    .carousel-btn { width: 40px; height: 40px; border-radius: 50%; border: 1px solid rgba(255,255,255,0.15); background: rgba(255,255,255,0.06); color: rgba(255,255,255,0.6); display: flex; align-items: center; justify-content: center; cursor: pointer; transition: background 0.2s, color 0.2s, border-color 0.2s; }
-    .carousel-btn:hover { background: var(--gold); border-color: var(--gold); color: #fff; }
-    .carousel-dots { display: flex; gap: 8px; }
-    .carousel-dot { width: 6px; height: 6px; border-radius: 50%; background: rgba(255,255,255,0.2); transition: background 0.3s, transform 0.3s; cursor: pointer; }
-    .carousel-dot.active { background: var(--gold); transform: scale(1.3); }
-    /* LinkedIn hero CTA */
-    .linkedin-hero-cta {
-      display: inline-flex; align-items: center; gap: 14px;
-      background: #0a66c2; color: #fff;
-      padding: 16px 32px;
-      font-family: 'Heebo', sans-serif; font-size: 15px; font-weight: 700;
-      text-decoration: none;
-      transition: transform 0.25s, box-shadow 0.25s, background 0.2s;
-      position: relative; overflow: hidden;
-    }
-    .linkedin-hero-cta::after { content: ''; position: absolute; inset: 0; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.15), transparent); transform: translateX(100%); transition: transform 0.5s; }
-    .linkedin-hero-cta:hover { background: #004182; transform: translateY(-2px); box-shadow: 0 12px 36px rgba(10,102,194,0.45); }
-    .linkedin-hero-cta:hover::after { transform: translateX(-100%); }
-    .linkedin-edge-box {
-      background: rgba(255,255,255,0.04);
-      border: 1px solid rgba(255,255,255,0.1);
-      padding: 32px 36px;
-      display: flex; align-items: center; gap: 32px;
-      margin-top: 56px;
-    }
-    .linkedin-edge-text { flex: 1; text-align: right; }
-    .linkedin-edge-title { font-family: 'Heebo', sans-serif; font-size: 22px; font-weight: 800; color: #faf9f6; margin-bottom: 8px; line-height: 1.2; }
-    .linkedin-edge-sub { font-size: 14px; color: rgba(250,249,246,0.5); line-height: 1.7; font-weight: 300; }
-    .linkedin-edge-stat { text-align: center; flex-shrink: 0; padding: 0 24px; border-right: 1px solid rgba(255,255,255,0.08); }
-    .linkedin-edge-stat-num { font-family: 'Space Grotesk', sans-serif; font-size: 40px; font-weight: 700; color: var(--gold); line-height: 1; }
-    .linkedin-edge-stat-label { font-size: 11px; color: rgba(250,249,246,0.4); margin-top: 4px; }
+    .cbtn:hover { transform: translateY(-3px); }
+    .cbtn-meet { background: var(--bright); color: #0a0e18; box-shadow: 0 8px 30px rgba(var(--bright-rgb), .4); }
+    .cbtn-meet:hover { box-shadow: 0 14px 42px rgba(var(--bright-rgb), .55); }
+    .cbtn-meet small { font-size: 11px; font-weight: 500; opacity: .7; }
+    .cbtn-wa { background: rgba(37,211,102,.12); color: #35e57e; border: 1px solid rgba(37,211,102,.35); }
+    .cbtn-wa:hover { background: rgba(37,211,102,.2); box-shadow: 0 10px 30px rgba(37,211,102,.2); }
+    .cbtn-mail { background: rgba(255,255,255,.06); color: var(--w); border: 1px solid var(--border-d); }
+    .cbtn-mail:hover { background: rgba(255,255,255,.12); }
+    .contact-note { margin-top: 30px; font-size: 12.5px; color: var(--w-faint); }
 
-    /* Testimonials - redesigned clean white */
-    .testimonials-section { background: var(--bg); padding: 100px 64px; position: relative; overflow: hidden; }
-    .testimonials-section::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px; background: var(--border); }
-    .testimonials-intro { max-width: 540px; margin-bottom: 64px; }
-    .testimonials-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
-    .tcard {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      padding: 36px 32px 28px;
-      position: relative;
-      display: flex; flex-direction: column; gap: 24px;
-      transition: box-shadow 0.35s cubic-bezier(0.16,1,0.3,1), transform 0.35s cubic-bezier(0.16,1,0.3,1), border-color 0.25s;
-      cursor: default;
-    }
-    .tcard:hover { box-shadow: 0 16px 48px rgba(14,14,12,0.09); transform: translateY(-4px); border-color: var(--border-mid); }
-    .tcard-featured { border-color: rgba(var(--gold-rgb),0.25); }
-    .tcard-featured:hover { border-color: rgba(var(--gold-rgb),0.5); box-shadow: 0 16px 48px rgba(var(--gold-rgb),0.1); }
-    .tcard-quote {
-      font-size: 14px; line-height: 1.85; color: var(--text);
-      font-weight: 400; flex: 1;
-    }
-    .tcard-quote::before {
-      content: '"';
-      font-family: 'Space Grotesk', sans-serif;
-      font-size: 56px; line-height: 0.75;
-      color: var(--gold); opacity: 0.5;
-      display: block; margin-bottom: 16px;
-    }
-    .tcard-quote strong { font-weight: 700; color: var(--text); }
-    .tcard-author { display: flex; align-items: center; gap: 14px; padding-top: 20px; border-top: 1px solid var(--border); }
-    .tcard-avatar {
-      width: 40px; height: 40px; border-radius: 50%; flex-shrink: 0;
-      background: var(--gold-pale);
-      border: 1.5px solid rgba(var(--gold-rgb),0.25);
-      display: flex; align-items: center; justify-content: center;
-      font-family: 'Space Grotesk', sans-serif; font-size: 12px; font-weight: 700; color: var(--gold);
-    }
-    .tcard-name { font-family: 'Heebo', sans-serif; font-size: 13px; font-weight: 700; color: var(--text); margin-bottom: 2px; }
-    .tcard-role { font-size: 11px; color: var(--text-dimmer); line-height: 1.4; }
-    .tcard-badge { position: absolute; top: -1px; right: 24px; background: var(--gold); color: white; font-size: 9px; font-weight: 700; letter-spacing: 0.08em; padding: 4px 10px; }
-    .li-post {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      padding: 24px;
-      position: relative;
-      transition: box-shadow 0.3s, transform 0.3s;
-      cursor: default;
-    }
-    .li-post:hover { box-shadow: 0 12px 40px rgba(14,14,12,0.1); transform: translateY(-4px); }
-    .li-post-header { display: flex; align-items: center; gap: 12px; margin-bottom: 16px; }
-    .li-avatar {
-      width: 44px; height: 44px; border-radius: 50%;
-      background: var(--gold-pale);
-      border: 2px solid var(--gold-light);
-      display: flex; align-items: center; justify-content: center;
-      font-family: 'Space Grotesk', sans-serif;
-      font-size: 16px; font-weight: 700; color: var(--gold);
-      flex-shrink: 0;
-    }
-    .li-author { flex: 1; text-align: right; }
-    .li-author-name { font-size: 14px; font-weight: 700; color: var(--text); margin-bottom: 2px; }
-    .li-author-title { font-size: 11px; color: var(--text-dim); line-height: 1.4; }
-    .li-logo { margin-right: auto; opacity: 0.35; }
-    .li-post-text { font-size: 13px; line-height: 1.8; color: var(--text); margin-bottom: 16px; font-weight: 400; }
-    .li-post-text strong { font-weight: 700; color: var(--text); }
-    .li-post-footer { display: flex; align-items: center; justify-content: space-between; padding-top: 14px; border-top: 1px solid var(--border); }
-    .li-reactions { display: flex; align-items: center; gap: 6px; font-size: 11px; color: var(--text-dim); }
-    .li-reaction-emojis { font-size: 14px; letter-spacing: -3px; }
-    .li-timestamp { font-size: 11px; color: var(--text-dimmer); }
-    .li-featured {
-      border-color: rgba(var(--gold-rgb), 0.3);
-      background: linear-gradient(135deg, #fff 0%, rgba(var(--gold-rgb),0.03) 100%);
-    }
-    .li-featured-badge {
-      position: absolute; top: -1px; right: 24px;
-      background: var(--gold); color: white;
-      font-size: 9px; font-weight: 700; letter-spacing: 0.08em;
-      padding: 4px 10px;
-    }
+    /* ─────────────────────────  FOOTER  ───────────────────────────── */
+    footer { background: var(--ink); border-top: 1px solid var(--border-d); padding: 30px 56px; display: flex; align-items: center; justify-content: space-between; gap: 14px; flex-wrap: wrap; }
+    .foot-name { font-size: 13px; font-weight: 700; color: var(--w-dim); }
+    .foot-links { display: flex; gap: 22px; }
+    .foot-links a { font-size: 12.5px; color: var(--w-faint); text-decoration: none; transition: color .2s; }
+    .foot-links a:hover { color: var(--bright); }
+    .foot-copy { font-size: 12px; color: var(--w-faint); direction: ltr; }
 
-    /* Contact */
-    .contact-section { background: var(--text); padding: 100px 64px; position: relative; overflow: hidden; text-align: center; }
-    .contact-section::before { content: ''; position: absolute; top: -200px; left: 50%; transform: translateX(-50%); width: 600px; height: 600px; border-radius: 50%; background: radial-gradient(circle, rgba(var(--gold-rgb),0.1) 0%, transparent 70%); pointer-events: none; }
-    .contact-inner { max-width: 700px; margin: 0 auto; position: relative; }
-    .contact-eyebrow { display: inline-flex; align-items: center; gap: 12px; font-size: 11px; font-weight: 700; letter-spacing: 0.1em; color: var(--gold); margin-bottom: 24px; justify-content: center; }
-    .contact-eyebrow::after { content: ''; display: inline-block; width: 24px; height: 1px; background: var(--gold); }
-    .contact-title { font-family: 'Heebo', sans-serif; font-size: clamp(32px, 4vw, 56px); font-weight: 900; color: #faf9f6; line-height: 1.1; letter-spacing: -0.02em; margin-bottom: 20px; }
-    .contact-sub { font-size: 18px; line-height: 1.8; color: rgba(250,249,246,0.5); margin-bottom: 16px; font-weight: 300; }
-    .contact-sub2 { font-size: 14px; line-height: 1.7; color: rgba(250,249,246,0.35); margin-bottom: 52px; font-weight: 300; }
-    .contact-buttons { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
-    .contact-btn {
-      display: inline-flex; align-items: center; gap: 12px;
-      font-family: 'Heebo', sans-serif; font-size: 14px; font-weight: 700;
-      padding: 18px 40px; text-decoration: none;
-      position: relative; overflow: hidden;
-      transition: transform 0.25s, box-shadow 0.25s;
+    /* ─────────────────────────  WHATSAPP FAB  ─────────────────────── */
+    .wa-fab {
+      position: fixed; bottom: 22px; left: 22px; z-index: 950;
+      width: 56px; height: 56px; border-radius: 50%; background: #25D366; color: #fff;
+      display: flex; align-items: center; justify-content: center; text-decoration: none;
+      box-shadow: 0 10px 30px rgba(37,211,102,.45);
+      transition: transform .25s, box-shadow .25s, opacity .4s, visibility .4s;
+      opacity: 0; visibility: hidden; transform: translateY(14px);
     }
-    .contact-btn::after { content: ''; position: absolute; inset: 0; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.14), transparent); transform: translateX(100%); transition: transform 0.5s ease; }
-    .contact-btn:hover { transform: translateY(-3px); }
-    .contact-btn:hover::after { transform: translateX(-100%); }
-    .contact-btn-meet { background: #1a73e8; color: #fff; }
-    .contact-btn-meet:hover { box-shadow: 0 12px 36px rgba(26,115,232,0.45); }
-    .contact-btn-whatsapp { background: rgba(37,211,102,0.15); color: #25D366; border: 1px solid rgba(37,211,102,0.3); }
-    .contact-btn-whatsapp:hover { background: rgba(37,211,102,0.22); box-shadow: 0 12px 36px rgba(37,211,102,0.2); }
-    .contact-btn-email { background: rgba(255,255,255,0.07); color: #faf9f6; border: 1px solid rgba(255,255,255,0.14); }
-    .contact-btn-email:hover { background: rgba(255,255,255,0.13); box-shadow: 0 12px 36px rgba(255,255,255,0.07); }
-    .contact-note { margin-top: 32px; font-size: 12px; color: rgba(250,249,246,0.28); }
-    .meet-label-small { display: block; font-size: 10px; font-weight: 400; opacity: 0.7; margin-top: 2px; }
+    .wa-fab.show { opacity: 1; visibility: visible; transform: none; }
+    .wa-fab:hover { transform: scale(1.08); box-shadow: 0 14px 38px rgba(37,211,102,.6); }
 
-    /* Footer */
-    footer { border-top: 1px solid rgba(255,255,255,0.07); padding: 28px 64px; display: flex; align-items: center; justify-content: space-between; background: var(--text); }
-    .footer-name { font-family: 'Space Grotesk', sans-serif; font-size: 12px; font-weight: 600; color: rgba(250,249,246,0.35); letter-spacing: 0.06em; text-transform: uppercase; }
-    .footer-copy { font-size: 12px; color: rgba(250,249,246,0.2); }
-    .footer-privacy { font-size: 12px; color: rgba(250,249,246,0.25); text-decoration: none; transition: color 0.2s; }
-    .footer-privacy:hover { color: rgba(250,249,246,0.6); }
-
-    /* Scroll reveal */
-    .reveal { opacity: 0; transform: translateY(32px); transition: opacity 0.85s cubic-bezier(0.16,1,0.3,1), transform 0.85s cubic-bezier(0.16,1,0.3,1); }
-    .reveal.visible { opacity: 1; transform: translateY(0); }
-    .reveal-delay-1 { transition-delay: 0.1s; }
-    .reveal-delay-2 { transition-delay: 0.2s; }
-    .reveal-delay-3 { transition-delay: 0.32s; }
-
-    /* Responsive */
+    /* ─────────────────────────  RESPONSIVE  ───────────────────────── */
+    @media (max-width: 1080px) {
+      .chip-1 { right: -14px; } .chip-2 { left: -18px; }
+    }
     @media (max-width: 960px) {
-      .linkedin-carousel { flex-direction: column; }
-      .li-screenshot { flex: 0 0 100%; }
-      .linkedin-edge-box { flex-direction: column; gap: 20px; }
-      .linkedin-edge-stat { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.08); padding: 0 0 16px 0; width: 100%; }
-      nav { padding: 18px 24px; } nav.scrolled { padding: 14px 24px; } .nav-links { display: none; }
-      .hero { grid-template-columns: 1fr; padding: 100px 24px 60px; gap: 48px; }
-      .hero-image-wrap { order: -1; } .photo-frame { width: 260px; }
-      .impact-section, .how-section, .background-section, .services-section, .contact-section, .testimonials-section { padding: 70px 24px; }
-      .impact-grid, .how-steps, .bg-layout, .services-header { grid-template-columns: 1fr; gap: 48px; }
-      .impact-grid::before, .impact-grid::after { display: none; }
-      .impact-item, .impact-item:not(:last-child), .impact-item:last-child { padding: 0 0 40px 0; border-bottom: 1px solid var(--border); }
-      .how-step, .how-step:not(:last-child), .how-step:last-child { padding: 0 0 40px 0; border-right: none; }
-      .services-grid { grid-template-columns: 1fr; }
-      .testimonials-grid { grid-template-columns: 1fr; }
-      .tcard { padding: 28px 24px; }
-      .contact-buttons { flex-direction: column; align-items: center; }
-      footer { flex-direction: column; gap: 8px; padding: 24px; text-align: center; }
-      .milestone { grid-template-columns: 90px 1fr; }
+      nav, nav.scrolled { padding-left: 20px; padding-right: 20px; }
+      .nav-links { display: none; }
+      .nav-cta { display: none; }
+      .hero { grid-template-columns: 1fr; padding: 116px 22px 96px; gap: 56px; text-align: center; }
+      .hero-content { max-width: 100%; }
+      .hero-sub { margin-inline: auto; }
+      .hero-actions { justify-content: center; }
+      .hero-trust { justify-content: center; gap: 16px 22px; }
+      .hero-visual { order: -1; }
+      .portrait { width: min(250px, 64vw); }
+      .chip-1 { top: 10px; right: -20px; } .chip-2 { bottom: 60px; left: -24px; } .chip-3 { bottom: -16px; right: 8px; }
+      .chip { padding: 9px 14px; } .chip-value { font-size: 12.5px; }
+      .scroll-cue { display: none; }
+      .wrap { padding: 76px 22px; }
+      .impact-grid, .svc-grid, .steps { grid-template-columns: 1fr; }
+      .impact-grid { gap: 44px; }
+      .story-grid { grid-template-columns: 1fr; gap: 60px; }
+      .story-sticky { position: static; }
+      .step-arrow { display: none; }
+      .li-edge { flex-direction: column; text-align: center; padding: 28px 22px; gap: 20px; }
+      .li-edge-stat { border-left: none; border-top: 1px solid var(--border); padding: 20px 0 0; width: 100%; }
+      .li-card { flex: 0 0 84%; }
+      footer { flex-direction: column; text-align: center; padding: 26px 20px; }
+      .contact-buttons { flex-direction: column; align-items: stretch; max-width: 340px; margin-inline: auto; }
+      .cbtn { justify-content: center; }
     }
   </style>
 </head>
 <body>
-<div id="cursor-glow"></div>
-<div id="root"></div>
+
+<div id="progress"></div>
+
+<nav class="on-dark" id="nav" aria-label="ניווט ראשי">
+  <a href="#" class="nav-logo"><span class="dot"></span>עומר מורן</a>
+  <ul class="nav-links">
+    <li><a href="#impact">תוצאות</a></li>
+    <li><a href="#story">מי אני</a></li>
+    <li><a href="#services">שירותים</a></li>
+    <li><a href="#process">איך זה עובד</a></li>
+    <li><a href="#contact">יצירת קשר</a></li>
+  </ul>
+  <div class="nav-side">
+    <div class="lang-toggle" aria-label="בחירת שפה">
+      <a href="/he" class="lang-btn active" aria-current="true">HE</a>
+      <a href="/en" class="lang-btn">EN</a>
+    </div>
+    <a href="#contact" class="nav-cta">קביעת שיחה</a>
+  </div>
+</nav>
+
+<!-- ═══════════════ HERO ═══════════════ -->
+<header class="hero" id="top">
+  <canvas id="net" aria-hidden="true"></canvas>
+  <div class="hero-aurora" aria-hidden="true"></div>
+  <div class="hero-vignette" aria-hidden="true"></div>
+
+  <div class="hero-content">
+    <p class="hero-badge"><span class="pulse"></span>מקבל לקוחות חדשים · בוגר יחידה 8200</p>
+    <h1>
+      <span class="hline"><span class="hword" style="animation-delay:.35s">היתרון</span> <span class="hword" style="animation-delay:.45s">שהמתחרים</span></span>
+      <span class="hline"><span class="hword" style="animation-delay:.58s">שלך</span> <span class="hword grad" style="animation-delay:.7s">עדיין לא גילו.</span></span>
+    </h1>
+    <p class="hero-sub">אני עוזר לעסקים קטנים ובינוניים להטמיע AI שעובד באמת — <strong>אוטומציות חכמות וסוכני AI</strong> שמייצרים תוצאות מסביב לשעון. בלי ז'רגון, בלי פרויקטים אינסופיים.</p>
+    <div class="hero-actions">
+      <a href="https://calendar.app.google/a1bvMsk7oMrTWYzQ9" target="_blank" rel="noopener" class="btn-hero magnetic">
+        קביעת שיחה חינם
+        <small>· 30 דק'</small>
+      </a>
+      <a href="#impact" class="btn-ghost-d">מה זה שווה לעסק שלך
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+    <div class="hero-trust">
+      <span class="trust-item"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>יחידה 8200</span>
+      <span class="trust-item"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>ZoomInfo · Connecteam</span>
+      <span class="trust-item"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>4K+ עוקבים בלינקדאין</span>
+    </div>
+  </div>
+
+  <div class="hero-visual">
+    <div class="portrait">
+      <div class="portrait-ring" aria-hidden="true"></div>
+      <div class="portrait-img-wrap">
+        <picture>
+          <source srcset="/uploads/omer-520.webp 520w, /uploads/omer-880.webp 880w" sizes="(max-width: 960px) 74vw, 400px" type="image/webp" />
+          <img src="/uploads/omer-880.jpg" alt="עומר מורן — מומחה AI לעסקים" width="880" height="880" fetchpriority="high" />
+        </picture>
+      </div>
+      <div class="chip chip-1">
+        <div class="chip-label">רקע</div>
+        <div class="chip-value">יחידה 8200 🎖️</div>
+      </div>
+      <div class="chip chip-2">
+        <div class="chip-label">ניסיון</div>
+        <div class="chip-value">ZoomInfo · Connecteam</div>
+      </div>
+      <div class="chip chip-3">
+        <div class="chip-label">זמינות</div>
+        <div class="chip-value">מענה תוך שעות ⚡</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="scroll-cue" aria-hidden="true"><span>גלול</span><span class="line"></span></div>
+</header>
+
+<!-- ═══════════════ MARQUEE ═══════════════ -->
+<div class="marquee" aria-hidden="true">
+  <div class="marquee-track" id="mq"></div>
+</div>
+
+<!-- ═══════════════ IMPACT ═══════════════ -->
+<section class="impact" id="impact">
+  <div class="wrap">
+    <div class="impact-head rv">
+      <p class="eyebrow">למה עכשיו</p>
+      <h2>המספרים לא משקרים.</h2>
+      <p>עסקים שמאמצים AI מוקדם לא סתם מתייעלים — הם משחקים במגרש אחר. הנה מה שקורה כשעושים את זה נכון:</p>
+    </div>
+    <div class="impact-grid">
+      <div class="impact-item rv" style="--d:.05s">
+        <div class="impact-num"><span data-count="9" data-suffix="×">0</span><span class="unit">מהר יותר</span></div>
+        <div class="impact-claim">קצב צמיחה עסקית</div>
+        <div class="impact-detail">עסקים שמאמצים AI מוקדם לא רק צומחים — הם מתחרים ברמה אחרת. כל שבוע שעובר, הפער מהמתחרים מתרחב.</div>
+      </div>
+      <div class="impact-item rv" style="--d:.15s">
+        <div class="impact-num"><span data-count="80" data-suffix="%">0</span></div>
+        <div class="impact-claim">פחות עבודה ידנית</div>
+        <div class="impact-detail">רוב מה שהצוות שלך עושה היום אפשר להפוך לאוטומטי. הזמן שמתפנה חוזר לדברים שבאמת מזיזים את העסק קדימה.</div>
+      </div>
+      <div class="impact-item rv" style="--d:.25s">
+        <div class="impact-num"><span data-count="4">0</span><span class="unit">שבועות</span></div>
+        <div class="impact-claim">משיחה ראשונה למערכת חיה</div>
+        <div class="impact-detail">לא פרויקטים של חצי שנה. לא אינסוף ישיבות. תוך שבועות מהשיחה הראשונה כבר רצות אצלך מערכות עובדות.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ STORY / TIMELINE ═══════════════ -->
+<section class="story" id="story">
+  <div class="wrap">
+    <div class="story-grid">
+      <div class="story-sticky rv">
+        <p class="eyebrow">מי אני</p>
+        <h2>מיחידה 8200<br /><span class="accent-w">עד העסק שלך.</span></h2>
+        <p class="story-tagline">שירתתי ביחידות הטכנולוגיות המובחרות של ישראל, עבדתי בחברות טק מהצומחות בעולם, והקמתי סטארט-אפ משלי. היום אני מביא את כל הניסיון הזה למקום אחד — העסק שלך.</p>
+        <div class="badge-8200"><span class="n">8200</span>בוגר ומשרת מילואים פעיל ביחידה</div>
+        <div class="company-row">
+          <span class="company-chip">יחידה 8200</span>
+          <span class="company-chip">ZoomInfo</span>
+          <span class="company-chip">Connecteam</span>
+          <span class="company-chip">מייסד סטארט-אפ</span>
+        </div>
+        <a href="https://www.linkedin.com/in/omer-moran-8aa07616b" target="_blank" rel="noopener" class="link-underline">
+          לפרופיל LinkedIn המלא
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+      <div class="timeline">
+        <div class="tl-item rv">
+          <div class="tl-tag">צבא</div>
+          <div class="tl-title">מנהל מוצר ואנליסט בכיר · יחידה 8200</div>
+          <div class="tl-desc">שירות ביחידת המודיעין המובחרת בצה"ל. שם למדתי לחשוב תחת לחץ, לפתור בעיות מורכבות ולהוביל בסביבה עם אפס סבלנות לכישלון.</div>
+        </div>
+        <div class="tl-item rv" style="--d:.08s">
+          <div class="tl-tag">יזמות</div>
+          <div class="tl-title">שותף מייסד בסטארט-אפ</div>
+          <div class="tl-desc">הקמתי חברה משלי מאפס. למדתי מה זה לבנות משהו אמיתי, לקבל החלטות קשות תחת אי-ודאות — ולצמוח מהר.</div>
+        </div>
+        <div class="tl-item rv" style="--d:.16s">
+          <div class="tl-tag">ZoomInfo</div>
+          <div class="tl-title">בתוך המנוע של חברה בשווי מיליארדים</div>
+          <div class="tl-desc">עבדתי באחת מחברות ה-B2B המובילות בעולם — ראיתי איך צוותים ברמה עולמית בונים מוצרים שמשרתים מיליוני משתמשים.</div>
+        </div>
+        <div class="tl-item rv" style="--d:.24s">
+          <div class="tl-tag">Connecteam</div>
+          <div class="tl-title">בניית כלים שעסקים באמת אוהבים</div>
+          <div class="tl-desc">עזרתי לסטארט-אפ בצמיחה מהירה לבנות פתרונות שמנהלים ובעלי עסקים קטנים משתמשים בהם כל יום — הבנתי מה גורם לטכנולוגיה לעבוד בשטח.</div>
+        </div>
+        <div class="tl-item now rv" style="--d:.32s">
+          <div class="tl-tag">היום</div>
+          <div class="tl-title">מומחה AI לעסקים שרוצים לנצח</div>
+          <div class="tl-desc">אני משתמש בכל מה שלמדתי — מהצבא, מחברות הטק ומהיזמות — כדי לתת לעסק שלך את היתרון התחרותי שעד היום רק חברות ענק הרשו לעצמן.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ SERVICES ═══════════════ -->
+<section class="services" id="services">
+  <div class="wrap">
+    <div class="services-head">
+      <div class="rv">
+        <p class="eyebrow">שירותים</p>
+        <h2>שש דרכים לשדרג<br />את העסק שלך.</h2>
+      </div>
+      <p class="rv" style="--d:.1s">כל עבודה משותפת מתחילה בהבנה עמוקה של העסק שלך. אחר כך אני בונה בדיוק את מה שצריך — ושום דבר מיותר.</p>
+    </div>
+    <div class="svc-grid">
+
+      <div class="svc rv" style="--d:.02s">
+        <div class="svc-top">
+          <div class="svc-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></div>
+          <span class="svc-num">01</span>
+        </div>
+        <h3>אוטומציה של תהליכים</h3>
+        <p class="svc-desc">תנו למכונות לטפל בשגרה — אתם תתמקדו במה שחשוב.</p>
+        <div class="svc-detail"><div class="svc-detail-inner">אני ממפה את כל הפעילות העסקית שלך, מאתר איפה נשרפים זמן וכסף, ובונה תהליכים חכמים שרצים לבד. הצוות מתפנה לעבודה שמייצרת צמיחה אמיתית.</div></div>
+        <span class="svc-toggle"><span class="plus">+</span>לפרטים</span>
+      </div>
+
+      <div class="svc rv" style="--d:.08s">
+        <div class="svc-top">
+          <div class="svc-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+          <span class="svc-num">02</span>
+        </div>
+        <h3>סוכני AI אוטונומיים</h3>
+        <p class="svc-desc">AI שעובד בשבילך — גם כשאתה לא שם.</p>
+        <div class="svc-detail"><div class="svc-detail-inner">סוכני AI הם הרבה מעבר לצ'טבוטים — הם מבצעים: מעקב אחרי לידים, עיבוד הזמנות, מענה ללקוחות, תיאום פגישות. העסק ממשיך לרוץ מסביב לשעון.</div></div>
+        <span class="svc-toggle"><span class="plus">+</span>לפרטים</span>
+      </div>
+
+      <div class="svc rv" style="--d:.14s">
+        <div class="svc-top">
+          <div class="svc-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/></svg></div>
+          <span class="svc-num">03</span>
+        </div>
+        <h3>אסטרטגיית AI</h3>
+        <p class="svc-desc">מפת דרכים ברורה — בדיוק לעסק שלך.</p>
+        <div class="svc-detail"><div class="svc-detail-inner">לא כל AI מתאים לכל עסק. אני בונה אסטרטגיה מותאמת לגודל, לתקציב ולמטרות שלך — עם תוכנית שלב-אחר-שלב, כדי שתדע בדיוק מה לבנות, מתי ולמה.</div></div>
+        <span class="svc-toggle"><span class="plus">+</span>לפרטים</span>
+      </div>
+
+      <div class="svc rv" style="--d:.02s">
+        <div class="svc-top">
+          <div class="svc-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M4.22 4.22l2.12 2.12M17.66 17.66l2.12 2.12M2 12h3M19 12h3M4.22 19.78l2.12-2.12M17.66 6.34l2.12-2.12"/></svg></div>
+          <span class="svc-num">04</span>
+        </div>
+        <h3>AI מותאם לעסק שלך</h3>
+        <p class="svc-desc">שמכיר את העסק — ומדבר בשפה שלו.</p>
+        <div class="svc-detail"><div class="svc-detail-inner">AI גנרי נותן תוצאות גנריות. אני בונה יכולות AI ספציפיות לך — מאומנות על התהליכים, המוצרים והלקוחות שלך. מומחה שמכיר את העסק מבפנים, זמין 24/7.</div></div>
+        <span class="svc-toggle"><span class="plus">+</span>לפרטים</span>
+      </div>
+
+      <div class="svc rv" style="--d:.08s">
+        <div class="svc-top">
+          <div class="svc-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg></div>
+          <span class="svc-num">05</span>
+        </div>
+        <h3>אסטרטגיית צמיחה</h3>
+        <p class="svc-desc">לגלות הכנסות שמסתתרות בעסק — עם AI כנשק.</p>
+        <div class="svc-detail"><div class="svc-detail-inner">אני מנתח את העסק ומוצא איפה כסף נשאר על הרצפה — תמחור, המרות, שימור לקוחות, ערוצים חדשים — ובונה תוכנית מבוססת AI ללכוד את כולו.</div></div>
+        <span class="svc-toggle"><span class="plus">+</span>לפרטים</span>
+      </div>
+
+      <div class="svc rv" style="--d:.14s">
+        <div class="svc-top">
+          <div class="svc-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M20 21a8 8 0 1 0-16 0"/></svg></div>
+          <span class="svc-num">06</span>
+        </div>
+        <h3>טרנספורמציה מלאה</h3>
+        <p class="svc-desc">ממסורתי לעסק מונע AI — בקצב שמתאים לך.</p>
+        <div class="svc-detail"><div class="svc-detail-inner">המסע המלא. אני משלב AI בכל שכבה של העסק לאורך זמן — צוות, תפעול, חוויית לקוח. לא צריך ידע טכני, רק שאיפה. בכל השאר אני מטפל.</div></div>
+        <span class="svc-toggle"><span class="plus">+</span>לפרטים</span>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ PROCESS (dark) ═══════════════ -->
+<section class="process" id="process">
+  <div class="glow" aria-hidden="true"></div>
+  <div class="wrap">
+    <div class="rv">
+      <p class="eyebrow on-dark">איך זה עובד</p>
+      <h2>שלושה שלבים.<br />תוצאות אמיתיות.</h2>
+      <p class="process-sub">בלי מצגות של 60 עמודים ובלי התחייבויות ארוכות. תהליך פשוט שמתחיל בשיחה — ונגמר במערכות שעובדות.</p>
+    </div>
+    <div class="steps">
+      <div class="step rv" style="--d:.05s">
+        <div class="step-num">01</div>
+        <h3>מאבחנים</h3>
+        <p>מתחילים בשיחה חינמית של 30 דקות. אני שואל את השאלות הנכונות כדי להבין את העסק, את צווארי הבקבוק — ואיפה AI ישפיע הכי חזק, הכי מהר.</p>
+      </div>
+      <div class="step rv" style="--d:.15s">
+        <div class="step-arrow" aria-hidden="true"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+        <div class="step-num">02</div>
+        <h3>בונים</h3>
+        <p>אני מתכנן ומטמיע מערכות AI מותאמות לעסק שלך. לא כלים גנריים, לא סיבוך מיותר לצוות. רק דברים שעובדים.</p>
+      </div>
+      <div class="step rv" style="--d:.25s">
+        <div class="step-arrow" aria-hidden="true"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+        <div class="step-num">03</div>
+        <h3>צומחים</h3>
+        <p>העסק מנהל יותר, מגיב מהר יותר, וגדל בלי להגדיל כוח אדם. ה-AI ממשיך להשתפר — והיתרון שלך מצטבר עם הזמן.</p>
+      </div>
+    </div>
+    <div class="process-cta-row rv">
+      <a href="https://calendar.app.google/a1bvMsk7oMrTWYzQ9" target="_blank" rel="noopener" class="btn-hero magnetic">קביעת שיחת אבחון חינם</a>
+      <span class="process-note">ללא התחייבות · מענה תוך שעות</span>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ LINKEDIN ═══════════════ -->
+<section class="linkedin" id="linkedin">
+  <div class="wrap">
+    <div class="li-head">
+      <div class="rv">
+        <p class="eyebrow">מהשטח</p>
+        <h2>תוכן שמקדים את השוק.</h2>
+        <p>אני כותב בלינקדאין על מה שבאמת עובד — מהניסיון ב-8200, בחברות הטק הגדולות ומעבודה עם לקוחות אמיתיים. אלה פוסטים אמיתיים מהפרופיל שלי:</p>
+      </div>
+      <a href="https://www.linkedin.com/in/omer-moran-8aa07616b" target="_blank" rel="noopener" class="li-follow rv" style="--d:.1s">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.55V9h3.57v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.55C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.72C24 .77 23.2 0 22.22 0z"/></svg>
+        עקבו אחריי בלינקדאין
+      </a>
+    </div>
+
+    <div class="li-scroller-wrap">
+      <div class="li-scroller" id="liScroll">
+
+        <a class="li-card rv" style="--d:.02s" href="https://www.linkedin.com/posts/omer-moran-8aa07616b_youre-not-behind-youre-just-in-it-everyone-ugcPost-7345381596750901250-Za-o" target="_blank" rel="noopener">
+          <div class="li-card-head">
+            <img src="/uploads/omer-96.webp" alt="" loading="lazy" width="44" height="44" />
+            <div><div class="li-name">Omer Moran</div><div class="li-meta">Data Product Manager · 10mo</div></div>
+            <svg class="li-in" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.55V9h3.57v11.45z"/></svg>
+          </div>
+          <div class="li-text"><b>You're Not Behind. You're Just in It.</b><br /><br />Everyone talks about the excitement of starting a new job. But no one really talks about the messy middle. I changed my mindset from a "Knower" to a "Learner" — and things started clicking. <b>You're not behind. You're just in it.</b></div>
+          <div class="li-stats"><span class="likes">👍❤️ 241</span><span>34 comments</span></div>
+        </a>
+
+        <a class="li-card rv" style="--d:.08s" href="https://www.linkedin.com/posts/omer-moran-8aa07616b_new-job-new-challenge-posting-on-linkedin-ugcPost-7343279850046074880-tGpu" target="_blank" rel="noopener">
+          <div class="li-card-head">
+            <img src="/uploads/omer-96.webp" alt="" loading="lazy" width="44" height="44" />
+            <div><div class="li-name">Omer Moran</div><div class="li-meta">Data Product Manager · 10mo</div></div>
+            <svg class="li-in" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.55V9h3.57v11.45z"/></svg>
+          </div>
+          <div class="li-text"><b>New job, new challenge — posting on LinkedIn.</b><br /><br />I joined Connecteam almost 3 months ago. The team is brilliant, the projects are wild (in a good way). So this is me starting. Not perfect. Not polished. <b>Just real.</b> Let's see how this goes 🔥</div>
+          <div class="li-stats"><span class="likes">👍❤️ 183</span><span>27 comments</span></div>
+        </a>
+
+        <a class="li-card rv" style="--d:.14s" href="https://www.linkedin.com/posts/omer-moran-8aa07616b_time-to-wrap-up-an-amazing-chapter-at-zoominfo-ugcPost-7313477054555938817-IPoT" target="_blank" rel="noopener">
+          <div class="li-card-head">
+            <img src="/uploads/omer-96.webp" alt="" loading="lazy" width="44" height="44" />
+            <div><div class="li-name">Omer Moran</div><div class="li-meta">Data Product Manager · 1yr</div></div>
+            <svg class="li-in" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.55V9h3.57v11.45z"/></svg>
+          </div>
+          <div class="li-text"><b>Time to Wrap Up an Amazing Chapter at ZoomInfo</b><br /><br />What a journey. Building data products, solving tough problems, and seeing real impact — an experience I won't forget. Onward to new adventures — because the best is yet to come! 🚀</div>
+          <div class="li-stats"><span class="likes">👍❤️ 122</span><span>13 comments</span></div>
+        </a>
+
+        <a class="li-card rv" style="--d:.2s" href="https://www.linkedin.com/posts/omer-moran-8aa07616b_zibellringing-zoominfo-zoominfo-activity-7160992030804856832-9XLe" target="_blank" rel="noopener">
+          <div class="li-card-head">
+            <img src="/uploads/omer-96.webp" alt="" loading="lazy" width="44" height="44" />
+            <div><div class="li-name">Omer Moran</div><div class="li-meta">Data Product Manager · 2yr</div></div>
+            <svg class="li-in" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.55V9h3.57v11.45z"/></svg>
+          </div>
+          <div class="li-text">Yesterday ZoomInfo got to ring the opening bell at Nasdaq 🔔 On this special day, we also announced <b>Copilot</b> — an AI-powered GTM game changer that will make every seller the best seller.</div>
+          <div class="li-stats"><span class="likes">👍 21</span><span>3 comments</span></div>
+        </a>
+
+      </div>
+      <div class="li-nav">
+        <button class="li-btn" id="liNext" aria-label="הפוסט הבא"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg></button>
+        <button class="li-btn" id="liPrev" aria-label="הפוסט הקודם"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg></button>
+      </div>
+    </div>
+
+    <div class="li-edge rv">
+      <div class="li-edge-stat">
+        <div class="li-edge-num" data-count="4" data-suffix="K+">0</div>
+        <div class="li-edge-label">עוקבים בלינקדאין</div>
+      </div>
+      <div>
+        <div class="li-edge-title">הניסיון שלי הוא היתרון שלך.</div>
+        <div class="li-edge-sub">בניגוד ליועצים שלמדו AI מיוטיוב — אני מגיע עם שנים בתוך יחידות מודיעין, חברות טק גלובליות ויזמות. זה מה שמשתקף בתוכן, וזה מה שמשתקף בתוצאות.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ CONTACT (dark) ═══════════════ -->
+<section class="contact" id="contact">
+  <div class="glow" aria-hidden="true"></div>
+  <div class="wrap">
+    <div class="contact-inner rv">
+      <p class="eyebrow on-dark" style="justify-content:center">בואו נדבר</p>
+      <h2>מוכנים לבנות את<br /><span class="grad">היתרון שלכם?</span></h2>
+      <p class="contact-sub">30 דקות שיחה — ואני אגיד לך בדיוק איך AI יכול לשנות את העסק שלך.</p>
+      <p class="contact-sub2">בלי ז'רגון טכני. בלי התחייבות. רק תכל'ס.</p>
+      <div class="contact-buttons">
+        <a href="https://calendar.app.google/a1bvMsk7oMrTWYzQ9" target="_blank" rel="noopener" class="cbtn cbtn-meet magnetic">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+          קביעת פגישה עכשיו <small>· חינם · 30 דק'</small>
+        </a>
+        <a href="https://wa.me/972505646450?text=%D7%94%D7%99%D7%99%20%D7%A2%D7%95%D7%9E%D7%A8%2C%20%D7%94%D7%92%D7%A2%D7%AA%D7%99%20%D7%9E%D7%94%D7%90%D7%AA%D7%A8%20%D7%A9%D7%9C%D7%9A%20%D7%95%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%A9%D7%9E%D7%95%D7%A2%20%D7%A2%D7%95%D7%93" target="_blank" rel="noopener" class="cbtn cbtn-wa">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+          WhatsApp
+        </a>
+        <a href="mailto:omermoran14@gmail.com" class="cbtn cbtn-mail">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+          מייל
+        </a>
+      </div>
+      <p class="contact-note">אני עונה באופן אישי — בדרך כלל תוך שעות ספורות.</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="foot-name">עומר מורן — מומחה AI לעסקים</div>
+  <div class="foot-links">
+    <a href="/he/restaurants">פתרונות למסעדות ומאפיות</a>
+    <a href="/privacypolicy">מדיניות פרטיות</a>
+    <a href="https://www.linkedin.com/in/omer-moran-8aa07616b" target="_blank" rel="noopener">LinkedIn</a>
+  </div>
+  <div class="foot-copy">© 2026 Omer Moran · AI-Driven SMBs</div>
+</footer>
+
+<a class="wa-fab" id="waFab" href="https://wa.me/972505646450?text=%D7%94%D7%99%D7%99%20%D7%A2%D7%95%D7%9E%D7%A8%2C%20%D7%94%D7%92%D7%A2%D7%AA%D7%99%20%D7%9E%D7%94%D7%90%D7%AA%D7%A8%20%D7%A9%D7%9C%D7%9A%20%D7%95%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%A9%D7%9E%D7%95%D7%A2%20%D7%A2%D7%95%D7%93" target="_blank" rel="noopener" aria-label="שלחו לי הודעת WhatsApp">
+  <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+</a>
 
 <script>
-  const cg = document.getElementById('cursor-glow');
-  document.addEventListener('mousemove', e => { cg.style.left = e.clientX + 'px'; cg.style.top = e.clientY + 'px'; });
-</script>
+(function () {
+  'use strict';
+  var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var isTouch = window.matchMedia('(hover: none)').matches;
 
-<script type="text/babel">
+  /* ── Marquee items ── */
+  var MQ = ['אוטומציה של תהליכים', 'סוכני AI אוטונומיים', 'אסטרטגיית AI', 'צמיחה עסקית', 'AI מותאם אישית', 'מוצרי דאטה', 'טרנספורמציה דיגיטלית', 'בוגר יחידה 8200', 'מומחה לעסקים קטנים', 'AI בלי קוד'];
+  var track = document.getElementById('mq');
+  var html = '';
+  MQ.concat(MQ).forEach(function (t) { html += '<span class="mq-item"><span class="mq-dot"></span>' + t + '</span>'; });
+  track.innerHTML = html;
 
-
-const { useState, useEffect, useRef, useCallback } = React;
-
-const TWEAK_DEFAULTS = /*EDITMODE-BEGIN*/{
-  "meetUrl": "https:\/\/calendar.app.google\/a1bvMsk7oMrTWYzQ9",
-  "whatsappNumber": "972505646450",
-  "emailAddress": "omermoran14@gmail.com",
-  "linkedinUrl": "www.linkedin.com\/in\/omer-moran-8aa07616b",
-  "accentColor": "#456abf"
-}/*EDITMODE-END*/;
-
-function getEnUrl() {
-  return '../en/';
-}
-
-function useTweaks(defaults) {
-  const [values, setValues] = useState(defaults);
-  const setTweak = useCallback((k, v) => {
-    const edits = typeof k === 'object' ? k : { [k]: v };
-    setValues((p) => ({ ...p, ...edits }));
-    window.parent.postMessage({ type: '__edit_mode_set_keys', edits }, '*');
-  }, []);
-  const panelStyleBlock = `.twk-panel{position:fixed;left:16px;bottom:16px;z-index:2147483646;width:280px;max-height:calc(100vh - 32px);display:flex;flex-direction:column;background:rgba(250,249,247,.92);color:#29261b;backdrop-filter:blur(24px);border:.5px solid rgba(0,0,0,.1);border-radius:14px;box-shadow:0 12px 40px rgba(0,0,0,.15);font:11.5px/1.4 ui-sans-serif,system-ui,-apple-system,sans-serif;overflow:hidden}.twk-hd{display:flex;align-items:center;justify-content:space-between;padding:10px 8px 10px 14px;cursor:move;user-select:none}.twk-hd b{font-size:12px;font-weight:600}.twk-x{appearance:none;border:0;background:transparent;color:rgba(41,38,27,.55);width:22px;height:22px;border-radius:6px;cursor:default;font-size:13px;line-height:1}.twk-x:hover{background:rgba(0,0,0,.06)}.twk-body{padding:2px 14px 14px;display:flex;flex-direction:column;gap:10px;overflow-y:auto}.twk-row{display:flex;flex-direction:column;gap:5px}.twk-row-h{flex-direction:row;align-items:center;justify-content:space-between;gap:10px}.twk-lbl{font-weight:500;color:rgba(41,38,27,.72);font-size:11px}.twk-field{appearance:none;width:100%;height:26px;padding:0 8px;border:.5px solid rgba(0,0,0,.1);border-radius:7px;background:rgba(255,255,255,.6);color:inherit;font:inherit;outline:none}.twk-swatch{appearance:none;-webkit-appearance:none;width:56px;height:22px;border:.5px solid rgba(0,0,0,.1);border-radius:6px;padding:0;background:transparent;flex-shrink:0}.twk-swatch::-webkit-color-swatch-wrapper{padding:0}.twk-swatch::-webkit-color-swatch{border:0;border-radius:5.5px}`;
-
-  function TweaksPanel({ title = 'Tweaks', children }) {
-    const [open, setOpen] = useState(false);
-    useEffect(() => {
-      const h = (e) => {
-        if (e?.data?.type === '__activate_edit_mode') setOpen(true);else
-        if (e?.data?.type === '__deactivate_edit_mode') setOpen(false);
-      };
-      window.addEventListener('message', h);
-      window.parent.postMessage({ type: '__edit_mode_available' }, '*');
-      return () => window.removeEventListener('message', h);
-    }, []);
-    const dismiss = () => {setOpen(false);window.parent.postMessage({ type: '__edit_mode_dismissed' }, '*');};
-    if (!open) return null;
-    return (
-      <>
-        <style>{panelStyleBlock}</style>
-        <div className="twk-panel">
-          <div className="twk-hd"><b>{title}</b><button className="twk-x" onClick={dismiss}>✕</button></div>
-          <div className="twk-body">{children}</div>
-        </div>
-      </>);
-
+  /* ── Nav + progress + FAB ── */
+  var nav = document.getElementById('nav');
+  var progress = document.getElementById('progress');
+  var fab = document.getElementById('waFab');
+  var docH = 0;
+  function measure() { docH = document.documentElement.scrollHeight - window.innerHeight; }
+  measure();
+  window.addEventListener('resize', measure);
+  var ticking = false;
+  function onScroll() {
+    if (ticking) return;
+    ticking = true;
+    requestAnimationFrame(function () {
+      var y = window.scrollY;
+      nav.classList.toggle('scrolled', y > 50);
+      progress.style.transform = 'scaleX(' + (docH > 0 ? Math.min(y / docH, 1) : 0) + ')';
+      fab.classList.toggle('show', y > 500);
+      ticking = false;
+    });
   }
-  function TweakColor({ id, label }) {
-    return <div className="twk-row twk-row-h"><span className="twk-lbl">{label}</span><input type="color" className="twk-swatch" value={values[id]} onChange={(e) => setTweak(id, e.target.value)} /></div>;
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  /* ── Scroll reveal ── */
+  var obs = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      if (e.isIntersecting) { e.target.classList.add('in'); obs.unobserve(e.target); }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+  document.querySelectorAll('.rv, .tl-item, .impact-item').forEach(function (el) { obs.observe(el); });
+
+  /* ── Count-up ── */
+  var counted = new WeakSet();
+  var cObs = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      if (!e.isIntersecting || counted.has(e.target)) return;
+      counted.add(e.target); cObs.unobserve(e.target);
+      var el = e.target, target = parseFloat(el.dataset.count), suffix = el.dataset.suffix || '';
+      if (reduced) { el.textContent = target + suffix; return; }
+      var start = null, dur = 1500;
+      function step(ts) {
+        if (!start) start = ts;
+        var p = Math.min((ts - start) / dur, 1), ease = 1 - Math.pow(1 - p, 3);
+        el.textContent = Math.round(ease * target) + suffix;
+        if (p < 1) requestAnimationFrame(step);
+      }
+      requestAnimationFrame(step);
+    });
+  }, { threshold: 0.6 });
+  document.querySelectorAll('[data-count]').forEach(function (el) { cObs.observe(el); });
+
+  /* ── Services accordion ── */
+  document.querySelectorAll('.svc').forEach(function (card) {
+    card.addEventListener('click', function () { card.classList.toggle('open'); });
+  });
+
+  /* ── LinkedIn scroller ── */
+  var scroller = document.getElementById('liScroll');
+  var stepPx = 360;
+  document.getElementById('liNext').addEventListener('click', function () { scroller.scrollBy({ left: -stepPx, behavior: 'smooth' }); });
+  document.getElementById('liPrev').addEventListener('click', function () { scroller.scrollBy({ left: stepPx, behavior: 'smooth' }); });
+
+  /* ── Magnetic buttons (desktop only) ── */
+  if (!isTouch && !reduced) {
+    document.querySelectorAll('.magnetic').forEach(function (btn) {
+      btn.addEventListener('mousemove', function (e) {
+        var r = btn.getBoundingClientRect();
+        var x = (e.clientX - r.left - r.width / 2) / (r.width / 2);
+        var y = (e.clientY - r.top - r.height / 2) / (r.height / 2);
+        btn.style.transform = 'translate(' + x * 5 + 'px,' + (y * 5 - 3) + 'px)';
+      });
+      btn.addEventListener('mouseleave', function () { btn.style.transform = ''; });
+    });
   }
-  function TweakText({ id, label }) {
-    return <div className="twk-row"><span className="twk-lbl">{label}</span><input className="twk-field" type="text" value={values[id]} onChange={(e) => setTweak(id, e.target.value)} /></div>;
+
+  /* ── Neural network canvas ── */
+  var canvas = document.getElementById('net');
+  var ctx = canvas.getContext('2d');
+  var hero = document.querySelector('.hero');
+  var particles = [], W = 0, H = 0, dpr = 1, running = false, rafId = null;
+  var mouse = { x: -9999, y: -9999 };
+  var LINK = 130, MOUSE_LINK = 190;
+
+  function resize() {
+    dpr = Math.min(window.devicePixelRatio || 1, 2);
+    W = hero.clientWidth; H = hero.clientHeight;
+    canvas.width = W * dpr; canvas.height = H * dpr;
+    canvas.style.width = W + 'px'; canvas.style.height = H + 'px';
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    initParticles();
   }
-  return { tweaks: values, setTweak, TweaksPanel, TweakColor, TweakText };
-}
-
-function useScrollReveal() {
-  useEffect(() => {
-    const obs = new IntersectionObserver((entries) => entries.forEach((e) => {
-      if (e.isIntersecting) {e.target.classList.add('visible');obs.unobserve(e.target);}
-    }), { threshold: 0.1 });
-    document.querySelectorAll('.reveal').forEach((el) => obs.observe(el));
-    return () => obs.disconnect();
-  }, []);
-}
-
-function useNavScroll() {
-  useEffect(() => {
-    const nav = document.querySelector('nav');
-    const h = () => nav?.classList.toggle('scrolled', window.scrollY > 60);
-    window.addEventListener('scroll', h, { passive: true });
-    return () => window.removeEventListener('scroll', h);
-  }, []);
-}
-
-function AnimatedStat({ target, suffix, prefix = '' }) {
-  const [count, setCount] = useState(0);
-  const [triggered, setTriggered] = useState(false);
-  const ref = useRef(null);
-  useEffect(() => {
-    const obs = new IntersectionObserver(([e]) => {if (e.isIntersecting) {setTriggered(true);obs.disconnect();}}, { threshold: 0.5 });
-    if (ref.current) obs.observe(ref.current);
-    return () => obs.disconnect();
-  }, []);
-  useEffect(() => {
-    if (!triggered) return;
-    let start;const dur = 1600;
-    const step = (ts) => {
-      if (!start) start = ts;
-      const p = Math.min((ts - start) / dur, 1);
-      const e = 1 - Math.pow(1 - p, 3);
-      setCount(Math.floor(e * target));
-      if (p < 1) requestAnimationFrame(step);else setCount(target);
-    };
-    requestAnimationFrame(step);
-  }, [triggered, target]);
-  return <span ref={ref}>{prefix}{count}{suffix}</span>;
-}
-
-function ScannerCard({ service: s, delay }) {
-  const [revealed, setRevealed] = useState(false);
-  const [scanning, setScanning] = useState(false);
-  const handleClick = () => {
-    if (scanning) return;
-    setScanning(true);
-    setTimeout(() => {setRevealed((r) => !r);setTimeout(() => setScanning(false), 200);}, 280);
-  };
-  return (
-    <div className="svc-card-wrap reveal" style={{ transitionDelay: `${delay}s` }}>
-      <div className={`svc-card${revealed ? ' revealed' : ''}${scanning ? ' scanning' : ''}`} onClick={handleClick}>
-        <div className="svc-card-beam"></div>
-        <div className="svc-card-front">
-          <div className="service-icon">{s.icon}</div>
-          <div className="service-name">{s.name}</div>
-          <div className="service-desc">{s.desc}</div>
-          <div className="svc-tap-hint">
-            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"><circle cx="11" cy="11" r="8" /><path d="m21 21-4.35-4.35" /></svg>
-            לחץ לפרטים
-          </div>
-        </div>
-        <div className="svc-card-back">
-          <div>
-            <div className="back-name">{s.name}</div>
-            <div className="back-detail">{s.detail}</div>
-          </div>
-          <div className="back-close">
-            <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"><path d="M18 6L6 18M6 6l12 12" /></svg>
-            לחץ לסגירה
-          </div>
-        </div>
-      </div>
-    </div>);
-
-}
-
-const MARQUEE_ITEMS = [
-'אוטומציה של תהליכים', 'מערכות AI אוטונומיות', 'אסטרטגיית AI',
-'צמיחה עסקית', 'AI מותאם אישית', 'מוצרי דאטה',
-'טרנספורמציה דיגיטלית', 'מנוע הכנסות', 'מומחה לעסקים קטנים', 'AI ללא קוד'];
-
-
-const SERVICES = [
-{
-  icon: <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z" /><path d="M2 17l10 5 10-5" /><path d="M2 12l10 5 10-5" /></svg>,
-  name: "אוטומציה של תהליכים",
-  desc: "תנו למכונות לטפל בשגרה — אתם תתמקדו במה שחשוב.",
-  detail: "אני ממפה את כל הפעילות העסקית שלכם, מאתר איפה נשרף זמן וכסף, ובונה תהליכים חכמים שרצים לבד. הצוות שלכם יתפנה לעבודה שמניעה צמיחה אמיתית."
-},
-{
-  icon: <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="3" width="7" height="7" /><rect x="14" y="3" width="7" height="7" /><rect x="14" y="14" width="7" height="7" /><rect x="3" y="14" width="7" height="7" /></svg>,
-  name: "אסטרטגיית AI",
-  desc: "מפת דרכים ברורה — בדיוק לעסק שלכם.",
-  detail: "לא כל AI מתאים לכל עסק. אני בונה אסטרטגיה מותאמת לגודל, לתקציב ולמטרות שלכם — עם תכנית שלב אחר שלב, כדי שתדעו בדיוק מה לבנות, מתי ולמה."
-},
-{
-  icon: <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="3" /><path d="M12 2v3M12 19v3M4.22 4.22l2.12 2.12M17.66 17.66l2.12 2.12M2 12h3M19 12h3M4.22 19.78l2.12-2.12M17.66 6.34l2.12-2.12" /></svg>,
-  name: "AI מותאם לעסק שלכם",
-  desc: "AI שמכיר את העסק שלכם — ומדבר בשפה שלו.",
-  detail: "AI גנרי נותן תוצאות גנריות. אני בונה יכולות AI ספציפיות לכם — מאומנות על הפרוצדורות, המוצרים והלקוחות שלכם. מומחה שמכיר את העסק שלכם מהפנים, זמין 24/7."
-},
-{
-  icon: <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" /></svg>,
-  name: "סוכני AI אוטונומיים",
-  desc: "AI שעובד בשבילכם — גם בלעדיכם.",
-  detail: "סוכני AI הם מעבר לצ'טבוטים — הם עושים: מעקב אחרי לידים, עיבוד הזמנות, מענה ללקוחות, תיאום פגישות. העסק שלכם ממשיך לעבוד גם כשאתם לא שם."
-},
-{
-  icon: <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17" /><polyline points="16 7 22 7 22 13" /></svg>,
-  name: "אסטרטגיית צמיחה",
-  desc: "AI כנשק לגלות הזדמנויות הכנסה שנסתרות בעסק שלכם.",
-  detail: "אני מנתח את העסק שלכם ומוצא איפה כסף נשאר על הרצפה — תמחור, המרות, שימור לקוחות, ערוצים חדשים — ובונה תכנית מבוססת AI ללכוד את כולו."
-},
-{
-  icon: <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="8" r="4" /><path d="M20 21a8 8 0 1 0-16 0" /></svg>,
-  name: "טרנספורמציה מלאה",
-  desc: "ממסורתי לעסק מונע AI — בקצב שמתאים לכם.",
-  detail: "המסע המלא. אני משלב AI בכל שכבה של העסק שלכם לאורך זמן — צוות, תפעול, חוויית לקוח. אין צורך בידע טכני. צריך רק שאיפה. את כל השאר אני מטפל."
-}];
-
-
-const MILESTONES = [
-{
-  year: "צבא",
-  tag: "מנהל מוצר ואנליסט בכיר",
-  title: "יחידת המודיעין 8200",
-  desc: "שירות ביחידת המודיעין המובחרת בצה\"ל - 8200, שם למדתי לחשוב תחת לחץ, לפתור בעיות מורכבות ולהוביל בסביבה עם אפס סבלנות לכישלון."
-},
-{
-  year: "2020",
-  tag: "יזמות",
-  title: "שותף מייסד בסטארטאפ",
-  desc: "הקמתי חברה משלי מאפס. למדתי מה זה לבנות משהו, לקבל החלטות קשות תחת אי-ודאות — ולצמוח מהר מאוד."
-},
-{
-  year: "ZoomInfo",
-  tag: "חברת טק גלובלית",
-  title: "בתוך מנוע של חברה בשווי מיליארדים",
-  desc: "עבדתי באחת מחברות ה-B2B המובילות בעולם — ראיתי איך צוותים עולמיים בונים מוצרים שמגיעים למיליוני משתמשים, ואיך נראית מצוינות תפעולית באמת."
-},
-{
-  year: "Connecteam",
-  tag: "סטארט-אפ בצמיחה",
-  title: "בניית כלים שמנהלים באמת אוהבים",
-  desc: "עזרתי לסטארט-אפ בצמיחה מהירה לבנות פתרונות שמנהלים ובעלי עסקים קטנים משתמשים בהם כל יום — הבנתי מה גורם לטכנולוגיה לעבוד בשטח."
-},
-
-{
-  year: "היום",
-  tag: "מומחה AI",
-  title: "AI לעסקים שרוצים לנצח",
-  desc: "אני משתמש בכל מה שלמדתי — מהצבא, מחברות הטק הגדולות ומהיזמות — כדי לתת לעסק שלכם את אותה יתרון תחרותי שרק חברות ענק הרשו לעצמן עד היום.",
-  current: true
-}];
-
-
-const TESTIMONIALS = [
-{
-  initials: "ד.כ",
-  name: "דנה כהן",
-  title: "מנכ״לית | רשת בוטיקים",
-  text: <span>עומר לא רק הטמיע לנו AI — הוא <strong>שינה את האופן שבו אנחנו חושבים על העסק</strong>. תוך שבועיים חסכנו 15 שעות עבודה שבועיות. זה לא מוצר, זה שותף אמיתי.</span>,
-  reactions: "👍❤️",
-  likes: "214",
-  time: "לפני שבוע",
-  featured: true
-},
-{
-  initials: "א.ל",
-  name: "אורי לוי",
-  title: "מייסד | חברת שירותים מקצועיים",
-  text: <span>הגעתי לעומר עם ספקנות. יצאתי עם <strong>מערכת AI שסוגרת לי לידים בזמן שאני ישן</strong>. ה-ROI היה ברור כבר בחודש הראשון.</span>,
-  reactions: "🔥👍",
-  likes: "187",
-  time: "לפני שבועיים"
-},
-{
-  initials: "מ.ג",
-  name: "מיכל גרינברג",
-  title: "VP Operations | חברת לוגיסטיקה",
-  text: <span>כשהתחלנו לעבוד יחד ציפיתי לייעוץ, קיבלתי הרבה יותר. <strong>עומר הוא אדם שמבין עסקים</strong>, לא רק טכנולוגיה. ההבדל מורגש בכל נקודת מגע.</span>,
-  reactions: "❤️👏",
-  likes: "143",
-  time: "לפני 3 שבועות"
-},
-{
-  initials: "י.ש",
-  name: "יואב שמיר",
-  title: "בעלים | קליניקה פרטית",
-  text: <span>חיפשתי מישהו שיסביר לי AI בגובה העיניים — בלי ז'רגון טכני. עומר עשה בדיוק את זה, ועכשיו <strong>המזכירה הדיגיטלית שלנו עובדת 24 שעות ביממה</strong>.</span>,
-  reactions: "👍💡",
-  likes: "98",
-  time: "לפני חודש"
-},
-{
-  initials: "נ.ב",
-  name: "נועם בן-דוד",
-  title: "מנהל שיווק | חברת e-commerce",
-  text: <span>פוסטים של עומר על LinkedIn הם קריאת חובה. <strong>תוכן שמקדים את השוק</strong> ב-6 חודשים לפחות. הוא לא רק יודע — הוא גם יכול להסביר למה זה חשוב.</span>,
-  reactions: "🔥❤️",
-  likes: "312",
-  time: "לפני 3 ימים",
-  featured: true
-},
-{
-  initials: "ת.א",
-  name: "תמר אברהם",
-  title: "מנהלת תפעול | רשת מסעדות",
-  text: <span>המעבר לניהול מונע AI נשמע מפחיד. עומר הפך אותו לתהליך נעים, מדורג. <strong>היום הצוות שלנו לא יכול לדמיין לעבוד בלי הכלים</strong> שבנה.</span>,
-  reactions: "👏❤️",
-  likes: "156",
-  time: "לפני שבועיים"
-}];
-
-
-const MY_LINKEDIN_POSTS = [
-  {
-    url: "https://www.linkedin.com/posts/omer-moran-8aa07616b_new-job-new-challenge-posting-on-linkedin-ugcPost-7343279850046074880-tGpu",
-    role: "Data Product Manager at Connecteam",
-    date: "10mo",
-    reactions: "🔵🟢❤️", likes: "183", comments: "27",
-    tag: "New Job",
-    body: <>
-      <p><strong>New job, new challenge - posting on LinkedIn.</strong></p>
-      <p style={{marginTop:8}}>I joined <span style={{color:'#0a66c2', fontWeight:600}}>Connecteam</span> almost 3 months ago. The team is brilliant, the projects are wild (in a good way), and I'm already deep into the kind of marketing/data work that will just gear up.</p>
-      <p style={{marginTop:8}}>But... I've been sitting on the idea of posting here. Not because there's nothing to say... if anything, there's too much...</p>
-      <p style={{marginTop:8}}>More like: "Where do I even start?" / "Who even cares?" / "What if it sounds forced?"</p>
-      <p style={{marginTop:8}}>So... naturally, I asked ChatGPT to help me get started. Because what better way to begin my authentic content journey than with the help of a robot trained on the internet? 😎</p>
-      <p style={{marginTop:8}}>Anyway, here's the real deal: I'm new-ish at <span style={{color:'#0a66c2', fontWeight:600}}>Connecteam</span>. I'm deep in the world where marketing meets data, working on some exciting projects. I'm learning a ton.</p>
-      <p style={{marginTop:8}}>So this is me starting. Not perfect. Not polished. Just real.</p>
-      <p style={{marginTop:8}}>Let's see how this goes 🔥</p>
-    </>
-  },
-  {
-    url: "https://www.linkedin.com/posts/omer-moran-8aa07616b_youre-not-behind-youre-just-in-it-everyone-ugcPost-7345381596750901250-Za-o",
-    role: "Data Product Manager at Connecteam",
-    date: "10mo",
-    reactions: "🔵🟢❤️", likes: "241", comments: "34",
-    tag: "Mindset",
-    body: <>
-      <p><strong>You're Not Behind. You're Just in It.</strong></p>
-      <p style={{marginTop:8}}>Everyone talks about the excitement of starting a new job. New team, new tools, new energy. Hallelujah!</p>
-      <p style={{marginTop:8}}>But no one really talks about the messy middle. The part where every meeting feels like you're catching up on a season you missed.</p>
-      <p style={{marginTop:8}}>The first two months were exactly that for me — exciting, but also a bit chaotic. Not just learning new tools or an entire language... but a whole new way of thinking.</p>
-      <p style={{marginTop:8}}>I'd sit in calls like: "Ohhh, Cool... I know these words, but what do they actually mean together?" 😅</p>
-      <p style={{marginTop:8}}>I changed my mindset from a "Knower" to a "Learner". Eventually... things started clicking. The shift wasn't instant, but it was real.</p>
-      <p style={{marginTop:8}}><strong>The bottom line:</strong> Onboarding isn't about showing up perfect. It's about giving yourself space to become someone who gets it.</p>
-      <p style={{marginTop:8}}>If you're in that foggy, messy phase right now - keep going. <strong>You're not behind. You're just in it.</strong></p>
-    </>
-  },
-  {
-    url: "https://www.linkedin.com/posts/omer-moran-8aa07616b_time-to-wrap-up-an-amazing-chapter-at-zoominfo-ugcPost-7313477054555938817-IPoT",
-    role: "Data Product Manager at Connecteam",
-    date: "1yr",
-    reactions: "🔵🟢❤️", likes: "122", comments: "13",
-    tag: "Career",
-    body: <>
-      <p><strong>Time to Wrap Up an Amazing Chapter at <span style={{color:'#0a66c2'}}>ZoomInfo</span></strong></p>
-      <p style={{marginTop:8}}>What a journey. My time at <span style={{color:'#0a66c2', fontWeight:600}}>ZoomInfo</span> has been a whirlwind of challenges, growth, and some truly exciting projects. I joined at a time when things were scaling fast, and being part of that momentum—building data products, solving tough problems, and seeing real impact—has been an experience I won't forget.</p>
-      <p style={{marginTop:8}}>ZoomInfo is the kind of place where things move fast, ideas turn into action, and there's always something new to tackle. It's been an incredible ride, and I'm grateful for everything I've learned, the experiences I've gained, and the incredible people I've met along the way.</p>
-      <p style={{marginTop:8}}>Onward to new adventures—because the best is yet to come! 🚀</p>
-    </>
-  },
-  {
-    url: "https://www.linkedin.com/posts/omer-moran-8aa07616b_zibellringing-zoominfo-zoominfo-activity-7160992030804856832-9XLe",
-    role: "Data Product Manager at Connecteam",
-    date: "2yr",
-    reactions: "🔵🟢", likes: "21", comments: "3",
-    tag: "ZoomInfo",
-    body: <>
-      <p>Yesterday <span style={{color:'#0a66c2', fontWeight:600}}>ZoomInfo</span> finally got to ring the opening bell at Nasdaq after leading the pack to be the first tech IPO of the pandemic era! 🔔</p>
-      <p style={{marginTop:8}}>On this special day, we also announced Copilot, an AI-powered GTM game changer that will make every seller the best seller. 👮👮</p>
-      <p style={{marginTop:8}}>Learn more about Copilot and join the waitlist here: <span style={{color:'#0a66c2'}}>https://lnkd.in/eKvqJeMr</span></p>
-      <p style={{marginTop:8, color:'#0a66c2', fontWeight:500}}>#ZIbellringing #zoominfo #ZoomInfo</p>
-    </>
+  function initParticles() {
+    var count = Math.min(100, Math.floor(W * H / 16000));
+    particles = [];
+    for (var i = 0; i < count; i++) {
+      particles.push({
+        x: Math.random() * W, y: Math.random() * H,
+        vx: (Math.random() - .5) * .35, vy: (Math.random() - .5) * .35,
+        r: Math.random() * 1.6 + .7
+      });
+    }
   }
-];
+  function frame() {
+    ctx.clearRect(0, 0, W, H);
+    var i, j, p, q, dx, dy, d;
+    for (i = 0; i < particles.length; i++) {
+      p = particles[i];
+      p.x += p.vx; p.y += p.vy;
+      if (p.x < -10) p.x = W + 10; else if (p.x > W + 10) p.x = -10;
+      if (p.y < -10) p.y = H + 10; else if (p.y > H + 10) p.y = -10;
+      // gentle attraction to cursor
+      dx = mouse.x - p.x; dy = mouse.y - p.y; d = Math.sqrt(dx * dx + dy * dy);
+      if (d < MOUSE_LINK && d > 0.001) { p.x += dx / d * .25; p.y += dy / d * .25; }
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, p.r, 0, 6.2832);
+      ctx.fillStyle = 'rgba(110,150,255,.55)';
+      ctx.fill();
+    }
+    for (i = 0; i < particles.length; i++) {
+      p = particles[i];
+      for (j = i + 1; j < particles.length; j++) {
+        q = particles[j];
+        dx = p.x - q.x; dy = p.y - q.y;
+        if (Math.abs(dx) > LINK || Math.abs(dy) > LINK) continue;
+        d = Math.sqrt(dx * dx + dy * dy);
+        if (d < LINK) {
+          ctx.beginPath();
+          ctx.moveTo(p.x, p.y); ctx.lineTo(q.x, q.y);
+          ctx.strokeStyle = 'rgba(110,150,255,' + (0.14 * (1 - d / LINK)).toFixed(3) + ')';
+          ctx.lineWidth = 1;
+          ctx.stroke();
+        }
+      }
+      dx = p.x - mouse.x; dy = p.y - mouse.y;
+      d = Math.sqrt(dx * dx + dy * dy);
+      if (d < MOUSE_LINK) {
+        ctx.beginPath();
+        ctx.moveTo(p.x, p.y); ctx.lineTo(mouse.x, mouse.y);
+        ctx.strokeStyle = 'rgba(140,175,255,' + (0.3 * (1 - d / MOUSE_LINK)).toFixed(3) + ')';
+        ctx.lineWidth = 1.1;
+        ctx.stroke();
+      }
+    }
+    if (running) rafId = requestAnimationFrame(frame);
+  }
+  function start() { if (!running) { running = true; rafId = requestAnimationFrame(frame); } }
+  function stop() { running = false; if (rafId) cancelAnimationFrame(rafId); }
 
-function LinkedInCarousel({ posts, linkedinUrl }) {
-  const [active, setActive] = useState(0);
-  const prev = (e) => { e.stopPropagation(); setActive(a => (a - 1 + posts.length) % posts.length); };
-  const next = (e) => { e.stopPropagation(); setActive(a => (a + 1) % posts.length); };
-  return (
-    <div className="linkedin-carousel-wrap reveal">
-      <div className="linkedin-carousel">
-        {posts.map((post, i) => (
-          <a
-            key={i}
-            href={post.url}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="li-screenshot"
-            style={{ display: i === active ? 'block' : 'none', textDecoration: 'none', color: 'inherit', position: 'relative' }}
-          >
-            {/* "View on LinkedIn" hover overlay */}
-            <div style={{
-              position:'absolute', inset:0, background:'rgba(10,102,194,0.07)',
-              display:'flex', alignItems:'center', justifyContent:'center',
-              opacity:0, transition:'opacity 0.2s', zIndex:10,
-              borderRadius:8, pointerEvents:'none',
-            }} className="li-hover-overlay">
-              <div style={{
-                background:'#0a66c2', color:'#fff', padding:'10px 20px',
-                borderRadius:20, fontWeight:700, fontSize:13,
-                display:'flex', alignItems:'center', gap:8, boxShadow:'0 4px 16px rgba(10,102,194,0.35)'
-              }}>
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="white"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-                View on LinkedIn
-              </div>
-            </div>
-            <div className="li-chrome">
-              <div className="li-chrome-top">
-                <div className="li-chrome-avatar"><img src="/uploads/photo-1777477389865.JPG" alt="Omer Moran" style={{width:'100%',height:'100%',objectFit:'cover',objectPosition:'center top'}} /></div>
-                <div className="li-chrome-info">
-                  <div className="li-chrome-name">Omer Moran</div>
-                  <div className="li-chrome-meta">{post.role} · {post.date} ·
-                    <svg style={{display:'inline',verticalAlign:'middle',marginRight:2}} width="12" height="12" viewBox="0 0 24 24" fill="#666"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5v-9l6 4.5-6 4.5z"/></svg>
-                  </div>
-                </div>
-                <svg className="li-chrome-logo" width="22" height="22" viewBox="0 0 24 24" fill="#0a66c2"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-              </div>
-            </div>
-            <div className="li-post-content" dir="ltr" style={{textAlign:'left'}}>
-              {post.body}
-            </div>
-            <div className="li-post-reactions-bar">
-              <div style={{display:'flex', alignItems:'center', gap:6}}>
-                <span className="li-post-reaction-emojis">{post.reactions}</span>
-                <span style={{fontSize:12, color:'#666'}}>{post.likes}</span>
-              </div>
-              <div className="li-post-counts">
-                <span>{post.comments} comments</span>
-              </div>
-            </div>
-            <div className="li-post-actions">
-              {[
-                [<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#666" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3H14z"/><path d="M7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3"/></svg>,'Like'],
-                [<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#666" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>,'Comment'],
-                [<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#666" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M17 1l4 4-4 4"/><path d="M3 11V9a4 4 0 0 1 4-4h14"/><path d="M7 23l-4-4 4-4"/><path d="M21 13v2a4 4 0 0 1-4 4H3"/></svg>,'Repost'],
-                [<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#666" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>,'Send'],
-              ].map(([icon,label]) => (
-                <div key={label} className="li-action-btn">
-                  {icon}
-                  <span style={{fontSize:12}}>{label}</span>
-                </div>
-              ))}
-            </div>
-          </a>
-        ))}
-      </div>
-      <div className="carousel-nav">
-        <button className="carousel-btn" onClick={prev}>
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M9 18l6-6-6-6"/></svg>
-        </button>
-        <div className="carousel-dots">
-          {posts.map((_, i) => (
-            <div key={i} className={`carousel-dot${i === active ? ' active' : ''}`} onClick={(e) => { e.stopPropagation(); setActive(i); }} />
-          ))}
-        </div>
-        <button className="carousel-btn" onClick={next}>
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
-        </button>
-      </div>
-    </div>
-  );
-}
-
-function LinkedInPost({ post, delay }) {
-  return (
-    <div className={`tcard reveal${post.featured ? ' tcard-featured' : ''}`} style={{ transitionDelay: `${delay}s` }}>
-      {post.featured && <div className="tcard-badge">מובלט</div>}
-      <div className="tcard-quote">
-        {post.text}
-      </div>
-      <div className="tcard-author">
-        <div className="tcard-avatar">{post.initials}</div>
-        <div>
-          <div className="tcard-name">{post.name}</div>
-          <div className="tcard-role">{post.title}</div>
-        </div>
-      </div>
-    </div>
-  );
-}
-
-function App() {
-  const { tweaks, TweaksPanel, TweakColor, TweakText } = useTweaks(TWEAK_DEFAULTS);
-  useScrollReveal();
-  useNavScroll();
-  const gold = tweaks.accentColor;
-  const [r, g, b] = [parseInt(gold.slice(1, 3), 16), parseInt(gold.slice(3, 5), 16), parseInt(gold.slice(5, 7), 16)];
-
-  return (
-    <>
-      <TweaksPanel title="הגדרות">
-        <TweakColor id="accentColor" label="צבע ראשי" />
-        <TweakText id="meetUrl" label="קישור Google Meet" />
-        <TweakText id="whatsappNumber" label="מספר WhatsApp" />
-        <TweakText id="emailAddress" label="כתובת מייל" />
-        <TweakText id="linkedinUrl" label="כתובת LinkedIn" />
-      </TweaksPanel>
-      <style>{`:root { --gold: ${gold}; --gold-rgb: ${r},${g},${b}; --gold-light: ${gold}55; --gold-pale: ${gold}14; }`}</style>
-
-      {/* Nav */}
-      <nav>
-        <div style={{display:'flex', alignItems:'center', gap:16}}>
-          <a href="#contact" className="nav-cta">קביעת פגישה</a>
-          <div className="lang-toggle">
-            <a href="/en" className="lang-btn">EN</a>
-            <a href="index.html" className="lang-btn active">HE</a>
-          </div>
-        </div>
-        <ul className="nav-links">
-          <li><a href="/he/restaurants">למסעדות ומאפיות</a></li>
-          <li><a href="#impact">תוצאות</a></li>
-          <li><a href="#process">תהליך</a></li>
-          <li><a href="#services">שירותים</a></li>
-          <li><a href="#testimonials">המלצות</a></li>
-          <li><a href="#contact">יצירת קשר</a></li>
-        </ul>
-        <div className="nav-logo">Omer Moran</div>
-      </nav>
-
-      {/* Hero */}
-      <section className="hero">
-        <div className="hero-bg-grid"></div>
-        <div className="hero-glow"></div>
-        <div className="hero-content">
-          <p className="hero-eyebrow">
-            <span className="hero-eyebrow-line"></span>
-            מומחה AI לעסקים קטנים ובינוניים
-          </p>
-          <h1 className="hero-title">
-            היתרון שהמתחרים שלכם<br />
-            <span className="accent">עדיין לא גילו.</span>
-          </h1>
-          <p className="hero-sub">
-            אני עוזר לעסקים לנצל את מלוא הפוטנציאל שלהם — ממערכות אוטומציה חכמות ועד סוכני AI שעובדים עבורכם סביב השעון.
-          </p>
-          <div className="hero-actions">
-            <a href={tweaks.meetUrl} target="_blank" rel="noopener noreferrer" className="btn-primary">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M19 3H5C3.9 3 3 3.9 3 5v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z" opacity=".4" /><path d="M21 16.5l-4-2.5V10l4-2.5V16.5z" /><path d="M3 5v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2H5C3.9 3 3 3.9 3 5zm16 11H5V8h14v8z" opacity=".3" /></svg>
-              קביעת פגישה חינם
-            </a>
-            <a href="#impact" className="btn-ghost">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M19 12H5M12 19l-7-7 7-7" /></svg>
-              לתוצאות
-            </a>
-          </div>
-        </div>
-        <div className="hero-image-wrap">
-          <div className="photo-frame">
-            <img src="/uploads/photo-1777477389865.JPG" alt="עומר מורן" />
-            <div className="photo-credential">
-              <div className="cred-label">מומחה AI</div>
-              <div className="cred-name">Omer Moran</div>
-              <div className="cred-title">AI לעסקים — תוצאות אמיתיות</div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Marquee */}
-      <div className="marquee-strip">
-        <div className="marquee-track">
-          {[...MARQUEE_ITEMS, ...MARQUEE_ITEMS].map((item, i) =>
-          <span key={i} className="marquee-item"><span className="marquee-dot"></span>{item}</span>
-          )}
-        </div>
-      </div>
-
-      {/* Impact Numbers */}
-      <div id="impact" className="impact-section">
-        <p className="impact-eyebrow reveal">תוצאות עסקיות אמיתיות</p>
-        <div className="impact-grid">
-          <div className="impact-item reveal">
-            <div className="impact-number">
-              <AnimatedStat target={9} suffix="×" /><span className="accent">מהר יותר</span>
-            </div>
-            <div className="impact-claim">קצב צמיחה עסקית</div>
-            <div className="impact-detail">עסקים שמאמצים AI מוקדם לא רק צומחים — הם מתחרים ברמה אחרת לגמרי. כל שבוע שעובר, הפער מהמתחרים מתרחב.</div>
-          </div>
-          <div className="impact-item reveal reveal-delay-1">
-            <div className="impact-number">
-              <AnimatedStat target={80} suffix="%" />
-            </div>
-            <div className="impact-claim">פחות עבודה ידנית</div>
-            <div className="impact-detail">רוב מה שהצוות שלכם עושה היום אפשר לעשות בצורה אוטומטית. הזמן שמתפנה חוזר לדברים שבאמת מניעים את העסק קדימה.</div>
-          </div>
-          <div className="impact-item reveal reveal-delay-2">
-            <div className="impact-number">
-              <AnimatedStat target={4} suffix="" /><span style={{ fontSize: 'clamp(28px,3.5vw,52px)', lineHeight: 1, alignSelf: 'center' }}>שבועות</span>
-            </div>
-            <div className="impact-claim">מפגישה ראשונה למערכות AI בעסק שלך</div>
-            <div className="impact-detail">לא פרויקטים של חצי שנה. לא אינסוף ישיבות. תוך שבועות מהשיחה הראשונה כבר יש לכם מערכות עובדות בעסק.</div>
-          </div>
-        </div>
-      </div>
-
-      {/* How it works */}
-      <div id="process" className="how-section">
-        <p className="how-eyebrow reveal">איך זה עובד</p>
-        <h2 className="how-title reveal reveal-delay-1">שלושה שלבים.<br />תוצאות אמיתיות.</h2>
-        <div className="how-steps">
-          {[
-          {
-            n: "01",
-            title: "מאבחנים",
-            desc: "מתחילים בשיחה חינמית של 30 דקות. אני שואל את השאלות הנכונות כדי להבין את העסק שלכם, את צווארי הבקבוק, ואיפה AI יכול לעשות את ההשפעה הגדולה ביותר — מהר."
-          },
-          {
-            n: "02",
-            title: "בונים",
-            desc: "אני מתכנן ומטמיע מערכות AI מותאמות לעסק שלכם. לא כלים גנריים. לא סיבוך מיותר לצוות. רק דברים שעובדים."
-          },
-          {
-            n: "03",
-            title: "צומחים",
-            desc: "העסק שלכם מנהל יותר, מסתגל מהר יותר, וצומח בלי להגדיל כוח אדם. ה-AI ממשיך להשתפר — היתרון שלכם מצטבר עם הזמן."
-          }].
-          map((step, i) =>
-          <div className={`how-step reveal${i > 0 ? ` reveal-delay-${i}` : ''}`} key={i}>
-              <div className="how-step-num">{step.n}</div>
-              <div className="how-step-title">{step.title}</div>
-              <div className="how-step-desc">{step.desc}</div>
-            </div>
-          )}
-        </div>
-        <div className="how-cta-row reveal">
-          <a href={tweaks.meetUrl} target="_blank" rel="noopener noreferrer" className="btn-primary">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" /><line x1="16" y1="2" x2="16" y2="6" /><line x1="8" y1="2" x2="8" y2="6" /><line x1="3" y1="10" x2="21" y2="10" /></svg>
-            קבעו פגישה חינם
-          </a>
-          <span className="how-note">ללא התחייבות · תשובה תוך שעות</span>
-        </div>
-      </div>
-
-      {/* Background */}
-      <div id="background" className="background-section">
-        <div className="bg-layout">
-          <div className="reveal">
-            <p className="section-eyebrow">הרקע שלי</p>
-            <h2 className="section-title">מיחידת המודיעין 8200<br />עד חברות הטק הגדולות.</h2>
-            <p className="bg-tagline">
-              שירתתי ביחידות הטכנולוגיות המובחרות ביותר של ישראל. אחר כך עבדתי בחלק מחברות הטק הצומחות ביותר בעולם. היום אני מביא את כל הניסיון הזה — לעסק שלכם.
-            </p>
-            <div className="military-badge">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" /></svg>
-              בוגר ומשרת מילואים פעיל ביחידה 8200
-            </div>
-            <div className="bg-companies">
-              {['יחידה 8200', 'ZoomInfo', 'Connecteam', 'מייסד סטארט-אפ'].map((c) =>
-              <span key={c} className="company-chip">{c}</span>
-              )}
-            </div>
-            <a href={`https://${tweaks.linkedinUrl}`} target="_blank" rel="noopener noreferrer" className="linkedin-hero-cta" style={{marginTop:8}}>
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-              פרופיל LinkedIn המלא
-            </a>
-          </div>
-          <div className="bg-milestones reveal reveal-delay-2">
-            {MILESTONES.map((m, i) =>
-            <div className={`milestone${m.current ? ' milestone-current' : ''}`} key={i}>
-                <div className="milestone-year">{m.year}</div>
-                <div>
-                  {m.tag && <div className="milestone-tag">{m.tag}</div>}
-                  <div className="milestone-title">{m.title}</div>
-                  <div className="milestone-desc">{m.desc}</div>
-                </div>
-              </div>
-            )}
-          </div>
-        </div>
-      </div>
-
-      {/* Services */}
-      <div id="services" className="services-section">
-        <div className="services-header">
-          <div className="reveal">
-            <p className="section-eyebrow">שירותים</p>
-            <h2 className="section-title">שש דרכים לשנות את העסק שלכם.</h2>
-          </div>
-          <p className="services-desc reveal reveal-delay-1">כל מעורבות מתחילה בהבנת העסק שלכם לעומק. אז אני בונה בדיוק מה שצריך — כדי לנצח את המתחרים שלך.</p>
-        </div>
-        <div className="services-hint reveal">
-          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M7 10l5-6 5 6" /><path d="M7 14l5 6 5-6" /></svg>
-          לחצו על כל כרטיס לפרטים נוספים
-        </div>
-        <div className="services-grid">
-          {SERVICES.map((s, i) => <ScannerCard key={i} service={s} delay={0.05 + i % 3 * 0.1} />)}
-        </div>
-      </div>
-
-      {/* Testimonials */}
-      <div id="testimonials" className="testimonials-section">
-        <div className="testimonials-intro reveal">
-          <p className="section-eyebrow">מה אומרים עליי</p>
-          <h2 className="section-title">עסקים שכבר עובדים אחרת.</h2>
-          <p style={{fontSize:15, color:'var(--text-dim)', lineHeight:1.8, fontWeight:300, marginTop:12}}>
-            אלו לא סיפורי הצלחה מדומים — אלו בעלי עסקים ומנהלים שהחליטו לשנות כיוון, ורואים את התוצאות כל יום.
-          </p>
-        </div>
-        <div className="testimonials-grid">
-          {TESTIMONIALS.map((post, i) =>
-          <LinkedInPost key={i} post={post} delay={0.08 + i % 3 * 0.1} />
-          )}
-        </div>
-      </div>
-
-      {/* LinkedIn Posts - Carousel */}
-      <div id="linkedin-posts" className="linkedin-section">
-        <div style={{display:'flex', alignItems:'flex-end', justifyContent:'space-between', flexWrap:'wrap', gap:24}} className="reveal">
-          <div>
-            <p className="how-eyebrow">LinkedIn</p>
-            <h2 className="how-title" style={{marginBottom:0}}>תוכן שמקדים את השוק.<br/><span style={{color:'var(--gold)'}}>בחינם. כל שבוע.</span></h2>
-          </div>
-          <div style={{display:'flex', flexDirection:'column', gap:12, alignItems:'flex-start'}}>
-            <p style={{fontSize:14, color:'rgba(250,249,246,0.45)', maxWidth:320, lineHeight:1.7, fontWeight:300}}>המתחרים שלי בדרך כלל פרסונל ברנד ללא ניסיון תעשייתי. אני כותב מהשטח — מ-8200, מחברות הטק הגדולות, ומלקוחות אמיתיים.</p>
-            <a href={`https://${tweaks.linkedinUrl}`} target="_blank" rel="noopener noreferrer" className="linkedin-hero-cta">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-              עקבו אחריי ב-LinkedIn
-            </a>
-          </div>
-        </div>
-        <LinkedInCarousel posts={MY_LINKEDIN_POSTS} linkedinUrl={tweaks.linkedinUrl} />
-        <div className="linkedin-edge-box reveal">
-          <div className="linkedin-edge-stat">
-            <div className="linkedin-edge-stat-num">5K+</div>
-            <div className="linkedin-edge-stat-label">עוקבים</div>
-          </div>
-          <div className="linkedin-edge-stat">
-            <div className="linkedin-edge-stat-num">2×</div>
-            <div className="linkedin-edge-stat-label">בשבוע</div>
-          </div>
-          <div className="linkedin-edge-text">
-            <div className="linkedin-edge-title">הניסיון שלי הוא היתרון שלכם.</div>
-            <div className="linkedin-edge-sub">בניגוד ליועצים שלמדו AI מיוטיוב — אני מגיע עם שנים בתוך יחידות מודיעין, חברות טק גלובליות ויזמות. זה מה שמשתקף בתוכן, ובתוצאות.</div>
-          </div>
-        </div>
-      </div>
-
-      {/* Contact */}
-      <section id="contact" className="contact-section">
-        <div className="contact-inner reveal">
-          <p className="contact-eyebrow">בואו נדבר</p>
-          <h2 className="contact-title">מוכנים לבנות את היתרון שלכם?</h2>
-          <p className="contact-sub">
-            30 דקות שיחה — ואני אגיד לכם בדיוק איך AI יכול לשנות את העסק שלכם.
-          </p>
-          <p className="contact-sub2">
-            ללא ז'רגון טכני. ללא התחייבות. רק תוצאות.
-          </p>
-          <div className="contact-buttons">
-            <a href={tweaks.meetUrl} target="_blank" rel="noopener noreferrer" className="contact-btn contact-btn-meet">
-              <svg width="22" height="22" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <rect width="48" height="48" rx="8" fill="none" />
-                <path d="M7 12h22v16H7z" fill="rgba(255,255,255,0.25)" />
-                <path d="M29 20l12-7v22l-12-7V20z" fill="rgba(255,255,255,0.4)" />
-              </svg>
-              <span>
-                קביעת פגישה עכשיו
-                <span className="meet-label-small">Google Meet · חינם · 30 דקות</span>
-              </span>
-            </a>
-            <a href={`https://wa.me/${tweaks.whatsappNumber}`} target="_blank" rel="noopener noreferrer" className="contact-btn contact-btn-whatsapp">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z" /></svg>
-              WhatsApp
-            </a>
-            <a href={`mailto:${tweaks.emailAddress}`} className="contact-btn contact-btn-email">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="4" width="20" height="16" rx="2" /><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" /></svg>
-              מייל
-            </a>
-          </div>
-          <p className="contact-note">אני עונה באופן אישי — בדרך כלל תוך שעות ספורות.</p>
-        </div>
-      </section>
-
-      <footer>
-        <div className="footer-copy">© 2026 · AI-Driven SMBs</div>
-        <a href="/privacypolicy" className="footer-privacy">מדיניות פרטיות</a>
-        <div className="footer-name">Omer Moran</div>
-      </footer>
-    </>);
-
-}
-
-ReactDOM.createRoot(document.getElementById('root')).render(<App />);
-
+  resize();
+  window.addEventListener('resize', resize);
+  if (reduced) {
+    frame(); // single static frame
+  } else {
+    var heroObs = new IntersectionObserver(function (entries) {
+      entries[0].isIntersecting ? start() : stop();
+    }, { threshold: 0.05 });
+    heroObs.observe(hero);
+    document.addEventListener('visibilitychange', function () {
+      if (document.hidden) stop(); else if (isElVisible()) start();
+    });
+    function isElVisible() {
+      var r = hero.getBoundingClientRect();
+      return r.bottom > 0 && r.top < window.innerHeight;
+    }
+    hero.addEventListener('mousemove', function (e) {
+      var r = canvas.getBoundingClientRect();
+      mouse.x = e.clientX - r.left; mouse.y = e.clientY - r.top;
+    });
+    hero.addEventListener('mouseleave', function () { mouse.x = -9999; mouse.y = -9999; });
+    hero.addEventListener('touchmove', function (e) {
+      var r = canvas.getBoundingClientRect();
+      mouse.x = e.touches[0].clientX - r.left; mouse.y = e.touches[0].clientY - r.top;
+    }, { passive: true });
+    hero.addEventListener('touchend', function () { mouse.x = -9999; mouse.y = -9999; });
+  }
+})();
 </script>
 </body>
 </html>

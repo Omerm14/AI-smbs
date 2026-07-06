@@ -2,10 +2,10 @@
   "cleanUrls": true,
   "trailingSlash": false,
   "redirects": [
-    { "source": "/", "destination": "/en", "permanent": false }
+    { "source": "/", "destination": "/he", "permanent": false },
+    { "source": "/index-he.html", "destination": "/he", "permanent": true }
   ],
   "routes": [
-    { "src": "/editor", "dest": "/editor/index.html" },
     { "src": "/privacypolicy", "dest": "/privacypolicy/index.html" },
     { "src": "/he/restaurants", "dest": "/he/restaurants/index.html" }
   ]

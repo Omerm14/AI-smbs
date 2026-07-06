@@ -1,1369 +1,1006 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="ltr">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Omer Moran — AI Expert for SMBs</title>
-  <link rel="icon" type="image/jpeg" href="/uploads/photo-1777477389865.JPG" />
+  <title>Omer Moran — AI Expert for SMBs | Automations &amp; AI Agents</title>
+  <meta name="description" content="Unit 8200 alumnus, ex-ZoomInfo &amp; Connecteam. I help small and medium businesses deploy AI that actually works — smart automations and AI agents delivering results around the clock." />
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230a0e18'/%3E%3Ctext x='32' y='44' font-family='Arial,sans-serif' font-size='28' font-weight='800' fill='%236e96ff' text-anchor='middle'%3EOM%3C/text%3E%3C/svg%3E" />
+  <link rel="canonical" href="https://www.omermoran.com/en" />
+  <link rel="alternate" hreflang="he" href="https://www.omermoran.com/he" />
+  <link rel="alternate" hreflang="en" href="https://www.omermoran.com/en" />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://www.omermoran.com/en" />
   <meta property="og:title" content="Omer Moran — AI Expert for SMBs" />
-  <meta property="og:description" content="I help small and medium businesses implement AI — so you can focus on growing, not keeping up." />
-  <meta property="og:image" content="https://www.omermoran.com/uploads/photo-1777477389865.JPG" />
+  <meta property="og:description" content="Unit 8200 alumnus, ex-ZoomInfo &amp; Connecteam. Smart automations and AI agents for small and medium businesses — results in weeks, not months." />
+  <meta property="og:image" content="https://www.omermoran.com/uploads/og-omer.jpg" />
+  <meta property="og:locale" content="en_US" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Omer Moran — AI Expert for SMBs" />
-  <meta name="twitter:description" content="I help small and medium businesses implement AI — so you can focus on growing, not keeping up." />
-  <meta name="twitter:image" content="https://www.omermoran.com/uploads/photo-1777477389865.JPG" />
+  <meta name="twitter:description" content="Smart automations and AI agents for small and medium businesses — results in weeks, not months." />
+  <meta name="twitter:image" content="https://www.omermoran.com/uploads/og-omer.jpg" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Omer Moran",
+    "url": "https://www.omermoran.com/en",
+    "image": "https://www.omermoran.com/uploads/og-omer.jpg",
+    "jobTitle": "AI Expert for Small and Medium Businesses",
+    "sameAs": ["https://www.linkedin.com/in/omer-moran-8aa07616b"],
+    "knowsAbout": ["Artificial Intelligence", "Business Automation", "AI Agents", "Data Products"]
+  }
+  </script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet" />
-  <script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
-  <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
-  <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700;9..40,800;9..40,900&display=swap" rel="stylesheet" />
+  <link rel="preload" as="image" href="/uploads/omer-880.webp" />
   <style>
+    /* ─────────────────────────  FOUNDATION  ───────────────────────── */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     :root {
-      --bg: #faf9f6;
-      --bg2: #f3f2ee;
+      --ink: #07090f;
+      --ink-2: #0b0f1a;
+      --ink-3: #111726;
+      --cream: #faf9f5;
+      --cream-2: #f1efe8;
       --surface: #ffffff;
-      --border: rgba(14,14,12,0.08);
-      --border-mid: rgba(14,14,12,0.14);
-      --gold: #456abf;
-      --gold-rgb: 69,106,191;
-      --gold-light: #456abf55;
-      --gold-pale: #456abf12;
-      --text: #0e0e0c;
-      --text-dim: #5a5a54;
-      --text-dimmer: #9a9a90;
+      --accent: #3d63c9;
+      --accent-rgb: 61,99,201;
+      --bright: #6e96ff;
+      --bright-rgb: 110,150,255;
+      --text: #10131c;
+      --text-dim: #565b68;
+      --text-faint: #979ca8;
+      --w: #f5f6fa;
+      --w-dim: rgba(230,235,250,0.55);
+      --w-faint: rgba(230,235,250,0.32);
+      --border: rgba(16,19,28,0.09);
+      --border-mid: rgba(16,19,28,0.16);
+      --border-d: rgba(255,255,255,0.09);
+      --head: 'Space Grotesk', 'DM Sans', sans-serif;
+      --num: 'Space Grotesk', sans-serif;
     }
     html { scroll-behavior: smooth; }
-    body { background: var(--bg); color: var(--text); font-family: 'DM Sans', sans-serif; overflow-x: hidden; -webkit-font-smoothing: antialiased; }
-    #root { position: relative; z-index: 1; }
-
-    /* Cursor glow */
-    #cursor-glow {
-      pointer-events: none; position: fixed; z-index: 9999;
-      width: 460px; height: 460px; border-radius: 50%;
-      background: radial-gradient(circle, rgba(var(--gold-rgb), 0.22) 0%, transparent 60%);
-      transform: translate(-50%, -50%);
-      transition: left 0.12s ease, top 0.12s ease;
-      mix-blend-mode: multiply;
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
     }
-
-    /* ── Nav ── */
-    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 24px 64px; transition: padding 0.4s, background 0.4s, box-shadow 0.4s; }
-    nav.scrolled { padding: 16px 64px; background: rgba(250,249,246,0.9); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); box-shadow: 0 1px 0 var(--border); }
-    .nav-logo { font-family: 'Space Grotesk', sans-serif; font-size: 14px; font-weight: 600; letter-spacing: 0.06em; color: var(--text); text-transform: uppercase; }
-    .nav-links { display: flex; gap: 40px; list-style: none; }
-    .nav-links a { text-decoration: none; color: var(--text-dim); font-size: 13px; transition: color 0.2s; }
-    .nav-links a:hover { color: var(--text); }
-    .nav-cta { font-family: 'Space Grotesk', sans-serif; font-size: 11px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; padding: 11px 26px; background: var(--text); color: var(--bg); text-decoration: none; display: inline-block; position: relative; overflow: hidden; transition: background 0.3s; }
-
-    /* ── Language Toggle ── */
-    .lang-toggle { display: flex; align-items: center; border: 1px solid var(--border-mid); border-radius: 100px; padding: 3px; background: rgba(255,255,255,0.7); backdrop-filter: blur(12px); gap: 2px; }
-    .lang-btn { font-family: 'Space Grotesk', sans-serif; font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; padding: 5px 13px; text-decoration: none; color: var(--text-dim); transition: color 0.25s ease, background 0.25s ease, box-shadow 0.25s ease, transform 0.2s ease; border-radius: 100px; }
-    .lang-btn.active { background: var(--text); color: var(--bg); box-shadow: 0 2px 8px rgba(14,14,12,0.18); }
-    .lang-btn:not(.active):hover { color: var(--text); background: rgba(14,14,12,0.06); transform: scale(1.04); }
-
-    /* ── Testimonials ── */
-    .testimonials-section { background: var(--bg); padding: 100px 64px; position: relative; overflow: hidden; }
-    .testimonials-section::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px; background: var(--border); }
-    .testimonials-intro { max-width: 540px; margin-bottom: 64px; }
-    .testimonials-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
-    .tcard { background: var(--surface); border: 1px solid var(--border); padding: 36px 32px 28px; position: relative; display: flex; flex-direction: column; gap: 24px; transition: box-shadow 0.35s cubic-bezier(0.16,1,0.3,1), transform 0.35s cubic-bezier(0.16,1,0.3,1), border-color 0.25s; cursor: default; }
-    .tcard:hover { box-shadow: 0 16px 48px rgba(14,14,12,0.09); transform: translateY(-4px); border-color: var(--border-mid); }
-    .tcard-featured { border-color: rgba(var(--gold-rgb),0.25); }
-    .tcard-featured:hover { border-color: rgba(var(--gold-rgb),0.5); box-shadow: 0 16px 48px rgba(var(--gold-rgb),0.1); }
-    .tcard-quote { font-size: 14px; line-height: 1.85; color: var(--text); font-weight: 400; flex: 1; }
-    .tcard-quote::before { content: '"'; font-family: 'Space Grotesk', sans-serif; font-size: 56px; line-height: 0.75; color: var(--gold); opacity: 0.5; display: block; margin-bottom: 16px; }
-    .tcard-quote strong { font-weight: 700; color: var(--text); }
-    .tcard-author { display: flex; align-items: center; gap: 14px; padding-top: 20px; border-top: 1px solid var(--border); }
-    .tcard-avatar { width: 40px; height: 40px; border-radius: 50%; flex-shrink: 0; background: var(--gold-pale); border: 1.5px solid rgba(var(--gold-rgb),0.25); display: flex; align-items: center; justify-content: center; font-family: 'Space Grotesk', sans-serif; font-size: 12px; font-weight: 700; color: var(--gold); }
-    .tcard-name { font-family: 'Space Grotesk', sans-serif; font-size: 13px; font-weight: 700; color: var(--text); margin-bottom: 2px; }
-    .tcard-role { font-size: 11px; color: var(--text-dimmer); line-height: 1.4; }
-    .tcard-badge { position: absolute; top: -1px; left: 32px; background: var(--gold); color: white; font-size: 9px; font-weight: 700; letter-spacing: 0.08em; padding: 4px 10px; }
-
-    /* ── LinkedIn CTA ── */
-    .linkedin-hero-cta { display: inline-flex; align-items: center; gap: 14px; background: #0a66c2; color: #fff; padding: 16px 32px; font-family: 'Space Grotesk', sans-serif; font-size: 13px; font-weight: 600; letter-spacing: 0.06em; text-decoration: none; transition: transform 0.25s, box-shadow 0.25s, background 0.2s; position: relative; overflow: hidden; }
-    .linkedin-hero-cta::after { content: ''; position: absolute; inset: 0; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.15), transparent); transform: translateX(-100%); transition: transform 0.5s; }
-    .linkedin-hero-cta:hover { background: #004182; transform: translateY(-2px); box-shadow: 0 12px 36px rgba(10,102,194,0.45); }
-    .linkedin-hero-cta:hover::after { transform: translateX(100%); }
-    .contact-btn-meet { background: #1a73e8; color: #fff; }
-    .contact-btn-meet:hover { box-shadow: 0 12px 36px rgba(26,115,232,0.45); }
-
-    /* ── LinkedIn Section ── */
-    .linkedin-section { background: var(--text); padding: 100px 64px; position: relative; overflow: hidden; }
-    .linkedin-section::before { content: ''; position: absolute; top: -300px; right: -200px; width: 700px; height: 700px; border-radius: 50%; background: radial-gradient(circle, rgba(var(--gold-rgb),0.07) 0%, transparent 70%); pointer-events: none; }
-    .linkedin-eyebrow { display: inline-flex; align-items: center; gap: 12px; font-size: 10px; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold); margin-bottom: 12px; }
-    .linkedin-eyebrow::before { content: ''; display: inline-block; width: 24px; height: 1px; background: var(--gold); }
-    .linkedin-title { font-family: 'Space Grotesk', sans-serif; font-size: clamp(26px, 3vw, 40px); font-weight: 700; color: #faf9f6; line-height: 1.1; letter-spacing: -0.025em; margin-bottom: 8px; }
-    .linkedin-sub { font-size: 15px; color: rgba(250,249,246,0.45); font-weight: 300; margin-bottom: 0; }
-    .linkedin-header-row { display: flex; align-items: flex-end; justify-content: space-between; margin-bottom: 56px; gap: 40px; }
-    .linkedin-profile-link { display: inline-flex; align-items: center; gap: 8px; font-family: 'Space Grotesk', sans-serif; font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gold); text-decoration: none; border-bottom: 1px solid rgba(var(--gold-rgb),0.35); padding-bottom: 3px; flex-shrink: 0; transition: gap 0.2s, border-color 0.2s; }
-    .linkedin-profile-link:hover { gap: 13px; border-color: var(--gold); }
-    .linkedin-carousel-wrap { position: relative; }
-    .linkedin-carousel { display: flex; gap: 24px; overflow: hidden; }
-    .li-screenshot { flex: 0 0 calc(33.33% - 16px); background: #fff; border-radius: 8px; box-shadow: 0 20px 60px rgba(0,0,0,0.35), 0 4px 16px rgba(0,0,0,0.2); overflow: hidden; transition: transform 0.4s cubic-bezier(0.16,1,0.3,1), box-shadow 0.4s; cursor: pointer; font-family: -apple-system, 'Segoe UI', Arial, sans-serif; position: relative; text-decoration: none; color: inherit; display: block; }
-    .li-screenshot:hover { transform: translateY(-6px); box-shadow: 0 28px 70px rgba(0,0,0,0.4), 0 6px 20px rgba(0,0,0,0.25); }
-    .li-screenshot:hover .li-hover-overlay { opacity: 1 !important; }
-    .li-hover-overlay { position: absolute; inset: 0; background: rgba(10,102,194,0.07); display: flex; align-items: center; justify-content: center; opacity: 0; transition: opacity 0.2s; z-index: 10; border-radius: 8px; pointer-events: none; }
-    .li-chrome { background: #fff; padding: 12px 16px 0; border-bottom: 1px solid #e0e0e0; }
-    .li-chrome-top { display: flex; align-items: center; gap: 10px; margin-bottom: 12px; }
-    .li-chrome-avatar { width: 48px; height: 48px; border-radius: 50%; overflow: hidden; flex-shrink: 0; }
-    .li-chrome-avatar img { width: 100%; height: 100%; object-fit: cover; object-position: center top; }
-    .li-chrome-info { flex: 1; }
-    .li-chrome-name { font-size: 14px; font-weight: 600; color: #000; line-height: 1.3; }
-    .li-chrome-meta { font-size: 12px; color: #666; margin-top: 1px; }
-    .li-post-content { padding: 14px 16px 12px; font-size: 13px; line-height: 1.6; color: #000; direction: ltr; text-align: left; }
-    .li-post-reactions-bar { padding: 6px 16px 8px; display: flex; align-items: center; justify-content: space-between; border-top: 1px solid #e0e0e0; }
-    .li-post-counts { font-size: 12px; color: #666; display: flex; gap: 12px; }
-    .li-post-actions { display: flex; justify-content: space-around; padding: 4px 8px 8px; border-top: 1px solid #e0e0e0; gap: 4px; }
-    .li-action-btn { flex: 1; display: flex; align-items: center; justify-content: center; gap: 5px; padding: 8px 4px; border-radius: 4px; font-size: 12px; color: #666; font-weight: 600; cursor: pointer; transition: background 0.15s; }
-    .li-action-btn:hover { background: #f3f3f3; }
-    .carousel-nav { display: flex; align-items: center; justify-content: center; gap: 16px; margin-top: 36px; }
-    .carousel-btn { width: 40px; height: 40px; border-radius: 50%; border: 1px solid rgba(255,255,255,0.15); background: rgba(255,255,255,0.06); color: rgba(255,255,255,0.6); display: flex; align-items: center; justify-content: center; cursor: pointer; transition: background 0.2s, color 0.2s, border-color 0.2s; }
-    .carousel-btn:hover { background: var(--gold); border-color: var(--gold); color: #fff; }
-    .carousel-dots { display: flex; gap: 8px; }
-    .carousel-dot { width: 6px; height: 6px; border-radius: 50%; background: rgba(255,255,255,0.2); transition: background 0.3s, transform 0.3s; cursor: pointer; }
-    .carousel-dot.active { background: var(--gold); transform: scale(1.3); }
-    .linkedin-edge-box { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.1); padding: 32px 36px; display: flex; align-items: center; gap: 32px; margin-top: 56px; }
-    .linkedin-edge-text { flex: 1; }
-    .linkedin-edge-title { font-family: 'Space Grotesk', sans-serif; font-size: 20px; font-weight: 700; color: #faf9f6; margin-bottom: 8px; line-height: 1.2; }
-    .linkedin-edge-sub { font-size: 14px; color: rgba(250,249,246,0.5); line-height: 1.7; font-weight: 300; }
-    .linkedin-edge-stat { text-align: center; flex-shrink: 0; padding: 0 0 0 24px; border-left: 1px solid rgba(255,255,255,0.08); }
-    .linkedin-edge-stat-num { font-family: 'Space Grotesk', sans-serif; font-size: 40px; font-weight: 700; color: var(--gold); line-height: 1; }
-    .linkedin-edge-stat-label { font-size: 11px; color: rgba(250,249,246,0.4); margin-top: 4px; letter-spacing: 0.06em; }
-    .nav-cta::after { content: ''; position: absolute; inset: 0; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.15), transparent); transform: translateX(-100%); transition: transform 0.5s ease; }
-    .nav-cta:hover { background: var(--gold); }
-    .nav-cta:hover::after { transform: translateX(100%); }
-
-    /* ── Hero ── */
-    .hero { min-height: 100vh; display: grid; grid-template-columns: 1fr 1fr; align-items: center; padding: 120px 64px 80px; gap: 80px; position: relative; overflow: hidden; }
-    .hero-bg-grid { position: absolute; inset: 0; pointer-events: none; background-image: linear-gradient(rgba(var(--gold-rgb),0.045) 1px, transparent 1px), linear-gradient(90deg, rgba(var(--gold-rgb),0.045) 1px, transparent 1px); background-size: 60px 60px; mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 0%, transparent 100%); -webkit-mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 0%, transparent 100%); }
-    .hero-glow { position: absolute; width: 700px; height: 700px; border-radius: 50%; background: radial-gradient(circle, rgba(var(--gold-rgb),0.13) 0%, transparent 65%); right: -8%; top: 50%; transform: translateY(-50%); pointer-events: none; filter: blur(40px); animation: floatGlow 7s ease-in-out infinite alternate; }
-    @keyframes floatGlow { 0% { transform: translateY(-50%) scale(1); } 100% { transform: translateY(-56%) scale(1.1); } }
-    .hero-content { position: relative; }
-    .hero-eyebrow { display: inline-flex; align-items: center; gap: 12px; font-size: 10px; font-weight: 500; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold); margin-bottom: 32px; opacity: 0; animation: fadeUp 0.6s 0.1s ease forwards; }
-    .hero-eyebrow-line { display: inline-block; width: 32px; height: 1px; background: var(--gold); }
-    @keyframes fadeUp { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
-    .reveal-line { overflow: hidden; display: block; }
-    .reveal-word { display: inline-block; transform: translateY(110%); opacity: 0; animation: wordUp 0.85s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
-    @keyframes wordUp { to { transform: translateY(0); opacity: 1; } }
-    .hero-title { font-family: 'Space Grotesk', sans-serif; font-size: clamp(44px, 4.8vw, 76px); font-weight: 700; line-height: 1.03; letter-spacing: -0.03em; margin-bottom: 32px; }
-    .hero-sub { font-size: 17px; line-height: 1.75; color: var(--text-dim); max-width: 480px; margin-bottom: 52px; font-weight: 300; opacity: 0; animation: fadeUp 0.8s 1s ease forwards; }
-    .hero-actions { display: flex; gap: 20px; align-items: center; opacity: 0; animation: fadeUp 0.8s 1.2s ease forwards; }
-    .btn-primary { font-family: 'Space Grotesk', sans-serif; font-size: 11px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; padding: 16px 40px; background: var(--text); color: var(--bg); border: none; cursor: pointer; text-decoration: none; display: inline-block; position: relative; overflow: hidden; transition: background 0.3s, transform 0.25s, box-shadow 0.25s; }
-    .btn-primary::after { content: ''; position: absolute; inset: 0; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.16), transparent); transform: translateX(-100%); transition: transform 0.55s ease; }
-    .btn-primary:hover { background: var(--gold); transform: translateY(-2px); box-shadow: 0 8px 28px rgba(var(--gold-rgb),0.3); }
-    .btn-primary:hover::after { transform: translateX(100%); }
-    .btn-ghost { font-size: 13px; color: var(--text-dim); text-decoration: none; display: inline-flex; align-items: center; gap: 8px; transition: color 0.2s, gap 0.25s; }
-    .btn-ghost:hover { color: var(--text); gap: 14px; }
-    .hero-image-wrap { position: relative; display: flex; justify-content: center; opacity: 0; animation: fadeUp 1s 0.4s ease forwards; }
-    .photo-frame { position: relative; width: 400px; }
-    .photo-frame img { width: 100%; display: block; filter: contrast(1.02) brightness(1.01); transition: transform 0.6s cubic-bezier(0.16,1,0.3,1); }
-    .photo-frame:hover img { transform: scale(1.02); }
-    .photo-frame::before { content: ''; position: absolute; top: 20px; left: 20px; right: -20px; bottom: -20px; border: 1px solid var(--gold-light); z-index: -1; transition: transform 0.5s cubic-bezier(0.16,1,0.3,1); }
-    .photo-frame:hover::before { transform: translate(4px, 4px); }
-    .photo-credential { position: absolute; bottom: -16px; left: -24px; background: var(--surface); border: 1px solid var(--border-mid); padding: 16px 22px; box-shadow: 0 12px 48px rgba(14,14,12,0.12); min-width: 180px; animation: fadeUp 1s 0.9s ease both; }
-    .cred-label { font-size: 9px; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold); margin-bottom: 6px; }
-    .cred-name { font-family: 'Space Grotesk', sans-serif; font-size: 16px; font-weight: 700; color: var(--text); margin-bottom: 2px; }
-    .cred-title { font-size: 11px; color: var(--text-dim); }
-
-    /* ── Marquee ── */
-    .marquee-strip { border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); padding: 14px 0; background: var(--text); overflow: hidden; }
-    .marquee-track { display: flex; animation: marqueeScroll 28s linear infinite; width: max-content; }
-    .marquee-track:hover { animation-play-state: paused; }
-    @keyframes marqueeScroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
-    .marquee-item { display: inline-flex; align-items: center; gap: 20px; padding: 0 40px; white-space: nowrap; font-family: 'Space Grotesk', sans-serif; font-size: 11px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(250,249,246,0.45); }
-    .marquee-dot { display: inline-block; width: 4px; height: 4px; border-radius: 50%; background: var(--gold); flex-shrink: 0; }
-
-    /* ── Impact Numbers ── */
-    .impact-section { background: var(--bg); padding: 100px 64px; position: relative; overflow: hidden; }
-    .impact-section::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px; background: var(--border); }
-    .impact-eyebrow { display: inline-flex; align-items: center; gap: 12px; font-size: 10px; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold); margin-bottom: 60px; }
-    .impact-eyebrow::before { content: ''; display: inline-block; width: 24px; height: 1px; background: var(--gold); }
-    .impact-grid { display: grid; grid-template-columns: repeat(3, 1fr); position: relative; }
-    .impact-grid::before { content: ''; position: absolute; top: 0; left: 33.33%; width: 1px; height: 100%; background: var(--border); }
-    .impact-grid::after { content: ''; position: absolute; top: 0; left: 66.66%; width: 1px; height: 100%; background: var(--border); }
-    .impact-item { padding: 0 56px 0 0; display: flex; flex-direction: column; }
-    .impact-item:not(:first-child) { padding: 0 56px 0 56px; }
-    .impact-number {
-      font-family: 'Space Grotesk', sans-serif;
-      font-size: clamp(72px, 9vw, 120px);
-      font-weight: 700; line-height: 0.9;
-      letter-spacing: -0.04em;
-      color: var(--text);
-      height: 130px;
-      display: flex; align-items: flex-end; flex-wrap: wrap; gap: 0 8px;
-      margin-bottom: 24px;
+    body {
+      background: var(--cream); color: var(--text);
+      font-family: 'DM Sans', sans-serif;
+      overflow-x: hidden; -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
     }
-    .impact-number .accent { color: var(--gold); font-size: clamp(32px, 4vw, 56px); font-weight: 700; align-self: flex-end; padding-bottom: 6px; }
-    .impact-claim { font-family: 'Space Grotesk', sans-serif; font-size: 20px; font-weight: 600; color: var(--text); margin-bottom: 12px; line-height: 1.2; }
-    .impact-detail { font-size: 14px; line-height: 1.65; color: var(--text-dim); font-weight: 300; max-width: 260px; }
+    ::selection { background: var(--accent); color: #fff; }
+    a { -webkit-tap-highlight-color: transparent; }
+    img { max-width: 100%; }
+    .num { font-family: var(--num); }
+    h1, h2, h3 { font-family: var(--head); }
 
-    /* ── How it works ── */
-    .how-section { background: var(--text); padding: 100px 64px; position: relative; overflow: hidden; }
-    .how-section::before { content: ''; position: absolute; top: -300px; right: -200px; width: 700px; height: 700px; border-radius: 50%; background: radial-gradient(circle, rgba(var(--gold-rgb),0.08) 0%, transparent 70%); pointer-events: none; }
-    .how-eyebrow { display: inline-flex; align-items: center; gap: 12px; font-size: 10px; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold); margin-bottom: 56px; }
-    .how-eyebrow::before { content: ''; display: inline-block; width: 24px; height: 1px; background: var(--gold); }
-    .how-title { font-family: 'Space Grotesk', sans-serif; font-size: clamp(28px, 3vw, 44px); font-weight: 700; color: #faf9f6; line-height: 1.1; letter-spacing: -0.025em; margin-bottom: 64px; }
-    .how-steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; position: relative; }
-    .how-step { padding: 0 48px 0 0; }
-    .how-step:not(:first-child) { padding: 0 48px 0 48px; border-left: 1px solid rgba(255,255,255,0.06); }
-    .how-step-num { font-family: 'Space Grotesk', sans-serif; font-size: 13px; font-weight: 700; color: var(--gold); letter-spacing: 0.1em; margin-bottom: 20px; }
-    .how-step-title { font-family: 'Space Grotesk', sans-serif; font-size: 22px; font-weight: 700; color: #faf9f6; margin-bottom: 14px; line-height: 1.15; }
-    .how-step-desc { font-size: 14px; line-height: 1.75; color: rgba(250,249,246,0.52); font-weight: 300; }
-    .how-cta-row { margin-top: 64px; display: flex; align-items: center; gap: 24px; }
-    .how-note { font-size: 13px; color: rgba(250,249,246,0.35); }
-
-    /* ── Background / proof ── */
-    .background-section { background: var(--bg2); padding: 100px 64px; position: relative; overflow: hidden; }
-    .background-section::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px; background: var(--border); }
-    .bg-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; }
-    .section-eyebrow { display: inline-flex; align-items: center; gap: 12px; font-size: 10px; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold); margin-bottom: 24px; }
-    .section-eyebrow::before { content: ''; display: inline-block; width: 24px; height: 1px; background: var(--gold); }
-    .section-title { font-family: 'Space Grotesk', sans-serif; font-size: clamp(28px, 3vw, 46px); font-weight: 700; line-height: 1.08; letter-spacing: -0.025em; margin-bottom: 20px; }
-    .bg-tagline { font-size: 16px; line-height: 1.75; color: var(--text-dim); font-weight: 300; margin-bottom: 28px; max-width: 420px; }
-    .bg-companies { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 28px; }
-    .company-chip { font-family: 'Space Grotesk', sans-serif; font-size: 10px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; padding: 7px 14px; border: 1px solid var(--border-mid); color: var(--text-dim); background: var(--surface); transition: border-color 0.2s, color 0.2s; }
-    .company-chip:hover { border-color: var(--gold); color: var(--gold); }
-    .bg-linkedin { display: inline-flex; align-items: center; gap: 10px; font-family: 'Space Grotesk', sans-serif; font-size: 11px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); text-decoration: none; padding-bottom: 3px; border-bottom: 1px solid rgba(var(--gold-rgb), 0.35); transition: border-color 0.2s, gap 0.25s; }
-    .bg-linkedin:hover { border-color: var(--gold); gap: 14px; }
-    .bg-milestones { display: flex; flex-direction: column; }
-    .milestone { display: grid; grid-template-columns: 90px 1fr; gap: 20px; padding: 22px 0; border-bottom: 1px solid var(--border); align-items: start; transition: padding-left 0.2s; cursor: default; }
-    .milestone:first-child { border-top: 1px solid var(--border); }
-    .milestone:hover { padding-left: 8px; }
-    .milestone.milestone-current { background: rgba(var(--gold-rgb), 0.06); border-left: 2px solid var(--gold); padding-left: 16px; margin-left: -16px; }
-    .milestone.milestone-current:hover { padding-left: 16px; }
-    .milestone-year { font-family: 'Space Grotesk', sans-serif; font-size: 11px; font-weight: 600; color: var(--gold); letter-spacing: 0.06em; padding-top: 2px; }
-    .milestone-title { font-family: 'Space Grotesk', sans-serif; font-size: 14px; font-weight: 600; color: var(--text); margin-bottom: 4px; }
-    .milestone-desc { font-size: 12px; color: var(--text-dim); line-height: 1.55; }
-
-    /* ── Services ── */
-    .services-section { background: var(--surface); padding: 100px 64px; position: relative; }
-    .services-section::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px; background: var(--border); }
-    .services-header { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; margin-bottom: 20px; align-items: end; }
-    .services-desc { font-size: 15px; line-height: 1.75; color: var(--text-dim); font-weight: 300; }
-    .services-hint { display: flex; align-items: center; gap: 8px; margin-bottom: 28px; font-size: 12px; color: var(--text-dimmer); font-style: italic; }
-    .services-hint svg { color: var(--gold); flex-shrink: 0; }
-    .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--border-mid); }
-
-    /* ── Scanner reveal card ── */
-    .svc-card-wrap { background: var(--surface); }
-    .svc-card {
-      position: relative; height: 300px; cursor: pointer; overflow: hidden;
-      background: var(--surface);
-      transition: background 0.5s;
+    /* ─────────────────────────  PROGRESS + NAV  ───────────────────── */
+    #progress { position: fixed; top: 0; right: 0; left: 0; height: 2.5px; z-index: 1000; background: linear-gradient(90deg, var(--accent), var(--bright)); transform-origin: left; transform: scaleX(0); }
+    nav {
+      position: fixed; top: 0; right: 0; left: 0; z-index: 900;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 22px 56px; transition: padding .4s, background .4s, box-shadow .4s, backdrop-filter .4s;
     }
-    /* Top gold bar */
-    .svc-card::before {
-      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
-      background: var(--gold); transform: scaleX(0); transform-origin: left;
-      transition: transform 0.4s cubic-bezier(0.16,1,0.3,1); z-index: 2;
+    nav.on-dark .nav-logo, nav.on-dark .nav-links a { color: var(--w); }
+    nav.on-dark .nav-links a:hover { color: var(--bright); }
+    nav.scrolled { padding: 13px 56px; background: rgba(250,249,245,.85); backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px); box-shadow: 0 1px 0 var(--border); }
+    nav.scrolled .nav-logo, nav.scrolled .nav-links a { color: var(--text); }
+    nav.scrolled .nav-links a:hover { color: var(--accent); }
+    .nav-logo { font-family: var(--head); font-size: 16px; font-weight: 700; letter-spacing: -0.01em; color: var(--w); text-decoration: none; display: flex; align-items: center; gap: 9px; }
+    .nav-logo .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--bright); box-shadow: 0 0 12px 2px rgba(var(--bright-rgb), .6); }
+    .nav-links { display: flex; gap: 34px; list-style: none; }
+    .nav-links a { text-decoration: none; color: var(--w-dim); font-size: 13.5px; font-weight: 500; transition: color .2s; }
+    .nav-side { display: flex; align-items: center; gap: 14px; }
+    .nav-cta {
+      font-size: 13.5px; font-weight: 700; padding: 10px 22px; border-radius: 100px;
+      background: var(--bright); color: #0a0e18; text-decoration: none;
+      transition: transform .25s, box-shadow .25s, background .25s;
+      box-shadow: 0 4px 18px rgba(var(--bright-rgb), .35);
     }
-    .svc-card:hover::before { transform: scaleX(1); }
-    /* Gold scanner beam */
-    .svc-card-beam {
-      position: absolute; top: 0; bottom: 0; width: 3px; z-index: 10;
-      background: linear-gradient(to bottom, transparent, var(--gold), rgba(var(--gold-rgb),0.6), var(--gold), transparent);
-      box-shadow: 0 0 24px 10px rgba(var(--gold-rgb), 0.25);
-      left: -6px; pointer-events: none;
-      transition: none;
+    .nav-cta:hover { transform: translateY(-2px); box-shadow: 0 8px 26px rgba(var(--bright-rgb), .5); }
+    nav.scrolled .nav-cta { background: var(--accent); color: #fff; box-shadow: 0 4px 16px rgba(var(--accent-rgb), .3); }
+    .lang-toggle { display: flex; border: 1px solid var(--border-d); border-radius: 100px; padding: 3px; gap: 2px; background: rgba(255,255,255,.06); backdrop-filter: blur(10px); }
+    nav.scrolled .lang-toggle { border-color: var(--border-mid); background: rgba(255,255,255,.6); }
+    .lang-btn { font-family: var(--num); font-size: 11px; font-weight: 700; letter-spacing: .08em; padding: 5px 12px; border-radius: 100px; text-decoration: none; color: var(--w-dim); transition: all .25s; }
+    nav.scrolled .lang-btn { color: var(--text-dim); }
+    .lang-btn.active { background: var(--w); color: var(--ink); }
+    nav.scrolled .lang-btn.active { background: var(--text); color: var(--cream); }
+
+    /* ─────────────────────────  HERO (dark)  ──────────────────────── */
+    .hero {
+      position: relative; min-height: 100svh; background: var(--ink);
+      display: grid; grid-template-columns: 1.05fr .95fr; align-items: center;
+      padding: 130px 56px 90px; gap: 40px; overflow: hidden; isolation: isolate;
     }
-    .svc-card.scanning .svc-card-beam { left: calc(100% + 6px); transition: left 0.55s cubic-bezier(0.4,0,0.4,1); }
-    /* Front */
-    .svc-card-front {
-      position: absolute; inset: 0; padding: 36px 32px;
-      display: flex; flex-direction: column;
-      transition: opacity 0.25s 0.2s, transform 0.3s 0.2s;
+    #net { position: absolute; inset: 0; z-index: 0; }
+    .hero-vignette { position: absolute; inset: 0; z-index: 1; pointer-events: none;
+      background: radial-gradient(ellipse 90% 70% at 30% 40%, transparent 40%, rgba(7,9,15,.75) 100%); }
+    .hero-aurora { position: absolute; z-index: 0; width: 900px; height: 900px; border-radius: 50%; pointer-events: none;
+      background: radial-gradient(circle, rgba(var(--bright-rgb), .14) 0%, rgba(var(--bright-rgb), .04) 45%, transparent 70%);
+      right: -12%; top: -30%; filter: blur(30px); animation: aurora 9s ease-in-out infinite alternate; }
+    @keyframes aurora { to { transform: translate(-60px, 60px) scale(1.12); } }
+    .hero-content { position: relative; z-index: 2; max-width: 640px; }
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 10px;
+      font-size: 12.5px; font-weight: 600; color: var(--bright);
+      border: 1px solid rgba(var(--bright-rgb), .35); border-radius: 100px;
+      padding: 7px 16px; margin-bottom: 30px; background: rgba(var(--bright-rgb), .07);
+      opacity: 0; animation: fadeUp .7s .15s ease forwards;
     }
-    .svc-card.revealed .svc-card-front { opacity: 0; transform: translateY(-12px); pointer-events: none; transition: opacity 0.2s, transform 0.2s; }
-    /* Back */
-    .svc-card-back {
-      position: absolute; inset: 0; padding: 32px;
-      display: flex; flex-direction: column; justify-content: space-between;
-      background: var(--text);
-      opacity: 0; transform: translateY(12px);
-      transition: opacity 0.25s, transform 0.3s;
-      pointer-events: none;
+    .hero-badge .pulse { width: 7px; height: 7px; border-radius: 50%; background: #43e97b; position: relative; }
+    .hero-badge .pulse::after { content: ''; position: absolute; inset: -4px; border-radius: 50%; border: 1.5px solid #43e97b; animation: ping 1.8s ease-out infinite; }
+    @keyframes ping { from { transform: scale(.5); opacity: 1; } to { transform: scale(1.6); opacity: 0; } }
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: translateY(0); } }
+    .hero h1 {
+      font-size: clamp(34px, 4.2vw, 62px); font-weight: 700; line-height: 1.07;
+      letter-spacing: -0.03em; color: var(--w); margin-bottom: 28px;
     }
-    .svc-card.revealed .svc-card-back { opacity: 1; transform: translateY(0); transition: opacity 0.3s 0.22s, transform 0.35s 0.22s; pointer-events: all; }
-    .svc-card.revealed { background: var(--text); }
-    .svc-card.revealed::before { transform: scaleX(1); }
-    .service-icon { width: 36px; height: 36px; display: flex; align-items: center; justify-content: center; color: var(--gold); margin-bottom: 22px; transition: transform 0.3s; }
-    .svc-card:hover .service-icon { transform: scale(1.1); }
-    .service-name { font-family: 'Space Grotesk', sans-serif; font-size: 15px; font-weight: 600; color: var(--text); margin-bottom: 10px; }
-    .service-desc { font-size: 12px; line-height: 1.7; color: var(--text-dim); font-weight: 300; }
-    .svc-tap-hint { display: flex; align-items: center; gap: 6px; margin-top: auto; padding-top: 16px; font-size: 10px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); opacity: 0.6; }
-    .back-name { font-family: 'Space Grotesk', sans-serif; font-size: 10px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold); margin-bottom: 12px; }
-    .back-detail { font-size: 13px; line-height: 1.8; color: rgba(250,249,246,0.68); font-weight: 300; flex: 1; }
-    .back-close { display: inline-flex; align-items: center; gap: 6px; font-size: 10px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(250,249,246,0.3); margin-top: 16px; }
+    .hline { display: block; overflow: hidden; padding-bottom: .08em; margin-bottom: -.08em; }
+    .hword { display: inline-block; transform: translateY(112%); animation: wordUp .9s cubic-bezier(.16,1,.3,1) forwards; }
+    @keyframes wordUp { to { transform: translateY(0); } }
+    .grad {
+      background: linear-gradient(100deg, var(--bright) 10%, #9db9ff 45%, var(--bright) 80%);
+      background-size: 200% auto; -webkit-background-clip: text; background-clip: text; color: transparent;
+      animation: shimmer 5s linear infinite;
+    }
+    .hword.grad { animation: wordUp .9s cubic-bezier(.16,1,.3,1) forwards, shimmer 5s linear infinite; }
+    @keyframes shimmer { to { background-position: 200% center; } }
+    .hero-sub { font-size: 17.5px; line-height: 1.8; color: var(--w-dim); max-width: 500px; margin-bottom: 42px; font-weight: 300; opacity: 0; animation: fadeUp .8s 1s ease forwards; }
+    .hero-sub strong { color: var(--w); font-weight: 600; }
+    .hero-actions { display: flex; gap: 18px; align-items: center; flex-wrap: wrap; opacity: 0; animation: fadeUp .8s 1.2s ease forwards; }
+    .btn-hero {
+      position: relative; overflow: hidden; display: inline-flex; align-items: center; gap: 10px;
+      font-family: inherit; font-size: 15px; font-weight: 700; padding: 17px 38px; border-radius: 100px;
+      background: var(--bright); color: #0a0e18; text-decoration: none; border: none; cursor: pointer;
+      transition: transform .25s, box-shadow .25s; box-shadow: 0 6px 30px rgba(var(--bright-rgb), .4);
+      will-change: transform;
+    }
+    .btn-hero::after { content: ''; position: absolute; inset: 0; background: linear-gradient(105deg, transparent 40%, rgba(255,255,255,.5) 50%, transparent 60%); transform: translateX(-120%); transition: transform .6s ease; }
+    .btn-hero:hover { transform: translateY(-3px); box-shadow: 0 12px 40px rgba(var(--bright-rgb), .55); }
+    .btn-hero:hover::after { transform: translateX(120%); }
+    .btn-hero small { font-size: 11.5px; font-weight: 500; opacity: .75; }
+    .btn-ghost-d { display: inline-flex; align-items: center; gap: 9px; font-size: 14px; font-weight: 500; color: var(--w-dim); text-decoration: none; transition: color .2s, gap .25s; }
+    .btn-ghost-d:hover { color: var(--w); gap: 14px; }
+    .hero-trust { display: flex; gap: 26px; margin-top: 54px; opacity: 0; animation: fadeUp .8s 1.45s ease forwards; flex-wrap: wrap; }
+    .trust-item { display: flex; align-items: center; gap: 9px; font-size: 13px; color: var(--w-faint); font-weight: 400; }
+    .trust-item svg { color: var(--bright); opacity: .8; flex-shrink: 0; }
 
-    /* ── Contact ── */
-    .contact-section { background: var(--text); padding: 100px 64px; position: relative; overflow: hidden; text-align: center; }
-    .contact-section::before { content: ''; position: absolute; top: -200px; left: 50%; transform: translateX(-50%); width: 600px; height: 600px; border-radius: 50%; background: radial-gradient(circle, rgba(var(--gold-rgb),0.1) 0%, transparent 70%); pointer-events: none; }
-    .contact-inner { max-width: 680px; margin: 0 auto; position: relative; }
-    .contact-eyebrow { display: inline-flex; align-items: center; gap: 12px; font-size: 10px; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold); margin-bottom: 24px; justify-content: center; }
-    .contact-eyebrow::after { content: ''; display: inline-block; width: 24px; height: 1px; background: var(--gold); }
-    .contact-title { font-family: 'Space Grotesk', sans-serif; font-size: clamp(32px, 4vw, 56px); font-weight: 700; color: #faf9f6; line-height: 1.08; letter-spacing: -0.025em; margin-bottom: 20px; }
-    .contact-sub { font-size: 17px; line-height: 1.75; color: rgba(250,249,246,0.5); margin-bottom: 52px; font-weight: 300; }
-    .contact-buttons { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
-    .contact-btn { display: inline-flex; align-items: center; gap: 12px; font-family: 'Space Grotesk', sans-serif; font-size: 13px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; padding: 18px 40px; text-decoration: none; position: relative; overflow: hidden; transition: transform 0.25s, box-shadow 0.25s; }
-    .contact-btn::after { content: ''; position: absolute; inset: 0; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.14), transparent); transform: translateX(-100%); transition: transform 0.5s ease; }
-    .contact-btn:hover { transform: translateY(-3px); }
-    .contact-btn:hover::after { transform: translateX(100%); }
-    .contact-btn-whatsapp { background: #25D366; color: #fff; }
-    .contact-btn-whatsapp:hover { box-shadow: 0 12px 36px rgba(37,211,102,0.4); }
-    .contact-btn-email { background: rgba(255,255,255,0.08); color: #faf9f6; border: 1px solid rgba(255,255,255,0.15); }
-    .contact-btn-email:hover { background: rgba(255,255,255,0.14); box-shadow: 0 12px 36px rgba(255,255,255,0.08); }
-    .contact-note { margin-top: 28px; font-size: 12px; color: rgba(250,249,246,0.3); }
+    /* Hero photo */
+    .hero-visual { position: relative; z-index: 2; display: flex; justify-content: center; opacity: 0; animation: fadeUp 1s .5s ease forwards; }
+    .portrait { position: relative; width: min(400px, 82vw); }
+    .portrait-img-wrap {
+      position: relative; border-radius: 20px; overflow: hidden;
+      box-shadow: 0 40px 90px rgba(0,0,0,.55), 0 0 0 1px rgba(255,255,255,.08);
+    }
+    .portrait-img-wrap::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to top, rgba(7,9,15,.35), transparent 45%); }
+    .portrait img { width: 100%; height: auto; display: block; }
+    .portrait-ring { position: absolute; inset: -18px; border: 1px solid rgba(var(--bright-rgb), .25); border-radius: 28px; pointer-events: none; animation: ringFloat 6s ease-in-out infinite alternate; }
+    @keyframes ringFloat { to { transform: translate(7px, 7px); } }
+    .chip {
+      position: absolute; background: rgba(12,16,26,.82); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
+      border: 1px solid rgba(255,255,255,.12); border-radius: 13px; padding: 11px 17px;
+      box-shadow: 0 16px 50px rgba(0,0,0,.5); z-index: 3; white-space: nowrap;
+    }
+    .chip-label { font-size: 10px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: var(--bright); margin-bottom: 3px; }
+    .chip-value { font-size: 14px; font-weight: 700; color: var(--w); }
+    .chip-1 { top: 26px; left: -44px; animation: chipFloat 5s .4s ease-in-out infinite alternate; }
+    .chip-2 { bottom: 88px; right: -52px; animation: chipFloat 6s 1.1s ease-in-out infinite alternate; }
+    .chip-3 { bottom: -20px; left: 26px; animation: chipFloat 5.5s .8s ease-in-out infinite alternate; }
+    @keyframes chipFloat { to { transform: translateY(-9px); } }
+    .scroll-cue { position: absolute; bottom: 26px; left: 50%; transform: translateX(-50%); z-index: 2; display: flex; flex-direction: column; align-items: center; gap: 8px; color: var(--w-faint); font-size: 10px; letter-spacing: .22em; text-transform: uppercase; opacity: 0; animation: fadeUp 1s 2s ease forwards; }
+    .scroll-cue .line { width: 1px; height: 34px; background: linear-gradient(var(--bright), transparent); animation: cueDrop 1.8s ease-in-out infinite; }
+    @keyframes cueDrop { 0% { transform: scaleY(0); transform-origin: top; } 45% { transform: scaleY(1); transform-origin: top; } 55% { transform: scaleY(1); transform-origin: bottom; } 100% { transform: scaleY(0); transform-origin: bottom; } }
 
-    /* ── Footer ── */
-    footer { border-top: 1px solid rgba(255,255,255,0.07); padding: 28px 64px; display: flex; align-items: center; justify-content: space-between; background: var(--text); }
-    .footer-name { font-family: 'Space Grotesk', sans-serif; font-size: 12px; font-weight: 600; color: rgba(250,249,246,0.35); letter-spacing: 0.06em; text-transform: uppercase; }
-    .footer-copy { font-size: 12px; color: rgba(250,249,246,0.2); }
-    .footer-privacy { font-size: 12px; color: rgba(250,249,246,0.25); text-decoration: none; transition: color 0.2s; }
-    .footer-privacy:hover { color: rgba(250,249,246,0.6); }
+    /* ─────────────────────────  MARQUEE  ──────────────────────────── */
+    .marquee { background: var(--ink); border-top: 1px solid var(--border-d); padding: 17px 0; overflow: hidden; position: relative; }
+    .marquee::before, .marquee::after { content: ''; position: absolute; top: 0; bottom: 0; width: 120px; z-index: 2; pointer-events: none; }
+    .marquee::before { left: 0; background: linear-gradient(to right, var(--ink), transparent); }
+    .marquee::after { right: 0; background: linear-gradient(to left, var(--ink), transparent); }
+    .marquee-track { display: flex; width: max-content; animation: scrollX 30s linear infinite; }
+    @keyframes scrollX { to { transform: translateX(-50%); } }
+    .mq-item { display: inline-flex; align-items: center; gap: 18px; padding: 0 34px; white-space: nowrap; font-family: var(--num); font-size: 11.5px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--w-faint); }
+    .mq-dot { width: 4px; height: 4px; border-radius: 50%; background: var(--bright); }
 
-    /* ── Scroll reveal ── */
-    .reveal { opacity: 0; transform: translateY(32px); transition: opacity 0.85s cubic-bezier(0.16,1,0.3,1), transform 0.85s cubic-bezier(0.16,1,0.3,1); }
-    .reveal.visible { opacity: 1; transform: translateY(0); }
-    .reveal-delay-1 { transition-delay: 0.1s; }
-    .reveal-delay-2 { transition-delay: 0.2s; }
-    .reveal-delay-3 { transition-delay: 0.32s; }
+    /* ─────────────────────────  SECTION BASICS  ───────────────────── */
+    section { position: relative; }
+    .wrap { max-width: 1200px; margin: 0 auto; padding: 110px 56px; }
+    .eyebrow { display: inline-flex; align-items: center; gap: 12px; font-family: var(--num); font-size: 11.5px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; color: var(--accent); margin-bottom: 20px; }
+    .eyebrow::before { content: ''; width: 26px; height: 2px; border-radius: 2px; background: var(--accent); }
+    .eyebrow.on-dark { color: var(--bright); } .eyebrow.on-dark::before { background: var(--bright); }
+    h2 { font-size: clamp(30px, 3.4vw, 50px); font-weight: 700; line-height: 1.1; letter-spacing: -0.025em; }
+    .rv { opacity: 0; transform: translateY(34px); transition: opacity .9s cubic-bezier(.16,1,.3,1), transform .9s cubic-bezier(.16,1,.3,1); transition-delay: var(--d, 0s); }
+    .rv.in { opacity: 1; transform: none; }
 
-    /* ── Responsive ── */
+    /* ─────────────────────────  IMPACT  ───────────────────────────── */
+    .impact { background: var(--cream); }
+    .impact-head { max-width: 560px; margin-bottom: 70px; }
+    .impact-head p { margin-top: 16px; font-size: 16px; line-height: 1.8; color: var(--text-dim); font-weight: 300; }
+    .impact-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 56px; }
+    .impact-item { border-top: 2px solid var(--text); padding-top: 30px; position: relative; }
+    .impact-item::before { content: ''; position: absolute; top: -2px; left: 0; width: 0; height: 2px; background: var(--accent); transition: width 1s cubic-bezier(.16,1,.3,1) .3s; }
+    .impact-item.in::before { width: 52px; }
+    .impact-num { font-family: var(--num); font-size: clamp(64px, 7.5vw, 108px); font-weight: 700; line-height: .95; letter-spacing: -0.03em; color: var(--text); display: flex; align-items: baseline; gap: 10px; }
+    .impact-num .unit { font-size: clamp(20px, 2vw, 30px); font-weight: 700; color: var(--accent); }
+    .impact-claim { font-family: var(--head); font-size: 19px; font-weight: 700; margin: 18px 0 10px; }
+    .impact-detail { font-size: 14.5px; line-height: 1.75; color: var(--text-dim); font-weight: 300; }
+
+    /* ─────────────────────────  STORY / TIMELINE  ─────────────────── */
+    .story { background: var(--cream-2); border-top: 1px solid var(--border); }
+    .story-grid { display: grid; grid-template-columns: 1fr 1.1fr; gap: 90px; align-items: start; }
+    .story-sticky { position: sticky; top: 110px; }
+    .story h2 .accent-w { color: var(--accent); }
+    .story-tagline { margin: 22px 0 30px; font-size: 16px; line-height: 1.85; color: var(--text-dim); font-weight: 300; max-width: 440px; }
+    .badge-8200 {
+      display: inline-flex; align-items: center; gap: 10px; margin-bottom: 30px;
+      background: var(--ink); color: var(--w); border-radius: 12px; padding: 13px 20px;
+      font-size: 13px; font-weight: 600; box-shadow: 0 12px 34px rgba(7,9,15,.22);
+    }
+    .badge-8200 .n { font-family: var(--num); font-size: 19px; font-weight: 700; color: var(--bright); }
+    .company-row { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 30px; }
+    .company-chip { font-size: 12px; font-weight: 600; padding: 8px 16px; border: 1px solid var(--border-mid); border-radius: 100px; color: var(--text-dim); background: var(--surface); transition: all .25s; cursor: default; }
+    .company-chip:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-2px); }
+    .link-underline { display: inline-flex; align-items: center; gap: 9px; font-size: 13.5px; font-weight: 700; color: var(--accent); text-decoration: none; border-bottom: 2px solid rgba(var(--accent-rgb), .3); padding-bottom: 4px; transition: border-color .2s, gap .25s; }
+    .link-underline:hover { border-color: var(--accent); gap: 14px; }
+    .timeline { position: relative; padding-left: 34px; }
+    .timeline::before { content: ''; position: absolute; left: 7px; top: 8px; bottom: 8px; width: 2px; background: linear-gradient(var(--border-mid) 60%, var(--accent)); border-radius: 2px; }
+    .tl-item { position: relative; padding-bottom: 42px; }
+    .tl-item:last-child { padding-bottom: 0; }
+    .tl-item::before { content: ''; position: absolute; left: -32px; top: 7px; width: 12px; height: 12px; border-radius: 50%; background: var(--cream-2); border: 2.5px solid var(--text-faint); transition: border-color .4s, box-shadow .4s; }
+    .tl-item.in::before { border-color: var(--accent); }
+    .tl-item.now::before { background: var(--accent); border-color: var(--accent); box-shadow: 0 0 0 5px rgba(var(--accent-rgb), .18); }
+    .tl-tag { font-family: var(--num); font-size: 11px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--accent); margin-bottom: 7px; }
+    .tl-title { font-family: var(--head); font-size: 18px; font-weight: 700; margin-bottom: 7px; }
+    .tl-desc { font-size: 14.5px; line-height: 1.75; color: var(--text-dim); font-weight: 300; max-width: 480px; }
+    .tl-item.now { background: var(--surface); border: 1px solid rgba(var(--accent-rgb), .25); border-radius: 16px; padding: 24px 26px 26px; margin-left: -26px; box-shadow: 0 18px 50px rgba(var(--accent-rgb), .1); }
+    .tl-item.now::before { left: -6px; }
+
+    /* ─────────────────────────  SERVICES  ─────────────────────────── */
+    .services { background: var(--surface); border-top: 1px solid var(--border); }
+    .services-head { display: flex; justify-content: space-between; align-items: flex-end; gap: 50px; margin-bottom: 60px; flex-wrap: wrap; }
+    .services-head p { font-size: 15.5px; line-height: 1.8; color: var(--text-dim); font-weight: 300; max-width: 380px; }
+    .svc-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+    .svc {
+      position: relative; border: 1px solid var(--border); border-radius: 18px; padding: 30px 28px 24px;
+      background: var(--surface); cursor: pointer; overflow: hidden;
+      transition: transform .35s cubic-bezier(.16,1,.3,1), box-shadow .35s, border-color .3s;
+    }
+    .svc:hover { transform: translateY(-5px); box-shadow: 0 22px 60px rgba(16,19,28,.1); border-color: rgba(var(--accent-rgb), .35); }
+    .svc::before { content: ''; position: absolute; top: 0; right: 0; left: 0; height: 3px; background: linear-gradient(90deg, var(--accent), var(--bright)); transform: scaleX(0); transform-origin: left; transition: transform .45s cubic-bezier(.16,1,.3,1); }
+    .svc:hover::before, .svc.open::before { transform: scaleX(1); }
+    .svc-top { display: flex; align-items: flex-start; justify-content: space-between; margin-bottom: 20px; }
+    .svc-icon { width: 46px; height: 46px; border-radius: 13px; background: rgba(var(--accent-rgb), .08); color: var(--accent); display: flex; align-items: center; justify-content: center; transition: background .3s, color .3s, transform .3s; }
+    .svc:hover .svc-icon { background: var(--accent); color: #fff; transform: scale(1.06) rotate(4deg); }
+    .svc-num { font-family: var(--num); font-size: 13px; font-weight: 700; color: var(--text-faint); }
+    .svc h3 { font-size: 17px; font-weight: 700; margin-bottom: 9px; }
+    .svc-desc { font-size: 13.5px; line-height: 1.7; color: var(--text-dim); font-weight: 300; }
+    .svc-detail { max-height: 0; overflow: hidden; transition: max-height .5s cubic-bezier(.16,1,.3,1), margin .4s; }
+    .svc.open .svc-detail { max-height: 260px; margin-top: 16px; }
+    .svc-detail-inner { font-size: 13px; line-height: 1.8; color: var(--text-dim); border-top: 1px dashed var(--border-mid); padding-top: 16px; }
+    .svc-toggle { display: inline-flex; align-items: center; gap: 7px; margin-top: 18px; font-size: 11.5px; font-weight: 700; letter-spacing: .04em; color: var(--accent); }
+    .svc-toggle .plus { width: 20px; height: 20px; border-radius: 50%; border: 1.5px solid var(--accent); display: inline-flex; align-items: center; justify-content: center; transition: transform .4s, background .3s, color .3s; font-size: 13px; line-height: 1; }
+    .svc.open .plus { transform: rotate(45deg); background: var(--accent); color: #fff; }
+
+    /* ─────────────────────────  PROCESS (dark)  ───────────────────── */
+    .process { background: var(--ink); color: var(--w); overflow: hidden; }
+    .process .glow { position: absolute; width: 700px; height: 700px; border-radius: 50%; background: radial-gradient(circle, rgba(var(--bright-rgb), .1) 0%, transparent 70%); top: -280px; right: -180px; pointer-events: none; }
+    .process h2 { color: var(--w); }
+    .process-sub { margin-top: 16px; font-size: 15.5px; color: var(--w-dim); font-weight: 300; max-width: 460px; line-height: 1.8; }
+    .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; margin-top: 70px; }
+    .step { position: relative; border: 1px solid var(--border-d); border-radius: 20px; padding: 34px 30px 30px; background: rgba(255,255,255,.025); backdrop-filter: blur(6px); transition: border-color .3s, background .3s, transform .35s; }
+    .step:hover { border-color: rgba(var(--bright-rgb), .4); background: rgba(var(--bright-rgb), .05); transform: translateY(-5px); }
+    .step-num { font-family: var(--num); font-size: 52px; font-weight: 700; line-height: 1; color: transparent; -webkit-text-stroke: 1.5px rgba(var(--bright-rgb), .65); margin-bottom: 24px; }
+    .step h3 { font-size: 20px; font-weight: 700; margin-bottom: 12px; color: var(--w); }
+    .step p { font-size: 14px; line-height: 1.85; color: var(--w-dim); font-weight: 300; }
+    .step-arrow { position: absolute; top: 44px; left: -19px; color: rgba(var(--bright-rgb), .5); z-index: 2; }
+    .process-cta-row { margin-top: 64px; display: flex; align-items: center; gap: 22px; flex-wrap: wrap; }
+    .process-note { font-size: 13px; color: var(--w-faint); }
+
+    /* ─────────────────────────  LINKEDIN  ─────────────────────────── */
+    .linkedin { background: var(--cream); border-top: 1px solid var(--border); }
+    .li-head { display: flex; align-items: flex-end; justify-content: space-between; gap: 40px; margin-bottom: 56px; flex-wrap: wrap; }
+    .li-head p { margin-top: 14px; font-size: 15px; color: var(--text-dim); font-weight: 300; max-width: 480px; line-height: 1.8; }
+    .li-follow {
+      display: inline-flex; align-items: center; gap: 11px; background: #0a66c2; color: #fff;
+      font-size: 14px; font-weight: 700; padding: 14px 28px; border-radius: 100px; text-decoration: none;
+      transition: transform .25s, box-shadow .25s; box-shadow: 0 8px 26px rgba(10,102,194,.3); flex-shrink: 0;
+    }
+    .li-follow:hover { transform: translateY(-2px); box-shadow: 0 12px 34px rgba(10,102,194,.45); }
+    .li-scroller-wrap { position: relative; }
+    .li-scroller { display: flex; gap: 18px; overflow-x: auto; scroll-snap-type: x mandatory; padding: 6px 2px 26px; scrollbar-width: none; }
+    .li-scroller::-webkit-scrollbar { display: none; }
+    .li-card {
+      flex: 0 0 340px; scroll-snap-align: start; background: #fff; border: 1px solid var(--border);
+      border-radius: 16px; overflow: hidden; text-decoration: none; color: inherit; display: flex; flex-direction: column;
+      transition: transform .35s cubic-bezier(.16,1,.3,1), box-shadow .35s;
+    }
+    .li-card:hover { transform: translateY(-6px); box-shadow: 0 24px 60px rgba(16,19,28,.13); }
+    .li-card-head { display: flex; align-items: center; gap: 11px; padding: 16px 18px 12px; }
+    .li-card-head img { width: 44px; height: 44px; border-radius: 50%; object-fit: cover; }
+    .li-name { font-size: 13.5px; font-weight: 700; color: #111; }
+    .li-meta { font-size: 11.5px; color: #888; margin-top: 1px; }
+    .li-in { margin-left: auto; color: #0a66c2; }
+    .li-text { padding: 4px 18px 16px; font-size: 13px; line-height: 1.65; color: #222; flex: 1; }
+    .li-text b { font-weight: 700; }
+    .li-stats { display: flex; justify-content: space-between; align-items: center; padding: 11px 18px; border-top: 1px solid #eee; font-size: 12px; color: #777; }
+    .li-stats .likes { display: flex; align-items: center; gap: 6px; }
+    .li-nav { display: flex; gap: 10px; justify-content: center; margin-top: 8px; }
+    .li-btn { width: 42px; height: 42px; border-radius: 50%; border: 1px solid var(--border-mid); background: var(--surface); color: var(--text-dim); display: flex; align-items: center; justify-content: center; cursor: pointer; transition: all .25s; }
+    .li-btn:hover { background: var(--accent); border-color: var(--accent); color: #fff; }
+    .li-edge { margin-top: 54px; display: flex; align-items: center; gap: 36px; background: var(--surface); border: 1px solid var(--border); border-radius: 20px; padding: 30px 36px; }
+    .li-edge-stat { text-align: center; flex-shrink: 0; padding-right: 32px; border-right: 1px solid var(--border); }
+    .li-edge-num { font-family: var(--num); font-size: 42px; font-weight: 700; color: var(--accent); line-height: 1; }
+    .li-edge-label { font-size: 12px; color: var(--text-faint); margin-top: 5px; }
+    .li-edge-title { font-family: var(--head); font-size: 19px; font-weight: 700; margin-bottom: 7px; }
+    .li-edge-sub { font-size: 14px; line-height: 1.75; color: var(--text-dim); font-weight: 300; }
+
+    /* ─────────────────────────  CONTACT (dark)  ───────────────────── */
+    .contact { background: var(--ink); color: var(--w); overflow: hidden; text-align: center; }
+    .contact .glow { position: absolute; width: 760px; height: 760px; border-radius: 50%; background: radial-gradient(circle, rgba(var(--bright-rgb), .13) 0%, transparent 70%); top: -300px; left: 50%; transform: translateX(-50%); pointer-events: none; }
+    .contact-inner { max-width: 720px; margin: 0 auto; position: relative; }
+    .contact h2 { color: var(--w); font-size: clamp(34px, 4.2vw, 60px); margin-bottom: 22px; }
+    .contact-sub { font-size: 17px; line-height: 1.8; color: var(--w-dim); margin-bottom: 12px; font-weight: 300; }
+    .contact-sub2 { font-size: 13.5px; color: var(--w-faint); margin-bottom: 52px; }
+    .contact-buttons { display: flex; gap: 15px; justify-content: center; flex-wrap: wrap; }
+    .cbtn {
+      position: relative; overflow: hidden; display: inline-flex; align-items: center; gap: 11px;
+      font-size: 14.5px; font-weight: 700; padding: 17px 34px; border-radius: 100px; text-decoration: none;
+      transition: transform .25s, box-shadow .25s; will-change: transform;
+    }
+    .cbtn:hover { transform: translateY(-3px); }
+    .cbtn-meet { background: var(--bright); color: #0a0e18; box-shadow: 0 8px 30px rgba(var(--bright-rgb), .4); }
+    .cbtn-meet:hover { box-shadow: 0 14px 42px rgba(var(--bright-rgb), .55); }
+    .cbtn-meet small { font-size: 11px; font-weight: 500; opacity: .7; }
+    .cbtn-wa { background: rgba(37,211,102,.12); color: #35e57e; border: 1px solid rgba(37,211,102,.35); }
+    .cbtn-wa:hover { background: rgba(37,211,102,.2); box-shadow: 0 10px 30px rgba(37,211,102,.2); }
+    .cbtn-mail { background: rgba(255,255,255,.06); color: var(--w); border: 1px solid var(--border-d); }
+    .cbtn-mail:hover { background: rgba(255,255,255,.12); }
+    .contact-note { margin-top: 30px; font-size: 12.5px; color: var(--w-faint); }
+
+    /* ─────────────────────────  FOOTER  ───────────────────────────── */
+    footer { background: var(--ink); border-top: 1px solid var(--border-d); padding: 30px 56px; display: flex; align-items: center; justify-content: space-between; gap: 14px; flex-wrap: wrap; }
+    .foot-name { font-size: 13px; font-weight: 700; color: var(--w-dim); }
+    .foot-links { display: flex; gap: 22px; }
+    .foot-links a { font-size: 12.5px; color: var(--w-faint); text-decoration: none; transition: color .2s; }
+    .foot-links a:hover { color: var(--bright); }
+    .foot-copy { font-size: 12px; color: var(--w-faint); }
+
+    /* ─────────────────────────  WHATSAPP FAB  ─────────────────────── */
+    .wa-fab {
+      position: fixed; bottom: 22px; right: 22px; z-index: 950;
+      width: 56px; height: 56px; border-radius: 50%; background: #25D366; color: #fff;
+      display: flex; align-items: center; justify-content: center; text-decoration: none;
+      box-shadow: 0 10px 30px rgba(37,211,102,.45);
+      transition: transform .25s, box-shadow .25s, opacity .4s, visibility .4s;
+      opacity: 0; visibility: hidden; transform: translateY(14px);
+    }
+    .wa-fab.show { opacity: 1; visibility: visible; transform: none; }
+    .wa-fab:hover { transform: scale(1.08); box-shadow: 0 14px 38px rgba(37,211,102,.6); }
+
+    /* ─────────────────────────  RESPONSIVE  ───────────────────────── */
+    @media (max-width: 1080px) {
+      .chip-1 { left: -14px; } .chip-2 { right: -18px; }
+    }
     @media (max-width: 960px) {
-      nav { padding: 18px 24px; } nav.scrolled { padding: 14px 24px; } .nav-links { display: none; }
-      .hero { grid-template-columns: 1fr; padding: 100px 24px 60px; gap: 48px; }
-      .hero-image-wrap { order: -1; } .photo-frame { width: 260px; }
-      .impact-section, .how-section, .background-section, .services-section, .contact-section, .linkedin-section, .testimonials-section { padding: 70px 24px; }
-      .impact-grid, .how-steps, .bg-layout, .services-header { grid-template-columns: 1fr; gap: 48px; }
-      .impact-grid::before, .impact-grid::after, .how-steps::before { display: none; }
-      .impact-item, .impact-item:not(:first-child) { padding: 0 0 40px 0; border-bottom: 1px solid var(--border); }
-      .how-step, .how-step:not(:first-child) { padding: 0 0 40px 0; border-left: none; }
-      .services-grid { grid-template-columns: 1fr; }
-      .contact-buttons { flex-direction: column; align-items: center; }
-      footer { flex-direction: column; gap: 8px; padding: 24px; text-align: center; }
-      .linkedin-carousel { flex-direction: column; }
-      .li-screenshot { flex: 0 0 100%; }
-      .linkedin-header-row { flex-direction: column; align-items: flex-start; gap: 16px; }
-      .linkedin-edge-box { flex-direction: column; gap: 20px; }
-      .linkedin-edge-stat { border-left: none; border-top: 1px solid rgba(255,255,255,0.08); padding: 16px 0 0 0; width: 100%; }
-      .testimonials-grid { grid-template-columns: 1fr; }
-      .tcard { padding: 28px 24px; }
+      nav, nav.scrolled { padding-left: 20px; padding-right: 20px; }
+      .nav-links { display: none; }
+      .nav-cta { display: none; }
+      .hero { grid-template-columns: 1fr; padding: 116px 22px 96px; gap: 56px; text-align: center; }
+      .hero-content { max-width: 100%; }
+      .hero-sub { margin-inline: auto; }
+      .hero-actions { justify-content: center; }
+      .hero-trust { justify-content: center; gap: 16px 22px; }
+      .hero-visual { order: -1; }
+      .portrait { width: min(250px, 64vw); }
+      .chip-1 { top: 10px; left: -20px; } .chip-2 { bottom: 60px; right: -24px; } .chip-3 { bottom: -16px; left: 8px; }
+      .chip { padding: 9px 14px; } .chip-value { font-size: 12px; }
+      .scroll-cue { display: none; }
+      .wrap { padding: 76px 22px; }
+      .impact-grid, .svc-grid, .steps { grid-template-columns: 1fr; }
+      .impact-grid { gap: 44px; }
+      .story-grid { grid-template-columns: 1fr; gap: 60px; }
+      .story-sticky { position: static; }
+      .step-arrow { display: none; }
+      .li-edge { flex-direction: column; text-align: center; padding: 28px 22px; gap: 20px; }
+      .li-edge-stat { border-right: none; border-top: 1px solid var(--border); padding: 20px 0 0; width: 100%; }
+      .li-card { flex: 0 0 84%; }
+      footer { flex-direction: column; text-align: center; padding: 26px 20px; }
+      .contact-buttons { flex-direction: column; align-items: stretch; max-width: 340px; margin-inline: auto; }
+      .cbtn { justify-content: center; }
     }
   </style>
 </head>
 <body>
-<div id="cursor-glow"></div>
-<div id="root"></div>
+
+<div id="progress"></div>
+
+<nav class="on-dark" id="nav" aria-label="Main navigation">
+  <a href="#" class="nav-logo"><span class="dot"></span>Omer Moran</a>
+  <ul class="nav-links">
+    <li><a href="#impact">Impact</a></li>
+    <li><a href="#story">About</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#process">Process</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <div class="nav-side">
+    <div class="lang-toggle" aria-label="Language selection">
+      <a href="/he" class="lang-btn">HE</a>
+      <a href="/en" class="lang-btn active" aria-current="true">EN</a>
+    </div>
+    <a href="#contact" class="nav-cta">Book a Call</a>
+  </div>
+</nav>
+
+<!-- ═══════════════ HERO ═══════════════ -->
+<header class="hero" id="top">
+  <canvas id="net" aria-hidden="true"></canvas>
+  <div class="hero-aurora" aria-hidden="true"></div>
+  <div class="hero-vignette" aria-hidden="true"></div>
+
+  <div class="hero-content">
+    <p class="hero-badge"><span class="pulse"></span>Taking on new clients · Unit 8200 alumnus</p>
+    <h1>
+      <span class="hline"><span class="hword" style="animation-delay:.35s">The</span> <span class="hword" style="animation-delay:.42s">advantage</span></span>
+      <span class="hline"><span class="hword" style="animation-delay:.52s">your</span> <span class="hword" style="animation-delay:.6s">competitors</span></span>
+      <span class="hline"><span class="hword grad" style="animation-delay:.72s">haven't found.</span></span>
+    </h1>
+    <p class="hero-sub">I help small and medium businesses deploy AI that actually works — <strong>smart automations and AI agents</strong> that deliver results around the clock. No jargon, no endless projects.</p>
+    <div class="hero-actions">
+      <a href="https://calendar.app.google/a1bvMsk7oMrTWYzQ9" target="_blank" rel="noopener" class="btn-hero magnetic">
+        Book a free call
+        <small>· 30 min</small>
+      </a>
+      <a href="#impact" class="btn-ghost-d">What it's worth to your business
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+    <div class="hero-trust">
+      <span class="trust-item"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>Unit 8200</span>
+      <span class="trust-item"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>ZoomInfo · Connecteam</span>
+      <span class="trust-item"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>4K+ LinkedIn followers</span>
+    </div>
+  </div>
+
+  <div class="hero-visual">
+    <div class="portrait">
+      <div class="portrait-ring" aria-hidden="true"></div>
+      <div class="portrait-img-wrap">
+        <picture>
+          <source srcset="/uploads/omer-520.webp 520w, /uploads/omer-880.webp 880w" sizes="(max-width: 960px) 74vw, 400px" type="image/webp" />
+          <img src="/uploads/omer-880.jpg" alt="Omer Moran — AI expert for SMBs" width="880" height="880" fetchpriority="high" />
+        </picture>
+      </div>
+      <div class="chip chip-1">
+        <div class="chip-label">Background</div>
+        <div class="chip-value">Unit 8200 🎖️</div>
+      </div>
+      <div class="chip chip-2">
+        <div class="chip-label">Experience</div>
+        <div class="chip-value">ZoomInfo · Connecteam</div>
+      </div>
+      <div class="chip chip-3">
+        <div class="chip-label">Availability</div>
+        <div class="chip-value">Replies within hours ⚡</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="scroll-cue" aria-hidden="true"><span>Scroll</span><span class="line"></span></div>
+</header>
+
+<!-- ═══════════════ MARQUEE ═══════════════ -->
+<div class="marquee" aria-hidden="true">
+  <div class="marquee-track" id="mq"></div>
+</div>
+
+<!-- ═══════════════ IMPACT ═══════════════ -->
+<section class="impact" id="impact">
+  <div class="wrap">
+    <div class="impact-head rv">
+      <p class="eyebrow">Why now</p>
+      <h2>The numbers don't lie.</h2>
+      <p>Businesses that adopt AI early don't just get more efficient — they play in a different league. Here's what happens when it's done right:</p>
+    </div>
+    <div class="impact-grid">
+      <div class="impact-item rv" style="--d:.05s">
+        <div class="impact-num"><span data-count="9" data-suffix="×">0</span><span class="unit">faster</span></div>
+        <div class="impact-claim">Business growth rate</div>
+        <div class="impact-detail">Early AI adopters don't just grow — they compete on a different level. Every week you wait, the gap with your competitors widens.</div>
+      </div>
+      <div class="impact-item rv" style="--d:.15s">
+        <div class="impact-num"><span data-count="80" data-suffix="%">0</span></div>
+        <div class="impact-claim">Less manual work</div>
+        <div class="impact-detail">Most of what your team does today can run automatically. The time you win back goes to what actually moves the business forward.</div>
+      </div>
+      <div class="impact-item rv" style="--d:.25s">
+        <div class="impact-num"><span data-count="4">0</span><span class="unit">weeks</span></div>
+        <div class="impact-claim">From first call to live AI</div>
+        <div class="impact-detail">No six-month projects. No endless meetings. Within weeks of our first conversation, working systems are already running in your business.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ STORY / TIMELINE ═══════════════ -->
+<section class="story" id="story">
+  <div class="wrap">
+    <div class="story-grid">
+      <div class="story-sticky rv">
+        <p class="eyebrow">Who I am</p>
+        <h2>From Unit 8200<br /><span class="accent-w">to your business.</span></h2>
+        <p class="story-tagline">I served in Israel's elite intelligence tech units, worked inside some of the world's fastest-growing tech companies, and founded my own startup. Today I bring all of that experience to one place — your business.</p>
+        <div class="badge-8200"><span class="n">8200</span>Alumnus &amp; active reservist, IDF Intelligence Unit</div>
+        <div class="company-row">
+          <span class="company-chip">Unit 8200</span>
+          <span class="company-chip">ZoomInfo</span>
+          <span class="company-chip">Connecteam</span>
+          <span class="company-chip">Startup Founder</span>
+        </div>
+        <a href="https://www.linkedin.com/in/omer-moran-8aa07616b" target="_blank" rel="noopener" class="link-underline">
+          Full LinkedIn profile
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+      <div class="timeline">
+        <div class="tl-item rv">
+          <div class="tl-tag">Military</div>
+          <div class="tl-title">Product Manager &amp; Senior Analyst · Unit 8200</div>
+          <div class="tl-desc">Service in the IDF's elite intelligence unit. That's where I learned to think under pressure, solve complex problems, and lead in an environment with zero tolerance for failure.</div>
+        </div>
+        <div class="tl-item rv" style="--d:.08s">
+          <div class="tl-tag">Founder</div>
+          <div class="tl-title">Startup Co-Founder</div>
+          <div class="tl-desc">Built my own company from zero. Learned what it really takes to build something real, make hard decisions under uncertainty — and grow fast.</div>
+        </div>
+        <div class="tl-item rv" style="--d:.16s">
+          <div class="tl-tag">ZoomInfo</div>
+          <div class="tl-title">Inside the engine of a multi-billion-dollar company</div>
+          <div class="tl-desc">Worked at one of the world's leading B2B companies — saw how world-class teams build products that serve millions of users.</div>
+        </div>
+        <div class="tl-item rv" style="--d:.24s">
+          <div class="tl-tag">Connecteam</div>
+          <div class="tl-title">Building tools businesses actually love</div>
+          <div class="tl-desc">Helped a fast-growing startup build solutions that managers and small business owners use every day — and learned what makes technology work in the real world.</div>
+        </div>
+        <div class="tl-item now rv" style="--d:.32s">
+          <div class="tl-tag">Today</div>
+          <div class="tl-title">AI expert for businesses that want to win</div>
+          <div class="tl-desc">I use everything I've learned — from the military, from big tech, and from founding my own company — to give your business the competitive edge that until now only giants could afford.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ SERVICES ═══════════════ -->
+<section class="services" id="services">
+  <div class="wrap">
+    <div class="services-head">
+      <div class="rv">
+        <p class="eyebrow">Services</p>
+        <h2>Six ways to upgrade<br />your business.</h2>
+      </div>
+      <p class="rv" style="--d:.1s">Every engagement starts with deeply understanding your business. Then I build exactly what you need — and nothing you don't.</p>
+    </div>
+    <div class="svc-grid">
+
+      <div class="svc rv" style="--d:.02s">
+        <div class="svc-top">
+          <div class="svc-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></div>
+          <span class="svc-num">01</span>
+        </div>
+        <h3>Workflow Automation</h3>
+        <p class="svc-desc">Let machines handle the routine — you focus on what matters.</p>
+        <div class="svc-detail"><div class="svc-detail-inner">I map your entire operation, find where time and money are being lost, and build smart processes that run themselves. Your team is freed up for work that drives real growth.</div></div>
+        <span class="svc-toggle"><span class="plus">+</span>Details</span>
+      </div>
+
+      <div class="svc rv" style="--d:.08s">
+        <div class="svc-top">
+          <div class="svc-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+          <span class="svc-num">02</span>
+        </div>
+        <h3>Autonomous AI Agents</h3>
+        <p class="svc-desc">AI that works for you — even when you're not there.</p>
+        <div class="svc-detail"><div class="svc-detail-inner">AI agents go far beyond chatbots — they take action: following up with leads, processing orders, answering customers, scheduling meetings. Your business keeps running around the clock.</div></div>
+        <span class="svc-toggle"><span class="plus">+</span>Details</span>
+      </div>
+
+      <div class="svc rv" style="--d:.14s">
+        <div class="svc-top">
+          <div class="svc-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/></svg></div>
+          <span class="svc-num">03</span>
+        </div>
+        <h3>AI Strategy</h3>
+        <p class="svc-desc">A clear roadmap — built precisely for your business.</p>
+        <div class="svc-detail"><div class="svc-detail-inner">Not every AI fits every business. I build a strategy tailored to your size, budget, and goals — with a step-by-step plan so you know exactly what to build, when, and why.</div></div>
+        <span class="svc-toggle"><span class="plus">+</span>Details</span>
+      </div>
+
+      <div class="svc rv" style="--d:.02s">
+        <div class="svc-top">
+          <div class="svc-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M4.22 4.22l2.12 2.12M17.66 17.66l2.12 2.12M2 12h3M19 12h3M4.22 19.78l2.12-2.12M17.66 6.34l2.12-2.12"/></svg></div>
+          <span class="svc-num">04</span>
+        </div>
+        <h3>Custom AI for Your Business</h3>
+        <p class="svc-desc">AI that knows your business — and speaks its language.</p>
+        <div class="svc-detail"><div class="svc-detail-inner">Generic AI gives generic results. I build AI capabilities specific to you — trained on your processes, products, and customers. An expert that knows your business from the inside, available 24/7.</div></div>
+        <span class="svc-toggle"><span class="plus">+</span>Details</span>
+      </div>
+
+      <div class="svc rv" style="--d:.08s">
+        <div class="svc-top">
+          <div class="svc-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg></div>
+          <span class="svc-num">05</span>
+        </div>
+        <h3>Growth Strategy</h3>
+        <p class="svc-desc">Uncover hidden revenue — with AI as your weapon.</p>
+        <div class="svc-detail"><div class="svc-detail-inner">I analyze your business and find where money is being left on the table — pricing, conversion, retention, new channels — and build an AI-powered plan to capture all of it.</div></div>
+        <span class="svc-toggle"><span class="plus">+</span>Details</span>
+      </div>
+
+      <div class="svc rv" style="--d:.14s">
+        <div class="svc-top">
+          <div class="svc-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M20 21a8 8 0 1 0-16 0"/></svg></div>
+          <span class="svc-num">06</span>
+        </div>
+        <h3>Full AI Transformation</h3>
+        <p class="svc-desc">From traditional to AI-driven — at your pace.</p>
+        <div class="svc-detail"><div class="svc-detail-inner">The full journey. I embed AI into every layer of your business over time — team, operations, customer experience. No technical knowledge needed, just ambition. I handle the rest.</div></div>
+        <span class="svc-toggle"><span class="plus">+</span>Details</span>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ PROCESS (dark) ═══════════════ -->
+<section class="process" id="process">
+  <div class="glow" aria-hidden="true"></div>
+  <div class="wrap">
+    <div class="rv">
+      <p class="eyebrow on-dark">How it works</p>
+      <h2>Three steps.<br />Real results.</h2>
+      <p class="process-sub">No 60-slide decks and no long-term commitments. A simple process that starts with a conversation — and ends with systems that work.</p>
+    </div>
+    <div class="steps">
+      <div class="step rv" style="--d:.05s">
+        <div class="step-num">01</div>
+        <h3>Diagnose</h3>
+        <p>We start with a free 30-minute call. I ask the right questions to understand your business, your bottlenecks — and where AI will hit hardest, fastest.</p>
+      </div>
+      <div class="step rv" style="--d:.15s">
+        <div class="step-arrow" aria-hidden="true"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+        <div class="step-num">02</div>
+        <h3>Build</h3>
+        <p>I design and deploy AI systems tailored to your business. No generic tools, no unnecessary complexity for your team. Just things that work.</p>
+      </div>
+      <div class="step rv" style="--d:.25s">
+        <div class="step-arrow" aria-hidden="true"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+        <div class="step-num">03</div>
+        <h3>Grow</h3>
+        <p>Your business handles more, responds faster, and grows without adding headcount. The AI keeps improving — and your advantage compounds over time.</p>
+      </div>
+    </div>
+    <div class="process-cta-row rv">
+      <a href="https://calendar.app.google/a1bvMsk7oMrTWYzQ9" target="_blank" rel="noopener" class="btn-hero magnetic">Book a free diagnosis call</a>
+      <span class="process-note">No commitment · Reply within hours</span>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ LINKEDIN ═══════════════ -->
+<section class="linkedin" id="linkedin">
+  <div class="wrap">
+    <div class="li-head">
+      <div class="rv">
+        <p class="eyebrow">From the field</p>
+        <h2>Content that's ahead of the market.</h2>
+        <p>I write on LinkedIn about what actually works — from my experience in Unit 8200, at high-growth tech companies, and with real clients. These are real posts from my profile:</p>
+      </div>
+      <a href="https://www.linkedin.com/in/omer-moran-8aa07616b" target="_blank" rel="noopener" class="li-follow rv" style="--d:.1s">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.55V9h3.57v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.55C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.72C24 .77 23.2 0 22.22 0z"/></svg>
+        Follow me on LinkedIn
+      </a>
+    </div>
+
+    <div class="li-scroller-wrap">
+      <div class="li-scroller" id="liScroll">
+
+        <a class="li-card rv" style="--d:.02s" href="https://www.linkedin.com/posts/omer-moran-8aa07616b_youre-not-behind-youre-just-in-it-everyone-ugcPost-7345381596750901250-Za-o" target="_blank" rel="noopener">
+          <div class="li-card-head">
+            <img src="/uploads/omer-96.webp" alt="" loading="lazy" width="44" height="44" />
+            <div><div class="li-name">Omer Moran</div><div class="li-meta">Data Product Manager · 10mo</div></div>
+            <svg class="li-in" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.55V9h3.57v11.45z"/></svg>
+          </div>
+          <div class="li-text"><b>You're Not Behind. You're Just in It.</b><br /><br />Everyone talks about the excitement of starting a new job. But no one really talks about the messy middle. I changed my mindset from a "Knower" to a "Learner" — and things started clicking. <b>You're not behind. You're just in it.</b></div>
+          <div class="li-stats"><span class="likes">👍❤️ 241</span><span>34 comments</span></div>
+        </a>
+
+        <a class="li-card rv" style="--d:.08s" href="https://www.linkedin.com/posts/omer-moran-8aa07616b_new-job-new-challenge-posting-on-linkedin-ugcPost-7343279850046074880-tGpu" target="_blank" rel="noopener">
+          <div class="li-card-head">
+            <img src="/uploads/omer-96.webp" alt="" loading="lazy" width="44" height="44" />
+            <div><div class="li-name">Omer Moran</div><div class="li-meta">Data Product Manager · 10mo</div></div>
+            <svg class="li-in" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.55V9h3.57v11.45z"/></svg>
+          </div>
+          <div class="li-text"><b>New job, new challenge — posting on LinkedIn.</b><br /><br />I joined Connecteam almost 3 months ago. The team is brilliant, the projects are wild (in a good way). So this is me starting. Not perfect. Not polished. <b>Just real.</b> Let's see how this goes 🔥</div>
+          <div class="li-stats"><span class="likes">👍❤️ 183</span><span>27 comments</span></div>
+        </a>
+
+        <a class="li-card rv" style="--d:.14s" href="https://www.linkedin.com/posts/omer-moran-8aa07616b_time-to-wrap-up-an-amazing-chapter-at-zoominfo-ugcPost-7313477054555938817-IPoT" target="_blank" rel="noopener">
+          <div class="li-card-head">
+            <img src="/uploads/omer-96.webp" alt="" loading="lazy" width="44" height="44" />
+            <div><div class="li-name">Omer Moran</div><div class="li-meta">Data Product Manager · 1yr</div></div>
+            <svg class="li-in" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.55V9h3.57v11.45z"/></svg>
+          </div>
+          <div class="li-text"><b>Time to Wrap Up an Amazing Chapter at ZoomInfo</b><br /><br />What a journey. Building data products, solving tough problems, and seeing real impact — an experience I won't forget. Onward to new adventures — because the best is yet to come! 🚀</div>
+          <div class="li-stats"><span class="likes">👍❤️ 122</span><span>13 comments</span></div>
+        </a>
+
+        <a class="li-card rv" style="--d:.2s" href="https://www.linkedin.com/posts/omer-moran-8aa07616b_zibellringing-zoominfo-zoominfo-activity-7160992030804856832-9XLe" target="_blank" rel="noopener">
+          <div class="li-card-head">
+            <img src="/uploads/omer-96.webp" alt="" loading="lazy" width="44" height="44" />
+            <div><div class="li-name">Omer Moran</div><div class="li-meta">Data Product Manager · 2yr</div></div>
+            <svg class="li-in" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.55V9h3.57v11.45z"/></svg>
+          </div>
+          <div class="li-text">Yesterday ZoomInfo got to ring the opening bell at Nasdaq 🔔 On this special day, we also announced <b>Copilot</b> — an AI-powered GTM game changer that will make every seller the best seller.</div>
+          <div class="li-stats"><span class="likes">👍 21</span><span>3 comments</span></div>
+        </a>
+
+      </div>
+      <div class="li-nav">
+        <button class="li-btn" id="liPrev" aria-label="Previous post"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg></button>
+        <button class="li-btn" id="liNext" aria-label="Next post"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg></button>
+      </div>
+    </div>
+
+    <div class="li-edge rv">
+      <div class="li-edge-stat">
+        <div class="li-edge-num" data-count="4" data-suffix="K+">0</div>
+        <div class="li-edge-label">LinkedIn followers</div>
+      </div>
+      <div>
+        <div class="li-edge-title">My experience is your advantage.</div>
+        <div class="li-edge-sub">Unlike consultants who learned AI from YouTube — I come with years inside intelligence units, global tech companies, and my own startup. That's what shows in the content, and that's what shows in the results.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ CONTACT (dark) ═══════════════ -->
+<section class="contact" id="contact">
+  <div class="glow" aria-hidden="true"></div>
+  <div class="wrap">
+    <div class="contact-inner rv">
+      <p class="eyebrow on-dark" style="justify-content:center">Let's talk</p>
+      <h2>Ready to build<br /><span class="grad">your advantage?</span></h2>
+      <p class="contact-sub">30 minutes — and I'll tell you exactly how AI can transform your business.</p>
+      <p class="contact-sub2">No tech jargon. No commitment. Just straight talk.</p>
+      <div class="contact-buttons">
+        <a href="https://calendar.app.google/a1bvMsk7oMrTWYzQ9" target="_blank" rel="noopener" class="cbtn cbtn-meet magnetic">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+          Book a meeting now <small>· free · 30 min</small>
+        </a>
+        <a href="https://wa.me/972505646450?text=Hi%20Omer%2C%20I%20found%20your%20website%20and%20would%20love%20to%20hear%20more" target="_blank" rel="noopener" class="cbtn cbtn-wa">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+          WhatsApp
+        </a>
+        <a href="mailto:omermoran14@gmail.com" class="cbtn cbtn-mail">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+          Email
+        </a>
+      </div>
+      <p class="contact-note">I reply personally — usually within a few hours.</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="foot-name">Omer Moran — AI Expert for SMBs</div>
+  <div class="foot-links">
+    <a href="/he/restaurants">Solutions for restaurants &amp; bakeries</a>
+    <a href="/privacypolicy">Privacy Policy</a>
+    <a href="https://www.linkedin.com/in/omer-moran-8aa07616b" target="_blank" rel="noopener">LinkedIn</a>
+  </div>
+  <div class="foot-copy">© 2026 Omer Moran · AI-Driven SMBs</div>
+</footer>
+
+<a class="wa-fab" id="waFab" href="https://wa.me/972505646450?text=Hi%20Omer%2C%20I%20found%20your%20website%20and%20would%20love%20to%20hear%20more" target="_blank" rel="noopener" aria-label="Message me on WhatsApp">
+  <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+</a>
 
 <script>
-  const cg = document.getElementById('cursor-glow');
-  document.addEventListener('mousemove', e => { cg.style.left = e.clientX + 'px'; cg.style.top = e.clientY + 'px'; });
-</script>
+(function () {
+  'use strict';
+  var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var isTouch = window.matchMedia('(hover: none)').matches;
 
-<script type="text/babel">
+  /* ── Marquee items ── */
+  var MQ = ['Workflow Automation', 'Autonomous AI Agents', 'AI Strategy', 'Business Growth', 'Custom AI', 'Data Products', 'Digital Transformation', 'Unit 8200 Alumnus', 'SMB Specialist', 'No-Code AI'];
+  var track = document.getElementById('mq');
+  var html = '';
+  MQ.concat(MQ).forEach(function (t) { html += '<span class="mq-item"><span class="mq-dot"></span>' + t + '</span>'; });
+  track.innerHTML = html;
 
-const { useState, useEffect, useRef, useCallback } = React;
+  /* ── Nav + progress + FAB ── */
+  var nav = document.getElementById('nav');
+  var progress = document.getElementById('progress');
+  var fab = document.getElementById('waFab');
+  var docH = 0;
+  function measure() { docH = document.documentElement.scrollHeight - window.innerHeight; }
+  measure();
+  window.addEventListener('resize', measure);
+  var ticking = false;
+  function onScroll() {
+    if (ticking) return;
+    ticking = true;
+    requestAnimationFrame(function () {
+      var y = window.scrollY;
+      nav.classList.toggle('scrolled', y > 50);
+      progress.style.transform = 'scaleX(' + (docH > 0 ? Math.min(y / docH, 1) : 0) + ')';
+      fab.classList.toggle('show', y > 500);
+      ticking = false;
+    });
+  }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
 
-const TWEAK_DEFAULTS = /*EDITMODE-BEGIN*/{
-  "heroHeadline": "The AI advantage your competitors don't have yet.",
-  "heroSub": "I help SMBs unlock 100× their potential — from intelligent automations to full agentic systems that work while you sleep.",
-  "ctaLabel": "Let's Talk",
-  "linkedinUrl": "www.linkedin.com/in/omer-moran-8aa07616b",
-  "whatsappNumber": "972505646450",
-  "emailAddress": "omermoran14@gmail.com",
-  "meetUrl": "https://calendar.app.google/a1bvMsk7oMrTWYzQ9",
-  "accentColor": "#456abf"
-}/*EDITMODE-END*/;
+  /* ── Scroll reveal ── */
+  var obs = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      if (e.isIntersecting) { e.target.classList.add('in'); obs.unobserve(e.target); }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+  document.querySelectorAll('.rv, .tl-item, .impact-item').forEach(function (el) { obs.observe(el); });
 
-const EDIT_MODE = new URLSearchParams(window.location.search).get('editmode') === '1';
-function emPost(msg) { try { window.parent.postMessage({...msg, _src:'em'}, '*'); } catch(e) {} }
-
-const SITE_CONTENT = /*CONTENT-BEGIN*/{
-  "nav": {
-    "logo": "Omer Moran"
-  },
-  "hero": {
-    "eyebrow": "AI Expert for SMBs",
-    "credLabel": "AI Expert",
-    "credName": "Omer Moran",
-    "credTitle": "AI-Driven SMBs"
-  },
-  "impact": {
-    "eyebrow": "Real Business Impact",
-    "stats": [
-      {
-        "target": 9,
-        "suffix": "×",
-        "accent": "faster",
-        "claim": "Business growth rate",
-        "detail": "Businesses that embrace AI early don't just grow — they compound. Every week you wait, the gap with competitors widens."
-      },
-      {
-        "target": 80,
-        "suffix": "%",
-        "accent": "",
-        "claim": "Less manual work",
-        "detail": "Most of what your team does today can be automated. That time goes back to what actually moves the needle."
-      },
-      {
-        "target": 4,
-        "suffix": "",
-        "accent": "weeks",
-        "claim": "From call to live AI",
-        "detail": "No 6-month projects. No endless meetings. You see working systems in your business within weeks of our first conversation."
+  /* ── Count-up ── */
+  var counted = new WeakSet();
+  var cObs = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      if (!e.isIntersecting || counted.has(e.target)) return;
+      counted.add(e.target); cObs.unobserve(e.target);
+      var el = e.target, target = parseFloat(el.dataset.count), suffix = el.dataset.suffix || '';
+      if (reduced) { el.textContent = target + suffix; return; }
+      var start = null, dur = 1500;
+      function step(ts) {
+        if (!start) start = ts;
+        var p = Math.min((ts - start) / dur, 1), ease = 1 - Math.pow(1 - p, 3);
+        el.textContent = Math.round(ease * target) + suffix;
+        if (p < 1) requestAnimationFrame(step);
       }
-    ]
-  },
-  "howSection": {
-    "eyebrow": "How It Works",
-    "title": "Three steps.\nReal results.",
-    "ctaNote": "Free first call — no commitment"
-  },
-  "howSteps": [
-    {
-      "n": "01",
-      "title": "Diagnose",
-      "desc": "We start with a free 30-minute call. I ask the right questions to understand your business, your bottlenecks, and where AI can have the biggest impact — fast."
-    },
-    {
-      "n": "02",
-      "title": "Build",
-      "desc": "I design and deploy custom AI systems tailored to your business. No off-the-shelf tools. No complexity for your team. Just things that work."
-    },
-    {
-      "n": "03",
-      "title": "Grow",
-      "desc": "Your business runs smarter, handles more, and scales without adding headcount. The AI keeps improving — your advantage compounds over time."
-    }
-  ],
-  "backgroundSection": {
-    "eyebrow": "Background",
-    "title": "Years inside tech.\nNow working for you.",
-    "tagline": "I've worked inside some of the world's fastest-growing tech companies. Now I use everything I learned there to give your business the same edge.",
-    "companies": [
-      "Connecteam",
-      "ZoomInfo",
-      "Startup Founder"
-    ]
-  },
-  "milestones": [
-    {
-      "year": "ZoomInfo",
-      "title": "Inside a Global Tech Leader",
-      "desc": "Worked at one of the world's leading B2B companies — learning how world-class teams build products that scale to millions of users."
-    },
-    {
-      "year": "Connecteam",
-      "title": "Building for Real Businesses",
-      "desc": "Helped a fast-growing startup build tools that managers and small business owners actually love to use every day."
-    },
-    {
-      "year": "Startup",
-      "title": "Co-Founder",
-      "desc": "Started my own company from zero. Learned what it really takes to build something, make hard decisions, and grow fast."
-    },
-    {
-      "year": "Now",
-      "title": "AI Expert for SMBs",
-      "desc": "Using everything I've learned to give businesses like yours the same AI advantages that big companies have — without the complexity."
-    }
-  ],
-  "servicesSection": {
-    "eyebrow": "Services",
-    "title": "Six ways I transform your business.",
-    "desc": "Every engagement starts with understanding your business. Then I build exactly what you need.",
-    "hint": "Click any card to learn more"
-  },
-  "services": [
-    {
-      "name": "Workflows & Automations",
-      "desc": "Eliminate repetitive tasks — build systems that run themselves.",
-      "detail": "I map your entire operation, find where time and money are being lost, and rebuild those processes with smart automation. Your team focuses on high-value work while routine tasks run automatically."
-    },
-    {
-      "name": "AI Frameworks",
-      "desc": "A clear AI roadmap tailored to your industry and goals.",
-      "detail": "Not all AI is the same. I design a custom strategy that fits your size, budget, and goals — giving you a practical step-by-step plan so you know exactly what to build, when, and why."
-    },
-    {
-      "name": "Custom AI Skills",
-      "desc": "AI that knows your business, speaks your language.",
-      "detail": "Generic AI gives generic results. I build AI capabilities specifically for you — trained on your content, products, and processes. An expert who knows your business inside out, available 24/7."
-    },
-    {
-      "name": "Agentic Systems",
-      "desc": "AI that takes action on your behalf, around the clock.",
-      "detail": "Agentic AI goes beyond chatbots — it actively handles tasks: following up with leads, processing orders, answering customers, scheduling. Your business keeps running even when you're not there."
-    },
-    {
-      "name": "Growth Strategy",
-      "desc": "Find hidden revenue opportunities with AI as your weapon.",
-      "detail": "I analyze your business to uncover where growth is being left on the table — pricing, conversion, retention, new channels — and build an AI-powered plan to capture it all."
-    },
-    {
-      "name": "AI Transformation",
-      "desc": "Go from traditional to fully AI-driven — at your pace.",
-      "detail": "The full journey. I embed AI into every layer of your business over time — your team, operations, customer experience. You don't need to be technical. Just ambitious. I handle the rest."
-    }
-  ],
-  "linkedinSection": {
-    "eyebrow": "On LinkedIn",
-    "title": "Thoughts from my feed.",
-    "sub": "Real posts from my personal profile. ",
-    "edgeTitle": "Follow along as I document the AI revolution in SMBs.",
-    "edgeSub": "Weekly insights on automation, agentic systems, and what's actually working for small businesses right now.",
-    "followers": "4K+"
-  },
-  "linkedinPosts": [
-    {
-      "url": "https://www.linkedin.com/posts/omer-moran-8aa07616b_new-job-new-challenge-posting-on-linkedin-ugcPost-7343279850046074880-tGpu",
-      "role": "Data Product Manager at Connecteam",
-      "date": "10mo",
-      "reactions": "🔵🟢❤️",
-      "likes": "183",
-      "comments": "27",
-      "paragraphs": [
-        "**New job, new challenge - posting on LinkedIn.**",
-        "I joined Connecteam almost 3 months ago. The team is brilliant, the projects are wild (in a good way), and I'm already deep into the kind of marketing/data work that will just gear up.",
-        "So... naturally, I asked ChatGPT to help me get started. Because what better way to begin my authentic content journey than with the help of a robot trained on the internet? 😎",
-        "So this is me starting. Not perfect. Not polished. **Just real.**",
-        "Let's see how this goes 🔥"
-      ]
-    },
-    {
-      "url": "https://www.linkedin.com/posts/omer-moran-8aa07616b_youre-not-behind-youre-just-in-it-everyone-ugcPost-7345381596750901250-Za-o",
-      "role": "Data Product Manager at Connecteam",
-      "date": "10mo",
-      "reactions": "🔵🟢❤️",
-      "likes": "241",
-      "comments": "34",
-      "paragraphs": [
-        "**You're Not Behind. You're Just in It.**",
-        "Everyone talks about the excitement of starting a new job. But no one really talks about the messy middle.",
-        "The first two months were exciting, but also chaotic. Not just learning new tools — but a whole new way of thinking.",
-        "I changed my mindset from a **\"Knower\"** to a **\"Learner\"**. Eventually things started clicking.",
-        "If you're in that foggy phase right now — keep going. **You're not behind. You're just in it.**"
-      ]
-    },
-    {
-      "url": "https://www.linkedin.com/posts/omer-moran-8aa07616b_time-to-wrap-up-an-amazing-chapter-at-zoominfo-ugcPost-7313477054555938817-IPoT",
-      "role": "Data Product Manager at Connecteam",
-      "date": "1yr",
-      "reactions": "🔵🟢❤️",
-      "likes": "122",
-      "comments": "13",
-      "paragraphs": [
-        "**Time to Wrap Up an Amazing Chapter at ZoomInfo**",
-        "What a journey. Building data products, solving tough problems, and seeing real impact — an experience I won't forget.",
-        "ZoomInfo is the kind of place where things move fast, ideas turn into action, and there's always something new to tackle.",
-        "Onward to new adventures — because the best is yet to come! 🚀"
-      ]
-    },
-    {
-      "url": "https://www.linkedin.com/posts/omer-moran-8aa07616b_zibellringing-zoominfo-zoominfo-activity-7160992030804856832-9XLe",
-      "role": "Data Product Manager at Connecteam",
-      "date": "2yr",
-      "reactions": "🔵🟢",
-      "likes": "21",
-      "comments": "3",
-      "paragraphs": [
-        "Yesterday ZoomInfo finally got to ring the opening bell at Nasdaq — the first tech IPO of the pandemic era! 🔔",
-        "On this special day, we also announced **Copilot**, an AI-powered GTM game changer that will make every seller the best seller. 👮👮",
-        "#ZIbellringing #zoominfo #ZoomInfo"
-      ]
-    }
-  ],
-  "testimonialsSection": {
-    "eyebrow": "What They Say",
-    "title": "Businesses already working differently.",
-    "sub": "Not made-up success stories — real conversations with business owners who saw results."
-  },
-  "testimonials": [
-    {
-      "initials": "",
-      "name": "Dana Cohen",
-      "title": "CEO | Boutique Chain",
-      "featured": true,
-      "text": "Omer didn't just implement AI — he **changed the way we think about our business**. Within two weeks we saved 15 hours of work per week. This isn't a product, it's a real partner."
-    },
-    {
-      "initials": "",
-      "name": "Uri Levy",
-      "title": "Founder | Professional Services",
-      "featured": false,
-      "text": "I came to Omer with skepticism. I left with **an AI system that closes leads while I sleep**. The ROI was clear in the first month."
-    },
-    {
-      "initials": "",
-      "name": "Michal Greenberg",
-      "title": "VP Operations | Logistics Co.",
-      "featured": false,
-      "text": "When we started working together I expected consulting, I got much more. **Omer understands business**, not just technology. The difference is felt at every touchpoint."
-    },
-    {
-      "initials": "",
-      "name": "Yoav Shamir",
-      "title": "Owner | Private Clinic",
-      "featured": false,
-      "text": "I was looking for someone to explain AI at eye level — without tech jargon. Omer did exactly that, and now **our digital assistant works 24 hours a day**."
-    },
-    {
-      "initials": "",
-      "name": "Noam Ben-David",
-      "title": "Marketing Manager | e-commerce",
-      "featured": true,
-      "text": "Omer's posts on LinkedIn are required reading. **Content that's ahead of the market** by at least 6 months. He doesn't just know — he can explain why it matters."
-    },
-    {
-      "initials": "",
-      "name": "Tamar Abraham",
-      "title": "Operations Manager | Restaurant Chain",
-      "featured": false,
-      "text": "The transition to AI-driven management sounded scary. Omer made it a pleasant, gradual process. **Today our team can't imagine working without the tools** he built."
-    }
-  ],
-  "contactSection": {
-    "eyebrow": "Get In Touch",
-    "title": "Ready to build your AI advantage?",
-    "sub": "Tell me about your business. I'll tell you exactly how AI can transform it — no pressure, no fluff.",
-    "note": "I respond personally — usually within a few hours."
-  },
-  "footer": {
-    "name": "Omer Moran — AI Expert",
-    "copy": "© 2026 · AI-Driven SMBs"
-  },
-  "marqueeItems": [
-    "Workflow Automation",
-    "Agentic Systems",
-    "AI Frameworks",
-    "Growth Strategy",
-    "Custom AI Skills",
-    "Data Products",
-    "AI Transformation",
-    "Revenue Multiplier",
-    "SMB Specialist",
-    "Non-Technical AI"
-  ],
-  "buttons": {
-    "navCta":         {"visible": true, "size": "md"},
-    "heroPrimary":    {"visible": true, "size": "md"},
-    "heroSecondary":  {"visible": true, "size": "md"},
-    "howCta":         {"visible": true, "size": "md"},
-    "contactMeet":    {"visible": true, "size": "md"},
-    "contactWhatsapp":{"visible": true, "size": "md"},
-    "contactEmail":   {"visible": true, "size": "md"}
-  }
-}/*CONTENT-END*/;
-
-const __TWEAKS_STYLE = `.twk-panel{position:fixed;right:16px;bottom:16px;z-index:2147483646;width:280px;max-height:calc(100vh - 32px);display:flex;flex-direction:column;background:rgba(250,249,247,.92);color:#29261b;backdrop-filter:blur(24px);border:.5px solid rgba(0,0,0,.1);border-radius:14px;box-shadow:0 12px 40px rgba(0,0,0,.15);font:11.5px/1.4 ui-sans-serif,system-ui,-apple-system,sans-serif;overflow:hidden}.twk-hd{display:flex;align-items:center;justify-content:space-between;padding:10px 8px 10px 14px;cursor:move;user-select:none}.twk-hd b{font-size:12px;font-weight:600}.twk-x{appearance:none;border:0;background:transparent;color:rgba(41,38,27,.55);width:22px;height:22px;border-radius:6px;cursor:default;font-size:13px;line-height:1}.twk-x:hover{background:rgba(0,0,0,.06)}.twk-body{padding:2px 14px 14px;display:flex;flex-direction:column;gap:10px;overflow-y:auto}.twk-row{display:flex;flex-direction:column;gap:5px}.twk-row-h{flex-direction:row;align-items:center;justify-content:space-between;gap:10px}.twk-lbl{font-weight:500;color:rgba(41,38,27,.72);font-size:11px}.twk-field{appearance:none;width:100%;height:26px;padding:0 8px;border:.5px solid rgba(0,0,0,.1);border-radius:7px;background:rgba(255,255,255,.6);color:inherit;font:inherit;outline:none}.twk-swatch{appearance:none;-webkit-appearance:none;width:56px;height:22px;border:.5px solid rgba(0,0,0,.1);border-radius:6px;padding:0;background:transparent;flex-shrink:0}.twk-swatch::-webkit-color-swatch-wrapper{padding:0}.twk-swatch::-webkit-color-swatch{border:0;border-radius:5.5px}`;
-
-function useTweaks(defaults) {
-  const [values, setValues] = useState(defaults);
-  const setTweak = useCallback((k, v) => {
-    const edits = typeof k === 'object' ? k : { [k]: v };
-    setValues((p) => ({ ...p, ...edits }));
-    window.parent.postMessage({ type: '__edit_mode_set_keys', edits }, '*');
-  }, []);
-  function TweaksPanel({ title = 'Tweaks', children }) {
-    const [open, setOpen] = useState(false);
-    useEffect(() => {
-      const h = (e) => {if (e?.data?.type === '__activate_edit_mode') setOpen(true);else if (e?.data?.type === '__deactivate_edit_mode') setOpen(false);};
-      window.addEventListener('message', h);
-      window.parent.postMessage({ type: '__edit_mode_available' }, '*');
-      return () => window.removeEventListener('message', h);
-    }, []);
-    const dismiss = () => {setOpen(false);window.parent.postMessage({ type: '__edit_mode_dismissed' }, '*');};
-    if (!open) return null;
-    return <><style>{__TWEAKS_STYLE}</style><div className="twk-panel" style={{ right: 16, bottom: 16 }}><div className="twk-hd"><b>{title}</b><button className="twk-x" onClick={dismiss}>✕</button></div><div className="twk-body">{children}</div></div></>;
-  }
-  function TweakColor({ id, label }) {return <div className="twk-row twk-row-h"><span className="twk-lbl">{label}</span><input type="color" className="twk-swatch" value={values[id]} onChange={(e) => setTweak(id, e.target.value)} /></div>;}
-  function TweakText({ id, label }) {return <div className="twk-row"><span className="twk-lbl">{label}</span><input className="twk-field" type="text" value={values[id]} onChange={(e) => setTweak(id, e.target.value)} /></div>;}
-  return { tweaks: values, setTweak, TweaksPanel, TweakColor, TweakText };
-}
-
-function renderText(text) {
-  if (!text) return text;
-  const parts = text.split(/\*\*(.*?)\*\*/g);
-  return parts.map((part, i) => i % 2 === 1 ? <strong key={i}>{part}</strong> : part);
-}
-
-/* ── Edit Mode styles ── */
-const EM_CSS = `
-  .em-t { border-radius: 3px; outline: 1.5px dashed transparent; outline-offset: 3px; transition: outline-color .15s; }
-  .em-t:hover { outline-color: rgba(69,106,191,.5); cursor: text; }
-  .em-t:focus { outline: 2px solid #456abf !important; background: rgba(69,106,191,.06); cursor: text; }
-  .em-wrap { position: relative; }
-  .em-ctrl { position: absolute; top: 8px; right: 8px; z-index: 500; display: none; align-items: center; gap: 3px; background: rgba(10,10,8,.9); backdrop-filter: blur(8px); border-radius: 6px; padding: 4px; border: 1px solid rgba(255,255,255,.15); }
-  .em-wrap:hover .em-ctrl { display: flex; }
-  .em-cb { background: rgba(255,255,255,.12); border: none; color: #fff; width: 24px; height: 24px; border-radius: 4px; cursor: pointer; font-size: 14px; line-height: 1; display: flex; align-items: center; justify-content: center; transition: background .15s; font-family: monospace; }
-  .em-cb:hover { background: #456abf; }
-  .em-cb:disabled { opacity: .3; pointer-events: none; }
-  .em-cb-del:hover { background: #dc3232 !important; }
-  .em-btn-wrap { position: relative; display: inline-flex; flex-direction: column; align-items: flex-start; }
-  .em-btn-ctrl { position: absolute; top: calc(100% + 7px); left: 0; z-index: 9999; background: #0e0e0c; border: 1px solid rgba(255,255,255,.18); border-radius: 8px; padding: 8px 10px; display: flex; align-items: center; gap: 7px; white-space: nowrap; box-shadow: 0 10px 36px rgba(0,0,0,.6); }
-  .em-btn-ctrl span { font-size: 10px; color: rgba(255,255,255,.45); letter-spacing: .08em; text-transform: uppercase; }
-  .em-btn-ctrl button { background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.14); color: #fff; border-radius: 4px; padding: 3px 10px; cursor: pointer; font-size: 11px; font-weight: 700; transition: background .15s; font-family: 'Space Grotesk', sans-serif; }
-  .em-btn-ctrl button:hover { background: rgba(69,106,191,.7); border-color: #456abf; }
-  .em-btn-ctrl button.em-act { background: #456abf; border-color: #456abf; }
-  .em-hidden { opacity: .25; cursor: pointer; filter: grayscale(1); }
-  .em-hidden:hover { opacity: .5; }
-  .em-banner { position: fixed; bottom: 0; left: 0; right: 0; z-index: 9998; background: #456abf; color: #fff; text-align: center; padding: 10px 16px; font-size: 11.5px; font-weight: 600; letter-spacing: .06em; pointer-events: none; }
-  body { padding-bottom: 44px !important; }
-  .btn-sz-sm { padding: 8px 20px !important; font-size: 10px !important; }
-  .btn-sz-lg { padding: 18px 44px !important; font-size: 15px !important; }
-`;
-
-/* ── ET: inline editable text (non-list) ── */
-function ET({path, value, tag, className, style, multiline}) {
-  const Tag = tag || 'span';
-  if (!EDIT_MODE) return <Tag className={className} style={style}>{value}</Tag>;
-  const onBlur = e => { const v = e.currentTarget.innerText; if (v !== (value || '')) emPost({type:'change', path, value: v}); };
-  const onKeyDown = e => { if (!multiline && e.key === 'Enter') { e.preventDefault(); e.currentTarget.blur(); } e.stopPropagation(); };
-  return <Tag className={`em-t${className ? ' ' + className : ''}`} contentEditable suppressContentEditableWarning onBlur={onBlur} onKeyDown={onKeyDown} style={style} spellCheck={false}>{value}</Tag>;
-}
-
-/* ── ETL: editable text inside a list item (uses callback, not path) ── */
-function ETL({value, onSave, tag, className, style, multiline}) {
-  const Tag = tag || 'span';
-  if (!EDIT_MODE) return <Tag className={className} style={style}>{value}</Tag>;
-  const onBlur = e => { const v = e.currentTarget.innerText; if (v !== (value || '')) onSave(v); };
-  const onKeyDown = e => { if (!multiline && e.key === 'Enter') { e.preventDefault(); e.currentTarget.blur(); } e.stopPropagation(); };
-  return <Tag className={`em-t${className ? ' ' + className : ''}`} contentEditable suppressContentEditableWarning onBlur={onBlur} onKeyDown={onKeyDown} style={style} spellCheck={false}>{value}</Tag>;
-}
-
-/* ── EditableList: renders list with reorder + delete controls in edit mode ── */
-function EditableList({path, items, renderItem}) {
-  const [list, setList] = useState(() => [...items]);
-
-  const onFieldChange = useCallback((itemIndex, field, value) => {
-    setList(prev => {
-      const item = prev[itemIndex];
-      const updated = field === null ? value : (typeof item === 'object' ? {...item, [field]: value} : value);
-      const next = prev.map((it, i) => i === itemIndex ? updated : it);
-      emPost({type: 'list-replace', path, items: next});
-      return next;
+      requestAnimationFrame(step);
     });
-  }, [path]);
+  }, { threshold: 0.6 });
+  document.querySelectorAll('[data-count]').forEach(function (el) { cObs.observe(el); });
 
-  const move = useCallback((from, to) => {
-    setList(prev => {
-      if (to < 0 || to >= prev.length) return prev;
-      const next = [...prev];
-      const [item] = next.splice(from, 1);
-      next.splice(to, 0, item);
-      emPost({type: 'list-replace', path, items: next});
-      return next;
+  /* ── Services accordion ── */
+  document.querySelectorAll('.svc').forEach(function (card) {
+    card.addEventListener('click', function () { card.classList.toggle('open'); });
+  });
+
+  /* ── LinkedIn scroller ── */
+  var scroller = document.getElementById('liScroll');
+  var stepPx = 360;
+  document.getElementById('liNext').addEventListener('click', function () { scroller.scrollBy({ left: stepPx, behavior: 'smooth' }); });
+  document.getElementById('liPrev').addEventListener('click', function () { scroller.scrollBy({ left: -stepPx, behavior: 'smooth' }); });
+
+  /* ── Magnetic buttons (desktop only) ── */
+  if (!isTouch && !reduced) {
+    document.querySelectorAll('.magnetic').forEach(function (btn) {
+      btn.addEventListener('mousemove', function (e) {
+        var r = btn.getBoundingClientRect();
+        var x = (e.clientX - r.left - r.width / 2) / (r.width / 2);
+        var y = (e.clientY - r.top - r.height / 2) / (r.height / 2);
+        btn.style.transform = 'translate(' + x * 5 + 'px,' + (y * 5 - 3) + 'px)';
+      });
+      btn.addEventListener('mouseleave', function () { btn.style.transform = ''; });
     });
-  }, [path]);
-
-  const remove = useCallback((i) => {
-    setList(prev => {
-      const next = prev.filter((_, j) => j !== i);
-      emPost({type: 'list-replace', path, items: next});
-      return next;
-    });
-  }, [path]);
-
-  if (!EDIT_MODE) return <>{items.map((item, i) => renderItem(item, i, () => {}))}</>;
-
-  return <>
-    {list.map((item, i) => (
-      <div key={i} className="em-wrap" style={{position:'relative'}}>
-        <div className="em-ctrl">
-          <button className="em-cb" onClick={() => move(i, i-1)} disabled={i === 0} title="Move up">↑</button>
-          <button className="em-cb" onClick={() => move(i, i+1)} disabled={i === list.length - 1} title="Move down">↓</button>
-          <button className="em-cb em-cb-del" onClick={() => remove(i)} title="Remove">×</button>
-        </div>
-        {renderItem(item, i, (field, val) => onFieldChange(i, field, val))}
-      </div>
-    ))}
-  </>;
-}
-
-/* ── EButton: button with visibility + size controls in edit mode ── */
-function EButton({btnKey, B, className, href, children, onClick}) {
-  const cfg = (B && B[btnKey]) || {visible: true, size: 'md'};
-  const [visible, setVisible] = useState(cfg.visible !== false);
-  const [size, setSize] = useState(cfg.size || 'md');
-  const [show, setShow] = useState(false);
-
-  const sizeClass = size === 'sm' ? 'btn-sz-sm' : size === 'lg' ? 'btn-sz-lg' : '';
-  const emit = (v, s) => emPost({type:'change', path:`buttons.${btnKey}`, value:{visible:v, size:s}});
-
-  if (!EDIT_MODE) {
-    if (!visible) return null;
-    return href
-      ? <a href={href} className={`${className} ${sizeClass}`} onClick={onClick}>{children}</a>
-      : <button className={`${className} ${sizeClass}`} onClick={onClick}>{children}</button>;
   }
 
-  return (
-    <div className="em-btn-wrap" onMouseEnter={() => setShow(true)} onMouseLeave={() => setShow(false)} style={{display:'inline-flex'}}>
-      <a href="#" className={`${className} ${sizeClass}${!visible ? ' em-hidden' : ''}`}
-         onClick={e => { e.preventDefault(); if (!visible) { setVisible(true); emit(true, size); } }}>
-        {children}
-      </a>
-      {show && (
-        <div className="em-btn-ctrl">
-          <span>Size</span>
-          {['sm','md','lg'].map(s => (
-            <button key={s} onClick={() => { setSize(s); emit(visible, s); }} className={size === s ? 'em-act' : ''}>{s.toUpperCase()}</button>
-          ))}
-          <span style={{marginLeft:4}}>|</span>
-          <button onClick={() => { const v = !visible; setVisible(v); emit(v, size); }}
-                  style={{background: visible ? 'rgba(220,50,50,.3)' : 'rgba(42,157,92,.3)', borderColor: visible ? 'rgba(220,50,50,.5)' : 'rgba(42,157,92,.5)'}}>
-            {visible ? 'Hide' : 'Show'}
-          </button>
-        </div>
-      )}
-    </div>
-  );
-}
+  /* ── Neural network canvas ── */
+  var canvas = document.getElementById('net');
+  var ctx = canvas.getContext('2d');
+  var hero = document.querySelector('.hero');
+  var particles = [], W = 0, H = 0, dpr = 1, running = false, rafId = null;
+  var mouse = { x: -9999, y: -9999 };
+  var LINK = 130, MOUSE_LINK = 190;
 
-function useScrollReveal() {
-  useEffect(() => {
-    const obs = new IntersectionObserver((entries) => entries.forEach((e) => {if (e.isIntersecting) {e.target.classList.add('visible');obs.unobserve(e.target);}}), { threshold: 0.1 });
-    document.querySelectorAll('.reveal').forEach((el) => obs.observe(el));
-    return () => obs.disconnect();
-  }, []);
-}
-
-function useNavScroll() {
-  useEffect(() => {
-    const nav = document.querySelector('nav');
-    const h = () => nav?.classList.toggle('scrolled', window.scrollY > 60);
-    window.addEventListener('scroll', h, { passive: true });
-    return () => window.removeEventListener('scroll', h);
-  }, []);
-}
-
-function AnimatedStat({ target, suffix, prefix = '' }) {
-  const [count, setCount] = useState(0);
-  const [triggered, setTriggered] = useState(false);
-  const ref = useRef(null);
-  useEffect(() => {
-    const obs = new IntersectionObserver(([e]) => {if (e.isIntersecting) {setTriggered(true);obs.disconnect();}}, { threshold: 0.5 });
-    if (ref.current) obs.observe(ref.current);
-    return () => obs.disconnect();
-  }, []);
-  useEffect(() => {
-    if (!triggered) return;
-    let start;const dur = 1600;
-    const step = (ts) => {if (!start) start = ts;const p = Math.min((ts - start) / dur, 1);const e = 1 - Math.pow(1 - p, 3);setCount(Math.floor(e * target));if (p < 1) requestAnimationFrame(step);else setCount(target);};
-    requestAnimationFrame(step);
-  }, [triggered, target]);
-  return <span ref={ref}>{prefix}{count}{suffix}</span>;
-}
-
-function HeroTitle({ text }) {
-  const words = text.split(' ');const half = Math.ceil(words.length / 2);
-  return (
-    <h1 className="hero-title">
-      {[words.slice(0, half), words.slice(half)].map((line, li) =>
-      <span key={li} className="reveal-line">
-          {line.map((w, wi) => <span key={wi} className="reveal-word" style={{ animationDelay: `${0.3 + (li * 4 + wi) * 0.08}s`, marginRight: '0.25em' }}>{w}</span>)}
-        </span>
-      )}
-    </h1>);
-
-}
-
-function ScannerCard({ service: s, delay, editOnChange }) {
-  const [revealed, setRevealed] = useState(false);
-  const [scanning, setScanning] = useState(false);
-
-  const handleClick = () => {
-    if (EDIT_MODE || scanning) return;
-    setScanning(true);
-    setTimeout(() => {
-      setRevealed(r => !r);
-      setTimeout(() => setScanning(false), 200);
-    }, 280);
-  };
-
-  if (EDIT_MODE && editOnChange) {
-    return (
-      <div className="svc-card-wrap reveal" style={{ transitionDelay: `${delay}s` }}>
-        <div className="svc-card" style={{cursor:'default'}}>
-          <div className="svc-card-beam"></div>
-          <div className="svc-card-front">
-            <div className="service-icon">{s.icon}</div>
-            <ETL value={s.name} onSave={v => editOnChange('name', v)} tag="div" className="service-name" />
-            <ETL value={s.desc} onSave={v => editOnChange('desc', v)} tag="div" className="service-desc" multiline />
-          </div>
-          <div className="svc-card-back" style={{display:'block', position:'static', transform:'none', opacity:1, background:'rgba(69,106,191,.05)', borderTop:'1px dashed rgba(69,106,191,.3)', padding:'14px 24px'}}>
-            <ETL value={s.detail} onSave={v => editOnChange('detail', v)} tag="div" className="back-detail" style={{fontSize:12, color:'var(--text-dim)'}} multiline />
-          </div>
-        </div>
-      </div>
-    );
+  function resize() {
+    dpr = Math.min(window.devicePixelRatio || 1, 2);
+    W = hero.clientWidth; H = hero.clientHeight;
+    canvas.width = W * dpr; canvas.height = H * dpr;
+    canvas.style.width = W + 'px'; canvas.style.height = H + 'px';
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    initParticles();
   }
-
-  return (
-    <div className="svc-card-wrap reveal" style={{ transitionDelay: `${delay}s` }}>
-      <div className={`svc-card${revealed ? ' revealed' : ''}${scanning ? ' scanning' : ''}`} onClick={handleClick}>
-        <div className="svc-card-beam"></div>
-        <div className="svc-card-front">
-          <div className="service-icon">{s.icon}</div>
-          <div className="service-name">{s.name}</div>
-          <div className="service-desc">{s.desc}</div>
-          <div className="svc-tap-hint">
-            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
-            Reveal
-          </div>
-        </div>
-        <div className="svc-card-back">
-          <div>
-            <div className="back-name">{s.name}</div>
-            <div className="back-detail">{s.detail}</div>
-          </div>
-          <div className="back-close">
-            <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"><path d="M18 6L6 18M6 6l12 12"/></svg>
-            Click to close
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-}
-
-const MARQUEE_ITEMS = SITE_CONTENT.marqueeItems;
-
-const SERVICE_ICONS = [
-  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z" /><path d="M2 17l10 5 10-5" /><path d="M2 12l10 5 10-5" /></svg>,
-  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="3" width="7" height="7" /><rect x="14" y="3" width="7" height="7" /><rect x="14" y="14" width="7" height="7" /><rect x="3" y="14" width="7" height="7" /></svg>,
-  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="3" /><path d="M12 2v3M12 19v3M4.22 4.22l2.12 2.12M17.66 17.66l2.12 2.12M2 12h3M19 12h3M4.22 19.78l2.12-2.12M17.66 6.34l2.12-2.12" /></svg>,
-  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" /></svg>,
-  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17" /><polyline points="16 7 22 7 22 13" /></svg>,
-  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="8" r="4" /><path d="M20 21a8 8 0 1 0-16 0" /></svg>
-];
-
-const SERVICES = SITE_CONTENT.services.map((s, i) => ({...s, icon: SERVICE_ICONS[i]}));
-
-const MILESTONES = SITE_CONTENT.milestones;
-
-
-const LI_POSTS = SITE_CONTENT.linkedinPosts;
-
-function LinkedInCarousel() {
-  const [active, setActive] = useState(0);
-  const [posts, setPosts] = useState(() => [...LI_POSTS]);
-
-  const prev = (e) => { e.stopPropagation(); setActive(a => (a - 1 + posts.length) % posts.length); };
-  const next = (e) => { e.stopPropagation(); setActive(a => (a + 1) % posts.length); };
-
-  // Edit mode: show vertical editable stack instead of carousel
-  if (EDIT_MODE) {
-    const move = (from, to) => {
-      if (to < 0 || to >= posts.length) return;
-      const n = [...posts]; const [it] = n.splice(from, 1); n.splice(to, 0, it);
-      setPosts(n); emPost({type:'list-replace', path:'linkedinPosts', items: n});
-    };
-    const remove = (i) => {
-      const n = posts.filter((_,j) => j !== i);
-      setPosts(n); emPost({type:'list-replace', path:'linkedinPosts', items: n});
-    };
-    const updatePost = (i, field, value) => {
-      const n = posts.map((p, j) => j === i ? {...p, [field]: value} : p);
-      setPosts(n); emPost({type:'list-replace', path:'linkedinPosts', items: n});
-    };
-    return (
-      <div className="linkedin-carousel-wrap reveal" style={{display:'flex',flexDirection:'column',gap:16}}>
-        {posts.map((post, i) => (
-          <div key={i} className="em-wrap" style={{background:'#fff',borderRadius:10,padding:'20px 24px',border:'1px solid rgba(0,0,0,.12)',color:'#111'}}>
-            <div className="em-ctrl">
-              <button className="em-cb" onClick={() => move(i, i-1)} disabled={i===0}>↑</button>
-              <button className="em-cb" onClick={() => move(i, i+1)} disabled={i===posts.length-1}>↓</button>
-              <button className="em-cb em-cb-del" onClick={() => remove(i)}>×</button>
-            </div>
-            <div style={{fontSize:11,fontWeight:700,color:'#456abf',letterSpacing:'.08em',textTransform:'uppercase',marginBottom:10}}>Post #{i+1}</div>
-            <ETL value={post.role} onSave={v => updatePost(i, 'role', v)} tag="div" style={{fontSize:12,color:'#666',marginBottom:4}} />
-            <ETL value={post.date} onSave={v => updatePost(i, 'date', v)} tag="div" style={{fontSize:11,color:'#999',marginBottom:12}} />
-            {post.paragraphs.map((p, pi) => (
-              <ETL key={pi} value={p} onSave={v => {
-                const np = post.paragraphs.map((par, pj) => pj === pi ? v : par);
-                updatePost(i, 'paragraphs', np);
-              }} tag="p" style={{marginTop: pi > 0 ? 8 : 0, fontSize:13, lineHeight:1.7, color:'#222'}} multiline />
-            ))}
-            <div style={{display:'flex',gap:8,alignItems:'center',marginTop:14,paddingTop:12,borderTop:'1px solid rgba(0,0,0,.08)'}}>
-              <ETL value={post.likes} onSave={v => updatePost(i, 'likes', v)} tag="span" style={{fontSize:12,color:'#666'}} />
-              <span style={{fontSize:12,color:'#ccc'}}>likes ·</span>
-              <ETL value={post.comments} onSave={v => updatePost(i, 'comments', v)} tag="span" style={{fontSize:12,color:'#666'}} />
-              <span style={{fontSize:12,color:'#ccc'}}>comments</span>
-            </div>
-          </div>
-        ))}
-      </div>
-    );
+  function initParticles() {
+    var count = Math.min(100, Math.floor(W * H / 16000));
+    particles = [];
+    for (var i = 0; i < count; i++) {
+      particles.push({
+        x: Math.random() * W, y: Math.random() * H,
+        vx: (Math.random() - .5) * .35, vy: (Math.random() - .5) * .35,
+        r: Math.random() * 1.6 + .7
+      });
+    }
   }
-
-  return (
-    <div className="linkedin-carousel-wrap reveal">
-      <div className="linkedin-carousel">
-        {LI_POSTS.map((post, i) => (
-          <a key={i} href={post.url} target="_blank" rel="noopener noreferrer" className="li-screenshot"
-             style={{display: i === active ? 'block' : 'none'}}>
-            <div className="li-hover-overlay">
-              <div style={{background:'#0a66c2',color:'#fff',padding:'10px 20px',borderRadius:20,fontWeight:700,fontSize:13,display:'flex',alignItems:'center',gap:8,boxShadow:'0 4px 16px rgba(10,102,194,0.35)'}}>
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="white"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-                View on LinkedIn
-              </div>
-            </div>
-            <div className="li-chrome">
-              <div className="li-chrome-top">
-                <div className="li-chrome-avatar"><img src="/uploads/photo-1777477389865.JPG" alt="Omer Moran" /></div>
-                <div className="li-chrome-info">
-                  <div className="li-chrome-name">Omer Moran</div>
-                  <div className="li-chrome-meta">{post.role} · {post.date} ·
-                    <svg style={{display:'inline',verticalAlign:'middle',marginLeft:2}} width="12" height="12" viewBox="0 0 24 24" fill="#666"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5v-9l6 4.5-6 4.5z"/></svg>
-                  </div>
-                </div>
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="#0a66c2"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-              </div>
-            </div>
-            <div className="li-post-content">
-              {post.paragraphs.map((p, pi) => (
-                <p key={pi} style={{marginTop: pi > 0 ? 8 : 0}}>{renderText(p)}</p>
-              ))}
-            </div>
-            <div className="li-post-reactions-bar">
-              <div style={{display:'flex',alignItems:'center',gap:6}}>
-                <span style={{fontSize:15,letterSpacing:'-2px'}}>{post.reactions}</span>
-                <span style={{fontSize:12,color:'#666'}}>{post.likes}</span>
-              </div>
-              <div className="li-post-counts"><span>{post.comments} comments</span></div>
-            </div>
-            <div className="li-post-actions">
-              {[
-                [<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#666" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3H14z"/><path d="M7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3"/></svg>,'Like'],
-                [<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#666" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>,'Comment'],
-                [<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#666" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M17 1l4 4-4 4"/><path d="M3 11V9a4 4 0 0 1 4-4h14"/><path d="M7 23l-4-4 4-4"/><path d="M21 13v2a4 4 0 0 1-4 4H3"/></svg>,'Repost'],
-                [<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#666" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>,'Send'],
-              ].map(([icon,label]) => (
-                <div key={label} className="li-action-btn">{icon}<span>{label}</span></div>
-              ))}
-            </div>
-          </a>
-        ))}
-      </div>
-      <div className="carousel-nav">
-        <button className="carousel-btn" onClick={prev}>
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
-        </button>
-        <div className="carousel-dots">
-          {LI_POSTS.map((_, i) => (
-            <div key={i} className={`carousel-dot${i === active ? ' active' : ''}`} onClick={(e) => {e.stopPropagation(); setActive(i);}} />
-          ))}
-        </div>
-        <button className="carousel-btn" onClick={next}>
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M9 18l6-6-6-6"/></svg>
-        </button>
-      </div>
-    </div>
-  );
-}
-
-const EN_TESTIMONIALS = SITE_CONTENT.testimonials;
-
-function TestimonialCard({ post, delay, editOnChange }) {
-  return (
-    <div className={`tcard reveal${post.featured ? ' tcard-featured' : ''}`} style={{ transitionDelay: `${delay}s` }}>
-      {post.featured && <div className="tcard-badge">Featured</div>}
-      <div className="tcard-quote">
-        {editOnChange
-          ? <ETL value={post.text} onSave={v => editOnChange('text', v)} multiline style={{display:'block'}} />
-          : renderText(post.text)
+  function frame() {
+    ctx.clearRect(0, 0, W, H);
+    var i, j, p, q, dx, dy, d;
+    for (i = 0; i < particles.length; i++) {
+      p = particles[i];
+      p.x += p.vx; p.y += p.vy;
+      if (p.x < -10) p.x = W + 10; else if (p.x > W + 10) p.x = -10;
+      if (p.y < -10) p.y = H + 10; else if (p.y > H + 10) p.y = -10;
+      dx = mouse.x - p.x; dy = mouse.y - p.y; d = Math.sqrt(dx * dx + dy * dy);
+      if (d < MOUSE_LINK && d > 0.001) { p.x += dx / d * .25; p.y += dy / d * .25; }
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, p.r, 0, 6.2832);
+      ctx.fillStyle = 'rgba(110,150,255,.55)';
+      ctx.fill();
+    }
+    for (i = 0; i < particles.length; i++) {
+      p = particles[i];
+      for (j = i + 1; j < particles.length; j++) {
+        q = particles[j];
+        dx = p.x - q.x; dy = p.y - q.y;
+        if (Math.abs(dx) > LINK || Math.abs(dy) > LINK) continue;
+        d = Math.sqrt(dx * dx + dy * dy);
+        if (d < LINK) {
+          ctx.beginPath();
+          ctx.moveTo(p.x, p.y); ctx.lineTo(q.x, q.y);
+          ctx.strokeStyle = 'rgba(110,150,255,' + (0.14 * (1 - d / LINK)).toFixed(3) + ')';
+          ctx.lineWidth = 1;
+          ctx.stroke();
         }
-      </div>
-      <div className="tcard-author">
-        <div className="tcard-avatar">
-          {editOnChange
-            ? <ETL value={post.initials} onSave={v => editOnChange('initials', v)} style={{minWidth:24}} />
-            : post.initials
-          }
-        </div>
-        <div>
-          {editOnChange
-            ? <ETL value={post.name} onSave={v => editOnChange('name', v)} tag="div" className="tcard-name" />
-            : <div className="tcard-name">{post.name}</div>
-          }
-          {editOnChange
-            ? <ETL value={post.title} onSave={v => editOnChange('title', v)} tag="div" className="tcard-role" />
-            : <div className="tcard-role">{post.title}</div>
-          }
-        </div>
-      </div>
-    </div>
-  );
-}
+      }
+      dx = p.x - mouse.x; dy = p.y - mouse.y;
+      d = Math.sqrt(dx * dx + dy * dy);
+      if (d < MOUSE_LINK) {
+        ctx.beginPath();
+        ctx.moveTo(p.x, p.y); ctx.lineTo(mouse.x, mouse.y);
+        ctx.strokeStyle = 'rgba(140,175,255,' + (0.3 * (1 - d / MOUSE_LINK)).toFixed(3) + ')';
+        ctx.lineWidth = 1.1;
+        ctx.stroke();
+      }
+    }
+    if (running) rafId = requestAnimationFrame(frame);
+  }
+  function start() { if (!running) { running = true; rafId = requestAnimationFrame(frame); } }
+  function stop() { running = false; if (rafId) cancelAnimationFrame(rafId); }
 
-function App() {
-  const { tweaks, TweaksPanel, TweakColor, TweakText } = useTweaks(TWEAK_DEFAULTS);
-  useScrollReveal();
-  useNavScroll();
-  const gold = tweaks.accentColor;
-  const [r, g, b] = [parseInt(gold.slice(1, 3), 16), parseInt(gold.slice(3, 5), 16), parseInt(gold.slice(5, 7), 16)];
-  const B = SITE_CONTENT.buttons || {};
-
-  return (
-    <>
-      {EDIT_MODE && <><style>{EM_CSS}</style><div className="em-banner">✏ Edit mode — click any text to edit · hover ↑↓× controls to reorder/remove items · hover buttons for size &amp; visibility</div></>}
-      <TweaksPanel title="Tweaks">
-        <TweakColor id="accentColor" label="Accent Color" />
-        <TweakText id="heroHeadline" label="Hero Headline" />
-        <TweakText id="heroSub" label="Subheading" />
-        <TweakText id="ctaLabel" label="CTA Label" />
-        <TweakText id="whatsappNumber" label="WhatsApp Number" />
-        <TweakText id="emailAddress" label="Email Address" />
-        <TweakText id="linkedinUrl" label="LinkedIn URL" />
-      </TweaksPanel>
-      <style>{`:root { --gold: ${gold}; --gold-rgb: ${r},${g},${b}; --gold-light: ${gold}55; --gold-pale: ${gold}14; }`}</style>
-
-      {/* Nav */}
-      <nav>
-        <ET path="nav.logo" value={SITE_CONTENT.nav.logo} tag="div" className="nav-logo" />
-        <ul className="nav-links">
-          <li><a href="#impact">Impact</a></li>
-          <li><a href="#process">Process</a></li>
-          <li><a href="#services">Services</a></li>
-          <li><a href="#testimonials">Testimonials</a></li>
-          <li><a href="#contact">Contact</a></li>
-        </ul>
-        <div style={{display:'flex', alignItems:'center', gap:16}}>
-          <div className="lang-toggle">
-            <a href="index.html" className="lang-btn active">EN</a>
-            <a href="/he" className="lang-btn">HE</a>
-          </div>
-          <EButton btnKey="navCta" B={B} className="nav-cta" href="#contact">{tweaks.ctaLabel}</EButton>
-        </div>
-      </nav>
-
-      {/* Hero */}
-      <section className="hero">
-        <div className="hero-bg-grid"></div>
-        <div className="hero-glow"></div>
-        <div className="hero-content">
-          <p className="hero-eyebrow"><span className="hero-eyebrow-line"></span><ET path="hero.eyebrow" value={SITE_CONTENT.hero.eyebrow} /></p>
-          <HeroTitle text={tweaks.heroHeadline} />
-          <p className="hero-sub">{tweaks.heroSub}</p>
-          <div className="hero-actions">
-            <EButton btnKey="heroPrimary" B={B} className="btn-primary" href="#contact">{tweaks.ctaLabel}</EButton>
-            <EButton btnKey="heroSecondary" B={B} className="btn-ghost" href="#impact">
-              See the impact <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M12 5l7 7-7 7" /></svg>
-            </EButton>
-          </div>
-        </div>
-        <div className="hero-image-wrap">
-          <div className="photo-frame">
-            <img src="/uploads/photo-1777477389865.JPG" alt="Omer Moran" />
-            <div className="photo-credential">
-              <ET path="hero.credLabel" value={SITE_CONTENT.hero.credLabel} tag="div" className="cred-label" />
-              <ET path="hero.credName" value={SITE_CONTENT.hero.credName} tag="div" className="cred-name" />
-              <ET path="hero.credTitle" value={SITE_CONTENT.hero.credTitle} tag="div" className="cred-title" />
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Marquee */}
-      <div className="marquee-strip">
-        <div className="marquee-track">
-          {[...MARQUEE_ITEMS, ...MARQUEE_ITEMS].map((item, i) =>
-            <span key={i} className="marquee-item"><span className="marquee-dot"></span>{item}</span>
-          )}
-        </div>
-      </div>
-
-      {/* Impact Numbers */}
-      <div id="impact" className="impact-section">
-        <ET path="impact.eyebrow" value={SITE_CONTENT.impact.eyebrow} tag="p" className="impact-eyebrow reveal" />
-        <div className="impact-grid">
-          <EditableList path="impact.stats" items={SITE_CONTENT.impact.stats}
-            renderItem={(stat, i, onChange) => (
-              <div className={`impact-item reveal${i > 0 ? ` reveal-delay-${i}` : ''}`}>
-                <div className="impact-number">
-                  <AnimatedStat target={stat.target} suffix={stat.suffix} />
-                  {stat.accent && <span className="accent">{stat.accent}</span>}
-                </div>
-                <ETL value={stat.claim} onSave={v => onChange('claim', v)} tag="div" className="impact-claim" />
-                <ETL value={stat.detail} onSave={v => onChange('detail', v)} tag="div" className="impact-detail" multiline />
-              </div>
-            )} />
-        </div>
-      </div>
-
-      {/* How it works */}
-      <div id="process" className="how-section">
-        <ET path="howSection.eyebrow" value={SITE_CONTENT.howSection.eyebrow} tag="p" className="how-eyebrow reveal" />
-        <h2 className="how-title reveal reveal-delay-1">
-          {EDIT_MODE
-            ? <ET path="howSection.title" value={SITE_CONTENT.howSection.title} style={{whiteSpace:'pre-line'}} multiline />
-            : SITE_CONTENT.howSection.title.split('\n').map((l,i) => [i>0 && <br key={i}/>, l])
-          }
-        </h2>
-        <div className="how-steps">
-          <EditableList path="howSteps" items={SITE_CONTENT.howSteps}
-            renderItem={(step, i, onChange) => (
-              <div className={`how-step reveal${i > 0 ? ` reveal-delay-${i}` : ''}`}>
-                <ETL value={step.n} onSave={v => onChange('n', v)} tag="div" className="how-step-num" />
-                <ETL value={step.title} onSave={v => onChange('title', v)} tag="div" className="how-step-title" />
-                <ETL value={step.desc} onSave={v => onChange('desc', v)} tag="div" className="how-step-desc" multiline />
-              </div>
-            )} />
-        </div>
-        <div className="how-cta-row reveal">
-          <EButton btnKey="howCta" B={B} className="btn-primary" href="#contact">{tweaks.ctaLabel}</EButton>
-          <ET path="howSection.ctaNote" value={SITE_CONTENT.howSection.ctaNote} tag="span" className="how-note" />
-        </div>
-      </div>
-
-      {/* Background */}
-      <div id="background" className="background-section">
-        <div className="bg-layout">
-          <div className="reveal">
-            <ET path="backgroundSection.eyebrow" value={SITE_CONTENT.backgroundSection.eyebrow} tag="p" className="section-eyebrow" />
-            <h2 className="section-title">
-              {EDIT_MODE
-                ? <ET path="backgroundSection.title" value={SITE_CONTENT.backgroundSection.title} style={{whiteSpace:'pre-line'}} multiline />
-                : SITE_CONTENT.backgroundSection.title.split('\n').map((l,i) => [i>0 && <br key={i}/>, l])
-              }
-            </h2>
-            <ET path="backgroundSection.tagline" value={SITE_CONTENT.backgroundSection.tagline} tag="p" className="bg-tagline" multiline />
-            <div className="bg-companies">
-              <EditableList path="backgroundSection.companies" items={SITE_CONTENT.backgroundSection.companies}
-                renderItem={(c, i, onChange) => (
-                  <ETL value={c} onSave={v => onChange(null, v)} tag="span" className="company-chip" />
-                )} />
-            </div>
-            <a href={`https://${tweaks.linkedinUrl}`} target="_blank" rel="noopener noreferrer" className="bg-linkedin">
-              View LinkedIn Profile <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M12 5l7 7-7 7" /></svg>
-            </a>
-          </div>
-          <div className="bg-milestones reveal reveal-delay-2">
-            <EditableList path="milestones" items={SITE_CONTENT.milestones}
-              renderItem={(m, i, onChange) => (
-                <div className={`milestone${m.year === 'Now' ? ' milestone-current' : ''}`}>
-                  <ETL value={m.year} onSave={v => onChange('year', v)} tag="div" className="milestone-year" />
-                  <div>
-                    <ETL value={m.title} onSave={v => onChange('title', v)} tag="div" className="milestone-title" />
-                    <ETL value={m.desc} onSave={v => onChange('desc', v)} tag="div" className="milestone-desc" multiline />
-                  </div>
-                </div>
-              )} />
-          </div>
-        </div>
-      </div>
-
-      {/* Services */}
-      <div id="services" className="services-section">
-        <div className="services-header">
-          <div className="reveal">
-            <ET path="servicesSection.eyebrow" value={SITE_CONTENT.servicesSection.eyebrow} tag="p" className="section-eyebrow" />
-            <ET path="servicesSection.title" value={SITE_CONTENT.servicesSection.title} tag="h2" className="section-title" />
-          </div>
-          <ET path="servicesSection.desc" value={SITE_CONTENT.servicesSection.desc} tag="p" className="services-desc reveal reveal-delay-1" multiline />
-        </div>
-        <div className="services-hint reveal">
-          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M7 10l5-6 5 6" /><path d="M7 14l5 6 5-6" /></svg>
-          <ET path="servicesSection.hint" value={SITE_CONTENT.servicesSection.hint} />
-        </div>
-        <div className="services-grid">
-          {EDIT_MODE
-            ? <EditableList path="services" items={SITE_CONTENT.services}
-                renderItem={(s, i, onChange) => (
-                  <ScannerCard service={{...s, icon: SERVICE_ICONS[i % SERVICE_ICONS.length]}} delay={0.05 + i % 3 * 0.1} editOnChange={onChange} />
-                )} />
-            : SERVICES.map((s, i) => <ScannerCard key={i} service={s} delay={0.05 + i % 3 * 0.1} />)
-          }
-        </div>
-      </div>
-
-      {/* LinkedIn Posts */}
-      <div id="linkedin" className="linkedin-section">
-        <div className="linkedin-header-row reveal">
-          <div>
-            <ET path="linkedinSection.eyebrow" value={SITE_CONTENT.linkedinSection.eyebrow} tag="p" className="linkedin-eyebrow" />
-            <ET path="linkedinSection.title" value={SITE_CONTENT.linkedinSection.title} tag="h2" className="linkedin-title" />
-            <ET path="linkedinSection.sub" value={SITE_CONTENT.linkedinSection.sub} tag="p" className="linkedin-sub" />
-          </div>
-          <a href="https://www.linkedin.com/in/omer-moran-8aa07616b" target="_blank" rel="noopener noreferrer" className="linkedin-profile-link">
-            View full profile
-            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-          </a>
-        </div>
-        <LinkedInCarousel />
-        <div className="linkedin-edge-box reveal">
-          <div className="linkedin-edge-text">
-            <ET path="linkedinSection.edgeTitle" value={SITE_CONTENT.linkedinSection.edgeTitle} tag="div" className="linkedin-edge-title" />
-            <ET path="linkedinSection.edgeSub" value={SITE_CONTENT.linkedinSection.edgeSub} tag="div" className="linkedin-edge-sub" />
-            <a href={`https://${tweaks.linkedinUrl}`} target="_blank" rel="noopener noreferrer" className="linkedin-hero-cta" style={{marginTop:20, display:'inline-flex'}}>
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-              Follow on LinkedIn
-            </a>
-          </div>
-          <div className="linkedin-edge-stat">
-            <ET path="linkedinSection.followers" value={SITE_CONTENT.linkedinSection.followers} tag="div" className="linkedin-edge-stat-num" />
-            <div className="linkedin-edge-stat-label">Followers</div>
-          </div>
-        </div>
-      </div>
-
-      {/* Testimonials */}
-      <div id="testimonials" className="testimonials-section">
-        <div className="testimonials-intro reveal">
-          <p className="section-eyebrow" style={{fontFamily:'Space Grotesk',fontSize:'10px',fontWeight:600,letterSpacing:'0.22em',textTransform:'uppercase',color:'var(--gold)',display:'inline-flex',alignItems:'center',gap:12,marginBottom:24}}>
-            <span style={{display:'inline-block',width:24,height:1,background:'var(--gold)'}}></span>
-            <ET path="testimonialsSection.eyebrow" value={SITE_CONTENT.testimonialsSection.eyebrow} />
-          </p>
-          <ET path="testimonialsSection.title" value={SITE_CONTENT.testimonialsSection.title} tag="h2" style={{fontFamily:'Space Grotesk',fontSize:'clamp(28px,3vw,44px)',fontWeight:700,color:'var(--text)',lineHeight:1.1,letterSpacing:'-0.025em',marginBottom:12}} />
-          <ET path="testimonialsSection.sub" value={SITE_CONTENT.testimonialsSection.sub} tag="p" style={{fontSize:15,color:'var(--text-dim)',lineHeight:1.8,fontWeight:300}} multiline />
-        </div>
-        <div className="testimonials-grid">
-          <EditableList path="testimonials" items={SITE_CONTENT.testimonials}
-            renderItem={(post, i, onChange) => (
-              <TestimonialCard post={post} delay={0.08 + i % 3 * 0.1} editOnChange={EDIT_MODE ? onChange : null} />
-            )} />
-        </div>
-      </div>
-
-      {/* Contact */}
-      <section id="contact" className="contact-section">
-        <div className="contact-inner reveal">
-          <ET path="contactSection.eyebrow" value={SITE_CONTENT.contactSection.eyebrow} tag="p" className="contact-eyebrow" />
-          <ET path="contactSection.title" value={SITE_CONTENT.contactSection.title} tag="h2" className="contact-title" />
-          <ET path="contactSection.sub" value={SITE_CONTENT.contactSection.sub} tag="p" className="contact-sub" multiline />
-          <div className="contact-buttons">
-            <EButton btnKey="contactMeet" B={B} className="contact-btn contact-btn-meet" href={tweaks.meetUrl || 'https://calendar.app.google/a1bvMsk7oMrTWYzQ9'}>
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M19 3H5C3.9 3 3 3.9 3 5v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/></svg>
-              Book a Free Call
-            </EButton>
-            <EButton btnKey="contactWhatsapp" B={B} className="contact-btn contact-btn-whatsapp" href={`https://wa.me/${tweaks.whatsappNumber}`}>
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z" /></svg>
-              WhatsApp
-            </EButton>
-            <EButton btnKey="contactEmail" B={B} className="contact-btn contact-btn-email" href={`mailto:${tweaks.emailAddress}`}>
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="4" width="20" height="16" rx="2" /><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" /></svg>
-              Send an Email
-            </EButton>
-          </div>
-          <ET path="contactSection.note" value={SITE_CONTENT.contactSection.note} tag="p" className="contact-note" />
-        </div>
-      </section>
-
-      <footer>
-        <ET path="footer.name" value={SITE_CONTENT.footer.name} tag="div" className="footer-name" />
-        <ET path="footer.copy" value={SITE_CONTENT.footer.copy} tag="div" className="footer-copy" />
-        <a href="/privacypolicy" className="footer-privacy">Privacy Policy</a>
-      </footer>
-    </>
-  );
-}
-
-ReactDOM.createRoot(document.getElementById('root')).render(<App />);
+  resize();
+  window.addEventListener('resize', resize);
+  if (reduced) {
+    frame();
+  } else {
+    var heroObs = new IntersectionObserver(function (entries) {
+      entries[0].isIntersecting ? start() : stop();
+    }, { threshold: 0.05 });
+    heroObs.observe(hero);
+    document.addEventListener('visibilitychange', function () {
+      if (document.hidden) stop(); else if (isElVisible()) start();
+    });
+    function isElVisible() {
+      var r = hero.getBoundingClientRect();
+      return r.bottom > 0 && r.top < window.innerHeight;
+    }
+    hero.addEventListener('mousemove', function (e) {
+      var r = canvas.getBoundingClientRect();
+      mouse.x = e.clientX - r.left; mouse.y = e.clientY - r.top;
+    });
+    hero.addEventListener('mouseleave', function () { mouse.x = -9999; mouse.y = -9999; });
+    hero.addEventListener('touchmove', function (e) {
+      var r = canvas.getBoundingClientRect();
+      mouse.x = e.touches[0].clientX - r.left; mouse.y = e.touches[0].clientY - r.top;
+    }, { passive: true });
+    hero.addEventListener('touchend', function () { mouse.x = -9999; mouse.y = -9999; });
+  }
+})();
 </script>
 </body>
 </html>
