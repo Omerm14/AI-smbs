@@ -237,8 +237,13 @@
       transition: background-position .4s, transform .3s cubic-bezier(.2,.7,.2,1), box-shadow .3s;
     }
     .btn-grad:hover { background-position: 100% center; transform: translateY(-2px); box-shadow: 0 18px 44px rgba(122,46,26,.34); }
+    .btn-grad small { font-size: 12.5px; font-weight: 600; opacity: .78; }
     .btn-line-d { font-size: 14.5px; font-weight: 600; color: var(--dim); border-bottom: 1.5px solid var(--line); padding-bottom: 3px; transition: color .2s, border-color .2s; }
     .btn-line-d:hover { color: var(--w); border-color: var(--cyan); }
+
+    .hero-trust { display: flex; align-items: center; flex-wrap: wrap; gap: 26px; margin-top: 38px; opacity: 0; animation: fadeUp .9s 1.3s cubic-bezier(.2,.7,.2,1) forwards; }
+    .trust-item { display: flex; align-items: center; gap: 9px; font-size: 13px; color: var(--dim); font-weight: 500; }
+    .trust-item svg { color: var(--blue); opacity: .85; flex-shrink: 0; }
 
 
 
@@ -882,8 +887,14 @@
       <p class="hero-sub">הם כבר עובדים, אצל עסקים אמיתיים, עכשיו.<br /><b>וכשצריך יותר מסוכן, אנחנו בונים את המערכת המלאה.</b></p>
 
       <div class="hero-actions">
-        <a href="https://calendar.app.google/a1bvMsk7oMrTWYzQ9" target="_blank" rel="noopener" class="btn-grad" data-mag>שיחת אפיון חינם</a>
-        <a href="#work" class="btn-line-d" data-mag>5 מערכות שרצות עכשיו ←</a>
+        <a href="https://calendar.app.google/a1bvMsk7oMrTWYzQ9" target="_blank" rel="noopener" class="btn-grad" data-mag>שיחת אפיון חינם <small>· 30 דק׳</small></a>
+        <a href="#fit" class="btn-line-d" data-mag>מה זה שווה לעסק שלך ←</a>
+      </div>
+
+      <div class="hero-trust">
+        <span class="trust-item"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>יחידה 8200</span>
+        <span class="trust-item"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>ZoomInfo · Connecteam</span>
+        <span class="trust-item"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>4K+ עוקבים בלינקדאין</span>
       </div>
     </div>
 
@@ -951,7 +962,7 @@
         <div class="irow">
           <span class="th th-fl" aria-hidden="true"><u></u><u></u><u></u></span>
           <span class="ik">02</span>
-          <a class="ijump" href="#c2"><span class="iname">Floory</span><span class="idesc">הזמנה בוואטסאפ ← רשימת ייצור, אריזה ומשלוח</span></a>
+          <a class="ijump" href="#c2"><span class="iname">Floory</span><span class="idesc">הזמנת לקוח (בפורטל או בוואטסאפ) ← רשימת ייצור, אריזה ומשלוח</span></a>
           <span class="ilive"><i></i>מוכן לשימוש</span>
           <a class="ext" href="https://floory.urbanbakery.co/" target="_blank" rel="noopener">תנסה <u>floory.urbanbakery.co ↗</u></a>
         </div>
@@ -1055,12 +1066,12 @@
   <div class="case-inner">
 <div class="case-copy">
         <p class="num"><b>02</b> — מוצר מבית AAA</p>
-        <h3>Floory.<br />מהזמנה בוואטסאפ לרשימת הייצור.</h3>
-        <p>פלטפורמת ניהול הזמנות ומלאי למאפיות. ההזמנה נכנסת בוואטסאפ, נקלטת אוטומטית, ונכנסת ישר לרשימת הייצור, לאריזה ולהיסטוריה. הכל בעברית, RTL מלא.</p>
+        <h3>Floory.<br />מהזמנת לקוח — בפורטל או בוואטסאפ — לרשימת הייצור.</h3>
+        <p>פלטפורמת ניהול הזמנות ומלאי למאפיות. לקוחות המאפייה מזינים ומעדכנים הזמנות דרך פורטל משלהם — אפשר גם בוואטסאפ — וכל הזמנה נכנסת ישר לרשימת הייצור, לאריזה ולהיסטוריה. הכל בעברית, RTL מלא.</p>
         <div class="badge"><b>LIVE</b> · רץ באורבן בייקרי כל בוקר</div>
         <div class="figs">
           <span class="fig"><b>+320</b><span>הזמנות שבועיות</span></span>
-          <span class="fig"><b>&lt;3s</b><span>מוואטסאפ עד ייצור</span></span>
+          <span class="fig"><b>&lt;3s</b><span>מהזמנה עד ייצור</span></span>
           <span class="fig"><b>40%+</b><span>חיסכון בזמן מול אקסל</span></span>
         </div>
         <div class="case-links">
