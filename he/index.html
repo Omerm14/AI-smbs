@@ -411,9 +411,9 @@
     .th { width: 86px; height: 56px; border-radius: 7px; overflow: hidden; position: relative;
       border: 1px solid var(--line-soft); flex-shrink: 0; }
     .th > * { position: absolute; }
-    .th-cf, .th-fl { display: flex; align-items: center; justify-content: center; }
+    .th-cf, .th-fl { display: flex; align-items: center; justify-content: center;
+      border: none; border-radius: 0; overflow: visible; }
     .th-cf > svg, .th-fl > svg { position: static; }
-    .th-cf { background: radial-gradient(120% 90% at 50% 45%, #16211c, #0c110f); }
     .th-lb { background: #f7f2ea; }
     .th-lb u { inset-inline: 10px; height: 2px; background: rgba(36,28,18,.28); text-decoration: none; }
     .th-lb u:nth-child(1) { top: 11px; height: 3px; background: #241c12; }
@@ -959,10 +959,12 @@
       <div class="idx-grp">
         <div class="irow">
           <span class="th th-cf" aria-hidden="true">
-            <svg viewBox="0 0 100 100" width="36" height="36" focusable="false">
+            <svg viewBox="0 0 100 100" width="44" height="44" focusable="false">
               <defs><linearGradient id="cf-mark" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#2DD9B9"/><stop offset="1" stop-color="#0E7490"/></linearGradient></defs>
-              <path d="M77.9 69.5 A34 34 0 1 1 77.9 30.5" fill="none" stroke="url(#cf-mark)" stroke-width="15" stroke-linecap="round"/>
-              <path d="M71.3 58.6 A15 15 0 1 1 71.3 41.4" fill="none" stroke="#9FE9DA" stroke-width="8" stroke-linecap="round"/>
+              <g transform="rotate(35 50 50)">
+                <path d="M77.9 69.5 A34 34 0 1 1 77.9 30.5" fill="none" stroke="url(#cf-mark)" stroke-width="15" stroke-linecap="round"/>
+                <path d="M71.3 58.6 A15 15 0 1 1 71.3 41.4" fill="none" stroke="#9FE9DA" stroke-width="8" stroke-linecap="round"/>
+              </g>
             </svg>
           </span>
           <span class="ik">01</span>
@@ -972,10 +974,10 @@
         </div>
         <div class="irow">
           <span class="th th-fl" aria-hidden="true">
-            <svg viewBox="0 0 100 100" width="40" height="40" focusable="false">
-              <path d="M50 16 Q46 22 50 27 Q54 32 50 38" fill="none" stroke="#EE8B12" stroke-width="6" stroke-linecap="round"/>
-              <path d="M27 63 A23 23 0 0 1 73 63 Z" fill="#EE8B12"/>
-              <rect x="17" y="63" width="66" height="9" rx="4.5" fill="#EE8B12"/>
+            <svg viewBox="0 0 100 100" width="46" height="46" focusable="false">
+              <path d="M50 12 Q45 19 50 25 Q55 31 50 38" fill="none" stroke="#F0900A" stroke-width="9" stroke-linecap="round"/>
+              <path d="M18 66 A32 27 0 0 1 82 66 Z" fill="#F0900A"/>
+              <rect x="14" y="71" width="72" height="11" rx="5.5" fill="#F0900A"/>
             </svg>
           </span>
           <span class="ik">02</span>
