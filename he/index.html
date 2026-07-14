@@ -6,7 +6,7 @@
   <title>AAA — AI Agents Agency | סוכני AI שעושים עבודה אמיתית בעסק</title>
   <meta name="description" content="AAA — AI Agents Agency בונה סוכני AI שעושים עבודה אמיתית בעסק — עונים ללקוחות, קולטים הזמנות, קוראים חשבוניות. וכשצריך יותר מסוכן, אנחנו בונים את המערכת המלאה. סוכנים שכבר רצים אצל עסקים אמיתיים." />
   <meta name="theme-color" content="#faf9f6" />
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%231a1815'/%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%23C08A3E'/%3E%3Cstop offset='.5' stop-color='%23B5654B'/%3E%3Cstop offset='1' stop-color='%237A2E1A'/%3E%3C/linearGradient%3E%3C/defs%3E%3Ctext x='32' y='44' font-family='Arial,sans-serif' font-size='32' font-weight='900' fill='url(%23g)' text-anchor='middle'%3E%D7%A2%3C/text%3E%3C/svg%3E" />
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%231a1815'/%3E%3Cg transform='translate(8,18.7) scale(0.2667)' fill='none' stroke-width='22'%3E%3Cg stroke='%23faf9f6'%3E%3Cpath d='M50 8 L8 92'/%3E%3Cpath d='M50 8 L92 92'/%3E%3Cpath d='M90 8 L48 92'/%3E%3Cpath d='M90 8 L132 92'/%3E%3Cpath d='M130 8 L88 92'/%3E%3Cpath d='M130 8 L172 92'/%3E%3C/g%3E%3Cpath d='M13 66 L167 66' stroke='%23C08A3E'/%3E%3C/g%3E%3C/svg%3E" />
   <link rel="canonical" href="https://www.omermoran.com/he" />
   <link rel="alternate" hreflang="he" href="https://www.omermoran.com/he" />
   <link rel="alternate" hreflang="en" href="https://www.omermoran.com/en" />
@@ -157,6 +157,7 @@
     nav.scrolled .nav-in { height: 62px; }
     .brand { font-size: 17.5px; font-weight: 800; letter-spacing: -.01em; display: flex; align-items: center; gap: 10px; }
     .brand .b-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--grad); }
+    .brand-mark { flex-shrink: 0; color: var(--ink); }
     .brand-sub { font-family: var(--mono); font-size: 9.5px; font-weight: 400; color: var(--faint); letter-spacing: .1em;
       direction: ltr; padding-inline-start: 10px; margin-inline-start: 10px; border-inline-start: 1px solid var(--line); }
     .nav-links { display: flex; gap: 30px; list-style: none; }
@@ -765,7 +766,8 @@
 
     footer { border-top: 1px solid var(--line-soft); }
     .foot-in { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding-block: 30px; flex-wrap: wrap; }
-    .foot-brand { font-size: 14px; font-weight: 700; color: var(--dim); }
+    .foot-brand { font-size: 14px; font-weight: 700; color: var(--dim); display: inline-flex; align-items: center; gap: 8px; }
+    .foot-brand .brand-mark { color: var(--ink); }
     .foot-links { display: flex; gap: 24px; }
     .foot-links a { font-size: 13px; color: var(--faint); transition: color .2s; }
     .foot-links a:hover { color: var(--w); }
@@ -848,14 +850,24 @@
   <b data-s="fit"><i></i>כל עסק</b>
   <b data-s="work"><i></i>מה שכבר רץ</b>
   <b data-s="about"><i></i>מי בונה</b>
-  <b data-s="process"><i></i>איך זה עובד</b>
   <b data-s="contact"><i></i>בוא נדבר</b>
 </aside>
 <div id="cursor-glow" aria-hidden="true"></div>
 
 <nav id="nav" aria-label="ניווט ראשי">
   <div class="shell nav-in">
-    <a href="#top" class="brand"><span class="b-dot" aria-hidden="true"></span>AAA<span class="brand-sub">AI Agents Agency</span></a>
+    <a href="#top" class="brand" aria-label="AAA — AI Agents Agency">
+      <span class="b-dot" aria-hidden="true"></span>
+      <svg class="brand-mark" viewBox="0 0 180 100" width="34" height="19" aria-hidden="true" focusable="false">
+        <g stroke="currentColor" stroke-width="13">
+          <path d="M50 8 L8 92"/><path d="M50 8 L92 92"/>
+          <path d="M90 8 L48 92"/><path d="M90 8 L132 92"/>
+          <path d="M130 8 L88 92"/><path d="M130 8 L172 92"/>
+        </g>
+        <path d="M13 66 L167 66" stroke="#B5654B" stroke-width="13"/>
+      </svg>
+      <span class="brand-sub">AI Agents Agency</span>
+    </a>
     <ul class="nav-links">
       <li><a href="#fit">לכל עסק</a></li>
       <li><a href="#work">מה שכבר רץ</a></li>
@@ -980,7 +992,7 @@
         <div class="irow">
           <span class="th th-ag" aria-hidden="true"><u></u><u></u></span>
           <span class="ik">04</span>
-          <a class="ijump" href="#c4"><span class="iname">סוכן וואטסאפ</span><span class="idesc">מענה בכל שפה, מסביב לשעון, עם הידע של העסק</span></a>
+          <a class="ijump" href="#c4"><span class="iname">סוכן שירות לקוחות</span><span class="idesc">עונה ללקוחות בטון אנושי וטבעי — מבוסס על הידע של העסק שלך</span></a>
           <span class="ilive"><i></i>רץ כל יום</span>
           <a class="iseen" href="#c4">תראה אותו רץ ↓</a>
         </div>
@@ -1237,35 +1249,10 @@
   </div>
 </section>
 
-<!-- ═══════════ 04 — HOW IT WORKS ═══════════ -->
-<section class="sec" id="process" data-sec="process">
-  <div class="shell">
-    <p class="sec-tag rv"><b>04</b> — איך זה עובד</p>
-    <h2 class="rv" style="--d:.06s">משיחה למערכת חיה. <span class="g">בשבועות.</span></h2>
-    <div class="steps">
-      <div class="step rv" style="--d:.05s">
-        <p class="step-num">01</p>
-        <h3>שיחת אפיון</h3>
-        <p>20 דקות, בחינם. אתה מספר איך העסק עובד, אנחנו מזהים איפה נשרפות הכי הרבה שעות. ואם אין מה לבנות לך, נגיד את זה באותה שיחה.</p>
-      </div>
-      <div class="step rv" style="--d:.15s">
-        <p class="step-num">02</p>
-        <h3>הצעה עם מחיר סגור</h3>
-        <p>תוך ימים ספורים: מה בונים, מה זה יחסוך, כמה זה עולה ומתי זה באוויר. מחיר סגור מראש, בלי הפתעות באמצע ובלי ריטיינר מחייב.</p>
-      </div>
-      <div class="step rv" style="--d:.25s">
-        <p class="step-num">03</p>
-        <h3>המערכת באוויר</h3>
-        <p>אנחנו בונים, מטמיעים ומלווים. הצוות שלך ממשיך לעבוד בוואטסאפ ובמייל כרגיל. המערכת מתאימה את עצמה אליכם, לא הפוך. ונשארים בקשר גם אחרי.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ═══════════ 05 — QUESTIONS ═══════════ -->
+<!-- ═══════════ 04 — QUESTIONS ═══════════ -->
 <section class="sec" id="faq" style="padding-top:0">
   <div class="shell">
-    <p class="sec-tag rv"><b>05</b> — שאלות</p>
+    <p class="sec-tag rv"><b>04</b> — שאלות</p>
     <h2 class="rv" style="--d:.06s">שאלות <span class="g">ששואלים אותנו.</span></h2>
     <div class="faq-wrap rv" style="--d:.1s">
       <div class="faq">
@@ -1330,7 +1317,7 @@
 <section class="contact" id="contact" data-sec="contact">
   <div class="glow" aria-hidden="true"></div>
   <div class="shell">
-    <p class="sec-tag rv" style="text-align:center"><b>06</b> — בוא נדבר</p>
+    <p class="sec-tag rv" style="text-align:center"><b>05</b> — בוא נדבר</p>
     <h2 class="rv" style="--d:.06s">הגיע הזמן לגייס את<br /><span class="g">צוות ה-AI הראשון שלך.</span></h2>
     <p class="contact-sub rv" style="--d:.12s"><b>בלי המשכורות הגבוהות שתמיד פחדת מהן.</b><br />שיחת אפיון של 20 דקות: אתה מספר איך העסק עובד, אנחנו מזהים איפה נשרפות השעות, ותדע בדיוק מה שווה לבנות אצלך.</p>
 
@@ -1361,7 +1348,17 @@
 
 <footer>
   <div class="shell foot-in">
-    <span class="foot-brand">AAA · AI Agents Agency</span>
+    <span class="foot-brand">
+      <svg class="brand-mark" viewBox="0 0 180 100" width="28" height="16" aria-hidden="true" focusable="false">
+        <g stroke="currentColor" stroke-width="13">
+          <path d="M50 8 L8 92"/><path d="M50 8 L92 92"/>
+          <path d="M90 8 L48 92"/><path d="M90 8 L132 92"/>
+          <path d="M130 8 L88 92"/><path d="M130 8 L172 92"/>
+        </g>
+        <path d="M13 66 L167 66" stroke="#B5654B" stroke-width="13"/>
+      </svg>
+      · AI Agents Agency
+    </span>
     <div class="foot-links">
       <a href="/privacypolicy">מדיניות פרטיות</a>
       <a href="https://www.linkedin.com/in/omer-moran-8aa07616b" target="_blank" rel="noopener">LinkedIn</a>
