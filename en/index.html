@@ -6,7 +6,7 @@
   <title>AAA — AI Agents Agency | AI agents that do real work in your business</title>
   <meta name="description" content="AAA — AI Agents Agency builds AI agents that do real work in your business: answering customers, taking orders, reading invoices. And when you need more than an agent, we build the whole system. Agents already running in real businesses." />
   <meta name="theme-color" content="#faf9f6" />
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%231a1815'/%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%23C08A3E'/%3E%3Cstop offset='.5' stop-color='%23B5654B'/%3E%3Cstop offset='1' stop-color='%237A2E1A'/%3E%3C/linearGradient%3E%3C/defs%3E%3Ctext x='32' y='44' font-family='Arial,sans-serif' font-size='32' font-weight='900' fill='url(%23g)' text-anchor='middle'%3E%D7%A2%3C/text%3E%3C/svg%3E" />
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%231a1815'/%3E%3Cg transform='translate(8,18.7) scale(0.2667)' fill='none' stroke-width='22'%3E%3Cg stroke='%23faf9f6'%3E%3Cpath d='M50 8 L8 92'/%3E%3Cpath d='M50 8 L92 92'/%3E%3Cpath d='M90 8 L48 92'/%3E%3Cpath d='M90 8 L132 92'/%3E%3Cpath d='M130 8 L88 92'/%3E%3Cpath d='M130 8 L172 92'/%3E%3C/g%3E%3Cpath d='M13 66 L167 66' stroke='%23C08A3E'/%3E%3C/g%3E%3C/svg%3E" />
   <link rel="canonical" href="https://www.omermoran.com/en" />
   <link rel="alternate" hreflang="he" href="https://www.omermoran.com/he" />
   <link rel="alternate" hreflang="en" href="https://www.omermoran.com/en" />
@@ -155,7 +155,7 @@
     .nav-in { display: flex; align-items: center; justify-content: space-between; height: 76px; transition: height .35s; }
     nav.scrolled .nav-in { height: 62px; }
     .brand { font-size: 17.5px; font-weight: 800; letter-spacing: -.01em; display: flex; align-items: center; gap: 10px; }
-    .brand .b-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--grad); }
+    .brand-mark { flex-shrink: 0; color: var(--ink); }
     .brand-sub { font-family: var(--mono); font-size: 9.5px; font-weight: 400; color: var(--faint); letter-spacing: .1em;
       direction: ltr; padding-inline-start: 10px; margin-inline-start: 10px; border-inline-start: 1px solid var(--line); }
     .nav-links { display: flex; gap: 30px; list-style: none; }
@@ -409,14 +409,9 @@
     .th { width: 86px; height: 56px; border-radius: 7px; overflow: hidden; position: relative;
       border: 1px solid var(--line-soft); flex-shrink: 0; }
     .th > * { position: absolute; }
-    .th-cf { background: radial-gradient(120% 90% at 50% 45%, #16211c, #0c110f); }
-    .th-cf u { inset: 12px 10px auto 10px; height: 13px; border-radius: 2px; background: rgba(255,255,255,.06); text-decoration: none; }
-    .th-cf u + u { top: 29px; width: 46%; background: rgba(52,211,153,.35); }
-    .th-cf b { inset: 5px auto auto 8px; width: 22px; height: 3px; border-radius: 2px; background: rgba(52,211,153,.5); }
-    .th-fl { background: #0d130f; }
-    .th-fl u { top: 9px; width: 22px; height: 38px; border-radius: 3px; background: rgba(255,255,255,.05); text-decoration: none; }
-    .th-fl u:nth-child(1) { inset-inline-start: 8px; } .th-fl u:nth-child(2) { inset-inline-start: 32px; }
-    .th-fl u:nth-child(3) { inset-inline-start: 56px; background: rgba(110,231,183,.28); }
+    .th-cf, .th-fl { display: flex; align-items: center; justify-content: center;
+      border: none; border-radius: 0; overflow: visible; }
+    .th-cf > svg, .th-fl > svg { position: static; }
     .th-lb { background: #f7f2ea; }
     .th-lb u { inset-inline: 10px; height: 2px; background: rgba(36,28,18,.28); text-decoration: none; }
     .th-lb u:nth-child(1) { top: 11px; height: 3px; background: #241c12; }
@@ -763,7 +758,8 @@
 
     footer { border-top: 1px solid var(--line-soft); }
     .foot-in { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding-block: 30px; flex-wrap: wrap; }
-    .foot-brand { font-size: 14px; font-weight: 700; color: var(--dim); }
+    .foot-brand { font-size: 14px; font-weight: 700; color: var(--dim); display: inline-flex; align-items: center; gap: 8px; }
+    .foot-brand .brand-mark { color: var(--ink); }
     .foot-links { display: flex; gap: 24px; }
     .foot-links a { font-size: 13px; color: var(--faint); transition: color .2s; }
     .foot-links a:hover { color: var(--w); }
@@ -846,14 +842,23 @@
   <b data-s="fit"><i></i>Every business</b>
   <b data-s="work"><i></i>What's running</b>
   <b data-s="about"><i></i>Who builds it</b>
-  <b data-s="process"><i></i>How it works</b>
   <b data-s="contact"><i></i>Let's talk</b>
 </aside>
 <div id="cursor-glow" aria-hidden="true"></div>
 
 <nav id="nav" aria-label="Main navigation">
   <div class="shell nav-in">
-    <a href="#top" class="brand"><span class="b-dot" aria-hidden="true"></span>AAA<span class="brand-sub">AI Agents Agency</span></a>
+    <a href="#top" class="brand" aria-label="AAA — AI Agents Agency">
+      <svg class="brand-mark" viewBox="0 0 180 100" width="34" height="19" aria-hidden="true" focusable="false">
+        <g stroke="currentColor" stroke-width="13">
+          <path d="M50 8 L8 92"/><path d="M50 8 L92 92"/>
+          <path d="M90 8 L48 92"/><path d="M90 8 L132 92"/>
+          <path d="M130 8 L88 92"/><path d="M130 8 L172 92"/>
+        </g>
+        <path d="M13 66 L167 66" stroke="#B5654B" stroke-width="13"/>
+      </svg>
+      <span class="brand-sub">AI Agents Agency</span>
+    </a>
     <ul class="nav-links">
       <li><a href="#fit">Every business</a></li>
       <li><a href="#work">What's running</a></li>
@@ -951,14 +956,26 @@
       <p class="idx-lbl">Our products <em>· ready to use. Sign in and start</em></p>
       <div class="idx-grp">
         <div class="irow">
-          <span class="th th-cf" aria-hidden="true"><b></b><u></u><u></u></span>
+          <span class="th th-cf" aria-hidden="true">
+            <svg viewBox="0 0 100 100" width="44" height="44" focusable="false">
+              <defs><linearGradient id="cf-mark" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#2DD9B9"/><stop offset="1" stop-color="#0E7490"/></linearGradient></defs>
+              <path d="M77.9 69.5 A34 34 0 1 1 77.9 30.5" fill="none" stroke="url(#cf-mark)" stroke-width="15" stroke-linecap="round"/>
+              <path d="M71.3 58.6 A15 15 0 1 1 71.3 41.4" fill="none" stroke="#9FE9DA" stroke-width="8" stroke-linecap="round"/>
+            </svg>
+          </span>
           <span class="ik">01</span>
           <a class="ijump" href="#c1"><span class="iname">Cashflow</span><span class="idesc">Supplier invoices from 4 sources → one cash-flow board</span></a>
           <span class="ilive"><i></i>Ready to use</span>
           <a class="ext" href="https://gocashflow.co/" target="_blank" rel="noopener">Try it <u>gocashflow.co ↗</u></a>
         </div>
         <div class="irow">
-          <span class="th th-fl" aria-hidden="true"><u></u><u></u><u></u></span>
+          <span class="th th-fl" aria-hidden="true">
+            <svg viewBox="0 0 100 100" width="46" height="46" focusable="false">
+              <path d="M50 12 Q45 19 50 25 Q55 31 50 38" fill="none" stroke="#F0900A" stroke-width="9" stroke-linecap="round"/>
+              <path d="M18 66 A32 27 0 0 1 82 66 Z" fill="#F0900A"/>
+              <rect x="14" y="71" width="72" height="11" rx="5.5" fill="#F0900A"/>
+            </svg>
+          </span>
           <span class="ik">02</span>
           <a class="ijump" href="#c2"><span class="iname">Floory</span><span class="idesc">Client orders (portal or WhatsApp) → production list, packing, delivery</span></a>
           <span class="ilive"><i></i>Ready to use</span>
@@ -978,7 +995,7 @@
         <div class="irow">
           <span class="th th-ag" aria-hidden="true"><u></u><u></u></span>
           <span class="ik">04</span>
-          <a class="ijump" href="#c4"><span class="iname">WhatsApp Agent</span><span class="idesc">Answers in any language, around the clock, with the business's own knowledge</span></a>
+          <a class="ijump" href="#c4"><span class="iname">Customer Support Agent</span><span class="idesc">Replies to customers in a natural, human tone — trained on your business's own knowledge</span></a>
           <span class="ilive"><i></i>Running daily</span>
           <a class="iseen" href="#c4">See it running ↓</a>
         </div>
@@ -1235,35 +1252,10 @@
   </div>
 </section>
 
-<!-- ═══════════ 04 — HOW IT WORKS ═══════════ -->
-<section class="sec" id="process" data-sec="process">
+<!-- ═══════════ 04 — QUESTIONS ═══════════ -->
+<section class="sec" id="faq">
   <div class="shell">
-    <p class="sec-tag rv"><b>04</b> — How it works</p>
-    <h2 class="rv" style="--d:.06s">From a conversation to a live system. <span class="g">In weeks.</span></h2>
-    <div class="steps">
-      <div class="step rv" style="--d:.05s">
-        <p class="step-num">01</p>
-        <h3>The scoping call</h3>
-        <p>20 minutes, free. You tell us how the business runs; we find where the hours are burning. And if there is nothing worth building, we say so on that call.</p>
-      </div>
-      <div class="step rv" style="--d:.15s">
-        <p class="step-num">02</p>
-        <h3>A proposal at a fixed price</h3>
-        <p>Within days: what gets built, what it saves, what it costs and when it goes live. Fixed price up front — no surprises halfway, no binding retainer.</p>
-      </div>
-      <div class="step rv" style="--d:.25s">
-        <p class="step-num">03</p>
-        <h3>The system goes live</h3>
-        <p>We build it, deploy it and stay close. Your team keeps working in WhatsApp and email exactly as before. The system adapts to you, not the other way around. And we don't disappear afterwards.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ═══════════ 05 — QUESTIONS ═══════════ -->
-<section class="sec" id="faq" style="padding-top:0">
-  <div class="shell">
-    <p class="sec-tag rv"><b>05</b> — Questions</p>
+    <p class="sec-tag rv"><b>04</b> — Questions</p>
     <h2 class="rv" style="--d:.06s">The questions <span class="g">we get asked.</span></h2>
     <div class="faq-wrap rv" style="--d:.1s">
       <div class="faq">
@@ -1328,7 +1320,7 @@
 <section class="contact" id="contact" data-sec="contact">
   <div class="glow" aria-hidden="true"></div>
   <div class="shell">
-    <p class="sec-tag rv" style="text-align:center"><b>06</b> — Let's talk</p>
+    <p class="sec-tag rv" style="text-align:center"><b>05</b> — Let's talk</p>
     <h2 class="rv" style="--d:.06s">It's time to hire<br /><span class="g">your first AI team.</span></h2>
     <p class="contact-sub rv" style="--d:.12s"><b>Without the salaries you were always afraid of.</b><br />A 20-minute scoping call: you tell us how the business runs, we find where the hours are burning, and you leave knowing exactly what is worth building.</p>
 
@@ -1359,7 +1351,17 @@
 
 <footer>
   <div class="shell foot-in">
-    <span class="foot-brand">AAA · AI Agents Agency</span>
+    <span class="foot-brand">
+      <svg class="brand-mark" viewBox="0 0 180 100" width="28" height="16" aria-hidden="true" focusable="false">
+        <g stroke="currentColor" stroke-width="13">
+          <path d="M50 8 L8 92"/><path d="M50 8 L92 92"/>
+          <path d="M90 8 L48 92"/><path d="M90 8 L132 92"/>
+          <path d="M130 8 L88 92"/><path d="M130 8 L172 92"/>
+        </g>
+        <path d="M13 66 L167 66" stroke="#B5654B" stroke-width="13"/>
+      </svg>
+      · AI Agents Agency
+    </span>
     <div class="foot-links">
       <a href="/privacypolicy">Privacy policy</a>
       <a href="https://www.linkedin.com/in/omer-moran-8aa07616b" target="_blank" rel="noopener">LinkedIn</a>
