@@ -1867,7 +1867,7 @@
      call Claude with the prompt below, validate the JSON against the shape in FLOOR,
      and return it. Any failure → return 204 and we fall back silently.
      While it is null, the chips answer instantly and free text falls back to FLOOR. */
-  var AGENT_ENDPOINT = null;
+  var AGENT_ENDPOINT = '/api/fit';
 
   var WALL = ['Bakery or restaurant', 'Clinic', 'Law firm', 'Shop or online', 'Studio or agency'];
   var PH = ['a garage', 'a hair salon', 'a veterinary practice', 'a driving school', 'a caterer',
