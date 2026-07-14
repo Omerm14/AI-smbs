@@ -38,6 +38,60 @@ function isRateLimited(ip) {
   return false;
 }
 
+// Hard site-wide daily spend cap, on top of the per-IP/global request-rate
+// limits above. Same in-memory caveat as those: shared only within one warm
+// serverless instance, resets on cold start. It's the last line of defense
+// against a bot/scraper swarm running up the Anthropic bill, not a precise
+// accounting system.
+const DAILY_BUDGET_USD = 5;
+// Claude Haiku 4.5 pricing, per million tokens.
+const PRICE_PER_M_INPUT_USD = 1;
+const PRICE_PER_M_OUTPUT_USD = 5;
+// Worst-case cost of a single call: system prompt + schema + business name
+// on the input side, MAX_TOKENS on the output side. Reserved against the
+// budget *before* calling Anthropic, so a burst can't slip past the check
+// while requests are in flight; refunded/adjusted once the real usage
+// numbers come back.
+const WORST_CASE_INPUT_TOKENS = 600;
+const RESERVE_USD =
+  (WORST_CASE_INPUT_TOKENS / 1e6) * PRICE_PER_M_INPUT_USD +
+  (MAX_TOKENS / 1e6) * PRICE_PER_M_OUTPUT_USD;
+
+let budgetDay = null;
+let budgetSpentUsd = 0;
+
+function todayUTC() {
+  return new Date().toISOString().slice(0, 10);
+}
+
+function resetBudgetIfNewDay() {
+  const day = todayUTC();
+  if (day !== budgetDay) {
+    budgetDay = day;
+    budgetSpentUsd = 0;
+  }
+}
+
+function reserveBudget() {
+  resetBudgetIfNewDay();
+  if (budgetSpentUsd + RESERVE_USD > DAILY_BUDGET_USD) return false;
+  budgetSpentUsd += RESERVE_USD;
+  return true;
+}
+
+function reconcileBudget(actualUsd) {
+  resetBudgetIfNewDay();
+  budgetSpentUsd = Math.max(0, budgetSpentUsd + actualUsd - RESERVE_USD);
+}
+
+function actualCostUsd(usage) {
+  if (!usage) return 0;
+  return (
+    ((usage.input_tokens || 0) / 1e6) * PRICE_PER_M_INPUT_USD +
+    ((usage.output_tokens || 0) / 1e6) * PRICE_PER_M_OUTPUT_USD
+  );
+}
+
 function getClientIp(req) {
   const fwd = req.headers['x-forwarded-for'];
   if (fwd) return fwd.split(',')[0].trim();
@@ -101,6 +155,11 @@ module.exports = async (req, res) => {
     return;
   }
 
+  if (!reserveBudget()) {
+    res.status(503).json({ error: 'daily budget exceeded' });
+    return;
+  }
+
   try {
     const upstream = await fetch('https://api.anthropic.com/v1/messages', {
       method: 'POST',
@@ -120,11 +179,14 @@ module.exports = async (req, res) => {
     });
 
     if (!upstream.ok) {
+      reconcileBudget(0); // refund the reservation — no cost was incurred
       res.status(502).json({ error: 'upstream error' });
       return;
     }
 
     const data = await upstream.json();
+    reconcileBudget(actualCostUsd(data.usage));
+
     const textBlock = Array.isArray(data.content) && data.content.find((b) => b.type === 'text');
     if (!textBlock) {
       res.status(502).json({ error: 'no output' });
@@ -146,6 +208,7 @@ module.exports = async (req, res) => {
 
     res.status(200).json(parsed);
   } catch (err) {
+    reconcileBudget(0); // refund — the request never completed
     res.status(502).json({ error: 'request failed' });
   }
 };
