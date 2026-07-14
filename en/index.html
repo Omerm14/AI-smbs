@@ -409,14 +409,10 @@
     .th { width: 86px; height: 56px; border-radius: 7px; overflow: hidden; position: relative;
       border: 1px solid var(--line-soft); flex-shrink: 0; }
     .th > * { position: absolute; }
+    .th-cf, .th-fl { display: flex; align-items: center; justify-content: center; }
+    .th-cf > svg, .th-fl > svg { position: static; }
     .th-cf { background: radial-gradient(120% 90% at 50% 45%, #16211c, #0c110f); }
-    .th-cf u { inset: 12px 10px auto 10px; height: 13px; border-radius: 2px; background: rgba(255,255,255,.06); text-decoration: none; }
-    .th-cf u + u { top: 29px; width: 46%; background: rgba(52,211,153,.35); }
-    .th-cf b { inset: 5px auto auto 8px; width: 22px; height: 3px; border-radius: 2px; background: rgba(52,211,153,.5); }
-    .th-fl { background: #0d130f; }
-    .th-fl u { top: 9px; width: 22px; height: 38px; border-radius: 3px; background: rgba(255,255,255,.05); text-decoration: none; }
-    .th-fl u:nth-child(1) { inset-inline-start: 8px; } .th-fl u:nth-child(2) { inset-inline-start: 32px; }
-    .th-fl u:nth-child(3) { inset-inline-start: 56px; background: rgba(110,231,183,.28); }
+    .th-fl { background: #FDECD8; }
     .th-lb { background: #f7f2ea; }
     .th-lb u { inset-inline: 10px; height: 2px; background: rgba(36,28,18,.28); text-decoration: none; }
     .th-lb u:nth-child(1) { top: 11px; height: 3px; background: #241c12; }
@@ -961,14 +957,26 @@
       <p class="idx-lbl">Our products <em>· ready to use. Sign in and start</em></p>
       <div class="idx-grp">
         <div class="irow">
-          <span class="th th-cf" aria-hidden="true"><b></b><u></u><u></u></span>
+          <span class="th th-cf" aria-hidden="true">
+            <svg viewBox="0 0 100 100" width="36" height="36" focusable="false">
+              <defs><linearGradient id="cf-mark" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#2DD9B9"/><stop offset="1" stop-color="#0E7490"/></linearGradient></defs>
+              <path d="M77.9 69.5 A34 34 0 1 1 77.9 30.5" fill="none" stroke="url(#cf-mark)" stroke-width="15" stroke-linecap="round"/>
+              <path d="M71.3 58.6 A15 15 0 1 1 71.3 41.4" fill="none" stroke="#9FE9DA" stroke-width="8" stroke-linecap="round"/>
+            </svg>
+          </span>
           <span class="ik">01</span>
           <a class="ijump" href="#c1"><span class="iname">Cashflow</span><span class="idesc">Supplier invoices from 4 sources → one cash-flow board</span></a>
           <span class="ilive"><i></i>Ready to use</span>
           <a class="ext" href="https://gocashflow.co/" target="_blank" rel="noopener">Try it <u>gocashflow.co ↗</u></a>
         </div>
         <div class="irow">
-          <span class="th th-fl" aria-hidden="true"><u></u><u></u><u></u></span>
+          <span class="th th-fl" aria-hidden="true">
+            <svg viewBox="0 0 100 100" width="40" height="40" focusable="false">
+              <path d="M50 16 Q46 22 50 27 Q54 32 50 38" fill="none" stroke="#EE8B12" stroke-width="6" stroke-linecap="round"/>
+              <path d="M27 63 A23 23 0 0 1 73 63 Z" fill="#EE8B12"/>
+              <rect x="17" y="63" width="66" height="9" rx="4.5" fill="#EE8B12"/>
+            </svg>
+          </span>
           <span class="ik">02</span>
           <a class="ijump" href="#c2"><span class="iname">Floory</span><span class="idesc">Client orders (portal or WhatsApp) → production list, packing, delivery</span></a>
           <span class="ilive"><i></i>Ready to use</span>
