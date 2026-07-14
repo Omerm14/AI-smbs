@@ -7,7 +7,6 @@
     { "source": "/index-he.html", "destination": "/he", "permanent": true }
   ],
   "routes": [
-    { "src": "/privacypolicy", "dest": "/privacypolicy/index.html" },
-    { "src": "/he/restaurants", "dest": "/he/restaurants/index.html" }
+    { "src": "/privacypolicy", "dest": "/privacypolicy/index.html" }
   ]
 }

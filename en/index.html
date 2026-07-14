@@ -236,8 +236,13 @@
       transition: background-position .4s, transform .3s cubic-bezier(.2,.7,.2,1), box-shadow .3s;
     }
     .btn-grad:hover { background-position: 100% center; transform: translateY(-2px); box-shadow: 0 18px 44px rgba(122,46,26,.34); }
+    .btn-grad small { font-size: 12.5px; font-weight: 600; opacity: .78; }
     .btn-line-d { font-size: 14.5px; font-weight: 600; color: var(--dim); border-bottom: 1.5px solid var(--line); padding-bottom: 3px; transition: color .2s, border-color .2s; }
     .btn-line-d:hover { color: var(--w); border-color: var(--cyan); }
+
+    .hero-trust { display: flex; align-items: center; flex-wrap: wrap; gap: 26px; margin-top: 38px; opacity: 0; animation: fadeUp .9s 1.3s cubic-bezier(.2,.7,.2,1) forwards; }
+    .trust-item { display: flex; align-items: center; gap: 9px; font-size: 13px; color: var(--dim); font-weight: 500; }
+    .trust-item svg { color: var(--blue); opacity: .85; flex-shrink: 0; }
 
 
 
@@ -880,8 +885,14 @@
       <p class="hero-sub">They are already working, in real businesses, right now.<br /><b>And when one agent isn't enough, we build the whole system.</b></p>
 
       <div class="hero-actions">
-        <a href="https://calendar.app.google/a1bvMsk7oMrTWYzQ9" target="_blank" rel="noopener" class="btn-grad" data-mag>Free scoping call</a>
-        <a href="#work" class="btn-line-d" data-mag>5 systems running right now →</a>
+        <a href="https://calendar.app.google/a1bvMsk7oMrTWYzQ9" target="_blank" rel="noopener" class="btn-grad" data-mag>Book a free call <small>· 30 min</small></a>
+        <a href="#fit" class="btn-line-d" data-mag>What it's worth to your business →</a>
+      </div>
+
+      <div class="hero-trust">
+        <span class="trust-item"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>Unit 8200</span>
+        <span class="trust-item"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>ZoomInfo · Connecteam</span>
+        <span class="trust-item"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>4K+ LinkedIn followers</span>
       </div>
     </div>
 
@@ -901,7 +912,7 @@
 
   <div class="hero-line">
     <div class="shell">
-      <p>AI that does the work. <span class="g">Not talks about it.</span></p>
+      <p>AI that does the work, <span class="g">not just talks about it.</span></p>
     </div>
   </div>
 </header>
@@ -933,7 +944,7 @@
   <div class="shell">
     <p class="sec-tag rv"><b>02</b> — What's already running</p>
     <h2 class="rv" style="--d:.06s">This is not a portfolio.<br />This is running right now, for our clients.<br /><span class="g">And soon, for you.</span></h2>
-    <p class="sec-sub rv" style="--d:.12s">Two of them are <b>ready to use</b>. Sign in and start working. Three are running for clients, right now.</p>
+    <p class="sec-sub rv" style="--d:.12s">Two are <b>ready to use</b> — just sign in. Three more are already running for clients.</p>
 
     <div class="idx rv" style="--d:.18s">
 
@@ -949,7 +960,7 @@
         <div class="irow">
           <span class="th th-fl" aria-hidden="true"><u></u><u></u><u></u></span>
           <span class="ik">02</span>
-          <a class="ijump" href="#c2"><span class="iname">Floory</span><span class="idesc">A WhatsApp order → production list, packing, delivery</span></a>
+          <a class="ijump" href="#c2"><span class="iname">Floory</span><span class="idesc">Client orders (portal or WhatsApp) → production list, packing, delivery</span></a>
           <span class="ilive"><i></i>Ready to use</span>
           <a class="ext" href="https://floory.urbanbakery.co/" target="_blank" rel="noopener">Try it <u>floory.urbanbakery.co ↗</u></a>
         </div>
@@ -974,7 +985,7 @@
         <div class="irow">
           <span class="th th-jv" aria-hidden="true"><u style="height:9px"></u><u style="height:20px"></u><u style="height:32px"></u><u style="height:14px"></u><u style="height:24px"></u><u style="height:8px"></u></span>
           <span class="ik">05</span>
-          <a class="ijump" href="#c5"><span class="iname">Jarvis</span><span class="idesc">A voice knowledge engine with sources, plus deal-finding above $100K</span></a>
+          <a class="ijump" href="#c5"><span class="iname">Jarvis</span><span class="idesc">A voice assistant trained on your business's own knowledge</span></a>
           <span class="ilive"><i></i>Luxury studio</span>
           <a class="iseen" href="#c5">See it running ↓</a>
         </div>
@@ -995,7 +1006,6 @@
         <div class="figs">
           <span class="fig"><b>4</b><span>ingestion sources</span></span>
           <span class="fig"><b>OCR</b><span>Hebrew · rotated scans</span></span>
-          <span class="fig"><b>₪99</b><span>basic plan / month</span></span>
         </div>
         <div class="case-links">
           <a class="visit" href="https://gocashflow.co/" target="_blank" rel="noopener">Try it yourself <span class="u">gocashflow.co ↗</span></a>
@@ -1053,12 +1063,12 @@
   <div class="case-inner">
 <div class="case-copy">
         <p class="num"><b>02</b> — An AAA product</p>
-        <h3>Floory.<br />From a WhatsApp order to the morning production list.</h3>
-        <p>An order and inventory platform for bakeries. The order arrives on WhatsApp, is captured automatically, and lands straight on the production list, then packing, then history. All in Hebrew, full RTL.</p>
+        <h3>Floory.<br />From a client's order — portal or WhatsApp — to the morning production list.</h3>
+        <p>An order and inventory platform for bakeries. The bakery's clients place and update their orders through their own portal — WhatsApp works too — and every order lands straight on the production list, then packing, then history.</p>
         <div class="badge"><b>LIVE</b> · running at Urban Bakery every morning</div>
         <div class="figs">
           <span class="fig"><b>+320</b><span>orders per week</span></span>
-          <span class="fig"><b>&lt;3s</b><span>WhatsApp to production</span></span>
+          <span class="fig"><b>&lt;3s</b><span>order to production</span></span>
           <span class="fig"><b>40%+</b><span>time saved vs. spreadsheets</span></span>
         </div>
         <div class="case-links">
@@ -1244,7 +1254,7 @@
       <div class="step rv" style="--d:.25s">
         <p class="step-num">03</p>
         <h3>The system goes live</h3>
-        <p>We build it, deploy it and stay close. Your team keeps working in WhatsApp and email exactly as before. The system adapts to you, not the other way round. And we don't disappear afterwards.</p>
+        <p>We build it, deploy it and stay close. Your team keeps working in WhatsApp and email exactly as before. The system adapts to you, not the other way around. And we don't disappear afterwards.</p>
       </div>
     </div>
   </div>
@@ -1290,7 +1300,7 @@
         <blockquote>It saved us an in-house cash-flow and supplier manager. Order and structure, in one simple action that saves a great deal of time and money.</blockquote>
         <figcaption>
           <span class="av">C</span>
-          <span class="who"><b>A Cashflow customer</b><span>invoices & cash flow</span></span>
+          <span class="who"><b>Cashflow Customer</b><span>invoices & cash flow</span></span>
         </figcaption>
       </figure>
 
@@ -1302,16 +1312,11 @@
         </figcaption>
       </figure>
 
-      <!-- ══════════════════════════════════════════════════════════
-           TODO — a third real quote. It LOOKS empty on purpose.
-           Never invent one: the whole site's argument is "go verify
-           us yourself", so a fabricated quote would be fatal.
-           ══════════════════════════════════════════════════════════ -->
-      <figure class="q slot">
-        <blockquote>A third client quote goes here.</blockquote>
+      <figure class="q">
+        <blockquote>Jarvis changed how we run the studio day to day. It knows every last detail of the business and helps us dig up historical information — from old quotes to past creative work. It also helps us spot places to streamline, improve and grow. <b>A genuine game changer.</b></blockquote>
         <figcaption>
-          <span class="av">?</span>
-          <span class="who"><b>Awaiting quote</b><span>a client system</span></span>
+          <span class="av">T</span>
+          <span class="who"><b>Tomi House</b><span>studio · Jarvis</span></span>
         </figcaption>
       </figure>
 
@@ -1346,7 +1351,7 @@
 
     <p class="cta-terms rv" style="--d:.28s"><span>20 minutes</span><span>no slide deck</span><span>no commitment</span></p>
 
-    <p class="mail-line rv" style="--d:.34s">Prefer email? <a href="mailto:omermoran14@gmail.com">omermoran14@gmail.com</a>. <b style="color:var(--dim);font-weight:600">Omer replies himself, usually within hours.</b></p>
+    <p class="mail-line rv" style="--d:.34s">Prefer email? <a href="mailto:hi@omermoran.com">hi@omermoran.com</a>. <b style="color:var(--dim);font-weight:600">Omer replies himself, usually within hours.</b></p>
 
     <p class="contact-note rv" style="--d:.36s">And if there is nothing worth building for you, <b style="color:var(--w)">we will say so on that same call.</b> In the meantime, <a href="https://gocashflow.co/" target="_blank" rel="noopener" style="color:var(--cyan);font-weight:700">open Cashflow</a> and see for yourself what we build.</p>
   </div>
@@ -1356,7 +1361,6 @@
   <div class="shell foot-in">
     <span class="foot-brand">AAA · AI Agents Agency</span>
     <div class="foot-links">
-      <a href="/he/restaurants">For restaurants & food businesses</a>
       <a href="/privacypolicy">Privacy policy</a>
       <a href="https://www.linkedin.com/in/omer-moran-8aa07616b" target="_blank" rel="noopener">LinkedIn</a>
     </div>
@@ -1445,7 +1449,7 @@
           rPain.textContent = ROT[ri][1];
           rIn.classList.remove('out'); rPain.classList.remove('out');
         }, 300);
-      }, 3000);
+      }, 5000);
     }
   }
 
@@ -1862,7 +1866,7 @@
      call Claude with the prompt below, validate the JSON against the shape in FLOOR,
      and return it. Any failure → return 204 and we fall back silently.
      While it is null, the chips answer instantly and free text falls back to FLOOR. */
-  var AGENT_ENDPOINT = null;
+  var AGENT_ENDPOINT = '/api/fit';
 
   var WALL = ['Bakery or restaurant', 'Clinic', 'Law firm', 'Shop or online', 'Studio or agency'];
   var PH = ['a garage', 'a hair salon', 'a veterinary practice', 'a driving school', 'a caterer',
