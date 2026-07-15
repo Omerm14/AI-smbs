@@ -3,10 +3,13 @@
   "cleanUrls": true,
   "trailingSlash": false,
   "redirects": [
-    { "source": "/", "destination": "/he", "permanent": false },
-    { "source": "/index-he.html", "destination": "/he", "permanent": true }
-  ],
-  "routes": [
-    { "src": "/privacypolicy", "dest": "/privacypolicy/index.html" }
+    {
+      "source": "/:path*",
+      "has": [{ "type": "host", "value": "www.aaa-tech.com" }],
+      "destination": "https://aaa-tech.com/:path*",
+      "permanent": true
+    },
+    { "source": "/he", "destination": "/", "permanent": true },
+    { "source": "/index-he.html", "destination": "/", "permanent": true }
   ]
 }
