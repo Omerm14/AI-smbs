@@ -1,0 +1,31 @@
+# AAA — AI Agents Agency
+
+> AAA builds AI agents that do real work in small and medium businesses: answering customers, taking orders, reading invoices. When a business needs more than one agent, AAA builds the whole system. Every system listed below is already running in a real business, not a demo.
+
+## What AAA builds
+
+AAA designs and ships AI agents and automation systems for SMBs — customer-facing agents (WhatsApp, voice), back-office automation (invoice reading, order-to-production pipelines), and compliance/decision engines. Engagements start with a free scoping call; pricing is a fixed-price proposal scoped to what actually needs building, not a subscription.
+
+## Case studies
+
+- [Cashflow](https://gocashflow.co/) — pulls supplier invoices from Gmail, Drive, WhatsApp and Green Invoice, reads them with OCR, catches duplicates, and gathers everything onto a single cash-flow board. Live product, try it directly.
+- [Floory](https://floory.urbanbakery.co/) — order and inventory platform for bakeries. Client orders (portal or WhatsApp) go straight to the production list, then packing, then history. Running at Urban Bakery every morning; 320+ orders/week, under 3 seconds from order to production.
+- Food Label Engine — feed it a recipe, get a print-ready nutrition/allergen label checked against Israeli Ministry of Health thresholds, deciding on its own which warning labels are required. 13/13 products fully compliant at Urban Bakery.
+- WhatsApp agent — answers customers inside a business's own WhatsApp in whatever language they wrote in (Hebrew, English, Arabic, Russian), 24/7, in under 5 seconds, and knows when to hand off to a human.
+- Jarvis — a voice AI assistant sitting on a studio's accumulated knowledge and IP: ask out loud, get an answer with its sources. Includes a deal-filtering engine for the luxury/hospitality space.
+
+## Founder
+
+Omer Moran — Founder & Principal, AAA. Background: Unit 8200 (analyst & senior product manager, active reservist), a startup co-founder, ZoomInfo (data product manager, public company), Connecteam (product manager, tools for small businesses). LinkedIn: https://www.linkedin.com/in/omer-moran-8aa07616b
+
+## Contact / scoping
+
+Free 20-minute scoping call, no slide deck, no commitment: https://calendar.app.google/a1bvMsk7oMrTWYzQ9
+Email: hi@aaa-tech.com
+WhatsApp: https://wa.me/972505646450
+
+## Site
+
+- Hebrew (primary): https://aaa-tech.com/
+- English: https://aaa-tech.com/en
+- Sitemap: https://aaa-tech.com/sitemap.xml

@@ -19,6 +19,7 @@
   <meta property="og:image:width" content="300" />
   <meta property="og:image:height" content="300" />
   <meta property="og:locale" content="he_IL" />
+  <meta property="og:site_name" content="AAA — AI Agents Agency" />
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content="AAA — AI Agents Agency" />
   <meta name="twitter:description" content="סוכני AI ואוטומציות שכבר רצות אצל עסקים אמיתיים." />
@@ -26,14 +27,83 @@
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "Person",
-    "name": "עומר מורן",
-    "alternateName": "Omer Moran",
-    "url": "https://aaa-tech.com/",
-    "image": "https://aaa-tech.com/uploads/og-aaa5.png",
-    "jobTitle": "מייסד ומנהל, AAA — AI Agents Agency",
-    "sameAs": ["https://www.linkedin.com/in/omer-moran-8aa07616b"],
-    "knowsAbout": ["Artificial Intelligence", "Business Automation", "AI Agents", "Data Products"]
+    "@graph": [
+      {
+        "@type": ["Organization", "ProfessionalService"],
+        "@id": "https://aaa-tech.com/#organization",
+        "name": "AAA — AI Agents Agency",
+        "url": "https://aaa-tech.com/",
+        "logo": "https://aaa-tech.com/uploads/og-aaa5.png",
+        "image": "https://aaa-tech.com/uploads/og-aaa5.png",
+        "foundingDate": "2026",
+        "address": { "@type": "PostalAddress", "addressLocality": "Tel Aviv", "addressCountry": "IL" },
+        "founder": { "@id": "https://aaa-tech.com/#person" },
+        "sameAs": ["https://www.linkedin.com/in/omer-moran-8aa07616b"]
+      },
+      {
+        "@type": "Person",
+        "@id": "https://aaa-tech.com/#person",
+        "name": "עומר מורן",
+        "alternateName": "Omer Moran",
+        "url": "https://aaa-tech.com/",
+        "image": "https://aaa-tech.com/uploads/og-aaa5.png",
+        "jobTitle": "מייסד ומנהל, AAA — AI Agents Agency",
+        "worksFor": { "@id": "https://aaa-tech.com/#organization" },
+        "alumniOf": [
+          { "@type": "Organization", "name": "Unit 8200" },
+          { "@type": "Organization", "name": "ZoomInfo" },
+          { "@type": "Organization", "name": "Connecteam" }
+        ],
+        "sameAs": ["https://www.linkedin.com/in/omer-moran-8aa07616b"],
+        "knowsAbout": ["Artificial Intelligence", "Business Automation", "AI Agents", "Data Products"]
+      },
+      {
+        "@type": "Product",
+        "@id": "https://gocashflow.co/#product",
+        "name": "Cashflow",
+        "description": "פלטפורמה חיה בעברית שקולטת חשבוניות ספקים מג׳ימייל, מדרייב, מוואטסאפ ומחשבונית ירוקה, קוראת אותן, מזהה כפילויות, ומרכזת הכל ללוח תזרים אחד.",
+        "url": "https://gocashflow.co/",
+        "brand": { "@id": "https://aaa-tech.com/#organization" }
+      },
+      {
+        "@type": "Product",
+        "@id": "https://floory.urbanbakery.co/#product",
+        "name": "Floory",
+        "description": "פלטפורמת ניהול הזמנות ומלאי למאפיות. כל הזמנה שמתקבלת בפורטל או בוואטסאפ נכנסת ישר לרשימת הייצור, לאריזה ולהיסטוריה.",
+        "url": "https://floory.urbanbakery.co/",
+        "brand": { "@id": "https://aaa-tech.com/#organization" }
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "כמה זה עולה?",
+            "acceptedAnswer": { "@type": "Answer", "text": "כל פרויקט מקבל הצעה עם מחיר סגור אחרי שיחת האפיון, לפי מה שבאמת צריך לבנות. העיקרון פשוט: המערכת צריכה להחזיר את עצמה בשעות עבודה שנחסכות. ואם זה לא המצב, נגיד לך מראש שלא שווה לבנות אותה." }
+          },
+          {
+            "@type": "Question",
+            "name": "כמה זמן לוקח עד שרואים תוצאה?",
+            "acceptedAnswer": { "@type": "Answer", "text": "מערכת ראשונה עולה לאוויר תוך שבועות ספורים, לא חודשים. אנחנו מתחילים מהנקודה הכי כואבת בעסק כדי שהערך יורגש מהר, ורק אחר כך מרחיבים." }
+          },
+          {
+            "@type": "Question",
+            "name": "אנחנו לא אנשים טכניים. זו בעיה?",
+            "acceptedAnswer": { "@type": "Answer", "text": "להפך. בדיוק בשביל זה אנחנו קיימים. הצוות שלך ממשיך לעבוד בוואטסאפ, במייל ובאקסל כרגיל. אנחנו מטפלים בכל הצד הטכני, ואם צריך הדרכה היא קצרה ופרקטית. אף אחד לא לומד ״מערכת חדשה״." }
+          },
+          {
+            "@type": "Question",
+            "name": "כבר ניסינו כלים דיגיטליים והם לא נתפסו.",
+            "acceptedAnswer": { "@type": "Answer", "text": "כלים מדף דורשים שהעסק יתאים את עצמו אליהם, ולכן הם ננטשים. אנחנו עובדים הפוך: קודם מבינים איך העסק שלך כבר עובד, ואז בונים מערכת שמתלבשת על ההרגלים הקיימים. כשלא צריך לשנות הרגלים, אין מה ״להיתפס״. זה פשוט עובד." }
+          },
+          {
+            "@type": "Question",
+            "name": "מה קורה אחרי שהמערכת באוויר?",
+            "acceptedAnswer": { "@type": "Answer", "text": "אנחנו לא נעלמים אחרי המסירה. יש תקופת ליווי, אנחנו עוקבים שהמערכת עובדת כמו שצריך ומשפרים לפי מה שקורה בשטח. מערכת AI טובה נהיית מדויקת יותר עם הזמן, וזה חלק מהעבודה." }
+          }
+        ]
+      }
+    ]
   }
   </script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />

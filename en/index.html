@@ -19,6 +19,7 @@
   <meta property="og:image:width" content="300" />
   <meta property="og:image:height" content="300" />
   <meta property="og:locale" content="en_US" />
+  <meta property="og:site_name" content="AAA — AI Agents Agency" />
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content="AAA — AI Agents Agency" />
   <meta name="twitter:description" content="AI agents and automations already running at real businesses." />
@@ -26,13 +27,82 @@
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "Person",
-    "name": "Omer Moran",
-    "url": "https://aaa-tech.com/en",
-    "image": "https://aaa-tech.com/uploads/og-aaa5.png",
-    "jobTitle": "Founder & Principal, AAA — AI Agents Agency",
-    "sameAs": ["https://www.linkedin.com/in/omer-moran-8aa07616b"],
-    "knowsAbout": ["Artificial Intelligence", "Business Automation", "AI Agents", "Data Products"]
+    "@graph": [
+      {
+        "@type": ["Organization", "ProfessionalService"],
+        "@id": "https://aaa-tech.com/#organization",
+        "name": "AAA — AI Agents Agency",
+        "url": "https://aaa-tech.com/en",
+        "logo": "https://aaa-tech.com/uploads/og-aaa5.png",
+        "image": "https://aaa-tech.com/uploads/og-aaa5.png",
+        "foundingDate": "2026",
+        "address": { "@type": "PostalAddress", "addressLocality": "Tel Aviv", "addressCountry": "IL" },
+        "founder": { "@id": "https://aaa-tech.com/en#person" },
+        "sameAs": ["https://www.linkedin.com/in/omer-moran-8aa07616b"]
+      },
+      {
+        "@type": "Person",
+        "@id": "https://aaa-tech.com/en#person",
+        "name": "Omer Moran",
+        "url": "https://aaa-tech.com/en",
+        "image": "https://aaa-tech.com/uploads/og-aaa5.png",
+        "jobTitle": "Founder & Principal, AAA — AI Agents Agency",
+        "worksFor": { "@id": "https://aaa-tech.com/#organization" },
+        "alumniOf": [
+          { "@type": "Organization", "name": "Unit 8200" },
+          { "@type": "Organization", "name": "ZoomInfo" },
+          { "@type": "Organization", "name": "Connecteam" }
+        ],
+        "sameAs": ["https://www.linkedin.com/in/omer-moran-8aa07616b"],
+        "knowsAbout": ["Artificial Intelligence", "Business Automation", "AI Agents", "Data Products"]
+      },
+      {
+        "@type": "Product",
+        "@id": "https://gocashflow.co/#product",
+        "name": "Cashflow",
+        "description": "A live platform that pulls supplier invoices from Gmail, Drive, WhatsApp and Green Invoice, reads them, catches duplicates, and gathers everything onto a single cash-flow board.",
+        "url": "https://gocashflow.co/",
+        "brand": { "@id": "https://aaa-tech.com/#organization" }
+      },
+      {
+        "@type": "Product",
+        "@id": "https://floory.urbanbakery.co/#product",
+        "name": "Floory",
+        "description": "An order and inventory platform for bakeries: client orders placed via portal or WhatsApp land straight on the production list, then packing, then history.",
+        "url": "https://floory.urbanbakery.co/",
+        "brand": { "@id": "https://aaa-tech.com/#organization" }
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "What does it cost?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Every project gets a fixed-price proposal after the scoping call, based on what actually needs building. The principle is simple: the system has to pay for itself in the hours it saves. And if it won't, we'll tell you up front that it isn't worth building." }
+          },
+          {
+            "@type": "Question",
+            "name": "How long until we see results?",
+            "acceptedAnswer": { "@type": "Answer", "text": "The first system goes live within weeks, not months. We start at the most painful point in the business so the value lands fast, and only then expand." }
+          },
+          {
+            "@type": "Question",
+            "name": "We're not technical people. Is that a problem?",
+            "acceptedAnswer": { "@type": "Answer", "text": "The opposite — that is exactly why we exist. Your team carries on in WhatsApp, email and spreadsheets as usual. We handle every technical part, and any training is short and practical. Nobody has to learn \"a new system\"." }
+          },
+          {
+            "@type": "Question",
+            "name": "We tried digital tools before and they never stuck.",
+            "acceptedAnswer": { "@type": "Answer", "text": "Off-the-shelf tools demand that the business bend around them, which is why they get abandoned. We work the other way: first we understand how your business already runs, then we build a system that fits over the existing habits. When nobody has to change how they work, there is nothing to \"stick\". It just works." }
+          },
+          {
+            "@type": "Question",
+            "name": "What happens after the system is live?",
+            "acceptedAnswer": { "@type": "Answer", "text": "We don't vanish at handover. There is a support period; we watch that the system behaves and improve it based on what actually happens in the field. A good AI system gets more accurate over time, and that is part of the job." }
+          }
+        ]
+      }
+    ]
   }
   </script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
