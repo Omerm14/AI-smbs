@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>AAA — AI Agents Agency | AI agents that do real work in your business</title>
-  <meta name="description" content="AAA — AI Agents Agency builds AI agents that do real work in your business: answering customers, taking orders, reading invoices. And when you need more than an agent, we build the whole system. Agents already running in real businesses." />
+  <title>AAA — AI Agents Agency | AI agents that do real work</title>
+  <meta name="description" content="AAA builds AI agents that do real work: answering customers, taking orders, reading invoices. Already running in real businesses." />
   <meta name="theme-color" content="#faf9f6" />
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%231a1815'/%3E%3Cg transform='translate(8,18.7) scale(0.2667)' fill='none' stroke-width='22'%3E%3Cg stroke='%23faf9f6'%3E%3Cpath d='M50 8 L8 92'/%3E%3Cpath d='M50 8 L92 92'/%3E%3Cpath d='M90 8 L48 92'/%3E%3Cpath d='M90 8 L132 92'/%3E%3Cpath d='M130 8 L88 92'/%3E%3Cpath d='M130 8 L172 92'/%3E%3C/g%3E%3Cpath d='M13 66 L167 66' stroke='%23C08A3E'/%3E%3C/g%3E%3C/svg%3E" />
   <link rel="icon" type="image/png" sizes="280x280" href="https://aaa-tech.com/uploads/og-aaa6.png" />
@@ -20,6 +20,7 @@
   <meta property="og:image:width" content="280" />
   <meta property="og:image:height" content="280" />
   <meta property="og:locale" content="en_US" />
+  <meta property="og:site_name" content="AAA — AI Agents Agency" />
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content="AAA — AI Agents Agency" />
   <meta name="twitter:description" content="AI agents and automations already running at real businesses." />
@@ -27,19 +28,89 @@
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "Person",
-    "name": "Omer Moran",
-    "url": "https://aaa-tech.com/en",
-    "image": "https://aaa-tech.com/uploads/og-aaa6.png",
-    "jobTitle": "Founder & Principal, AAA — AI Agents Agency",
-    "sameAs": ["https://www.linkedin.com/in/omer-moran-8aa07616b"],
-    "knowsAbout": ["Artificial Intelligence", "Business Automation", "AI Agents", "Data Products"]
+    "@graph": [
+      {
+        "@type": ["Organization", "ProfessionalService"],
+        "@id": "https://aaa-tech.com/#organization",
+        "name": "AAA — AI Agents Agency",
+        "url": "https://aaa-tech.com/en",
+        "logo": "https://aaa-tech.com/uploads/og-aaa6.png",
+        "image": "https://aaa-tech.com/uploads/og-aaa6.png",
+        "foundingDate": "2026",
+        "address": { "@type": "PostalAddress", "addressLocality": "Tel Aviv", "addressCountry": "IL" },
+        "founder": { "@id": "https://aaa-tech.com/en#person" },
+        "sameAs": ["https://www.linkedin.com/in/omer-moran-8aa07616b"]
+      },
+      {
+        "@type": "Person",
+        "@id": "https://aaa-tech.com/en#person",
+        "name": "Omer Moran",
+        "url": "https://aaa-tech.com/en",
+        "image": "https://aaa-tech.com/uploads/og-aaa6.png",
+        "jobTitle": "Founder & Principal, AAA — AI Agents Agency",
+        "worksFor": { "@id": "https://aaa-tech.com/#organization" },
+        "alumniOf": [
+          { "@type": "Organization", "name": "Unit 8200" },
+          { "@type": "Organization", "name": "ZoomInfo" },
+          { "@type": "Organization", "name": "Connecteam" }
+        ],
+        "sameAs": ["https://www.linkedin.com/in/omer-moran-8aa07616b"],
+        "knowsAbout": ["Artificial Intelligence", "Business Automation", "AI Agents", "Data Products"]
+      },
+      {
+        "@type": "Product",
+        "@id": "https://gocashflow.co/#product",
+        "name": "Cashflow",
+        "description": "A live platform that pulls supplier invoices from Gmail, Drive, WhatsApp and Green Invoice, reads them, catches duplicates, and gathers everything onto a single cash-flow board.",
+        "url": "https://gocashflow.co/",
+        "brand": { "@id": "https://aaa-tech.com/#organization" }
+      },
+      {
+        "@type": "Product",
+        "@id": "https://floory.urbanbakery.co/#product",
+        "name": "Floory",
+        "description": "An order and inventory platform for bakeries: client orders placed via portal or WhatsApp land straight on the production list, then packing, then history.",
+        "url": "https://floory.urbanbakery.co/",
+        "brand": { "@id": "https://aaa-tech.com/#organization" }
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "What does it cost?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Every project gets a fixed-price proposal after the scoping call, based on what actually needs building. The principle is simple: the system has to pay for itself in the hours it saves. And if it won't, we'll tell you up front that it isn't worth building." }
+          },
+          {
+            "@type": "Question",
+            "name": "How long until we see results?",
+            "acceptedAnswer": { "@type": "Answer", "text": "The first system goes live within weeks, not months. We start at the most painful point in the business so the value lands fast, and only then expand." }
+          },
+          {
+            "@type": "Question",
+            "name": "We're not technical people. Is that a problem?",
+            "acceptedAnswer": { "@type": "Answer", "text": "The opposite — that is exactly why we exist. Your team carries on in WhatsApp, email and spreadsheets as usual. We handle every technical part, and any training is short and practical. Nobody has to learn \"a new system\"." }
+          },
+          {
+            "@type": "Question",
+            "name": "We tried digital tools before and they never stuck.",
+            "acceptedAnswer": { "@type": "Answer", "text": "Off-the-shelf tools demand that the business bend around them, which is why they get abandoned. We work the other way: first we understand how your business already runs, then we build a system that fits over the existing habits. When nobody has to change how they work, there is nothing to \"stick\". It just works." }
+          },
+          {
+            "@type": "Question",
+            "name": "What happens after the system is live?",
+            "acceptedAnswer": { "@type": "Answer", "text": "We don't vanish at handover. There is a support period; we watch that the system behaves and improve it based on what actually happens in the field. A good AI system gets more accurate over time, and that is part of the job." }
+          }
+        ]
+      }
+    ]
   }
   </script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600;700;800;900&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
-  <link rel="preload" as="image" href="/uploads/omer-880.webp" />
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600;700;800;900&family=IBM+Plex+Mono:wght@400;500;600&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600;700;800;900&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet" /></noscript>
+  <link rel="preload" as="image" href="/uploads/omer-880.webp" imagesrcset="/uploads/omer-520.webp 520w, /uploads/omer-880.webp 880w" imagesizes="(max-width: 920px) 78vw, 30vw" />
   <style>
     /* ═══════════ foundation ═══════════ */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -869,6 +940,7 @@
       <li><a href="#work">What's running</a></li>
       <li><a href="#about">Who builds it</a></li>
       <li><a href="#faq">FAQ</a></li>
+      <li><a href="/en/blog">Blog</a></li>
     </ul>
     <div class="nav-side">
       <a href="/" class="nav-lang">HE</a>
@@ -1031,6 +1103,7 @@
         </div>
         <div class="case-links">
           <a class="visit" href="https://gocashflow.co/" target="_blank" rel="noopener">Try it yourself <span class="u">gocashflow.co ↗</span></a>
+          <a class="visit" href="/en/work/cashflow">Read the full case study →</a>
         </div>
         <div class="meter"><i></i><span id="m1">LIVE</span></div>
       </div>
@@ -1095,6 +1168,7 @@
         </div>
         <div class="case-links">
           <a class="visit" href="https://floory.urbanbakery.co/" target="_blank" rel="noopener">Try it yourself <span class="u">floory.urbanbakery.co ↗</span></a>
+          <a class="visit" href="/en/work/floory">Read the full case study →</a>
         </div>
         <div class="meter"><i></i><span id="m2">LIVE</span></div>
       </div>
@@ -1133,6 +1207,9 @@
         <h3>The Food Label Engine.<br />It decides which warning labels are required.</h3>
         <p>Feed it a recipe, get back a print-ready label: nutrition values from cited sources, an allergen declaration, and a check against Ministry of Health thresholds that decides on its own which warning labels must appear on the packaging. Adding a new product takes minutes, not a consultant.</p>
         <div class="badge"><b>13/13</b> products fully compliant · Urban Bakery</div>
+        <div class="case-links">
+          <a class="visit" href="/en/work/food-labels">Read the full case study →</a>
+        </div>
         <div class="meter"><i></i><span id="m3">LIVE</span></div>
       </div>
 <div class="device">
@@ -1182,6 +1259,9 @@
           <span class="fig"><b>Any language</b><span>replies in the one they wrote in</span></span>
           <span class="fig"><b>&lt;5s</b><span>message to answer</span></span>
         </div>
+        <div class="case-links">
+          <a class="visit" href="/en/work/whatsapp-agent">Read the full case study →</a>
+        </div>
         <div class="meter"><i></i><span id="m4">LIVE</span></div>
       </div>
 <div class="device">
@@ -1201,6 +1281,9 @@
         <h3>Jarvis.<br />Everything the studio knows, in one question.</h3>
         <p>A voice AI assistant sitting on years of knowledge and IP: ask out loud, get an answer with the sources behind it. Alongside it, a deal engine scanning the luxury and hospitality worlds.</p>
         <div class="badge"><b>$100K+</b> the opportunity threshold the engine filters for</div>
+        <div class="case-links">
+          <a class="visit" href="/en/work/jarvis">Read the full case study →</a>
+        </div>
         <div class="meter"><i></i><span id="m5">LIVE</span></div>
       </div>
 <div class="device">
