@@ -75,7 +75,7 @@ This map was built by:
 
 | # | Query (Hebrew) | Intent | Current SERP winner | AI citation | Priority |
 |---|---|---|---|---|---|
-| 28 | סוכנות AI מומלצת ישראל ✅ | navigational/commercial | **Two live listicles found**: indexbusiness.co.il ("7 סוכנויות מומלצות ל-GEO/AIO/AI Search") and he.altdgtl.com ("10 סוכנויות ה-GEO/AI Search המובילות בישראל") — **direct outreach targets for Ticket 16** | N/A (this is about AAA appearing on others' pages) | **High for Ticket 16** — concrete, actionable inclusion targets |
+| 28 | סוכנות AI מומלצת ישראל ✅ | navigational/commercial | ⚠️ Correction (2026-07-16): the two listicles originally found here (indexbusiness.co.il, he.altdgtl.com) turned out to be "best GEO/SEO marketing agency" lists — a different category from AAA. Replaced with real category-matched targets in `listicle-directory-outreach.md` (Clutch, GoodFirms, Sortlist, TechBehemoths, DesignRush, Start-Up Nation Finder, +2 more) | N/A (this is about AAA appearing on others' pages) | **High for Ticket 16** — see `listicle-directory-outreach.md` for the corrected target list |
 | 29 | בתי תוכנה AI מובילים בישראל | navigational | two-solutions.com currently ranks with a "how to choose an AI dev shop" post | N/A | Medium |
 | 30 | סוכן AI או צ׳אטבוט מה ההבדל | informational | doctorai.co.il owns this with a pricing-comparison post (₪99–10,000) | TBD | Medium |
 
