@@ -19,6 +19,7 @@
   <meta property="og:image:width" content="300" />
   <meta property="og:image:height" content="300" />
   <meta property="og:locale" content="he_IL" />
+  <meta property="og:site_name" content="AAA — AI Agents Agency" />
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content="AAA — AI Agents Agency" />
   <meta name="twitter:description" content="סוכני AI ואוטומציות שכבר רצות אצל עסקים אמיתיים." />
@@ -26,20 +27,90 @@
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "Person",
-    "name": "עומר מורן",
-    "alternateName": "Omer Moran",
-    "url": "https://aaa-tech.com/",
-    "image": "https://aaa-tech.com/uploads/og-aaa5.png",
-    "jobTitle": "מייסד ומנהל, AAA — AI Agents Agency",
-    "sameAs": ["https://www.linkedin.com/in/omer-moran-8aa07616b"],
-    "knowsAbout": ["Artificial Intelligence", "Business Automation", "AI Agents", "Data Products"]
+    "@graph": [
+      {
+        "@type": ["Organization", "ProfessionalService"],
+        "@id": "https://aaa-tech.com/#organization",
+        "name": "AAA — AI Agents Agency",
+        "url": "https://aaa-tech.com/",
+        "logo": "https://aaa-tech.com/uploads/og-aaa5.png",
+        "image": "https://aaa-tech.com/uploads/og-aaa5.png",
+        "foundingDate": "2026",
+        "address": { "@type": "PostalAddress", "addressLocality": "Tel Aviv", "addressCountry": "IL" },
+        "founder": { "@id": "https://aaa-tech.com/#person" },
+        "sameAs": ["https://www.linkedin.com/in/omer-moran-8aa07616b"]
+      },
+      {
+        "@type": "Person",
+        "@id": "https://aaa-tech.com/#person",
+        "name": "עומר מורן",
+        "alternateName": "Omer Moran",
+        "url": "https://aaa-tech.com/",
+        "image": "https://aaa-tech.com/uploads/og-aaa5.png",
+        "jobTitle": "מייסד ומנהל, AAA — AI Agents Agency",
+        "worksFor": { "@id": "https://aaa-tech.com/#organization" },
+        "alumniOf": [
+          { "@type": "Organization", "name": "Unit 8200" },
+          { "@type": "Organization", "name": "ZoomInfo" },
+          { "@type": "Organization", "name": "Connecteam" }
+        ],
+        "sameAs": ["https://www.linkedin.com/in/omer-moran-8aa07616b"],
+        "knowsAbout": ["Artificial Intelligence", "Business Automation", "AI Agents", "Data Products"]
+      },
+      {
+        "@type": "Product",
+        "@id": "https://gocashflow.co/#product",
+        "name": "Cashflow",
+        "description": "פלטפורמה חיה בעברית שקולטת חשבוניות ספקים מג׳ימייל, מדרייב, מוואטסאפ ומחשבונית ירוקה, קוראת אותן, מזהה כפילויות, ומרכזת הכל ללוח תזרים אחד.",
+        "url": "https://gocashflow.co/",
+        "brand": { "@id": "https://aaa-tech.com/#organization" }
+      },
+      {
+        "@type": "Product",
+        "@id": "https://floory.urbanbakery.co/#product",
+        "name": "Floory",
+        "description": "פלטפורמת ניהול הזמנות ומלאי למאפיות. כל הזמנה שמתקבלת בפורטל או בוואטסאפ נכנסת ישר לרשימת הייצור, לאריזה ולהיסטוריה.",
+        "url": "https://floory.urbanbakery.co/",
+        "brand": { "@id": "https://aaa-tech.com/#organization" }
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "כמה זה עולה?",
+            "acceptedAnswer": { "@type": "Answer", "text": "כל פרויקט מקבל הצעה עם מחיר סגור אחרי שיחת האפיון, לפי מה שבאמת צריך לבנות. העיקרון פשוט: המערכת צריכה להחזיר את עצמה בשעות עבודה שנחסכות. ואם זה לא המצב, נגיד לך מראש שלא שווה לבנות אותה." }
+          },
+          {
+            "@type": "Question",
+            "name": "כמה זמן לוקח עד שרואים תוצאה?",
+            "acceptedAnswer": { "@type": "Answer", "text": "מערכת ראשונה עולה לאוויר תוך שבועות ספורים, לא חודשים. אנחנו מתחילים מהנקודה הכי כואבת בעסק כדי שהערך יורגש מהר, ורק אחר כך מרחיבים." }
+          },
+          {
+            "@type": "Question",
+            "name": "אנחנו לא אנשים טכניים. זו בעיה?",
+            "acceptedAnswer": { "@type": "Answer", "text": "להפך. בדיוק בשביל זה אנחנו קיימים. הצוות שלך ממשיך לעבוד בוואטסאפ, במייל ובאקסל כרגיל. אנחנו מטפלים בכל הצד הטכני, ואם צריך הדרכה היא קצרה ופרקטית. אף אחד לא לומד ״מערכת חדשה״." }
+          },
+          {
+            "@type": "Question",
+            "name": "כבר ניסינו כלים דיגיטליים והם לא נתפסו.",
+            "acceptedAnswer": { "@type": "Answer", "text": "כלים מדף דורשים שהעסק יתאים את עצמו אליהם, ולכן הם ננטשים. אנחנו עובדים הפוך: קודם מבינים איך העסק שלך כבר עובד, ואז בונים מערכת שמתלבשת על ההרגלים הקיימים. כשלא צריך לשנות הרגלים, אין מה ״להיתפס״. זה פשוט עובד." }
+          },
+          {
+            "@type": "Question",
+            "name": "מה קורה אחרי שהמערכת באוויר?",
+            "acceptedAnswer": { "@type": "Answer", "text": "אנחנו לא נעלמים אחרי המסירה. יש תקופת ליווי, אנחנו עוקבים שהמערכת עובדת כמו שצריך ומשפרים לפי מה שקורה בשטח. מערכת AI טובה נהיית מדויקת יותר עם הזמן, וזה חלק מהעבודה." }
+          }
+        ]
+      }
+    ]
   }
   </script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600;700;800;900&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
-  <link rel="preload" as="image" href="/uploads/omer-880.webp" />
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600;700;800;900&family=IBM+Plex+Mono:wght@400;500;600&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600;700;800;900&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet" /></noscript>
+  <link rel="preload" as="image" href="/uploads/omer-880.webp" imagesrcset="/uploads/omer-520.webp 520w, /uploads/omer-880.webp 880w" imagesizes="(max-width: 920px) 78vw, 30vw" />
   <style>
     /* ═══════════ foundation ═══════════ */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -870,6 +941,7 @@
       <li><a href="#work">מה שכבר רץ</a></li>
       <li><a href="#about">מי בונה</a></li>
       <li><a href="#faq">שאלות</a></li>
+      <li><a href="/blog">בלוג</a></li>
     </ul>
     <div class="nav-side">
       <a href="/en" class="nav-lang">EN</a>
@@ -1032,6 +1104,7 @@
         </div>
         <div class="case-links">
           <a class="visit" href="https://gocashflow.co/" target="_blank" rel="noopener">תנסה בעצמך <span class="u">gocashflow.co ↗</span></a>
+          <a class="visit" href="/work/cashflow">למקרה הבוחן המלא ←</a>
         </div>
         <div class="meter"><i></i><span id="m1">LIVE</span></div>
       </div>
@@ -1096,6 +1169,7 @@
         </div>
         <div class="case-links">
           <a class="visit" href="https://floory.urbanbakery.co/" target="_blank" rel="noopener">תנסה בעצמך <span class="u">floory.urbanbakery.co ↗</span></a>
+          <a class="visit" href="/work/floory">למקרה הבוחן המלא ←</a>
         </div>
         <div class="meter"><i></i><span id="m2">LIVE</span></div>
       </div>
@@ -1134,6 +1208,9 @@
         <h3>מנוע תוויות מזון.<br />הוא מחליט אילו סימוני אזהרה נדרשים.</h3>
         <p>מזין מתכון, מקבל תווית מוכנה להדפסה: ערכים תזונתיים ממקורות מצוטטים, הצהרת אלרגנים, ובדיקה מול ספי משרד הבריאות שמחליטה לבד אילו סימוני אזהרה חייבים להופיע על האריזה. הוספת מוצר חדש הוא עניין של דקות, לא של יועץ.</p>
         <div class="badge"><b>13/13</b> מוצרים עם תווית בתקן מלא · אורבן בייקרי</div>
+        <div class="case-links">
+          <a class="visit" href="/work/food-labels">למקרה הבוחן המלא ←</a>
+        </div>
         <div class="meter"><i></i><span id="m3">LIVE</span></div>
       </div>
 <div class="device">
@@ -1183,6 +1260,9 @@
           <span class="fig"><b>כל שפה</b><span>עונה בשפה שבה נכתבה ההודעה</span></span>
           <span class="fig"><b>&lt;5s</b><span>מהודעה לתשובה</span></span>
         </div>
+        <div class="case-links">
+          <a class="visit" href="/work/whatsapp-agent">למקרה הבוחן המלא ←</a>
+        </div>
         <div class="meter"><i></i><span id="m4">LIVE</span></div>
       </div>
 <div class="device">
@@ -1202,6 +1282,9 @@
         <h3>ג׳רוויס.<br />כל הידע של הסטודיו, בשאלה אחת.</h3>
         <p>עוזר AI קולי מעל שנים של ידע ו-IP: שואלים בקול, מקבלים תשובה עם המקורות שמאחוריה. לצידו מנוע איתור עסקאות שסורק את עולמות היוקרה והאירוח.</p>
         <div class="badge"><b>$100K+</b> רף ההזדמנויות שהמנוע מאתר</div>
+        <div class="case-links">
+          <a class="visit" href="/work/jarvis">למקרה הבוחן המלא ←</a>
+        </div>
         <div class="meter"><i></i><span id="m5">LIVE</span></div>
       </div>
 <div class="device">
